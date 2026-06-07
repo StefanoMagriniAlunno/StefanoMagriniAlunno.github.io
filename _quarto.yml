@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Stefano Magrini Alunno"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: CV & Bio
+      - href: wiki/index.qmd
+        text: Wiki & Notebooks
+    right:
+      - icon: github
+        href: https://github.com/StefanoMagriniAlunno
+      - icon: linkedin
+        href: https://linkedin.com/in/stefano-magrini-alunno-6594a5241
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
