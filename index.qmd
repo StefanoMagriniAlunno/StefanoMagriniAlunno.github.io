@@ -2,6 +2,33 @@
 title: "Stefano Magrini Alunno"
 ---
 
+Prova citazione @kingma2014adam
+
+Prova codice:
+```{.python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Definiamo la funzione matematica
+def cost_function(x):
+    return x**2 + 5 * np.sin(x)
+
+# 2. Generiamo i dati
+x = np.linspace(-10, 10, 100)
+y = cost_function(x)
+
+# 3. Creiamo il grafico stilizzato
+plt.figure(figsize=(8, 4))
+plt.plot(x, y, label=r"$J(x) = x^2 + 5 \sin(x)$", color="#18bc9c", linewidth=2)
+plt.title("Ottimizzazione: Landscape della Funzione")
+plt.xlabel("Parametro $x$")
+plt.ylabel("Costo $J(x)$")
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.show()
+```
+
+
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

@@ -1,1 +1,105 @@
 /* css styles */
+
+/* font Open Sans */
+body {
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", sans-serif;
+}
+
+/*   
+  S>0.8, V>0.8
+          600     500
+  Y=60    erD
+  C=180   imD
+  G=120           opD
+  M=300           bnD
+  R=0     erL
+  B=240   imL
+  gray: co (contrast 4.5)
+*/
+
+/* code style */
+.quarto-light pre code {
+  color: #000000;
+}
+.quarto-dark pre code {
+  color: #ffffff;
+}
+
+.quarto-light code span.im,  /* import */
+.quarto-light code span.kw,  /* keywords */
+.quarto-light code span.cf,  /* control flow */
+.quarto-light code span.pp,  /* pre-processor */
+.quarto-light code span.dt   /* typename */
+{
+  color: #3030ff;
+  font-weight: 600;
+}
+.quarto-dark code span.im,  /* import */
+.quarto-dark code span.kw,  /* keywords */
+.quarto-dark code span.cf,  /* control flow */
+.quarto-dark code span.pp,  /* pre-processor */
+.quarto-dark code span.dt   /* typename */
+{
+  color:#00a6a6;
+  font-weight: 600;
+}
+
+.quarto-light code span.er   /* errors */
+{
+  color:#b50000;
+  font-weight: 600;
+}
+.quarto-dark code span.er   /* errors */
+{
+  color:#9c9c00; 
+  font-weight: 600;
+}
+
+.quarto-light code span.op,  /* operator */
+.quarto-light code span.fu,  /* function */
+.quarto-light code span.va,  /* variables */
+.quarto-light code span.bu   /* built-in  */
+{
+  color: #961e96;
+  font-weight: 500;
+}
+.quarto-dark code span.op,  /* operator */
+.quarto-dark code span.fu,  /* function */
+.quarto-dark code span.va,  /* variables */
+.quarto-dark code span.bu   /* built-in  */
+{
+  color: #fc32fc;
+  font-weight: 500;
+}
+.quarto-light code span.bn,  /* boolean */
+.quarto-light code span.ch,  /* literal */
+.quarto-light code span.dv,  /* integer */
+.quarto-light code span.fl   /* float */
+.quarto-light code span.vs,  /* verbatim string */
+.quarto-light code span.st   /* string */
+{
+  color: #146614;
+  font-weight: 500;
+}
+.quarto-dark code span.bn,  /* boolean */
+.quarto-dark code span.ch,  /* literal */
+.quarto-dark code span.dv,  /* integer */
+.quarto-dark code span.fl   /* float */
+.quarto-dark code span.vs,  /* verbatim string */
+.quarto-dark code span.st   /* string */
+{
+  color: #23ad23;
+  font-weight: 500;
+}
+
+.quarto-light code span.co   /* comments */
+{
+  color: #595959;  
+  font-weight: 400;
+}
+.quarto-dark code span.co   /* comments */
+{
+  color: hsl(0, 0%, 59%);
+  font-weight: 400;
+}

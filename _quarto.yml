@@ -1,6 +1,12 @@
 project:
   type: website
 
+execute:
+  echo: false                   # Nasconde il codice sorgente (mostra solo grafici/output)
+  warning: false                # Nasconde i noiosi warning di librerie Python/R
+  error: false                  # Evita che un errore nel codice blocchi la pubblicazione
+  cache: true                   # Salva i risultati per non rieseguire i modelli ML pesanti ogni volta
+
 website:
   title: "Stefano Magrini Alunno"
   navbar:
@@ -16,11 +22,40 @@ website:
         href: https://github.com/StefanoMagriniAlunno
       - icon: linkedin
         href: https://linkedin.com/in/stefano-magrini-alunno-6594a5241
+  search: true   # aggiunge barra di ricerca
+  site-url: "https://StefanoMagriniAlunno.github.io"
+  description: "PhD Student in Applied Mathematics"
 
+bibliography: references.bib    # File contenente le tue citazioni
+csl: ieee.csl                   # Stile di formattazione della bibliografia (es. IEEE, APA)
 format:
   html:
+    include-in-header:
+      - fonts.html
     theme:
-      - cosmo
-      - brand
+      light: [flatly,  brand] # light.scss]
+      dark: [darkly,   brand] #dark.scss]
+    mainfont: "Open Sans"  # Font per testo
+    monofont: "Fira Code"  # Font per il codice
+
+    # coding
+    code-copy: true                    # Aggiunge l'icona "Copia" in alto a destra nei blocchi
+    code-fold: true                    # Nasconde il codice lungo in un menu a tendina "Code"
+    code-summary: "Show"               # Testo del menu a tendina
+    code-line-numbers: true            # Aggiunge i numeri di riga a sinistra
+    highlight-style: atom-one          # Tema di default (può essere personalizzato nel file css)
+    code-link: true
+    code-overflow: scroll
+
+    # indice
+    toc: true                       # attiva l'indice
+    toc-depth: 2                    # Quanti livelli di titoli mostrare (H1, H2, H3)
+    toc-location: left              # Posiziona l'indice a sinistra (o 'right')
+    toc-title: "Table of Contents"  # Titolo sopra l'indice
+    number-sections: false          # Numera automaticamente i paragrafi (es. 1, 1.1, 1.2)
+
+    html-math-method: mathjax       # Usa MathJax (standard) o katex (più veloce sul web)
+    citation-hover: true            # Passando il mouse sulla citazione [1], mostra l'autore
+    reference-location: margin      # Mette le note a piè di pagina nel margine vuoto laterale
+
     css: styles.css
-    toc: true
