@@ -19,11 +19,13 @@ body {
 */
 
 /* code style */
-.quarto-light pre code {
+.quarto-light pre code span {
   color: #000000;
+  font-weight: 300;
 }
-.quarto-dark pre code {
+.quarto-dark pre code span {
   color: #ffffff;
+  font-weight: 300;
 }
 
 .quarto-light code span.im,  /* import */
@@ -96,10 +98,10 @@ body {
 .quarto-light code span.co   /* comments */
 {
   color: #595959;  
-  font-weight: 400;
+  font-weight: 300;
 }
 .quarto-dark code span.co   /* comments */
 {
   color: hsl(0, 0%, 59%);
-  font-weight: 400;
+  font-weight: 300;
 }

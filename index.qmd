@@ -1,34 +1,40 @@
 ---
-title: "Stefano Magrini Alunno"
+title: "Home"
 ---
 
-Prova citazione @kingma2014adam
-
-Prova codice:
-```{.python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-# 1. Definiamo la funzione matematica
-def cost_function(x):
-    return x**2 + 5 * np.sin(x)
-
-# 2. Generiamo i dati
-x = np.linspace(-10, 10, 100)
-y = cost_function(x)
-
-# 3. Creiamo il grafico stilizzato
-plt.figure(figsize=(8, 4))
-plt.plot(x, y, label=r"$J(x) = x^2 + 5 \sin(x)$", color="#18bc9c", linewidth=2)
-plt.title("Ottimizzazione: Landscape della Funzione")
-plt.xlabel("Parametro $x$")
-plt.ylabel("Costo $J(x)$")
-plt.legend()
-plt.grid(True, linestyle='--', alpha=0.6)
-plt.show()
+```{=html}
+<div class="card border-primary mb-3" style="max-width: 70ch;">
+  <div class="card-header">My Profile</div>
+  <div class="card-body">
+      <img src="./assets/home_photo1.jpg" alt="profile photo" class="card-img-top profile-photo-fit">    
+      <p class="card-text">
+      I am a PhD student in Mathematics at the <a href="https://www.unimore.it/">University of Modena and Reggio Emilia</a>, working at the application of Computer Science in Numerical Analysis (MSC 65–68).
+      My research focuses on the application of machine learning to mathematical models, with a current focus on the analysis of multilayer perceptron (MLP) networks for Fokker–Planck equations.
+    </p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <b>Contact</b>:<br><a href="mailto:stefano.magrinialunno@unimore.it">stefano.magrinialunno@unimore.it</a>
+      </li>
+      <li class="list-group-item">
+        <b>Institutional page</b>:<br><a href="https://unimore.unifind.cineca.it/resource/person/305272" class="card-link">https://unimore.unifind.cineca.it/resource/person/305272</a>
+      </li>
+      <li class="list-group-item">
+        <b>Lorenzo Pareschi WebPage (advisor)</b>:<br><a href="https://lorenzopareschi.blogspot.com/" class="card-link">https://lorenzopareschi.blogspot.com/</a>.
+      </li>
+    </ul>
+  </div>
+</div>
 ```
 
+<!-- 
+# This site
+:::{.custom-card}
+Brief description of the site and of its main sections, currently centered on Wiki and Notebooks.
 
-This is a Quarto website.
+- **Featured content**  
+  - Latest uploads from the main sections of the site
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+- **News and events**  
+  - Conferences, summer schools, workshops, talks, and other academic activities
+:::
+-->
