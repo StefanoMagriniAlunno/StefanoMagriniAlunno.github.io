@@ -37,8 +37,8 @@ format:
       - google-verification.html
       - fonts.html
     theme:
-      light: [flatly,  brand] # light.scss
-      dark: [darkly,   brand] #dark.scss
+      light: [flatly,  brand]
+      dark: [darkly,   brand]
     mainfont: "Open Sans"  # Font per testo
     monofont: "Fira Code"  # Font per il codice
 
