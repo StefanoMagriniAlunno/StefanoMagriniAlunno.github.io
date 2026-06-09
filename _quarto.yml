@@ -34,10 +34,11 @@ csl: ieee.csl                   # Stile di formattazione della bibliografia (es.
 format:
   html:
     include-in-header:
+      - google-verification.html
       - fonts.html
     theme:
-      light: [flatly,  brand] # light.scss]
-      dark: [darkly,   brand] #dark.scss]
+      light: [flatly,  brand] # light.scss
+      dark: [darkly,   brand] #dark.scss
     mainfont: "Open Sans"  # Font per testo
     monofont: "Fira Code"  # Font per il codice
 
