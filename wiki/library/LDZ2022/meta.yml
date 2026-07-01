@@ -1,0 +1,15 @@
+title: "A deep learning method for solving Fokker-Planck equations"
+date: 2023-02-09
+author:
+  - Matthew Dobson
+  - Yao Li
+  - Jiayu Zhai
+lang: en
+categories:
+  - pde
+  - neural-networks
+  - fokker-planck
+  - msmlc
+
+source-url: "https://proceedings.mlr.press/v145/zhai22a.html"
+origin: library

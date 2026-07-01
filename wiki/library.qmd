@@ -1,0 +1,16 @@
+---
+listing:
+  id: library-list
+  contents: "library/*/index.qmd"
+  type: table
+  fields: [title]
+  field-links: [title]
+  sort: "date desc"
+  sort-ui: false
+  filter-ui: [title]
+  page-size: 70
+  date-format: "yyyy-MM-dd"
+---
+
+::: {#library-list}
+:::

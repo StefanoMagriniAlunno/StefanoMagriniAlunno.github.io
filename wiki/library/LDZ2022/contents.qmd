@@ -1,0 +1,52 @@
+The authors define a neural networks that can approximate the steady state of the Fokker Planck equation and introduce a particular choice of collocation points to improve the training.
+
+At first, the authors show the Fokker-Planck equation
+$$
+  u_t = \mathcal{L}u = - \sum_{i=1}^n (f_i u)_{x_i} + \frac12\sum_{i,j=1}^n(\Sigma_{i,j}u)_{x_i x_j}
+$$
+which simulates the Stochastic Differential Equation (SDE):
+$$
+  dX_t = f(X_t)dt + \sigma(X_t)dW_t
+$$
+where $\Sigma=\sigma^T\sigma$.
+
+In this paper the authors focus the research on the steady state of the Fokker Planck equation:
+$$
+\begin{cases}
+    \mathcal{L}u = 0\\
+    \int_{R^n} u dx = 1
+\end{cases}
+$$
+
+The authors work on a limited box where they apply a grid-based numerical method (with a $N\times M$ grid).
+They approximate $u$ over the centers of each sub-box with the values $u_{i,j}$.
+The key idea of this data-driven method is to solve the optimization problem:
+$$
+    \min_{u| Au=0} \left\|u-v\right\|_2
+$$
+where $v$ is a Monte Carlo approximation obtained by a numerical simulation of the SDE.
+
+An alternative optimization problem uses the penalty strategy to avoid the constraint:
+$$
+    \min_{u} \left\|u-v\right\|_2^2 + \left\|Au\right\|_2^2
+$$
+
+In theorem 2.1 the authors compares the results obtained by these two optimization problems.
+In particular, they introduce a variable $u^\star$ such that $Au^\star=0$ and a variable $\bar{u}$ that minimize the optimization problem with the penalty term.
+Let $e$, $z$ be the error terms $e=v-u^\star$ and $z=\bar{u}-v^\star$.
+
+Assuming:
+
+  - **(A1)** the random vector entries $e$ are i.i.d. with expectation $0$ and variance $\zeta^2$.
+  - **(A2)** let $h$ be the grid size, let $\lambda_1^h,\cdot,\lambda_r^h$ be all nonzero eigenvalues of $A^TA$, and let $Q(h)=h^n\sum_{i=1}^r\left(\frac1{1+h^{-4}\lambda_i^h}\right)^2$. we have $Q(h)\to0$ as $h\to0$
+
+It holds that:
+$$
+    \lim_{h\to 0}\frac{\mathbb{E}\left[\left\|z\right\|^2\right]}{\mathbb{E}\left[\left\|e\right\|^2\right]}=0
+$$
+
+In the article the authors observe that this approach presents critical issues in high dimension, for this reason they use a neural networks to approximate $u$.
+
+### Notebook
+- [Notebook](./code/main.ipynb) <br>
+    Methods reproduced; published results not reproduced.

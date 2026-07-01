@@ -1,0 +1,61 @@
+The artical proposes a generative model for data in high dimensional spaces.
+
+In particular, we can set a model with $d$, number of dimensions, and $k$, number of clusters.
+To generate the data points, we should use other variables:
+
+  - $\alpha>0$ : the ratio between the number of data points and the number of dimensions $d$.
+  - $\rho\in(0,1)$ : the density of the active elements (more details below).
+
+By using these variables, we can define the number of data points $n\approx\alpha d$.
+
+Then, using the parameter $\rho$, we can obtain the centroids of each cluster.
+
+In particular, for each dimension we have a probability $\rho$ that this "axis" contains some information about the centroids.
+In other words, the centroids live in a "little" subspace and so, with probability $1-\rho$ the coordinates of the centroids along this axis are $0$ (for each cluster).
+When the axis is chosen, the coordinate of a centroid along this axis is a random value following the standard gaussian distribution $\mathcal{N}(0,\text{Id})$.
+In this way we can build the set of centroids $\mu_c$ where $c\in[k]$.
+
+To generate the values, the authors assume that each centroid is a mean of a gaussian distribution $\mathcal{N}\left(\mu_c,\text{Id}\right)$ and generate the data points with distribution:
+$$
+  x_\nu \sim_{\text{i.i.d.}} \sum_{c\in\mathcal{C}} p_c\mathcal{N}\left(\sqrt{\lambda/s}\mu_c,\text{I}_d\right)
+$$
+where $\sqrt{\lambda/s}$ is a sort of fuzziness coefficient of the model.
+
+In this article, the authors assume $p_c=1/k$ (uniform distribution), and so we define the vector of labels $\mathcal{C}$ from this assumption.
+
+All centroids $\mu_c$ are centred and rescaled. Let $V,U$ be defined as follows:
+
+  - $V\in\mathbb{R}^{d\times k}$ is the matrix with values obtained directly by $\rho$ (each column represents a virtual centroid).
+  - $U\in\mathbb{R}^{n\times k}$ is the matrix with values obtained directly by the label $\mathcal{C} (given $i\in[n]$ we have that the vector $U_i$ is equal to $-1,\ldots,-1,k-1,-1,\ldots,-1$ where only in $j\in[k]$ the vector has component $k-1$ and $j$ is the label of $i$-th data point)$
+
+The particular definition of $U$ guarantees that $VU^T\in\mathbb{d\times n}$ assigns to each data point a centroid $mu_c$ and that the sum of all centroids is $0$ (centering).
+Then, the authors rescale this system:
+$$
+  X = \sqrt{\lambda/s}VU^T+W\in\mathbb{R}^{d\times k}
+$$
+where $W$ is standard gaussian noise, in this way the distribution of a column of $X$ respects the definition of $x_\nu$.
+
+### Core Idea
+
+The authors show us that if $d\to\infty$ with fixed $\rho=s/d,\alpha=n/d,\lambda,k$ the minimum squared-error of the reconstruction of $U$ is given by:
+$$
+  \lim_{d\to\infty} \text{MMSE} = \frac{k-1}{k}-\text{Tr}M_u^\star
+$$
+where $M_u^\star\in\mathbb{R}^{k\times k}=\text{argmin}\left\{\max \Phi_{\text{rs}}(M_u,M_v)\right\}$.
+The definition of $\Phi_\text{rs}$ is very long for this summary, however you can call it "free energy" (Appendix A).
+The authors detect $4$ regions:
+
+  - Impossible phase: the free energy is too high.
+  - Hard phase: the free energy is high, but the problem is only algorithmically impossible (it is computationally hard).
+  - Easy phase: the solution is clear for the algorithm.
+  - Alg-Bayes: the solution is clear and the algorithm proposes the most informative solution.
+
+The "green" area is described by the relation: $\lambda\sqrt{\alpha}k\geq1$, so the free energy is proportional to the fuzziness $\sqrt{\lambda/s}$
+
+### Notebook
+
+- [Notebook](./code/main.ipynb) <br>
+    Methods reproduced; published results not reproduced.
+
+- <a href="5min_talk.pdf">Download talk</a><br>
+    A jointed work with Roger Michel Bader, Angelo Giustiniani, Cheyoung Lee, Ilaria Pellegrinelli, Kazuma Sawaya, Sophie Uluatam

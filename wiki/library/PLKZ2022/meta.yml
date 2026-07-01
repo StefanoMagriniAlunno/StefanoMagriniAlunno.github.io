@@ -1,0 +1,15 @@
+title: "Subspace clustering in high-dimensions: Phase transitions & Statistical-to-Computational gap"
+date: 2022-12-01
+author:
+  - Luca Pesce
+  - Bruno Loureiro
+  - Florent Krzakala
+  - Lenka Zdeborová
+lang: en
+categories:
+  - Machine Learning
+  - Clustering
+  - High-Dimensional Statistics
+
+source-url: "https://arxiv.org/abs/2205.13527"
+origin: library

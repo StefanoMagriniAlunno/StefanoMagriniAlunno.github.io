@@ -58,18 +58,12 @@ body {
   font-weight: 600;
 }
 
-.quarto-light code span.op,  /* operator */
-.quarto-light code span.fu,  /* function */
-.quarto-light code span.va,  /* variables */
-.quarto-light code span.bu   /* built-in  */
+.quarto-light code span.op   /* operator */
 {
   color: #961e96;
   font-weight: 500;
 }
-.quarto-dark code span.op,  /* operator */
-.quarto-dark code span.fu,  /* function */
-.quarto-dark code span.va,  /* variables */
-.quarto-dark code span.bu   /* built-in  */
+.quarto-dark code span.op   /* operator */
 {
   color: #fc32fc;
   font-weight: 500;
@@ -77,9 +71,11 @@ body {
 .quarto-light code span.bn,  /* boolean */
 .quarto-light code span.ch,  /* literal */
 .quarto-light code span.dv,  /* integer */
-.quarto-light code span.fl   /* float */
+.quarto-light code span.fl,  /* float */
 .quarto-light code span.vs,  /* verbatim string */
-.quarto-light code span.st   /* string */
+.quarto-light code span.st,  /* string */
+.quarto-light code span.fu,  /* function */
+.quarto-light code span.va   /* variables */
 {
   color: #146614;
   font-weight: 500;
@@ -87,9 +83,11 @@ body {
 .quarto-dark code span.bn,  /* boolean */
 .quarto-dark code span.ch,  /* literal */
 .quarto-dark code span.dv,  /* integer */
-.quarto-dark code span.fl   /* float */
+.quarto-dark code span.fl,  /* float */
 .quarto-dark code span.vs,  /* verbatim string */
-.quarto-dark code span.st   /* string */
+.quarto-dark code span.st,  /* string */
+.quarto-dark code span.fu,  /* function */
+.quarto-dark code span.va   /* variables */
 {
   color: #23ad23;
   font-weight: 500;

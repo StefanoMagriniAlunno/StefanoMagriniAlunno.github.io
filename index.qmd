@@ -19,7 +19,9 @@ title: "Home"
         <b>Institutional page</b>:<br><a href="https://unimore.unifind.cineca.it/resource/person/305272" class="card-link">https://unimore.unifind.cineca.it/resource/person/305272</a>
       </li>
       <li class="list-group-item">
-        <b>Lorenzo Pareschi WebPage (advisor)</b>:<br><a href="https://lorenzopareschi.blogspot.com/" class="card-link">https://lorenzopareschi.blogspot.com/</a>.
+        <b>Lorenzo Pareschi WebPage (PhD advisor)</b>:<br><a href="https://lorenzopareschi.blogspot.com/" class="card-link">https://lorenzopareschi.blogspot.com/</a>
+      <li class="list-group-item">
+        <b>Gabriella Anna Puppo WebPage (MSc advisor)</b>:<br><a href="http://gabriellapuppo.it/" class="card-link">http://gabriellapuppo.it/</a>.
       </li>
     </ul>
   </div>

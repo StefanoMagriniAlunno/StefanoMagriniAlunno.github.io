@@ -1,4 +1,7 @@
 ---
-title: "Wiki & Notebooks"
+title: "Wiki"
 ---
 
+# Library
+
+{{< include /wiki/library.qmd >}}
