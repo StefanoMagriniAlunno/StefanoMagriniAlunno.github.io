@@ -1,7 +1,35 @@
 ---
 title: "Wiki"
+listing:
+  - id: library-list
+    contents: "library/*/index.qmd"
+    type: table
+    fields: [title]
+    field-links: [title]
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: [title]
+    page-size: 70
+    date-format: "yyyy-MM-dd"
+
+  - id: works-list
+    contents: "works/*/index.qmd"
+    type: table
+    fields: [title]
+    field-links: [title]
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: [title]
+    page-size: 70
+    date-format: "yyyy-MM-dd"
 ---
 
 # Library
 
-{{< include /wiki/library.qmd >}}
+::: {#library-list}
+:::
+
+# My Works
+
+::: {#works-list}
+:::
