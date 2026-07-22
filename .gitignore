@@ -2,4 +2,4 @@
 /_site/
 **/*.quarto_ipynb
 /.venv
-/wiki/works/.*
+/wiki/works/**/.*/

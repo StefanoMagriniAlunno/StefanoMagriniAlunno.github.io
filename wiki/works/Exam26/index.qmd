@@ -4,5 +4,9 @@ metadata-files:
 title-block-banner: false
 ---
 
+### Presentation
+
+<iframe src="./document.pdf" width="100%" height="600px" style="border: none;"></iframe>
+
 ### Notebook
 - [Notebook](./main.ipynb) <br>
