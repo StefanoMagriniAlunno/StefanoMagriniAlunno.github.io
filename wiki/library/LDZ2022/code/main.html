@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>main – Stefano Magrini Alunno</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cac0433bb97fa58dc0fc6599c25c149a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-d34ec0ee24c3a79fe80f8b1f132259e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="google-site-verification" content="xPmUsSVlvFsBnebW1VBvnARMf01L-lCjemevT1oJ2Pw">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script>
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+</script>
+<script type="module">import "https://cdn.plot.ly/plotly-3.6.0.min"</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Stefano Magrini Alunno</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text">CV &amp; Bio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../wiki/index.html"> 
+<span class="menu-text">Wiki &amp; Notebooks</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/StefanoMagriniAlunno"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/stefano-magrini-alunno-6594a5241"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#implementation-notebook" id="toc-implementation-notebook" class="nav-link active" data-scroll-target="#implementation-notebook">Implementation notebook</a>
+  <ul class="collapse">
+  <li><a href="#loss-function" id="toc-loss-function" class="nav-link" data-scroll-target="#loss-function">Loss Function</a></li>
+  <li><a href="#training-algorithm" id="toc-training-algorithm" class="nav-link" data-scroll-target="#training-algorithm">Training Algorithm</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<p><a href="../../../../wiki/library/LDZ2022/index.html">← Back to article notes</a></p>
+<section id="implementation-notebook" class="level1">
+<h1>Implementation notebook</h1>
+<ul>
+<li>Title: A deep learning method for solving Fokker-Planck equations</li>
+<li>Authors: Li, Dobson, Zhai</li>
+<li>Year: 2022</li>
+</ul>
+<div id="440f9fcc" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Import Libraries</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> operator</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> tqdm.notebook <span class="im">import</span> tqdm</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> typing <span class="im">import</span> Tuple, Callable, Any</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> torch.func <span class="im">import</span> vmap, jacrev, hessian</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">from</span> torch.nn <span class="im">import</span> functional <span class="im">as</span> F</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> TensorDataset, DataLoader</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="6f030822" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Fake Numerical Method</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> NumericalMethod:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        grid_shape: Tuple[<span class="bu">int</span>,...],  <span class="co"># shape of the grid: (d1,...,dN)</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>        box: Tuple[Tuple[<span class="bu">float</span>, <span class="bu">float</span>],...],  <span class="co"># ranges for each axis: ((a1,b1),...,(aN,bN))</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>        u_sol_prop: Callable[[torch.Tensor], torch.Tensor],  <span class="co"># ideal solution</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>        noise_scale: <span class="bu">float</span>,  <span class="co"># positive value</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    ):</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        <span class="va">self</span>.box <span class="op">=</span> torch.tensor(box)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="va">self</span>.grid_shape <span class="op">=</span> torch.tensor(grid_shape)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>        <span class="co"># points[i] is a tensor with shape (size,) and values in box_i0, box_i1</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>        points <span class="op">=</span> <span class="bu">tuple</span>(torch.linspace(box[i][<span class="dv">0</span>], box[i][<span class="dv">1</span>], size) <span class="cf">for</span> i, size <span class="kw">in</span> <span class="bu">enumerate</span>(grid_shape))</span>
+<span id="cb2-13"><a href="#cb2-13"></a>        <span class="co"># points[i] begins a tensor with shape grid_shape and points[i][a1,a2,...] &lt;- points[i][ai]</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>        points <span class="op">=</span> torch.meshgrid(<span class="op">*</span>points, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a>        <span class="co"># convert tuple to tensor, so the current shape is (grid_shape,N)</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>        points <span class="op">=</span> torch.stack(<span class="bu">tuple</span>(tt <span class="cf">for</span> tt <span class="kw">in</span> points), axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="va">self</span>.points <span class="op">=</span> points</span>
+<span id="cb2-18"><a href="#cb2-18"></a>        </span>
+<span id="cb2-19"><a href="#cb2-19"></a>        <span class="co"># compute ideal values</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>        <span class="co"># points[i] begins a tensor with shape (N,) and points[i] &lt;- points[j_1,...,j_N] using a map i -&gt; j(1),...,j(N)</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>        points <span class="op">=</span> points.reshape(<span class="op">-</span><span class="dv">1</span>,points.shape[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb2-22"><a href="#cb2-22"></a>        <span class="co"># values is a tensor with shape (M,)</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>        values <span class="op">=</span> u_sol_prop(points)</span>
+<span id="cb2-24"><a href="#cb2-24"></a>        <span class="co"># values begins a tensor with shape grid_shape</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a>        values <span class="op">=</span> values.reshape(grid_shape)</span>
+<span id="cb2-26"><a href="#cb2-26"></a>        <span class="co"># normalization</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a>        volume <span class="op">=</span> <span class="bu">reduce</span>(operator.mul, <span class="bu">tuple</span>(boxi[<span class="dv">1</span>]<span class="op">-</span>boxi[<span class="dv">0</span>] <span class="cf">for</span> boxi <span class="kw">in</span> box), <span class="dv">1</span>)</span>
+<span id="cb2-28"><a href="#cb2-28"></a>        values <span class="op">=</span> values <span class="op">/</span> (torch.mean(values) <span class="op">*</span> volume)</span>
+<span id="cb2-29"><a href="#cb2-29"></a>        </span>
+<span id="cb2-30"><a href="#cb2-30"></a>        <span class="co"># now, noisy map is a map of normalized gaussian noise</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a>        little_volume <span class="op">=</span> volume <span class="op">/</span> values.numel()</span>
+<span id="cb2-32"><a href="#cb2-32"></a>        noisy_map <span class="op">=</span> torch.randn(<span class="op">*</span>(size <span class="cf">for</span> size <span class="kw">in</span> grid_shape))</span>
+<span id="cb2-33"><a href="#cb2-33"></a>        b_variance <span class="op">=</span> values <span class="op">*</span> little_volume <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> values <span class="op">*</span> little_volume)</span>
+<span id="cb2-34"><a href="#cb2-34"></a>        noisy_map <span class="op">=</span> noisy_map <span class="op">*</span> noise_scale <span class="op">*</span> b_variance.sqrt()</span>
+<span id="cb2-35"><a href="#cb2-35"></a>        </span>
+<span id="cb2-36"><a href="#cb2-36"></a>        <span class="co"># add noise</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a>        <span class="va">self</span>.values <span class="op">=</span> values <span class="op">+</span> noisy_map</span>
+<span id="cb2-38"><a href="#cb2-38"></a>        <span class="va">self</span>.values <span class="op">=</span> torch.clamp(<span class="va">self</span>.values, <span class="bu">min</span><span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-39"><a href="#cb2-39"></a>        <span class="co"># normalize again (with sum=1)</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a>        <span class="va">self</span>.values <span class="op">=</span> <span class="va">self</span>.values <span class="op">/</span> (torch.mean(<span class="va">self</span>.values) <span class="op">*</span> volume)</span>
+<span id="cb2-41"><a href="#cb2-41"></a>        <span class="va">self</span>.noisy_map <span class="op">=</span> <span class="va">self</span>.values <span class="op">-</span> values</span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, x: torch.Tensor):</span>
+<span id="cb2-44"><a href="#cb2-44"></a>        <span class="co"># x has shape (batch_size, N)</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a>        </span>
+<span id="cb2-46"><a href="#cb2-46"></a>        <span class="co"># find indices</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a>        c <span class="op">=</span> (<span class="va">self</span>.box[:,<span class="dv">1</span>]<span class="op">-</span><span class="va">self</span>.box[:,<span class="dv">0</span>]) <span class="op">/</span> <span class="va">self</span>.grid_shape</span>
+<span id="cb2-48"><a href="#cb2-48"></a>        i <span class="op">=</span> ((x <span class="op">-</span> <span class="va">self</span>.box[:,<span class="dv">0</span>][<span class="va">None</span>,:])<span class="op">/</span>c[<span class="va">None</span>,:]).<span class="bu">long</span>()</span>
+<span id="cb2-49"><a href="#cb2-49"></a>        </span>
+<span id="cb2-50"><a href="#cb2-50"></a>        <span class="co"># clamp indices</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a>        <span class="cf">for</span> k, s <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="va">self</span>.grid_shape):</span>
+<span id="cb2-52"><a href="#cb2-52"></a>            i[:,k] <span class="op">=</span> torch.clamp(i[:,k], <span class="dv">0</span>, s<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb2-53"><a href="#cb2-53"></a>        </span>
+<span id="cb2-54"><a href="#cb2-54"></a>        <span class="co"># ravel i</span></span>
+<span id="cb2-55"><a href="#cb2-55"></a>        ravel_i <span class="op">=</span> torch.zeros(i.shape[<span class="dv">0</span>],dtype<span class="op">=</span>torch.<span class="bu">long</span>)</span>
+<span id="cb2-56"><a href="#cb2-56"></a>        <span class="cf">for</span> k, s <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="va">self</span>.grid_shape):</span>
+<span id="cb2-57"><a href="#cb2-57"></a>            ravel_i <span class="op">=</span> ravel_i <span class="op">*</span> s <span class="op">+</span> i[:,k]</span>
+<span id="cb2-58"><a href="#cb2-58"></a>        <span class="cf">return</span> <span class="va">self</span>.values.flatten()[ravel_i]</span>
+<span id="cb2-59"><a href="#cb2-59"></a>    </span>
+<span id="cb2-60"><a href="#cb2-60"></a>hx, hy <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
+<span id="cb2-61"><a href="#cb2-61"></a>r <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a>c <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb2-63"><a href="#cb2-63"></a>u_infty <span class="op">=</span> <span class="kw">lambda</span> x: torch.exp(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>(torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>)<span class="op">-</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-64"><a href="#cb2-64"></a>method <span class="op">=</span> NumericalMethod(</span>
+<span id="cb2-65"><a href="#cb2-65"></a>    (hx,hy),</span>
+<span id="cb2-66"><a href="#cb2-66"></a>    ((<span class="op">-</span>r,r),(<span class="op">-</span>r,r)),</span>
+<span id="cb2-67"><a href="#cb2-67"></a>    u_infty,</span>
+<span id="cb2-68"><a href="#cb2-68"></a>    noise_scale<span class="op">=</span>c</span>
+<span id="cb2-69"><a href="#cb2-69"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="a4cbc479" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Just an example</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
+<span id="cb3-3"><a href="#cb3-3"></a>extent <span class="op">=</span> [<span class="op">-</span>r, r, <span class="op">-</span>r, r]</span>
+<span id="cb3-4"><a href="#cb3-4"></a>im0 <span class="op">=</span> axes[<span class="dv">0</span>].imshow(</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    method.values,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    extent<span class="op">=</span>extent,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    vmin<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    aspect<span class="op">=</span><span class="st">"equal"</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Approximation"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a>fig.colorbar(im0, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb3-13"><a href="#cb3-13"></a>m <span class="op">=</span> method.noisy_map.<span class="bu">abs</span>().<span class="bu">max</span>()</span>
+<span id="cb3-14"><a href="#cb3-14"></a>im1 <span class="op">=</span> axes[<span class="dv">1</span>].imshow(</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    method.noisy_map,</span>
+<span id="cb3-16"><a href="#cb3-16"></a>    vmin<span class="op">=-</span>m,</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    vmax<span class="op">=</span>m,</span>
+<span id="cb3-18"><a href="#cb3-18"></a>    cmap<span class="op">=</span><span class="st">"coolwarm"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19"></a>    extent<span class="op">=</span>extent,</span>
+<span id="cb3-20"><a href="#cb3-20"></a>    origin<span class="op">=</span><span class="st">"lower"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21"></a>    aspect<span class="op">=</span><span class="st">"equal"</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>)</span>
+<span id="cb3-23"><a href="#cb3-23"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Noisy map"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb3-25"><a href="#cb3-25"></a>    ax.set_xticks([<span class="op">-</span>r,r])</span>
+<span id="cb3-26"><a href="#cb3-26"></a>    ax.set_yticks([<span class="op">-</span>r,r])</span>
+<span id="cb3-27"><a href="#cb3-27"></a>fig.colorbar(im1, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb3-28"><a href="#cb3-28"></a>plt.tight_layout()</span>
+<span id="cb3-29"><a href="#cb3-29"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="9d78142b" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Differential Calculus utilities</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> torch.func <span class="im">import</span> vmap, jacrev, hessian</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">""" </span><span class="al">NOTE</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">for the followings functions "model" has the followins properties:</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">  * if the input's shape of the callable model is (batch, K)</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">      then the output's shape will be (batch, n1, ..., nm)</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">  * if the input's shape of the callable model is (K,)</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">      then the output will be (n1, ..., nm)</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">"""</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="kw">def</span> compute_jacobian(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="co"># model image shape (batch, n1, ..., nm)</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    <span class="co"># x shape (batch, k)</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="co"># J shape (batch, n1, ..., nm, k)</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    J <span class="op">=</span> vmap(jacrev(model), randomness<span class="op">=</span><span class="st">'same'</span>)(x)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="cf">return</span> J</span>
+<span id="cb4-17"><a href="#cb4-17"></a></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="kw">def</span> compute_hessian(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="co"># model image shape (batch, n1, ..., nm)</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>    <span class="co"># x shape (batch, k)</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>    <span class="co"># H shape (batch, n1, ..., nm, k, k)</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>    H <span class="op">=</span> vmap(hessian(model), randomness<span class="op">=</span><span class="st">'same'</span>)(x)</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="cf">return</span> H</span>
+<span id="cb4-24"><a href="#cb4-24"></a></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="kw">def</span> compute_laplacian(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb4-26"><a href="#cb4-26"></a>    <span class="co"># model image shape (batch, n1, ..., nm)</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a>    <span class="co"># x shape (batch, k)</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>    <span class="co"># L shape (batch, n1, ..., nm)</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>    H <span class="op">=</span> compute_hessian(model, x)</span>
+<span id="cb4-30"><a href="#cb4-30"></a>    laplacian <span class="op">=</span> H.diagonal(dim1<span class="op">=-</span><span class="dv">2</span>, dim2<span class="op">=-</span><span class="dv">1</span>).<span class="bu">sum</span>(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-31"><a href="#cb4-31"></a>    <span class="cf">return</span> laplacian</span>
+<span id="cb4-32"><a href="#cb4-32"></a></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="kw">def</span> compute_divergence(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb4-34"><a href="#cb4-34"></a>    <span class="co"># model image shape (batch, n1, ..., n(m-1), k)</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>    <span class="co"># x shape (batch, k)</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>    <span class="co"># L shape (batch, n1, ..., n(m-1))</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>    J <span class="op">=</span> compute_jacobian(model, x)</span>
+<span id="cb4-38"><a href="#cb4-38"></a>    divergence <span class="op">=</span> J.diagonal(dim1<span class="op">=-</span><span class="dv">2</span>, dim2<span class="op">=-</span><span class="dv">1</span>).<span class="bu">sum</span>(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-39"><a href="#cb4-39"></a>    <span class="cf">return</span> divergence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="loss-function" class="level2">
+<h2 data-anchor-id="loss-function">Loss Function</h2>
+<p>Let <span class="math inline">\(\tilde{u}(x,\theta)\)</span> be an approximation of <span class="math inline">\(u\)</span> that is represented by an artificial neural network with parameter <span class="math inline">\(\theta\)</span>.</p>
+<p><span class="math display">\[
+    L(\theta) = \frac{1}{N^X}\sum_{i=1}^{N^X}(\mathcal{L}\tilde{u}(x_i,\theta))^2 + \frac{1}{N^Y}\sum_{j=1}^{N^Y}(\tilde{u}(y_j,\theta)-v(y_j))^2 := L_1(\theta)+L_2(\theta)
+\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[
+    \mathcal{L}u = -\sum_{i=1}^n (f_i u)_{x_i} + \frac12\sum_{i,j}^n (\Sigma_{i,k}u)_{x_i,x_j} = \nabla_x\cdot\left(-fu+\frac12\nabla_x\cdot(\Sigma u)\right)
+\]</span></p>
+<section id="the-general-equilibrium-state" class="level3">
+<h3 data-anchor-id="the-general-equilibrium-state">The General Equilibrium State</h3>
+<p>In order to obtain the following steady state <span class="math display">\[ u_\infty(x) = \exp\left(- \frac{2 V(x)}{\sigma^2}\right) \]</span> we require the model defined by <span class="math inline">\(\Sigma = \sigma^2\text{Id}\)</span>, <span class="math inline">\(f = -\nabla_x V\)</span></p>
+<p>So: <span class="math display">\[
+    \mathcal{L}u=-\nabla_x\cdot\left(fu\right)+\frac{\sigma^2}{2}\Delta_x^2 u = -\left(\nabla_x\cdot f\right)u - f\cdot \nabla_x u + \frac{\sigma^2}{2}\Delta_x^2 u
+\]</span></p>
+<section id="d-ring-problem" class="level4">
+<h4 data-anchor-id="d-ring-problem">2D Ring Problem</h4>
+<p>Here, we use <span class="math inline">\(V(x)=(\|x\|^2-1)^2\)</span> and <span class="math inline">\(\sigma = 1\)</span>, so the model is defined by <span class="math inline">\(f = -4(\|x\|^2-1)x\)</span>.</p>
+<p>We observe that <span class="math inline">\(\nabla_x\cdot f = 4n-4(n+2)\|x\|^2\)</span> and so <span class="math display">\[
+    \mathcal{L}u = \left(4(n+2)\|x\|^2-4n\right)u + \left(4(\|x\|^2-1)x\right)\cdot \nabla_x u + \frac12\Delta_x^2 u
+\]</span></p>
+<div id="db01f20a" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Definition of the Loss Function</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> L_operator(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    u <span class="op">=</span> model(x)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    du <span class="op">=</span> compute_jacobian(model, x)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    lu <span class="op">=</span> compute_laplacian(model,x)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    </span>
+<span id="cb5-6"><a href="#cb5-6"></a>    n <span class="op">=</span> x.shape[<span class="dv">1</span>]</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    a1 <span class="op">=</span> <span class="dv">4</span><span class="op">*</span>(n<span class="op">+</span><span class="dv">2</span>)<span class="op">*</span>torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>) <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>n</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    a2 <span class="op">=</span> <span class="dv">4</span><span class="op">*</span>(torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>x</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="cf">return</span> u <span class="op">*</span> a1 <span class="op">+</span> torch.einsum(<span class="st">'bi,bi-&gt;b'</span>,a2,du) <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>lu</span>
+<span id="cb5-10"><a href="#cb5-10"></a></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="kw">def</span> loss_function_1(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor):</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">return</span> torch.mean(L_operator(model, x)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="kw">def</span> loss_function_2(model: Callable[[torch.Tensor], torch.Tensor], y: torch.Tensor, v: NumericalMethod):</span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="cf">return</span> torch.mean((model(y) <span class="op">-</span> v(y))<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="kw">def</span> loss_function(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor, y: torch.Tensor, v: NumericalMethod):</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    L1 <span class="op">=</span> loss_function_1(model, x)</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    L2 <span class="op">=</span> loss_function_2(model, y, v)</span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="cf">return</span> L1 <span class="op">+</span> L2, L1, L2</span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co"># !Test!</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="bu">print</span>(<span class="ss">f"max residual = </span><span class="sc">{</span>L_operator(u_infty, torch.randn(<span class="dv">1000</span>,<span class="dv">2</span>)<span class="op">*</span><span class="dv">2</span>)<span class="sc">.</span><span class="bu">max</span>()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>max residual = 1.430511474609375e-06</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="training-algorithm" class="level2">
+<h2 data-anchor-id="training-algorithm">Training Algorithm</h2>
+<p>Let <span class="math inline">\(\mathcal{X}\)</span> and <span class="math inline">\(\mathcal{D}\)</span> be the training and reference sets respectively.</p>
+<p>The training uses mini-batch technique to compute the optimal parameter <span class="math inline">\(\theta\)</span>.</p>
+<section id="dataloader" class="level3">
+<h3 data-anchor-id="dataloader">Dataloader</h3>
+<p>The reference set follows the solution distribution, we use the rejection sampling technique to emulate this process.</p>
+<div id="52609e2a" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Reference points dataloader</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> ReferenceLoader:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="va">self</span>,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>        f: Callable[[torch.Tensor], torch.Tensor],</span>
+<span id="cb7-5"><a href="#cb7-5"></a>        M: <span class="bu">float</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>        d: <span class="bu">int</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>    ):</span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="va">self</span>.f <span class="op">=</span> f</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="va">self</span>.M <span class="op">=</span> M</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="va">self</span>.d <span class="op">=</span> d</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>    <span class="kw">def</span> g(<span class="va">self</span>, x: torch.Tensor):</span>
+<span id="cb7-13"><a href="#cb7-13"></a>        <span class="co"># x has shape (n_batch, dimension)</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>torch.pi)<span class="op">**</span>(<span class="va">self</span>.d<span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> torch.exp(<span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>))</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, N: <span class="bu">int</span>):</span>
+<span id="cb7-17"><a href="#cb7-17"></a>        X <span class="op">=</span> torch.empty(N, <span class="va">self</span>.d)</span>
+<span id="cb7-18"><a href="#cb7-18"></a>        counter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a>        <span class="cf">while</span> counter <span class="op">&lt;</span> N:</span>
+<span id="cb7-20"><a href="#cb7-20"></a>            n <span class="op">=</span> N <span class="op">-</span> counter</span>
+<span id="cb7-21"><a href="#cb7-21"></a>            Xproposed <span class="op">=</span> torch.randn(n, <span class="va">self</span>.d)</span>
+<span id="cb7-22"><a href="#cb7-22"></a>            U <span class="op">=</span> torch.rand(n) <span class="op">*</span> <span class="va">self</span>.M</span>
+<span id="cb7-23"><a href="#cb7-23"></a>            W <span class="op">=</span> <span class="va">self</span>.f(Xproposed) <span class="op">/</span> <span class="va">self</span>.g(Xproposed)</span>
+<span id="cb7-24"><a href="#cb7-24"></a>            Xproposed <span class="op">=</span> Xproposed[W <span class="op">&gt;=</span> U]</span>
+<span id="cb7-25"><a href="#cb7-25"></a>            <span class="cf">if</span> Xproposed.shape[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-26"><a href="#cb7-26"></a>                next_counter <span class="op">=</span> counter <span class="op">+</span> Xproposed.shape[<span class="dv">0</span>]</span>
+<span id="cb7-27"><a href="#cb7-27"></a>                X[counter:next_counter] <span class="op">=</span> Xproposed</span>
+<span id="cb7-28"><a href="#cb7-28"></a>                counter <span class="op">=</span> next_counter</span>
+<span id="cb7-29"><a href="#cb7-29"></a>        <span class="cf">return</span> X</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="452f372e" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Just an example</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># plot of the density function f</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>DsetLoader <span class="op">=</span> ReferenceLoader(u_infty, M<span class="op">=</span><span class="fl">12.0</span>, d<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>D <span class="op">=</span> DsetLoader(<span class="dv">2000</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># plot u_infty vs Mg as two surfaces in the same 3Dplot</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">200</span>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>y <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">200</span>)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>x,y <span class="op">=</span> torch.meshgrid(x,y, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a>xy <span class="op">=</span> torch.stack((x,y), dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb8-12"><a href="#cb8-12"></a>xy <span class="op">=</span> xy.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb8-13"><a href="#cb8-13"></a>z1 <span class="op">=</span> u_infty(xy).reshape(<span class="dv">200</span>,<span class="dv">200</span>)</span>
+<span id="cb8-14"><a href="#cb8-14"></a>z2 <span class="op">=</span> DsetLoader.M <span class="op">*</span> DsetLoader.g(xy).reshape(<span class="dv">200</span>,<span class="dv">200</span>)</span>
+<span id="cb8-15"><a href="#cb8-15"></a></span>
+<span id="cb8-16"><a href="#cb8-16"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
+<span id="cb8-17"><a href="#cb8-17"></a>fig.clf()</span>
+<span id="cb8-18"><a href="#cb8-18"></a>ax0 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb8-19"><a href="#cb8-19"></a>ax0.plot_surface(x, y, z1, alpha<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb8-20"><a href="#cb8-20"></a>ax0.plot_surface(x, y, z2, alpha<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb8-21"><a href="#cb8-21"></a>ax0.set_xlabel(<span class="st">'x'</span>)</span>
+<span id="cb8-22"><a href="#cb8-22"></a>ax0.set_ylabel(<span class="st">'y'</span>)</span>
+<span id="cb8-23"><a href="#cb8-23"></a>ax0.set_zlabel(<span class="st">'z'</span>)</span>
+<span id="cb8-24"><a href="#cb8-24"></a>ax0.legend([<span class="st">'u'</span>, <span class="st">'Mg'</span>])</span>
+<span id="cb8-25"><a href="#cb8-25"></a>ax0.set_title(<span class="st">'u vs Mg'</span>)</span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">122</span>)</span>
+<span id="cb8-28"><a href="#cb8-28"></a>ax1.scatter(D[:,<span class="dv">0</span>], D[:,<span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">1.0</span>, s<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-29"><a href="#cb8-29"></a>ax1.set_xlim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb8-30"><a href="#cb8-30"></a>ax1.set_ylim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb8-31"><a href="#cb8-31"></a>ax1.set_xlabel(<span class="st">'x'</span>)</span>
+<span id="cb8-32"><a href="#cb8-32"></a>ax1.set_ylabel(<span class="st">'y'</span>)</span>
+<span id="cb8-33"><a href="#cb8-33"></a>ax1.set_xticks([<span class="op">-</span>r,r])</span>
+<span id="cb8-34"><a href="#cb8-34"></a>ax1.set_yticks([<span class="op">-</span>r,r])</span>
+<span id="cb8-35"><a href="#cb8-35"></a>ax1.set_aspect(<span class="st">'equal'</span>, adjustable<span class="op">=</span><span class="st">'box'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36"></a>ax1.set_title(<span class="st">'Sample Points'</span>)</span>
+<span id="cb8-37"><a href="#cb8-37"></a>plt.tight_layout()</span>
+<span id="cb8-38"><a href="#cb8-38"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="dd9cd810" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Mixed Dataloader</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>DsetLoader <span class="op">=</span> ReferenceLoader(u_infty, M<span class="op">=</span><span class="fl">12.0</span>, d<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">def</span> algorithm_2(alpha: <span class="bu">float</span>, Nx: <span class="bu">int</span>):</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    X <span class="op">=</span> DsetLoader(Nx)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    mask <span class="op">=</span> torch.rand(X.shape[<span class="dv">0</span>]) <span class="op">&gt;</span> alpha</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    X[mask] <span class="op">=</span> torch.rand_like(X[mask]) <span class="op">*</span> (<span class="dv">2</span><span class="op">*</span>r) <span class="op">-</span> r</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="cf">return</span> X</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="e945e93b" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Just an example</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>X <span class="op">=</span> algorithm_2(<span class="fl">0.9</span>, <span class="dv">2000</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">1.0</span>, s<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>plt.xlim(<span class="op">-</span>r, r)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>plt.ylim(<span class="op">-</span>r, r)</span>
+<span id="cb10-8"><a href="#cb10-8"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb10-10"><a href="#cb10-10"></a>plt.xticks([<span class="op">-</span>r, r])</span>
+<span id="cb10-11"><a href="#cb10-11"></a>plt.yticks([<span class="op">-</span>r, r])</span>
+<span id="cb10-12"><a href="#cb10-12"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, adjustable<span class="op">=</span><span class="st">'box'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13"></a>plt.title(<span class="st">'Mixed Dataloader'</span>)</span>
+<span id="cb10-14"><a href="#cb10-14"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="f3e510af" class="cell" data-execution_count="29">
+<details class="code-fold">
+<summary>Training loop</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> algorithm_1(model, alphax, Nx, alphad, Nd, n_batches, n_epochs):</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="co"># model is a neural network</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="co"># n_epochs is the number of iterations of the training loop</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    </span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="co"># make the dataset</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    X <span class="op">=</span> algorithm_2(alphax, Nx<span class="op">*</span>n_batches)</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    D <span class="op">=</span> algorithm_2(alphad, Nd<span class="op">*</span>n_batches)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    </span>
+<span id="cb11-9"><a href="#cb11-9"></a>    <span class="co"># optimizer</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>    optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
+<span id="cb11-11"><a href="#cb11-11"></a>    </span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="co"># training loop</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a>    l1_list, l2_list, loss_list <span class="op">=</span> [], [], []</span>
+<span id="cb11-14"><a href="#cb11-14"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> tqdm(<span class="bu">range</span>(n_epochs), leave<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb11-15"><a href="#cb11-15"></a>        <span class="co"># shuffle the datasets</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a>        X <span class="op">=</span> X[torch.randperm(<span class="bu">len</span>(X))]</span>
+<span id="cb11-17"><a href="#cb11-17"></a>        D <span class="op">=</span> D[torch.randperm(<span class="bu">len</span>(D))]</span>
+<span id="cb11-18"><a href="#cb11-18"></a>        </span>
+<span id="cb11-19"><a href="#cb11-19"></a>        <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(n_batches), leave<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb11-20"><a href="#cb11-20"></a>            <span class="co"># get batches</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>            Xbatch <span class="op">=</span> X[i<span class="op">*</span>Nx:(i<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>Nx]</span>
+<span id="cb11-22"><a href="#cb11-22"></a>            Ybatch <span class="op">=</span> D[i<span class="op">*</span>Nd:(i<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>Nd]</span>
+<span id="cb11-23"><a href="#cb11-23"></a>            </span>
+<span id="cb11-24"><a href="#cb11-24"></a>            <span class="co"># l1 update</span></span>
+<span id="cb11-25"><a href="#cb11-25"></a>            optimizer.zero_grad()</span>
+<span id="cb11-26"><a href="#cb11-26"></a>            l1 <span class="op">=</span> loss_function_1(model, Xbatch)</span>
+<span id="cb11-27"><a href="#cb11-27"></a>            l1.backward()</span>
+<span id="cb11-28"><a href="#cb11-28"></a>            optimizer.step()</span>
+<span id="cb11-29"><a href="#cb11-29"></a>            </span>
+<span id="cb11-30"><a href="#cb11-30"></a>            <span class="co"># l2 update</span></span>
+<span id="cb11-31"><a href="#cb11-31"></a>            optimizer.zero_grad()</span>
+<span id="cb11-32"><a href="#cb11-32"></a>            l2 <span class="op">=</span> loss_function_2(model, Ybatch, method)</span>
+<span id="cb11-33"><a href="#cb11-33"></a>            l2.backward()</span>
+<span id="cb11-34"><a href="#cb11-34"></a>            optimizer.step()</span>
+<span id="cb11-35"><a href="#cb11-35"></a>            </span>
+<span id="cb11-36"><a href="#cb11-36"></a>            <span class="co"># save result</span></span>
+<span id="cb11-37"><a href="#cb11-37"></a>            l1_list.append(l1.item())</span>
+<span id="cb11-38"><a href="#cb11-38"></a>            l2_list.append(l2.item())</span>
+<span id="cb11-39"><a href="#cb11-39"></a>            loss <span class="op">=</span> l1.item() <span class="op">+</span> l2.item()</span>
+<span id="cb11-40"><a href="#cb11-40"></a>            loss_list.append(loss)</span>
+<span id="cb11-41"><a href="#cb11-41"></a>    </span>
+<span id="cb11-42"><a href="#cb11-42"></a>    <span class="cf">return</span> l1_list, l2_list, loss_list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="d10b7cf3" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Just an example</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">"""</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">    In this example we have an ideal model:</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">        A * exp(-B*(||x||^2-C)^2)</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co">    where A&gt;0, B&gt;0, C&gt;0 are the parameters to be learned.</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co">"""</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>theta_theory <span class="op">=</span> torch.tensor([<span class="fl">1.85458654213</span>, <span class="fl">1.0</span>, <span class="op">-</span><span class="fl">1.3101303577423096</span>])</span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="kw">class</span> SimpleModel(torch.nn.Module):</span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb12-11"><a href="#cb12-11"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb12-12"><a href="#cb12-12"></a>        <span class="va">self</span>.theta <span class="op">=</span> torch.nn.Parameter(torch.randn(<span class="dv">3</span>)<span class="op">*</span><span class="fl">0.1</span> <span class="op">+</span> theta_theory)</span>
+<span id="cb12-13"><a href="#cb12-13"></a></span>
+<span id="cb12-14"><a href="#cb12-14"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb12-15"><a href="#cb12-15"></a>        theta1, theta2, theta3 <span class="op">=</span> <span class="va">self</span>.theta</span>
+<span id="cb12-16"><a href="#cb12-16"></a>        <span class="cf">return</span> torch.exp(<span class="op">-</span>F.softplus(theta1) <span class="op">*</span> (torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>) <span class="op">-</span> theta2<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> theta3)</span>
+<span id="cb12-17"><a href="#cb12-17"></a></span>
+<span id="cb12-18"><a href="#cb12-18"></a><span class="co"># model</span></span>
+<span id="cb12-19"><a href="#cb12-19"></a>model <span class="op">=</span> SimpleModel()</span>
+<span id="cb12-20"><a href="#cb12-20"></a></span>
+<span id="cb12-21"><a href="#cb12-21"></a><span class="co"># training</span></span>
+<span id="cb12-22"><a href="#cb12-22"></a>l1_list, l2_list, loss_list <span class="op">=</span> algorithm_1(model, <span class="fl">0.8</span>, <span class="dv">256</span>, <span class="fl">0.8</span>, <span class="dv">512</span>, <span class="dv">200</span>, <span class="dv">10</span>) </span>
+<span id="cb12-23"><a href="#cb12-23"></a></span>
+<span id="cb12-24"><a href="#cb12-24"></a><span class="co"># plot evolution of the losses</span></span>
+<span id="cb12-25"><a href="#cb12-25"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb12-26"><a href="#cb12-26"></a>ax.plot(loss_list, label<span class="op">=</span><span class="st">'Total Loss'</span>)</span>
+<span id="cb12-27"><a href="#cb12-27"></a>ax.plot(l1_list, label<span class="op">=</span><span class="st">'PDE Loss'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb12-28"><a href="#cb12-28"></a>ax.plot(l2_list, label<span class="op">=</span><span class="st">'Data Loss'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb12-29"><a href="#cb12-29"></a>ax.set_xlabel(<span class="st">'Epoch'</span>)</span>
+<span id="cb12-30"><a href="#cb12-30"></a>ax.set_ylabel(<span class="st">'Loss'</span>)</span>
+<span id="cb12-31"><a href="#cb12-31"></a>ax.set_title(<span class="st">'Loss Evolution'</span>)</span>
+<span id="cb12-32"><a href="#cb12-32"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb12-33"><a href="#cb12-33"></a>ax.legend()</span>
+<span id="cb12-34"><a href="#cb12-34"></a>plt.tight_layout()</span>
+<span id="cb12-35"><a href="#cb12-35"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"8fc825bf639c4a83abdc485c9ac48067","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"54d3867637ef43d8be091a6ec18d3f6e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"bad049b5d53740b49c033079f2561591","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"4b15fbf5dbbe4f528d3f9466e873e1e1","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"d80a5befe3f94866a09b26ef2b6afabb","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"d9db2b9ef24d40f1996d59f4e954cbd8","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"d81b09880c094ce28ab74471220054e6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"2000103825bf4350b397873d0cc9a40f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"c671f249e45a47d69d4becf27a37ba40","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"701ddb5ca05c4544875c438b3bcaff2e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"69c582946abf4798bc9f4fec48cfe10f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-12-output-12.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="29198a06" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"0f010176652847d1afee0ea85714d8d4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"14f5a1b013d645bb9fefe0bbca810e0f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"4a2bb955f9d140538bbed86afc4355f0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"603c839bd54841e4a316d8543062b569","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"e4cc566606c842a2a9cf0f819c76a11f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"c647c293d42647edb52813c8cd105c8c","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"52920fae5d33400c81cf0c73e049f830","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"9952ceb2da314faf994b239a44549525","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"eb5239e7b9134465a43bf31091a6b5d5","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"453a30e979ad452e848351520c1a65ea","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"4f6450e852754c9a8a81f903467559f4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<div style="height:500px; width:700px;">            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.6.0.min.js" integrity="sha256-QaOVwtVY0T02VaHrr6pnoHLCwayMJp4O5n4YyaE3rJk=" crossorigin="anonymous"></script>                <div id="81d5fad7-6a5c-4e70-861a-539a7efee210" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("81d5fad7-6a5c-4e70-861a-539a7efee210")) {                    Plotly.newPlot(                        "81d5fad7-6a5c-4e70-861a-539a7efee210",                        [{"hovertemplate":"intensity=%{x}\u003cbr\u003eradius=%{y}\u003cbr\u003escale=%{z}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"theta trajectory","scene":"scene","showlegend":false,"x":{"dtype":"f4","bdata":"aQb5P2Y1+T+qXvk\u002fNIb5P+ar+T8T0fk\u002fAvb5P98a+j\u002fmP\u002fo\u002fimT6P6qI+j8rrPo\u002fRs76P+fv+j8hEfs\u002fbDL7P1JS+z\u002fUcfs\u002f2pD7P\u002fKu+z\u002f7y\u002fs\u002f3+f7P8EC\u002fD\u002fhHPw\u002f0zX8P\u002fpN\u002fD9KZfw\u002fPHz8P06S\u002fD+Jp\u002fw\u002f67v8P8nP\u002fD8b4\u002fw\u002f4vX8PwMI\u002fT+wGf0\u002fqSr9Pys7\u002fT8+S\u002f0\u002ft1r9P7Vp\u002fT+ceP0\u002fOYf9PzqV\u002fT\u002fXov0\u002f16\u002f9P9K8\u002fT+dyf0\u002fJdb9P2bi\u002fT9s7v0\u002fLfr9P84F\u002fj9FEf4\u002fihz+P+4n\u002fj83M\u002f4\u002fJj7+PxdJ\u002fj\u002fCU\u002f4\u002fG17+P0Vo\u002fj9Zcv4\u002fPHz+P8KF\u002fj8Aj\u002f4\u002fPZj+P1eh\u002fj9bqv4\u002fOLP+P9e7\u002fj9nxP4\u002fuMz+P+zU\u002fj8S3f4\u002fIOX+PwHt\u002fj\u002fA9P4\u002fTPz+P8kD\u002fz9VC\u002f8\u002fxhL\u002fP\u002fYZ\u002fz8jIf8\u002fAij\u002fP6su\u002fz8xNf8\u002fdjv\u002fP5VB\u002fz+ER\u002f8\u002fWE3\u002fPwBT\u002fz+SWP8\u002f6l3\u002fPxFj\u002fz8haP8\u002fE23\u002fP+dx\u002fz+Jdv8\u002fG3v\u002fP4x\u002f\u002fz\u002fmg\u002f8\u002fD4j\u002fPyWM\u002fz8ZkP8\u002f+5P\u002fP7yX\u002fz9Ym\u002f8\u002fzp7\u002fPx2i\u002fz9Lpf8\u002fYaj\u002fP2qr\u002fz9Yrv8\u002fObH\u002fP\u002fqz\u002fz+ytv8\u002fX7n\u002fP\u002f+7\u002fz+Hvv8\u002f\u002fMD\u002fP1PD\u002fz+Wxf8\u002f0sf\u002fP\u002f7J\u002fz8gzP8\u002fJ87\u002fPxvQ\u002fz8D0v8\u002f4tP\u002fP67V\u002fz9s1\u002f8\u002fHdn\u002fP77a\u002fz9L3P8\u002fzN3\u002fPz7f\u002fz+d4P8\u002f7OH\u002fPzHj\u002fz9x5P8\u002fpuX\u002fP9Dm\u002fz\u002fv5\u002f8\u002fB+n\u002fPxbq\u002fz8V6\u002f8\u002fDOz\u002fP\u002ffs\u002fz\u002fa7f8\u002ftO7\u002fP4nv\u002fz9R8P8\u002fE\u002fH\u002fP83x\u002fz9\u002f8v8\u002fKvP\u002fP9Lz\u002fz9y9P8\u002fDfX\u002fP571\u002fz8q9v8\u002fsPb\u002fPy73\u002fz+m9\u002f8\u002fF\u002fj\u002fP4T4\u002fz\u002fs+P8\u002fT\u002fn\u002fP6v5\u002fz8C+v8\u002fV\u002fr\u002fP6j6\u002fz\u002f0+v8\u002fPvv\u002fP4T7\u002fz\u002fE+\u002f8\u002fAfz\u002fPzv8\u002fz9x\u002fP8\u002fpfz\u002fP9P8\u002fz8C\u002ff8\u002fLf3\u002fP1T9\u002fz96\u002ff8\u002fnv3\u002fP7\u002f9\u002fz\u002fg\u002ff8\u002f\u002f\u002f3\u002fPxz+\u002fz88\u002fv8\u002fWv7\u002fP3n+\u002fz+U\u002fv8\u002frf7\u002fP8b+\u002fz\u002fc\u002fv8\u002f8\u002f7\u002fPwn\u002f\u002fz8d\u002f\u002f8\u002fMP\u002f\u002fP0L\u002f\u002fz9S\u002f\u002f8\u002fX\u002f\u002f\u002fP23\u002f\u002fz95\u002f\u002f8\u002fhf\u002f\u002fP43\u002f\u002fz+X\u002f\u002f8\u002foP\u002f\u002fP6n\u002f\u002fz+v\u002f\u002f8\u002fs\u002f\u002f\u002fP7f\u002f\u002fz+6\u002f\u002f8\u002fuv\u002f\u002fP7P\u002f\u002fz+t\u002f\u002f8\u002fpv\u002f\u002fP6P\u002f\u002fz+k\u002f\u002f8\u002fpv\u002f\u002fP6b\u002f\u002fz+q\u002f\u002f8\u002frf\u002f\u002fP6\u002f\u002f\u002fz+0\u002f\u002f8\u002fuP\u002f\u002fP7r\u002f\u002fz+9\u002f\u002f8\u002fvP\u002f\u002fP7r\u002f\u002fz+2\u002f\u002f8\u002fsf\u002f\u002fP6v\u002f\u002fz+m\u002f\u002f8\u002fov\u002f\u002fP6H\u002f\u002fz+g\u002f\u002f8\u002fnv\u002f\u002fP5z\u002f\u002fz+a\u002f\u002f8\u002fmv\u002f\u002fP5z\u002f\u002fz+e\u002f\u002f8\u002fof\u002f\u002fP6X\u002f\u002fz+m\u002f\u002f8\u002fqf\u002f\u002fP6z\u002f\u002fz+t\u002f\u002f8\u002frf\u002f\u002fP6z\u002f\u002fz+o\u002f\u002f8\u002fo\u002f\u002f\u002fP53\u002f\u002fz+Z\u002f\u002f8\u002flv\u002f\u002fP5P\u002f\u002fz+O\u002f\u002f8\u002fi\u002f\u002f\u002fP4j\u002f\u002fz+H\u002f\u002f8\u002fiP\u002f\u002fP4n\u002f\u002fz+J\u002f\u002f8\u002fhf\u002f\u002fP3\u002f\u002f\u002fz92\u002f\u002f8\u002fbP\u002f\u002fP2X\u002f\u002fz9c\u002f\u002f8\u002fVv\u002f\u002fP1H\u002f\u002fz9M\u002f\u002f8\u002fS\u002f\u002f\u002fP0v\u002f\u002fz9M\u002f\u002f8\u002fTP\u002f\u002fP0r\u002f\u002fz9I\u002f\u002f8\u002fQ\u002f\u002f\u002fPz\u002f\u002f\u002fz87\u002f\u002f8\u002fN\u002f\u002f\u002fPy7\u002f\u002fz8l\u002f\u002f8\u002fH\u002f\u002f\u002fPxv\u002f\u002fz8S\u002f\u002f8\u002fD\u002f\u002f\u002fPw3\u002f\u002fz8L\u002f\u002f8\u002fC\u002f\u002f\u002fPwz\u002f\u002fz8O\u002f\u002f8\u002fD\u002f\u002f\u002fPw3\u002f\u002fz8L\u002f\u002f8\u002fCf\u002f\u002fPwf\u002f\u002fz8F\u002f\u002f8\u002fBf\u002f\u002fPwT\u002f\u002fz8B\u002f\u002f8\u002f\u002fv7\u002fP\u002fr+\u002fz\u002f1\u002fv8\u002f8v7\u002fP+7+\u002fz\u002ft\u002fv8\u002f7f7\u002fP+v+\u002fz\u002fo\u002fv8\u002f5v7\u002fP+P+\u002fz\u002fd\u002fv8\u002f1\u002f7\u002fP9T+\u002fz\u002fU\u002fv8\u002f0\u002f7\u002fP9D+\u002fz\u002fP\u002fv8\u002fzf7\u002fP8n+\u002fz\u002fH\u002fv8\u002fyv7\u002fP87+\u002fz\u002fV\u002fv8\u002f2\u002f7\u002fP+P+\u002fz\u002fr\u002fv8\u002f9v7\u002fP\u002f7+\u002fz8F\u002f\u002f8\u002fCv\u002f\u002fPw7\u002f\u002fz8O\u002f\u002f8\u002fDf\u002f\u002fPwn\u002f\u002fz8I\u002f\u002f8\u002fA\u002f\u002f\u002fP\u002f3+\u002fz\u002f2\u002fv8\u002f7v7\u002fP+r+\u002fz\u002fo\u002fv8\u002f6v7\u002fP+7+\u002fz\u002fu\u002fv8\u002f6\u002f7\u002fP+v+\u002fz\u002fu\u002fv8\u002f6\u002f7\u002fP+f+\u002fz\u002fj\u002fv8\u002f3f7\u002fP9T+\u002fz\u002fP\u002fv8\u002fzP7\u002fP8X+\u002fz+\u002f\u002fv8\u002ft\u002f7\u002fP6z+\u002fz+i\u002fv8\u002fmv7\u002fP5D+\u002fz+I\u002fv8\u002fgP7\u002fP3v+\u002fz92\u002fv8\u002fb\u002f7\u002fP27+\u002fz9v\u002fv8\u002fbv7\u002fP2z+\u002fz9q\u002fv8\u002fbP7\u002fP3H+\u002fz90\u002fv8\u002fdP7\u002fP3P+\u002fz9u\u002fv8\u002fa\u002f7\u002fP2n+\u002fz9s\u002fv8\u002fbf7\u002fP3H+\u002fz9z\u002fv8\u002fcP7\u002fP23+\u002fz9s\u002fv8\u002faP7\u002fP2X+\u002fz9l\u002fv8\u002fY\u002f7\u002fP2T+\u002fz9j\u002fv8\u002fXv7\u002fP13+\u002fz9g\u002fv8\u002fZf7\u002fP2n+\u002fz9u\u002fv8\u002fdP7\u002fP3z+\u002fz+I\u002fv8\u002fk\u002f7\u002fP5z+\u002fz+l\u002fv8\u002fqv7\u002fP7L+\u002fz+6\u002fv8\u002fu\u002f7\u002fP7z+\u002fz+4\u002fv8\u002fsf7\u002fP63+\u002fz+n\u002fv8\u002fnf7\u002fP5H+\u002fz+I\u002fv8\u002fhP7\u002fP4f+\u002fz+N\u002fv8\u002flP7\u002fP5X+\u002fz+X\u002fv8\u002fmf7\u002fP5r+\u002fz+c\u002fv8\u002fm\u002f7\u002fP5X+\u002fz+O\u002fv8\u002fiP7\u002fP33+\u002fz9v\u002fv8\u002fYf7\u002fP1j+\u002fz9O\u002fv8\u002fRv7\u002fPzz+\u002fz8z\u002fv8\u002fLP7\u002fPyv+\u002fz8o\u002fv8\u002fIv7\u002fPx\u002f+\u002fz8c\u002fv8\u002fIP7\u002fPyL+\u002fz8o\u002fv8\u002fMP7\u002fPzn+\u002fz9E\u002fv8\u002fTv7\u002fP1j+\u002fz9e\u002fv8\u002fW\u002f7\u002fP1v+\u002fz9W\u002fv8\u002fU\u002f7\u002fP0v+\u002fz9C\u002fv8\u002fPf7\u002fPzn+\u002fz81\u002fv8\u002fM\u002f7\u002fPzX+\u002fz83\u002fv8\u002fOf7\u002fP0P+\u002fz9N\u002fv8\u002fWP7\u002fP1\u002f+\u002fz9n\u002fv8\u002fbv7\u002fP3f+\u002fz97\u002fv8\u002fgP7\u002fP4X+\u002fz+J\u002fv8\u002fif7\u002fP4\u002f+\u002fz+Z\u002fv8\u002fo\u002f7\u002fP63+\u002fz+1\u002fv8\u002fu\u002f7\u002fP8H+\u002fz\u002fH\u002fv8\u002fyf7\u002fP8n+\u002fz\u002fI\u002fv8\u002fyP7\u002fP8T+\u002fz+6\u002fv8\u002ftP7\u002fP7T+\u002fz+x\u002fv8\u002frf7\u002fP6r+\u002fz+p\u002fv8\u002fp\u002f7\u002fP6X+\u002fz+o\u002fv8\u002fqv7\u002fP63+\u002fz+x\u002fv8\u002ft\u002f7\u002fP77+\u002fz\u002fI\u002fv8\u002fyv7\u002fP83+\u002fz\u002fS\u002fv8\u002f2f7\u002fP+L+\u002fz\u002ft\u002fv8\u002f9P7\u002fP\u002fX+\u002fz\u002f1\u002fv8\u002f7v7\u002fP+P+\u002fz\u002fY\u002fv8\u002f0f7\u002fP8z+\u002fz\u002fC\u002fv8\u002fuP7\u002fP6f+\u002fz+W\u002fv8\u002fh\u002f7\u002fP4D+\u002fz9z\u002fv8\u002fX\u002f7\u002fP1L+\u002fz9H\u002fv8\u002fQv7\u002fPz3+\u002fz8+\u002fv8\u002fQv7\u002fP0r+\u002fz9T\u002fv8\u002fXP7\u002fP2P+\u002fz9m\u002fv8\u002fZ\u002f7\u002fP2f+\u002fz9r\u002fv8\u002fbv7\u002fP2j+\u002fz9m\u002fv8\u002fZv7\u002fP2b+\u002fz9v\u002fv8\u002fev7\u002fP4T+\u002fz+Q\u002fv8\u002fmP7\u002fP57+\u002fz+j\u002fv8\u002fpv7\u002fP6r+\u002fz+z\u002fv8\u002fuv7\u002fP8H+\u002fz\u002fI\u002fv8\u002f0\u002f7\u002fP9n+\u002fz\u002fb\u002fv8\u002f1f7\u002fP9P+\u002fz\u002fQ\u002fv8\u002fyv7\u002fP8n+\u002fz\u002fO\u002fv8\u002f2P7\u002fP+H+\u002fz\u002fn\u002fv8\u002f6\u002f7\u002fP\u002fL+\u002fz\u002f1\u002fv8\u002f9\u002f7\u002fP\u002ff+\u002fz\u002f0\u002fv8\u002f8\u002f7\u002fP\u002fP+\u002fz\u002f0\u002fv8\u002f9f7\u002fP\u002fj+\u002fz\u002f6\u002fv8\u002f9\u002f7\u002fP\u002fT+\u002fz\u002ft\u002fv8\u002f5v7\u002fP9v+\u002fz\u002fO\u002fv8\u002fwP7\u002fP7j+\u002fz+v\u002fv8\u002fq\u002f7\u002fP6H+\u002fz+c\u002fv8\u002flP7\u002fP4z+\u002fz+B\u002fv8\u002feP7\u002fP2r+\u002fz9d\u002fv8\u002fUv7\u002fP03+\u002fz9O\u002fv8\u002fU\u002f7\u002fP1z+\u002fz9j\u002fv8\u002faP7\u002fP3D+\u002fz92\u002fv8\u002fdf7\u002fP23+\u002fz9m\u002fv8\u002fZv7\u002fP2b+\u002fz9k\u002fv8\u002fZf7\u002fP2f+\u002fz9m\u002fv8\u002fZv7\u002fP2j+\u002fz9p\u002fv8\u002fZ\u002f7\u002fP27+\u002fz92\u002fv8\u002ff\u002f7\u002fP3\u002f+\u002fz+A\u002fv8\u002fh\u002f7\u002fP43+\u002fz+V\u002fv8\u002fnP7\u002fP57+\u002fz+d\u002fv8\u002fnf7\u002fP5z+\u002fz+a\u002fv8\u002fmf7\u002fP5f+\u002fz+a\u002fv8\u002fn\u002f7\u002fP6X+\u002fz+n\u002fv8\u002fpv7\u002fP6D+\u002fz+a\u002fv8\u002flP7\u002fP4v+\u002fz97\u002fv8\u002fbf7\u002fP13+\u002fz9N\u002fv8\u002fPv7\u002fPzH+\u002fz8j\u002fv8\u002fGP7\u002fPwz+\u002fz8B\u002fv8\u002f+\u002f3\u002fP\u002fj9\u002fz\u002f1\u002ff8\u002f8v3\u002fP+79\u002fz\u002fw\u002ff8\u002f9v3\u002fP\u002f\u002f9\u002fz8M\u002fv8\u002fHv7\u002fPy\u002f+\u002fz89\u002fv8\u002fSf7\u002fP1H+\u002fz9Z\u002fv8\u002fZv7\u002fP3L+\u002fz9z\u002fv8\u002fbP7\u002fP2D+\u002fz9T\u002fv8\u002fT\u002f7\u002fP03+\u002fz9J\u002fv8\u002fQ\u002f7\u002fP0D+\u002fz9D\u002fv8\u002fR\u002f7\u002fP1D+\u002fz9d\u002fv8\u002fZ\u002f7\u002fP2\u002f+\u002fz95\u002fv8\u002fg\u002f7\u002fP4\u002f+\u002fz+d\u002fv8\u002fqv7\u002fP7n+\u002fz\u002fI\u002fv8\u002f2\u002f7\u002fP+j+\u002fz\u002ft\u002fv8\u002f5\u002f7\u002fP+H+\u002fz\u002fT\u002fv8\u002fx\u002f7\u002fP8H+\u002fz+5\u002fv8\u002fsP7\u002fP6b+\u002fz+b\u002fv8\u002flP7\u002fP5L+\u002fz+S\u002fv8\u002fkf7\u002fP5T+\u002fz+a\u002fv8\u002fof7\u002fP6b+\u002fz+h\u002fv8\u002fkf7\u002fP4H+\u002fz9y\u002fv8\u002fZv7\u002fP1\u002f+\u002fz9d\u002fv8\u002fX\u002f7\u002fP1\u002f+\u002fz9f\u002fv8\u002fZ\u002f7\u002fP3H+\u002fz94\u002fv8\u002fhf7\u002fP5j+\u002fz+t\u002fv8\u002fwf7\u002fP9b+\u002fz\u002ft\u002fv8\u002f\u002fv7\u002fPwj\u002f\u002fz8H\u002f\u002f8\u002fAP\u002f\u002fP\u002fv+\u002fz\u002f2\u002fv8\u002f9f7\u002fP\u002fj+\u002fz\u002f9\u002fv8\u002fAP\u002f\u002fP\u002fr+\u002fz\u002ft\u002fv8\u002f2\u002f7\u002fP9D+\u002fz\u002fE\u002fv8\u002fuf7\u002fP7b+\u002fz+1\u002fv8\u002fuP7\u002fP8D+\u002fz\u002fH\u002fv8\u002f1P7\u002fP+H+\u002fz\u002fu\u002fv8\u002f9P7\u002fP\u002fb+\u002fz\u002f0\u002fv8\u002f8v7\u002fP+3+\u002fz\u002fm\u002fv8\u002f3v7\u002fP9f+\u002fz\u002fU\u002fv8\u002fzv7\u002fP9T+\u002fz\u002fc\u002fv8\u002f6P7\u002fP+7+\u002fz\u002fu\u002fv8\u002f8v7\u002fP\u002ff+\u002fz\u002fz\u002fv8\u002f5\u002f7\u002fP9f+\u002fz\u002fH\u002fv8\u002ft\u002f7\u002fP6b+\u002fz+N\u002fv8\u002fev7\u002fP27+\u002fz9n\u002fv8\u002fYf7\u002fP1r+\u002fz9W\u002fv8\u002fUP7\u002fP0T+\u002fz88\u002fv8\u002fMf7\u002fPyn+\u002fz8p\u002fv8\u002fJv7\u002fPyL+\u002fz8i\u002fv8\u002fKP7\u002fPy\u002f+\u002fz8z\u002fv8\u002fMf7\u002fPyz+\u002fz8m\u002fv8\u002fI\u002f7\u002fPxj+\u002fz8T\u002fv8\u002fGf7\u002fPx\u002f+\u002fz8b\u002fv8\u002fFf7\u002fPxL+\u002fz8P\u002fv8\u002fCf7\u002fPwb+\u002fz8C\u002fv8\u002fAv7\u002fPwL+\u002fz8I\u002fv8\u002fE\u002f7\u002fPyT+\u002fz88\u002fv8\u002fWf7\u002fP3j+\u002fz+U\u002fv8\u002fp\u002f7\u002fP7j+\u002fz\u002fH\u002fv8\u002fzv7\u002fP9v+\u002fz\u002fi\u002fv8\u002f5v7\u002fP+7+\u002fz\u002f7\u002fv8\u002fC\u002f\u002f\u002fPxb\u002f\u002fz8W\u002f\u002f8\u002fDv\u002f\u002fPwj\u002f\u002fz8H\u002f\u002f8\u002fA\u002f\u002f\u002fP\u002fr+\u002fz\u002fo\u002fv8\u002f0v7\u002fP7r+\u002fz+e\u002fv8\u002fgf7\u002fP3P+\u002fz9r\u002fv8\u002fYP7\u002fP2X+\u002fz9m\u002fv8\u002fZ\u002f7\u002fP2b+\u002fz9r\u002fv8\u002fdP7\u002fP3\u002f+\u002fz+J\u002fv8\u002fjP7\u002fP43+\u002fz+N\u002fv8\u002fjf7\u002fP4f+\u002fz+H\u002fv8\u002fh\u002f7\u002fP37+\u002fz97\u002fv8\u002fg\u002f7\u002fP43+\u002fz+U\u002fv8\u002fnv7\u002fP6b+\u002fz+u\u002fv8\u002fuf7\u002fP8T+\u002fz\u002fU\u002fv8\u002f6\u002f7\u002fP\u002fj+\u002fz8E\u002f\u002f8\u002fCP\u002f\u002fPwn\u002f\u002fz8H\u002f\u002f8\u002fBP\u002f\u002fP\u002fv+\u002fz\u002fx\u002fv8\u002f4v7\u002fP9X+\u002fz\u002fP\u002fv8\u002fzv7\u002fP87+\u002fz\u002fQ\u002fv8\u002f0v7\u002fP9L+\u002fz\u002fU\u002fv8\u002f2\u002f7\u002fP+f+\u002fz\u002fx\u002fv8\u002f9P7\u002fP\u002fD+\u002fz\u002fq\u002fv8\u002f6v7\u002fP+f+\u002fz\u002fd\u002fv8\u002f1\u002f7\u002fP9H+\u002fz\u002fN\u002fv8\u002fyf7\u002fP8P+\u002fz\u002fB\u002fv8\u002ftf7\u002fP6D+\u002fz+K\u002fv8\u002fev7\u002fP3L+\u002fz9t\u002fv8\u002faP7\u002fP2b+\u002fz9f\u002fv8\u002fWv7\u002fP1z+\u002fz9a\u002fv8\u002fXf7\u002fP2H+\u002fz9y\u002fv8\u002fg\u002f7\u002fP47+\u002fz+Z\u002fv8\u002fpf7\u002fP6f+\u002fz+m\u002fv8\u002fpv7\u002fP6D+\u002fz+c\u002fv8\u002fmf7\u002fP5v+\u002fz+Z\u002fv8\u002flf7\u002fP5P+\u002fz+N\u002fv8\u002fhf7\u002fP4D+\u002fz+J\u002fv8\u002fmf7\u002fP6T+\u002fz+0\u002fv8\u002fxf7\u002fP9P+\u002fz\u002fd\u002fv8\u002f6v7\u002fP\u002fX+\u002fz\u002f9\u002fv8\u002f+\u002f7\u002fP\u002ff+\u002fz\u002f4\u002fv8\u002f8v7\u002fP\u002fD+\u002fz\u002fq\u002fv8\u002f7\u002f7\u002fP\u002fj+\u002fz\u002f4\u002fv8\u002f9f7\u002fP+j+\u002fz\u002fT\u002fv8\u002fvv7\u002fP6D+\u002fz+H\u002fv8\u002fc\u002f7\u002fP2T+\u002fz9Z\u002fv8\u002fTf7\u002fP0L+\u002fz8y\u002fv8\u002fH\u002f7\u002fPw\u002f+\u002fz8J\u002fv8\u002fCP7\u002fPwX+\u002fz\u002f9\u002ff8\u002f9v3\u002fP\u002fL9\u002fz\u002f0\u002ff8\u002f8v3\u002fP\u002fT9\u002fz\u002fx\u002ff8\u002f9f3\u002fP\u002fX9\u002fz\u002f5\u002ff8\u002f\u002f\u002f3\u002fP\u002fn9\u002fz\u002f7\u002ff8\u002fBv7\u002fPxL+\u002fz8T\u002fv8\u002fHv7\u002fPzD+\u002fz89\u002fv8\u002fU\u002f7\u002fP2f+\u002fz9z\u002fv8\u002fhP7\u002fP5j+\u002fz+j\u002fv8\u002fmP7\u002fP4T+\u002fz9y\u002fv8\u002fXf7\u002fP1H+\u002fz9K\u002fv8\u002fTv7\u002fP1b+\u002fz9l\u002fv8\u002fdP7\u002fP4b+\u002fz+V\u002fv8\u002fqf7\u002fP7v+\u002fz\u002fA\u002fv8\u002fuf7\u002fP7X+\u002fz+s\u002fv8\u002fmf7\u002fP4f+\u002fz+B\u002fv8\u002fgv7\u002fP4H+\u002fz9\u002f\u002fv8\u002ffP7\u002fP3P+\u002fz9n\u002fv8\u002fWP7\u002fPzj+\u002fz8Y\u002fv8\u002f8v3\u002fP9P9\u002fz+7\u002ff8\u002frf3\u002fP6\u002f9\u002fz+6\u002ff8\u002fxv3\u002fP9D9\u002fz\u002fo\u002ff8\u002fBf7\u002fPzD+\u002fz9j\u002fv8\u002fif7\u002fP63+\u002fz\u002fG\u002fv8\u002f2\u002f7\u002fP+v+\u002fz\u002f0\u002fv8\u002f\u002fv7\u002fPwf\u002f\u002fz8L\u002f\u002f8\u002fDf\u002f\u002fPw7\u002f\u002fz8J\u002f\u002f8\u002fDf\u002f\u002fPwX\u002f\u002fz\u002f1\u002fv8\u002f2v7\u002fP8r+\u002fz+7\u002fv8\u002foP7\u002fP4f+\u002fz9z\u002fv8\u002fY\u002f7\u002fP1n+\u002fz9J\u002fv8\u002fOv7\u002fPzX+\u002fz88\u002fv8\u002fSf7\u002fP1z+\u002fz9m\u002fv8\u002fav7\u002fP3P+\u002fz+H\u002fv8\u002fnv7\u002fP7T+\u002fz\u002fC\u002fv8\u002fyv7\u002fP83+\u002fz\u002fM\u002fv8\u002fxf7\u002fP7r+\u002fz+v\u002fv8\u002fsP7\u002fP7b+\u002fz+w\u002fv8\u002fqv7\u002fP63+\u002fz+r\u002fv8\u002fof7\u002fP57+\u002fz+X\u002fv8\u002fn\u002f7\u002fP6\u002f+\u002fz+7\u002fv8\u002f0f7\u002fP+P+\u002fz\u002fq\u002fv8\u002f8f7\u002fP\u002fD+\u002fz\u002fm\u002fv8\u002fyP7\u002fP6f+\u002fz+R\u002fv8\u002ff\u002f7\u002fP2X+\u002fz9N\u002fv8\u002fPP7\u002fPyz+\u002fz8c\u002fv8\u002fD\u002f7\u002fPwX+\u002fz8C\u002fv8\u002fBv7\u002fPxH+\u002fz8e\u002fv8\u002fHf7\u002fPxv+\u002fz8e\u002fv8\u002fJf7\u002fPzX+\u002fz9L\u002fv8\u002fXP7\u002fP23+\u002fz9y\u002fv8\u002fc\u002f7\u002fP3H+\u002fz9z\u002fv8\u002feP7\u002fP4f+\u002fz+Q\u002fv8\u002flv7\u002fP6f+\u002fz+0\u002fv8\u002fu\u002f7\u002fP8H+\u002fz\u002fB\u002fv8\u002ftv7\u002fP6D+\u002fz+L\u002fv8\u002fc\u002f7\u002fP2D+\u002fz9a\u002fv8\u002fWf7\u002fP2H+\u002fz9y\u002fv8\u002fgP7\u002fP4n+\u002fz+e\u002fv8\u002fr\u002f7\u002fP7X+\u002fz+8\u002fv8\u002fvv7\u002fP7n+\u002fz+2\u002fv8\u002fn\u002f7\u002fP4f+\u002fz94\u002fv8\u002fZP7\u002fP1\u002f+\u002fz9f\u002fv8\u002fYP7\u002fP3b+\u002fz+N\u002fv8\u002fpP7\u002fP77+\u002fz\u002fP\u002fv8\u002f0\u002f7\u002fP9X+\u002fz\u002fR\u002fv8\u002fxv7\u002fP8H+\u002fz\u002fH\u002fv8\u002f0\u002f7\u002fP+D+\u002fz\u002fi\u002fv8\u002f3v7\u002fP9b+\u002fz\u002fK\u002fv8\u002fxP7\u002fP8b+\u002fz\u002fC\u002fv8\u002fwv7\u002fP8r+\u002fz\u002fM\u002fv8\u002f0v7\u002fP9n+\u002fz\u002fZ\u002fv8\u002f1v7\u002fP8\u002f+\u002fz\u002fD\u002fv8\u002fqv7\u002fP5T+\u002fz+C\u002fv8\u002fcv7\u002fP1b+\u002fz8z\u002fv8\u002fHv7\u002fPxD+\u002fz8G\u002fv8\u002fAv7\u002fPwj+\u002fz8M\u002fv8\u002fFf7\u002fPyD+\u002fz81\u002fv8\u002fPP7\u002fP0X+\u002fz9R\u002fv8\u002fZ\u002f7\u002fP3n+\u002fz96\u002fv8\u002fZv7\u002fP1D+\u002fz88\u002fv8\u002fN\u002f7\u002fPzP+\u002fz8p\u002fv8\u002fKP7\u002fPzP+\u002fz9N\u002fv8\u002fZf7\u002fP27+\u002fz+E\u002fv8\u002flP7\u002fP47+\u002fz+B\u002fv8\u002fbv7\u002fP2P+\u002fz9S\u002fv8\u002fSf7\u002fP0T+\u002fz9N\u002fv8\u002fbf7\u002fP5T+\u002fz+3\u002fv8\u002f0P7\u002fP+D+\u002fz\u002fa\u002fv8\u002f0f7\u002fP8b+\u002fz+u\u002fv8\u002fkP7\u002fP3X+\u002fz9c\u002fv8\u002fT\u002f7\u002fP0L+\u002fz85\u002fv8\u002fOP7\u002fP0b+\u002fz9b\u002fv8\u002fcP7\u002fP4X+\u002fz+M\u002fv8\u002fh\u002f7\u002fP33+\u002fz9o\u002fv8\u002fUv7\u002fPzr+\u002fz8k\u002fv8\u002fGf7\u002fPxH+\u002fz8I\u002fv8\u002fCf7\u002fPxX+\u002fz8o\u002fv8\u002fVP7\u002fP43+\u002fz\u002fB\u002fv8\u002f6\u002f7\u002fPw3\u002f\u002fz8k\u002f\u002f8\u002fMf\u002f\u002fPy\u002f\u002f\u002fz8i\u002f\u002f8\u002fCf\u002f\u002fP+3+\u002fz\u002fS\u002fv8\u002fx\u002f7\u002fP8H+\u002fz+x\u002fv8\u002fo\u002f7\u002fP5T+\u002fz+A\u002fv8\u002fcf7\u002fP23+\u002fz95\u002fv8\u002fjf7\u002fP6H+\u002fz+1\u002fv8\u002fv\u002f7\u002fP7v+\u002fz+6\u002fv8\u002ftv7\u002fP6D+\u002fz+a\u002fv8\u002fnv7\u002fP6D+\u002fz+f\u002fv8\u002fk\u002f7\u002fP3v+\u002fz9k\u002fv8\u002fS\u002f7\u002fPzf+\u002fz8m\u002fv8\u002fH\u002f7\u002fPxz+\u002fz8W\u002fv8\u002fE\u002f7\u002fPyP+\u002fz8v\u002fv8\u002fRv7\u002fP1f+\u002fz9t\u002fv8\u002fi\u002f7\u002fP67+\u002fz\u002fZ\u002fv8\u002fA\u002f\u002f\u002fPx\u002f\u002f\u002fz8s\u002f\u002f8\u002fN\u002f\u002f\u002fPzv\u002f\u002fz8u\u002f\u002f8\u002fIv\u002f\u002fPx\u002f\u002f\u002fz8c\u002f\u002f8\u002fGf\u002f\u002fPwf\u002f\u002fz\u002fl\u002fv8\u002fyv7\u002fP6\u002f+\u002fz+U\u002fv8\u002ffP7\u002fP2T+\u002fz9l\u002fv8\u002fdP7\u002fP4z+\u002fz+W\u002fv8\u002fjv7\u002fP4f+\u002fz9z\u002fv8\u002faP7\u002fP0\u002f+\u002fz85\u002fv8\u002fLP7\u002fPzP+\u002fz89\u002fv8\u002fVP7\u002fP27+\u002fz+I\u002fv8\u002fp\u002f7\u002fP7r+\u002fz+8\u002fv8\u002fwv7\u002fP9H+\u002fz\u002fg\u002fv8\u002f5v7\u002fP+n+\u002fz\u002fe\u002fv8\u002fzP7\u002fP7j+\u002fz+i\u002fv8\u002fjP7\u002fP33+\u002fz91\u002fv8\u002fcv7\u002fP23+\u002fz9s\u002fv8\u002fZP7\u002fP1H+\u002fz9P\u002fv8\u002fU\u002f7\u002fP1n+\u002fz9Z\u002fv8\u002fZ\u002f7\u002fP4T+\u002fz+f\u002fv8\u002fq\u002f7\u002fP7X+\u002fz\u002fO\u002fv8\u002f1v7\u002fP9H+\u002fz\u002fa\u002fv8\u002f6v7\u002fP\u002fT+\u002fz\u002fr\u002fv8\u002f3v7\u002fP9L+\u002fz\u002fR\u002fv8\u002f1v7\u002fP+L+\u002fz\u002fu\u002fv8\u002f+v7\u002fPwH\u002f\u002fz8R\u002f\u002f8\u002fG\u002f\u002f\u002fPyP\u002f\u002fz8d\u002f\u002f8\u002fAv\u002f\u002fP97+\u002fz+5\u002fv8\u002fnf7\u002fP43+\u002fz+B\u002fv8\u002fc\u002f7\u002fP2j+\u002fz9l\u002fv8\u002fXv7\u002fP1b+\u002fz9R\u002fv8\u002fS\u002f7\u002fPzz+\u002fz81\u002fv8\u002fR\u002f7\u002fP1\u002f+\u002fz92\u002fv8\u002fh\u002f7\u002fP5X+\u002fz+t\u002fv8\u002fv\u002f7\u002fP8L+\u002fz\u002fI\u002fv8\u002ftf7\u002fP5T+\u002fz9n\u002fv8\u002fNv7\u002fPwr+\u002fz\u002fT\u002ff8\u002fm\u002f3\u002fP239\u002fz9V\u002ff8\u002fXf3\u002fP379\u002fz+m\u002ff8\u002f2\u002f3\u002fPyn+\u002fz92\u002fv8\u002fvv7\u002fP\u002f\u002f+\u002fz84\u002f\u002f8\u002fZ\u002f\u002f\u002fP5L\u002f\u002fz+t\u002f\u002f8\u002fuv\u002f\u002fP7X\u002f\u002fz+i\u002f\u002f8\u002fhf\u002f\u002fP2f\u002f\u002fz9Q\u002f\u002f8\u002fL\u002f\u002f\u002fP\u002fL+\u002fz++\u002fv8\u002fjf7\u002fP2H+\u002fz83\u002fv8\u002fDv7\u002fP+f9\u002fz\u002fP\u002ff8\u002fwf3\u002fP7\u002f9\u002fz\u002fP\u002ff8\u002f6v3\u002fPxP+\u002fz8\u002f\u002fv8\u002fbP7\u002fP3v+\u002fz+D\u002fv8\u002fh\u002f7\u002fP4T+\u002fz+H\u002fv8\u002fev7\u002fP3D+\u002fz96\u002fv8\u002fh\u002f7\u002fP5n+\u002fz+0\u002fv8\u002fzP7\u002fP8X+\u002fz+4\u002fv8\u002fs\u002f7\u002fP6D+\u002fz+E\u002fv8\u002fa\u002f7\u002fP1r+\u002fz9M\u002fv8\u002fRf7\u002fPzP+\u002fz8c\u002fv8\u002fFf7\u002fPwj+\u002fz8C\u002fv8\u002fE\u002f7\u002fPzf+\u002fz9b\u002fv8\u002fef7\u002fP4r+\u002fz+Y\u002fv8\u002fkf7\u002fP47+\u002fz+N\u002fv8\u002fnf7\u002fP7v+\u002fz\u002fZ\u002fv8\u002f+P7\u002fP\u002fv+\u002fz\u002f7\u002fv8\u002f8\u002f7\u002fP+T+\u002fz\u002fO\u002fv8\u002fwf7\u002fP7n+\u002fz+1\u002fv8\u002fv\u002f7\u002fP87+\u002fz\u002fe\u002fv8\u002f0f7\u002fP7n+\u002fz+S\u002fv8\u002fXv7\u002fPzL+\u002fz8Z\u002fv8\u002fAv7\u002fP\u002fb9\u002fz8C\u002fv8\u002fKP7\u002fP1r+\u002fz+M\u002fv8\u002fwf7\u002fP+X+\u002fz\u002f1\u002fv8\u002f8v7\u002fP+v+\u002fz\u002fn\u002fv8\u002f5f7\u002fP+P+\u002fz\u002fr\u002fv8\u002fAf\u002f\u002fPw7\u002f\u002fz8I\u002f\u002f8\u002f5\u002f7\u002fP9P+\u002fz+3\u002fv8\u002fi\u002f7\u002fP1r+\u002fz9A\u002fv8\u002fOv7\u002fP0X+\u002fz9P\u002fv8\u002fTP7\u002fP0\u002f+\u002fz9g\u002fv8\u002fc\u002f7\u002fP3\u002f+\u002fz9y\u002fv8\u002fa\u002f7\u002fP3v+\u002fz+i\u002fv8\u002fx\u002f7\u002fP97+\u002fz\u002fa\u002fv8\u002fy\u002f7\u002fP7j+\u002fz+t\u002fv8\u002fp\u002f7\u002fP6f+\u002fz+n\u002fv8\u002fmf7\u002fP5T+\u002fz+l\u002fv8\u002fsP7\u002fP6L+\u002fz+F\u002fv8\u002faf7\u002fP1z+\u002fz9S\u002fv8\u002fVv7\u002fP2j+\u002fz98\u002fv8\u002fjf7\u002fP53+\u002fz+o\u002fv8\u002fpP7\u002fP6b+\u002fz+n\u002fv8\u002fnv7\u002fP4X+\u002fz9q\u002fv8\u002fW\u002f7\u002fP0r+\u002fz82\u002fv8\u002fMf7\u002fPyz+\u002fz84\u002fv8\u002fRP7\u002fP2b+\u002fz+O\u002fv8\u002ftP7\u002fP9b+\u002fz\u002f1\u002fv8\u002fFf\u002f\u002fPzL\u002f\u002fz9D\u002f\u002f8\u002fO\u002f\u002f\u002fPzv\u002f\u002fz9D\u002f\u002f8\u002fPf\u002f\u002fPyH\u002f\u002fz8E\u002f\u002f8\u002f4P7\u002fP7f+\u002fz+f\u002fv8\u002flf7\u002fP4\u002f+\u002fz9+\u002fv8\u002fdP7\u002fP3j+\u002fz+J\u002fv8\u002fm\u002f7\u002fP8P+\u002fz\u002fN\u002fv8\u002fzv7\u002fP8z+\u002fz\u002fU\u002fv8\u002fwf7\u002fP6D+\u002fz+F\u002fv8\u002fcv7\u002fP2b+\u002fz9n\u002fv8\u002fZf7\u002fP27+\u002fz9t\u002fv8\u002fT\u002f7\u002fPyz+\u002fz8P\u002fv8\u002f\u002fv3\u002fPwn+\u002fz8o\u002fv8\u002fY\u002f7\u002fP6H+\u002fz\u002fK\u002fv8\u002f5P7\u002fPw7\u002f\u002fz8l\u002f\u002f8\u002fFf\u002f\u002fP\u002f3+\u002fz\u002fh\u002fv8\u002fxv7\u002fP63+\u002fz+p\u002fv8\u002fqf7\u002fP6v+\u002fz+x\u002fv8\u002fp\u002f7\u002fP5f+\u002fz9v\u002fv8\u002fSv7\u002fPyz+\u002fz8f\u002fv8\u002fIP7\u002fPyL+\u002fz82\u002fv8\u002fSv7\u002fP3r+\u002fz+0\u002fv8\u002f5\u002f7\u002fP\u002f\u002f+\u002fz8L\u002f\u002f8\u002fFv\u002f\u002fPwj\u002f\u002fz\u002f0\u002fv8\u002f3P7\u002fP9T+\u002fz\u002fF\u002fv8\u002fpv7\u002fP43+\u002fz95\u002fv8\u002fY\u002f7\u002fP0n+\u002fz81\u002fv8\u002fHv7\u002fPw7+\u002fz8R\u002fv8\u002fCP7\u002fPwb+\u002fz\u002f\u002f\u002ff8\u002fE\u002f7\u002fPzz+\u002fz9a\u002fv8\u002fc\u002f7\u002fP2r+\u002fz9M\u002fv8\u002fKv7\u002fPxP+\u002fz8M\u002fv8\u002fE\u002f7\u002fPyT+\u002fz8z\u002fv8\u002fSf7\u002fP1b+\u002fz9m\u002fv8\u002fev7\u002fP4D+\u002fz+B\u002fv8\u002fof7\u002fP8L+\u002fz\u002f0\u002fv8\u002fIv\u002f\u002fP0T\u002f\u002fz88\u002f\u002f8\u002fFf\u002f\u002fP8\u002f+\u002fz+Q\u002fv8\u002fW\u002f7\u002fPz7+\u002fz83\u002fv8\u002fQP7\u002fPz3+\u002fz8Z\u002fv8\u002f4f3\u002fP639\u002fz+H\u002ff8\u002fc\u002f3\u002fP279\u002fz9u\u002ff8\u002fff3\u002fP4T9\u002fz+j\u002ff8\u002f1v3\u002fPw\u002f+\u002fz9N\u002fv8\u002fgf7\u002fP5r+\u002fz+P\u002fv8\u002fZv7\u002fP1D+\u002fz81\u002fv8\u002fHP7\u002fPxn+\u002fz8W\u002fv8\u002fHP7\u002fPz3+\u002fz9m\u002fv8\u002fkv7\u002fP9P+\u002fz8V\u002f\u002f8\u002fTf\u002f\u002fP4T\u002f\u002fz+q\u002f\u002f8\u002fwP\u002f\u002fP6z\u002f\u002fz93\u002f\u002f8\u002fMP\u002f\u002fP+n+\u002fz+p\u002fv8\u002fcf7\u002fP0z+\u002fz88\u002fv8\u002fIP7\u002fPxL+\u002fz8X\u002fv8\u002fIP7\u002fPzr+\u002fz9X\u002fv8\u002fbf7\u002fP4P+\u002fz+f\u002fv8\u002fx\u002f7\u002fP+X+\u002fz\u002f+\u002fv8\u002fG\u002f\u002f\u002fPyr\u002f\u002fz8u\u002f\u002f8\u002fHf\u002f\u002fP\u002f3+\u002fz\u002fk\u002fv8\u002f0\u002f7\u002fP9v+\u002fz\u002fi\u002fv8\u002f2\u002f7\u002fP93+\u002fz\u002fY\u002fv8\u002fzf7\u002fP8n+\u002fz\u002fA\u002fv8\u002fy\u002f7\u002fP+X+\u002fz\u002fp\u002fv8\u002f4v7\u002fP9b+\u002fz+y\u002fv8\u002fhv7\u002fP2D+\u002fz9g\u002fv8\u002fb\u002f7\u002fP3v+\u002fz+T\u002fv8\u002fof7\u002fP63+\u002fz+x\u002fv8\u002fwf7\u002fP9z+\u002fz\u002fn\u002fv8\u002f4f7\u002fP9P+\u002fz++\u002fv8\u002fof7\u002fP5D+\u002fz+N\u002fv8\u002flv7\u002fP6L+\u002fz+y\u002fv8\u002fvv7\u002fP7T+\u002fz+x\u002fv8\u002fr\u002f7\u002fP6\u002f+\u002fz+8\u002fv8\u002f6\u002f7\u002fPyT\u002f\u002fz87\u002f\u002f8\u002fXf\u002f\u002fP23\u002f\u002fz85\u002f\u002f8\u002f7v7\u002fP6D+\u002fz9p\u002fv8\u002fZP7\u002fP2b+\u002fz9X\u002fv8\u002fRP7\u002fPx7+\u002fz8D\u002fv8\u002f6v3\u002fP+n9\u002fz\u002f2\u002ff8\u002fFv7\u002fP0f+\u002fz+R\u002fv8\u002f4f7\u002fPyb\u002f\u002fz9s\u002f\u002f8\u002fiv\u002f\u002fP47\u002f\u002fz95\u002f\u002f8\u002fRf\u002f\u002fP\u002fT+\u002fz+T\u002fv8\u002fPv7\u002fP\u002f\u002f9\u002fz\u002fb\u002ff8\u002fyf3\u002fP9j9\u002fz\u002fy\u002ff8\u002fL\u002f7\u002fP4P+\u002fz\u002fe\u002fv8\u002fDv\u002f\u002fPzb\u002f\u002fz9E\u002f\u002f8\u002fIf\u002f\u002fP9b+\u002fz+P\u002fv8\u002fQP7\u002fP\u002fn9\u002fz\u002fO\u002ff8\u002fwv3\u002fP739\u002fz+9\u002ff8\u002fuP3\u002fP679\u002fz+B\u002ff8\u002fe\u002f3\u002fP5L9\u002fz+\u002f\u002ff8\u002f6v3\u002fPx\u002f+\u002fz9X\u002fv8\u002fjf7\u002fP8X+\u002fz\u002f8\u002fv8\u002fIf\u002f\u002fPy7\u002f\u002fz8o\u002f\u002f8\u002fNv\u002f\u002fPyv\u002f\u002fz\u002f4\u002fv8\u002fu\u002f7\u002fP1P+\u002fz\u002fy\u002ff8\u002fwf3\u002fP6T9\u002fz+p\u002ff8\u002fwf3\u002fP+j9\u002fz8m\u002fv8\u002fbf7\u002fP6\u002f+\u002fz\u002fn\u002fv8\u002f\u002f\u002f7\u002fP9n+\u002fz+g\u002fv8\u002fWv7\u002fPxH+\u002fz\u002fV\u002ff8\u002ftP3\u002fP7v9\u002fz++\u002ff8\u002f2v3\u002fPw7+\u002fz9L\u002fv8\u002fmv7\u002fP\u002fv+\u002fz9Z\u002f\u002f8\u002fo\u002f\u002f\u002fP8z\u002f\u002fz\u002fE\u002f\u002f8\u002fiP\u002f\u002fPzz\u002f\u002fz\u002fe\u002fv8\u002flv7\u002fP1P+\u002fz8c\u002fv8\u002fDP7\u002fPyb+\u002fz88\u002fv8\u002fQv7\u002fPy\u002f+\u002fz8D\u002fv8\u002f1\u002f3\u002fP7\u002f9\u002fz\u002fI\u002ff8\u002f+\u002f3\u002fP13+\u002fz\u002fU\u002fv8\u002fVv\u002f\u002fP83\u002f\u002fz8LAABADwAAQPv\u002f\u002fz+7\u002f\u002f8\u002fcf\u002f\u002fP0L\u002f\u002fz8c\u002f\u002f8\u002f4\u002f7\u002fP5T+\u002fz9g\u002fv8\u002fKv7\u002fPwb+\u002fz\u002fs\u002ff8\u002fzv3\u002fP7v9\u002fz+r\u002ff8\u002fqv3\u002fP9j9\u002fz8p\u002fv8\u002fdP7\u002fP+D+\u002fz87\u002f\u002f8\u002fhf\u002f\u002fP7D\u002f\u002fz+0\u002f\u002f8\u002fov\u002f\u002fP3H\u002f\u002fz8\u002f\u002f\u002f8\u002fD\u002f\u002f\u002fP9P+\u002fz+Z\u002fv8\u002fYf7\u002fP1D+\u002fz9H\u002fv8\u002fKP7\u002fPxz+\u002fz8P\u002fv8\u002f2\u002f3\u002fP6H9\u002fz9y\u002ff8\u002fgf3\u002fP6j9\u002fz\u002fS\u002ff8\u002f+\u002f3\u002fPzH+\u002fz9h\u002fv8\u002fgf7\u002fP5T+\u002fz+a\u002fv8\u002fvP7\u002fP9z+\u002fz\u002ft\u002fv8\u002f"},"y":{"dtype":"f4","bdata":"7fCDP\u002f65gz8ciYM\u002fylmDP5krgz8F\u002foI\u002fVNGCP3ylgj9neoI\u002fiFCCP80ngj+LAII\u002fjNqBPzi1gT+OkYE\u002fXm+BP8NOgT+TL4E\u002foBGBPzj1gD9J2oA\u002fzcCAPwqpgD+lkoA\u002f\u002fX2APwlrgD+uWYA\u002fqUmAPxs7gD\u002f2LYA\u002f\u002fCGAPzMXgD9FDYA\u002fagSAPz35fz9R638\u002ffd9\u002fP2LVfz+nzH8\u002fXMV\u002fP2G\u002ffz\u002fKun8\u002fB7d\u002fP0K0fz88sn8\u002f9rB\u002fP2Wwfz9IsH8\u002flrB\u002fP2Kxfz\u002fDsn8\u002fdrR\u002fP2q2fz9nuH8\u002fTLp\u002fP0C8fz9Tvn8\u002fUMB\u002fP2DCfz9vxH8\u002fU8Z\u002fPzPIfz8Zyn8\u002fF8x\u002fP+DNfz+oz38\u002fUdF\u002fPwXTfz+Y1H8\u002fI9Z\u002fP7PXfz812X8\u002fmtp\u002fPxXcfz+H3X8\u002f0d5\u002fPxHgfz9J4X8\u002fX+J\u002fP0Xjfz\u002fx438\u002fh+R\u002fPyzlfz++5X8\u002fQuZ\u002fP8fmfz9L538\u002fzud\u002fP0Lofz+p6H8\u002fE+l\u002fP5Dpfz\u002fx6X8\u002fVOp\u002fP6vqfz\u002f56n8\u002fS+t\u002fP6brfz8K7H8\u002fiex\u002fPwHtfz+N7X8\u002fGu5\u002fP5zufz8k738\u002fpu9\u002fP0Hwfz\u002fJ8H8\u002fRfF\u002fP8Xxfz9O8n8\u002f3PJ\u002fP1zzfz\u002fm838\u002fbfR\u002fP+X0fz9F9X8\u002flPV\u002fP9L1fz8H9n8\u002fOfZ\u002fP2f2fz+U9n8\u002fyPZ\u002fPwT3fz8\u002f938\u002fg\u002fd\u002fP8z3fz8N+H8\u002fPPh\u002fP3D4fz+c+H8\u002fv\u002fh\u002fP+L4fz\u002f\u002f+H8\u002fHfl\u002fPzb5fz9O+X8\u002favl\u002fP4n5fz+p+X8\u002fyfl\u002fP+X5fz\u002f6+X8\u002fDvp\u002fPyf6fz9E+n8\u002fZ\u002fp\u002fP5L6fz+9+n8\u002f5fp\u002fPwn7fz8m+38\u002fPPt\u002fP0z7fz9W+38\u002fYPt\u002fP2H7fz9f+38\u002fXvt\u002fP1z7fz9b+38\u002fYft\u002fP2f7fz9q+38\u002fa\u002ft\u002fP2n7fz9w+38\u002ffPt\u002fP477fz+i+38\u002fsPt\u002fP737fz\u002fH+38\u002fz\u002ft\u002fP9T7fz\u002fY+38\u002f4vt\u002fP\u002fL7fz8A\u002fH8\u002fDPx\u002fPxj8fz8j\u002fH8\u002fMvx\u002fP0T8fz9P\u002fH8\u002fUfx\u002fP1T8fz9a\u002fH8\u002fZPx\u002fP2v8fz9w\u002fH8\u002fdvx\u002fP378fz+J\u002fH8\u002fmvx\u002fP6v8fz+z\u002fH8\u002fvfx\u002fP8z8fz\u002fa\u002fH8\u002f3Px\u002fP9j8fz\u002fW\u002fH8\u002f1vx\u002fP9P8fz\u002fM\u002fH8\u002fwPx\u002fP7b8fz+v\u002fH8\u002fpvx\u002fP5z8fz+T\u002fH8\u002fh\u002fx\u002fP338fz96\u002fH8\u002fgfx\u002fP5P8fz+n\u002fH8\u002ftvx\u002fP7f8fz+z\u002fH8\u002fqvx\u002fP5\u002f8fz+S\u002fH8\u002fgvx\u002fP2\u002f8fz9c\u002fH8\u002fUPx\u002fP0j8fz9C\u002fH8\u002fPvx\u002fPz78fz9G\u002fH8\u002fUPx\u002fP1X8fz9X\u002fH8\u002fV\u002fx\u002fP1L8fz9N\u002fH8\u002fTfx\u002fP1D8fz9W\u002fH8\u002fW\u002fx\u002fP2T8fz93\u002fH8\u002fhPx\u002fP4n8fz+K\u002fH8\u002fi\u002fx\u002fP4b8fz97\u002fH8\u002fdvx\u002fP3z8fz+F\u002fH8\u002fh\u002fx\u002fP4f8fz+N\u002fH8\u002fkvx\u002fP5f8fz+b\u002fH8\u002fnvx\u002fP6H8fz+c\u002fH8\u002fkvx\u002fP4P8fz92\u002fH8\u002fa\u002fx\u002fP1r8fz9L\u002fH8\u002fRfx\u002fP0r8fz9W\u002fH8\u002fXPx\u002fP2H8fz9o\u002fH8\u002fb\u002fx\u002fP3X8fz93\u002fH8\u002ffPx\u002fP4f8fz+V\u002fH8\u002fm\u002fx\u002fP578fz+l\u002fH8\u002fo\u002fx\u002fP5T8fz9\u002f\u002fH8\u002fbPx\u002fP2X8fz9k\u002fH8\u002fYfx\u002fP2P8fz9q\u002fH8\u002fb\u002fx\u002fP2z8fz9p\u002fH8\u002faPx\u002fP2j8fz9r\u002fH8\u002fdPx\u002fP4P8fz+M\u002fH8\u002fk\u002fx\u002fP5j8fz+r\u002fH8\u002fxPx\u002fP9P8fz\u002fl\u002fH8\u002f8Px\u002fP\u002fL8fz\u002ft\u002fH8\u002f5Px\u002fP978fz\u002fY\u002fH8\u002f1\u002fx\u002fP9n8fz\u002fY\u002fH8\u002fz\u002fx\u002fP8X8fz\u002fA\u002fH8\u002fuvx\u002fP7f8fz+4\u002fH8\u002ft\u002fx\u002fP7f8fz+\u002f\u002fH8\u002fyfx\u002fP9X8fz\u002fZ\u002fH8\u002f0fx\u002fP8v8fz\u002fE\u002fH8\u002ft\u002fx\u002fP6X8fz+U\u002fH8\u002fi\u002fx\u002fP4D8fz9y\u002fH8\u002fYPx\u002fP0\u002f8fz8+\u002fH8\u002fLvx\u002fPyP8fz8W\u002fH8\u002fDvx\u002fPxX8fz8k\u002fH8\u002fLvx\u002fPzf8fz8\u002f\u002fH8\u002fSPx\u002fP1T8fz9d\u002fH8\u002fZvx\u002fP2L8fz9Z\u002fH8\u002fTPx\u002fPzv8fz8r\u002fH8\u002fFvx\u002fPwf8fz8H\u002fH8\u002fFfx\u002fPyH8fz8p\u002fH8\u002fNfx\u002fPz38fz9N\u002fH8\u002fY\u002fx\u002fP3r8fz+K\u002fH8\u002fjfx\u002fP4z8fz+Q\u002fH8\u002fkPx\u002fP5D8fz+c\u002fH8\u002fo\u002fx\u002fP6n8fz+0\u002fH8\u002fu\u002fx\u002fP7j8fz+v\u002fH8\u002fo\u002fx\u002fP4b8fz9e\u002fH8\u002fQfx\u002fPyT8fz8M\u002fH8\u002fAPx\u002fPwX8fz8I\u002fH8\u002fEvx\u002fPx\u002f8fz8q\u002fH8\u002fNvx\u002fP0H8fz9L\u002fH8\u002fU\u002fx\u002fP1v8fz9k\u002fH8\u002fcvx\u002fP378fz+J\u002fH8\u002flvx\u002fP5\u002f8fz+a\u002fH8\u002fl\u002fx\u002fP5n8fz+Z\u002fH8\u002fkfx\u002fP4D8fz9z\u002fH8\u002fcfx\u002fP2z8fz9l\u002fH8\u002favx\u002fP3f8fz+M\u002fH8\u002fl\u002fx\u002fP5b8fz+O\u002fH8\u002fe\u002fx\u002fP2j8fz9W\u002fH8\u002fTPx\u002fP0n8fz9M\u002fH8\u002fXPx\u002fP2X8fz9f\u002fH8\u002fV\u002fx\u002fP0j8fz80\u002fH8\u002fIfx\u002fPyD8fz8m\u002fH8\u002fKPx\u002fPyX8fz8d\u002fH8\u002fHvx\u002fPyL8fz8n\u002fH8\u002fLvx\u002fPyz8fz8\u002f\u002fH8\u002fZfx\u002fP4f8fz+Y\u002fH8\u002fkvx\u002fP3z8fz9h\u002fH8\u002fSfx\u002fPyz8fz8O\u002fH8\u002f7vt\u002fP9L7fz+8+38\u002fwPt\u002fP8z7fz\u002fe+38\u002f8Pt\u002fP\u002fz7fz8F\u002fH8\u002fCPx\u002fPwb8fz8F\u002fH8\u002fB\u002fx\u002fPwn8fz8M\u002fH8\u002fD\u002fx\u002fPxb8fz8i\u002fH8\u002fJfx\u002fPyn8fz8v\u002fH8\u002fNPx\u002fP0D8fz9W\u002fH8\u002fbfx\u002fP4L8fz+d\u002fH8\u002fxPx\u002fP+T8fz\u002fz\u002fH8\u002f8fx\u002fP+X8fz\u002fP\u002fH8\u002fuPx\u002fP538fz+J\u002fH8\u002ff\u002fx\u002fP4D8fz+C\u002fH8\u002fgvx\u002fP4X8fz+N\u002fH8\u002fl\u002fx\u002fP5n8fz+W\u002fH8\u002fl\u002fx\u002fP578fz+o\u002fH8\u002ftPx\u002fP7X8fz+v\u002fH8\u002fs\u002fx\u002fP7b8fz+z\u002fH8\u002ftvx\u002fP8D8fz+\u002f\u002fH8\u002fsfx\u002fP6f8fz+k\u002fH8\u002fofx\u002fP6f8fz+3\u002fH8\u002fzvx\u002fP+v8fz\u002f1\u002fH8\u002f5fx\u002fP7r8fz+Z\u002fH8\u002ffvx\u002fP138fz84\u002fH8\u002fGPx\u002fPwf8fz\u002f5+38\u002f\u002fPt\u002fPwf8fz8G\u002fH8\u002f+ft\u002fP\u002fH7fz\u002f9+38\u002fEfx\u002fPy38fz9I\u002fH8\u002fWvx\u002fP3D8fz98\u002fH8\u002fevx\u002fP178fz9A\u002fH8\u002fKfx\u002fPxf8fz8d\u002fH8\u002fNfx\u002fP2D8fz+I\u002fH8\u002fufx\u002fP+X8fz8F\u002fX8\u002fGv1\u002fPyD9fz8Q\u002fX8\u002f6fx\u002fP7n8fz+N\u002fH8\u002fa\u002fx\u002fP038fz9B\u002fH8\u002fMvx\u002fPyn8fz8t\u002fH8\u002fKvx\u002fPzT8fz9a\u002fH8\u002fkPx\u002fP8L8fz\u002fk\u002fH8\u002fB\u002f1\u002fPxn9fz8P\u002fX8\u002f8fx\u002fP9f8fz+2\u002fH8\u002fl\u002fx\u002fP5T8fz+r\u002fH8\u002fwvx\u002fP878fz\u002fa\u002fH8\u002f5Px\u002fP+j8fz\u002fk\u002fH8\u002f2vx\u002fP778fz+Z\u002fH8\u002fcPx\u002fP078fz9B\u002fH8\u002fPvx\u002fP0T8fz9K\u002fH8\u002fTfx\u002fP0j8fz8w\u002fH8\u002fC\u002fx\u002fP\u002fv7fz\u002f9+38\u002f\u002f\u002ft\u002fPwb8fz8i\u002fH8\u002fQvx\u002fP1H8fz9R\u002fH8\u002fT\u002fx\u002fP0z8fz9I\u002fH8\u002fRPx\u002fP0X8fz9D\u002fH8\u002fSPx\u002fP1\u002f8fz93\u002fH8\u002fhPx\u002fP4D8fz9u\u002fH8\u002fZPx\u002fP2L8fz9r\u002fH8\u002fbfx\u002fP2T8fz9g\u002fH8\u002fafx\u002fP2T8fz9d\u002fH8\u002fVvx\u002fP0f8fz9B\u002fH8\u002fR\u002fx\u002fP1f8fz9K\u002fH8\u002fOPx\u002fPzz8fz9E\u002fH8\u002fVPx\u002fP2H8fz9t\u002fH8\u002fivx\u002fP7H8fz\u002fO\u002fH8\u002f4\u002fx\u002fP\u002ff8fz\u002f7\u002fH8\u002f5Px\u002fP8j8fz+y\u002fH8\u002fofx\u002fP4j8fz90\u002fH8\u002fYvx\u002fP0v8fz9C\u002fH8\u002fRvx\u002fP1P8fz9e\u002fH8\u002fXfx\u002fP1b8fz9W\u002fH8\u002fYPx\u002fP238fz99\u002fH8\u002fjfx\u002fP5X8fz+Q\u002fH8\u002fgfx\u002fP2z8fz9Z\u002fH8\u002fQfx\u002fPzb8fz8p\u002fH8\u002fHfx\u002fPxb8fz8T\u002fH8\u002fDfx\u002fP\u002fz7fz\u002f5+38\u002f+\u002ft\u002fP\u002fX7fz\u002f7+38\u002fBPx\u002fPxb8fz8f\u002fH8\u002fDPx\u002fPwP8fz8A\u002fH8\u002fCvx\u002fPyn8fz9G\u002fH8\u002fS\u002fx\u002fP0T8fz8w\u002fH8\u002fI\u002fx\u002fPx\u002f8fz8h\u002fH8\u002fLfx\u002fP0P8fz9a\u002fH8\u002fdPx\u002fP5X8fz+o\u002fH8\u002frvx\u002fP6r8fz+c\u002fH8\u002fofx\u002fP6j8fz+r\u002fH8\u002frvx\u002fP7H8fz+s\u002fH8\u002fqfx\u002fP6T8fz+i\u002fH8\u002frvx\u002fP7f8fz+w\u002fH8\u002fs\u002fx\u002fP6\u002f8fz+s\u002fH8\u002fqvx\u002fP5\u002f8fz+G\u002fH8\u002fe\u002fx\u002fP4T8fz+R\u002fH8\u002fpfx\u002fP7f8fz++\u002fH8\u002frPx\u002fP4X8fz9y\u002fH8\u002fdfx\u002fP4L8fz+X\u002fH8\u002fqfx\u002fP8X8fz\u002fW\u002fH8\u002fzvx\u002fP6n8fz+C\u002fH8\u002fcvx\u002fP3\u002f8fz+a\u002fH8\u002fs\u002fx\u002fP8X8fz\u002fK\u002fH8\u002fvfx\u002fP6v8fz+V\u002fH8\u002fevx\u002fP1\u002f8fz9U\u002fH8\u002fUvx\u002fP0j8fz9M\u002fH8\u002fUvx\u002fP0H8fz8q\u002fH8\u002fLfx\u002fP0D8fz9R\u002fH8\u002fUvx\u002fP1f8fz9n\u002fH8\u002fh\u002fx\u002fP6j8fz+\u002f\u002fH8\u002f0fx\u002fP+X8fz\u002fv\u002fH8\u002f5vx\u002fP9P8fz+u\u002fH8\u002fiPx\u002fP3n8fz9n\u002fH8\u002fUfx\u002fP0n8fz9S\u002fH8\u002fWPx\u002fP1z8fz9g\u002fH8\u002fa\u002fx\u002fP3H8fz9s\u002fH8\u002fVvx\u002fP0D8fz8p\u002fH8\u002fFfx\u002fPwP8fz\u002f2+38\u002f7vt\u002fP+P7fz\u002fs+38\u002fAPx\u002fPx78fz8l\u002fH8\u002fMPx\u002fP1L8fz94\u002fH8\u002flvx\u002fP6v8fz+m\u002fH8\u002fkPx\u002fP3\u002f8fz96\u002fH8\u002fe\u002fx\u002fP3T8fz9k\u002fH8\u002fP\u002fx\u002fPyv8fz8l\u002fH8\u002fB\u002fx\u002fP+D7fz\u002fL+38\u002ft\u002ft\u002fP7D7fz\u002fT+38\u002fBvx\u002fPy\u002f8fz9M\u002fH8\u002fZPx\u002fP3n8fz99\u002fH8\u002fdvx\u002fP2b8fz89\u002fH8\u002fG\u002fx\u002fPwX8fz\u002f0+38\u002f5ft\u002fP+f7fz\u002f7+38\u002fJfx\u002fP2f8fz+Z\u002fH8\u002ftfx\u002fP8v8fz\u002fi\u002fH8\u002f6fx\u002fP+D8fz\u002fS\u002fH8\u002fx\u002fx\u002fP6v8fz9x\u002fH8\u002fJ\u002fx\u002fP9z7fz+r+38\u002fpvt\u002fP7X7fz\u002fG+38\u002f1ft\u002fP9v7fz\u002fl+38\u002f+Pt\u002fPw78fz9B\u002fH8\u002fdfx\u002fP5H8fz+b\u002fH8\u002frvx\u002fP878fz\u002ff\u002fH8\u002f4vx\u002fP+L8fz\u002fi\u002fH8\u002f3\u002fx\u002fP+D8fz\u002fT\u002fH8\u002fsvx\u002fP5b8fz+A\u002fH8\u002fa\u002fx\u002fP2n8fz9z\u002fH8\u002fdPx\u002fP3D8fz96\u002fH8\u002fhPx\u002fP4T8fz+H\u002fH8\u002fjPx\u002fP4f8fz+B\u002fH8\u002fhfx\u002fP538fz+1\u002fH8\u002fvPx\u002fP7z8fz+u\u002fH8\u002flfx\u002fP5z8fz+f\u002fH8\u002fhfx\u002fP2v8fz9x\u002fH8\u002flfx\u002fP8T8fz\u002fa\u002fH8\u002fzfx\u002fP638fz+S\u002fH8\u002fj\u002fx\u002fP538fz+y\u002fH8\u002fvfx\u002fP8X8fz\u002fP\u002fH8\u002fuPx\u002fP4n8fz9q\u002fH8\u002faPx\u002fP3T8fz+X\u002fH8\u002fu\u002fx\u002fP9b8fz\u002fl\u002fH8\u002f2vx\u002fP7v8fz+a\u002fH8\u002fgvx\u002fP3H8fz9g\u002fH8\u002fVvx\u002fP1H8fz9g\u002fH8\u002fefx\u002fP5P8fz+O\u002fH8\u002fdvx\u002fP2j8fz9n\u002fH8\u002fY\u002fx\u002fP2n8fz9j\u002fH8\u002fT\u002fx\u002fPzv8fz8h\u002fH8\u002fBfx\u002fP\u002fr7fz8E\u002fH8\u002fHfx\u002fP0L8fz9z\u002fH8\u002fl\u002fx\u002fP6j8fz+4\u002fH8\u002fwvx\u002fP8j8fz\u002fG\u002fH8\u002fvPx\u002fP638fz+N\u002fH8\u002fW\u002fx\u002fPzD8fz8e\u002fH8\u002fGfx\u002fPyT8fz85\u002fH8\u002fXPx\u002fP4z8fz+u\u002fH8\u002f0fx\u002fP+T8fz\u002fp\u002fH8\u002f4fx\u002fP8X8fz+a\u002fH8\u002fc\u002fx\u002fP1\u002f8fz9V\u002fH8\u002fSfx\u002fPzX8fz8n\u002fH8\u002fGvx\u002fPwb8fz\u002f\u002f+38\u002f+vt\u002fP\u002ff7fz\u002f6+38\u002f+Pt\u002fP\u002f\u002f7fz8R\u002fH8\u002fQPx\u002fP3X8fz+R\u002fH8\u002fnPx\u002fP5f8fz+X\u002fH8\u002fjvx\u002fP3r8fz9d\u002fH8\u002fRfx\u002fPzn8fz8r\u002fH8\u002fLPx\u002fPyD8fz8J\u002fH8\u002f+vt\u002fPw\u002f8fz8r\u002fH8\u002fQfx\u002fPz\u002f8fz8l\u002fH8\u002f\u002fvt\u002fP8z7fz+Y+38\u002fi\u002ft\u002fP6n7fz\u002ft+38\u002fSfx\u002fP5\u002f8fz\u002fX\u002fH8\u002f9vx\u002fP\u002fX8fz\u002fn\u002fH8\u002f2vx\u002fP7v8fz+M\u002fH8\u002fZPx\u002fP0z8fz9K\u002fH8\u002fRfx\u002fPzz8fz8z\u002fH8\u002fKvx\u002fPzD8fz8t\u002fH8\u002fE\u002fx\u002fP+n7fz\u002fD+38\u002flft\u002fP3D7fz9r+38\u002fhvt\u002fP7v7fz\u002f0+38\u002fOfx\u002fP378fz+\u002f\u002fH8\u002f5Px\u002fP+H8fz\u002fG\u002fH8\u002fn\u002fx\u002fP5D8fz+k\u002fH8\u002fwPx\u002fP7\u002f8fz+m\u002fH8\u002fivx\u002fP4L8fz+W\u002fH8\u002fqfx\u002fP6r8fz+k\u002fH8\u002fnvx\u002fP5T8fz9t\u002fH8\u002fT\u002fx\u002fPzf8fz8m\u002fH8\u002fFPx\u002fPwP8fz8T\u002fH8\u002fPvx\u002fP1b8fz9V\u002fH8\u002fV\u002fx\u002fP3L8fz+u\u002fH8\u002f9vx\u002fPwf9fz\u002f2\u002fH8\u002f1fx\u002fP6T8fz9s\u002fH8\u002fUfx\u002fP0D8fz89\u002fH8\u002fTvx\u002fP138fz92\u002fH8\u002ffPx\u002fP3L8fz97\u002fH8\u002fkfx\u002fP5r8fz+Z\u002fH8\u002fmvx\u002fP7L8fz\u002fI\u002fH8\u002fz\u002fx\u002fP+f8fz\u002f0\u002fH8\u002f3vx\u002fP7v8fz+p\u002fH8\u002fqvx\u002fP6P8fz+L\u002fH8\u002fePx\u002fP2L8fz88\u002fH8\u002fBvx\u002fP9H7fz\u002fI+38\u002f5ft\u002fPwT8fz81\u002fH8\u002fcfx\u002fP638fz\u002fK\u002fH8\u002fs\u002fx\u002fP5r8fz+R\u002fH8\u002fbfx\u002fPzf8fz8G\u002fH8\u002f8\u002ft\u002fPwL8fz8l\u002fH8\u002fPPx\u002fP038fz9f\u002fH8\u002ffvx\u002fP6X8fz+1\u002fH8\u002fuPx\u002fP8L8fz\u002fD\u002fH8\u002fvPx\u002fP7D8fz+U\u002fH8\u002fifx\u002fP5r8fz\u002fI\u002fH8\u002f9vx\u002fP\u002f78fz\u002fi\u002fH8\u002frfx\u002fP2r8fz8b\u002fH8\u002fzft\u002fP4P7fz9c+38\u002fg\u002ft\u002fP9T7fz89\u002fH8\u002foPx\u002fP\u002fX8fz86\u002fX8\u002fYv1\u002fP2X9fz9H\u002fX8\u002fFv1\u002fP+\u002f8fz\u002fI\u002fH8\u002fkvx\u002fPzr8fz\u002fe+38\u002fjft\u002fP1n7fz9I+38\u002fZ\u002ft\u002fP6j7fz\u002fM+38\u002f9Pt\u002fPyX8fz9r\u002fH8\u002fnPx\u002fP6j8fz+f\u002fH8\u002fj\u002fx\u002fP3X8fz9l\u002fH8\u002fWvx\u002fP1D8fz9e\u002fH8\u002fhvx\u002fP6X8fz+7\u002fH8\u002fqfx\u002fP5n8fz+P\u002fH8\u002ffvx\u002fP3\u002f8fz+U\u002fH8\u002ftPx\u002fP+D8fz8K\u002fX8\u002fEP1\u002fP\u002fn8fz\u002fM\u002fH8\u002fsPx\u002fP7T8fz+r\u002fH8\u002flPx\u002fP2f8fz81\u002fH8\u002fCPx\u002fP9z7fz+z+38\u002ftft\u002fP\u002fv7fz9I\u002fH8\u002fjPx\u002fP8H8fz\u002fk\u002fH8\u002f5fx\u002fP+T8fz\u002fi\u002fH8\u002f4\u002fx\u002fP8f8fz+Q\u002fH8\u002fWPx\u002fPxn8fz\u002fb+38\u002fk\u002ft\u002fP3r7fz+K+38\u002fvft\u002fP+T7fz8K\u002fH8\u002fTfx\u002fP438fz+s\u002fH8\u002fnvx\u002fP238fz8t\u002fH8\u002f9ft\u002fP9b7fz+0+38\u002fl\u002ft\u002fP8T7fz8V\u002fH8\u002fgPx\u002fP9X8fz8Y\u002fX8\u002fNf1\u002fP0H9fz8a\u002fX8\u002fwvx\u002fP2b8fz8Q\u002fH8\u002fw\u002ft\u002fP4D7fz9E+38\u002fL\u002ft\u002fP1v7fz+m+38\u002fIvx\u002fP6X8fz\u002f8\u002fH8\u002fOf1\u002fP0b9fz88\u002fX8\u002fG\u002f1\u002fP\u002fX8fz\u002fM\u002fH8\u002fkvx\u002fP1b8fz8Y\u002fH8\u002f6Pt\u002fP837fz\u002fC+38\u002fzPt\u002fP9\u002f7fz\u002fz+38\u002fHfx\u002fP3T8fz\u002fg\u002fH8\u002fUP1\u002fP5b9fz+R\u002fX8\u002fRP1\u002fP+P8fz+i\u002fH8\u002fYfx\u002fPzr8fz87\u002fH8\u002fWvx\u002fP4f8fz+l\u002fH8\u002fm\u002fx\u002fP538fz+c\u002fH8\u002fg\u002fx\u002fP238fz9\u002f\u002fH8\u002foPx\u002fP7H8fz\u002fF\u002fH8\u002f5vx\u002fPw79fz8K\u002fX8\u002f5\u002fx\u002fP5z8fz9G\u002fH8\u002fBfx\u002fP\u002fj7fz8c\u002fH8\u002fbPx\u002fP6P8fz+d\u002fH8\u002fdPx\u002fP0T8fz8t\u002fH8\u002fMPx\u002fP0X8fz9U\u002fH8\u002ff\u002fx\u002fP6\u002f8fz+y\u002fH8\u002fhfx\u002fP2P8fz9c\u002fH8\u002fZ\u002fx\u002fP1P8fz9A\u002fH8\u002fWfx\u002fP6r8fz8R\u002fX8\u002fQP1\u002fPyv9fz8V\u002fX8\u002fCP1\u002fP\u002fT8fz\u002fh\u002fH8\u002f0Px\u002fP9P8fz+3\u002fH8\u002fZfx\u002fPwr8fz\u002fZ+38\u002f2vt\u002fP+r7fz8G\u002fH8\u002fTvx\u002fP5r8fz\u002fL\u002fH8\u002fx\u002fx\u002fP8b8fz+2\u002fH8\u002fjvx\u002fP0r8fz\u002f3+38\u002fzvt\u002fP7j7fz\u002fI+38\u002f3vt\u002fPxT8fz9T\u002fH8\u002frfx\u002fP8f8fz+s\u002fH8\u002flfx\u002fP4T8fz9T\u002fH8\u002fIPx\u002fPwz8fz8l\u002fH8\u002fPvx\u002fPz78fz85\u002fH8\u002fNPx\u002fPzv8fz84\u002fH8\u002fOfx\u002fPzX8fz85\u002fH8\u002fRPx\u002fP2n8fz+R\u002fH8\u002fiPx\u002fP2H8fz87\u002fH8\u002fKfx\u002fP0L8fz89\u002fH8\u002fQ\u002fx\u002fP2T8fz9r\u002fH8\u002fX\u002fx\u002fP0P8fz8z\u002fH8\u002fWPx\u002fP7H8fz\u002fm\u002fH8\u002f7Px\u002fP9T8fz+g\u002fH8\u002fV\u002fx\u002fP1r8fz+I\u002fH8\u002fqfx\u002fP9P8fz\u002fu\u002fH8\u002f9\u002fx\u002fP9v8fz+r\u002fH8\u002ffPx\u002fPzb8fz\u002fr+38\u002f0ft\u002fP9D7fz\u002fy+38\u002fHvx\u002fP0D8fz9j\u002fH8\u002ff\u002fx\u002fP6D8fz+p\u002fH8\u002fcfx\u002fP0r8fz9H\u002fH8\u002fQPx\u002fPzv8fz8e\u002fH8\u002fB\u002fx\u002fP\u002f77fz8L\u002fH8\u002fJPx\u002fPyj8fz8c\u002fH8\u002fMvx\u002fP1f8fz9w\u002fH8\u002fgvx\u002fP4r8fz9p\u002fH8\u002fT\u002fx\u002fPxP8fz+s+38\u002ffvt\u002fP6X7fz\u002fh+38\u002fRvx\u002fP9D8fz8q\u002fX8\u002fQ\u002f1\u002fPyr9fz\u002fh\u002fH8\u002fk\u002fx\u002fP1r8fz9N\u002fH8\u002fX\u002fx\u002fP4z8fz+5\u002fH8\u002fwPx\u002fP5L8fz9R\u002fH8\u002fMvx\u002fP2b8fz+r\u002fH8\u002f1vx\u002fP7\u002f8fz90\u002fH8\u002fFvx\u002fP9L7fz\u002fL+38\u002f8ft\u002fPwH8fz8N\u002fH8\u002fR\u002fx\u002fP4f8fz+p\u002fH8\u002fwvx\u002fP9L8fz\u002fX\u002fH8\u002fw\u002fx\u002fP4f8fz9I\u002fH8\u002fF\u002fx\u002fP+n7fz\u002fn+38\u002fIPx\u002fP3f8fz++\u002fH8\u002fE\u002f1\u002fP2D9fz96\u002fX8\u002fb\u002f1\u002fPzL9fz+r\u002fH8\u002fD\u002fx\u002fP4n7fz9C+38\u002fOft\u002fP037fz+o+38\u002fJ\u002fx\u002fP4P8fz+b\u002fH8\u002fbfx\u002fP1v8fz8z\u002fH8\u002fAvx\u002fPx38fz9P\u002fH8\u002fcPx\u002fP278fz9Y\u002fH8\u002fQ\u002fx\u002fPzz8fz9a\u002fH8\u002fl\u002fx\u002fP+r8fz81\u002fX8\u002fUP1\u002fPxr9fz+w\u002fH8\u002fWvx\u002fPz78fz9A\u002fH8\u002fPfx\u002fP1T8fz99\u002fH8\u002fk\u002fx\u002fP7v8fz\u002f7\u002fH8\u002fAP1\u002fP5L8fz8S\u002fH8\u002f4ft\u002fP9j7fz8Q\u002fH8\u002fbPx\u002fP6n8fz\u002fN\u002fH8\u002fFf1\u002fP0b9fz8q\u002fX8\u002fy\u002fx\u002fP1r8fz8m\u002fH8\u002fO\u002fx\u002fP2r8fz+K\u002fH8\u002fyPx\u002fPx39fz9J\u002fX8\u002fa\u002f1\u002fP139fz8Q\u002fX8\u002fl\u002fx\u002fPxf8fz\u002fe+38\u002f6\u002ft\u002fPxn8fz9g\u002fH8\u002fmvx\u002fP9H8fz\u002fh\u002fH8\u002fwfx\u002fP6r8fz+V\u002fH8\u002fb\u002fx\u002fPzf8fz8w\u002fH8\u002fLPx\u002fPx38fz9J\u002fH8\u002fmvx\u002fP978fz8L\u002fX8\u002f9Px\u002fP638fz9e\u002fH8\u002fI\u002fx\u002fPy78fz9Q\u002fH8\u002fTfx\u002fPyj8fz\u002f++38\u002fKvx\u002fP4P8fz+l\u002fH8\u002flvx\u002fP3r8fz+J\u002fH8\u002fpvx\u002fP5\u002f8fz+R\u002fH8\u002fePx\u002fPzj8fz\u002f4+38\u002f7vt\u002fP\u002fX7fz8O\u002fH8\u002fOvx\u002fP1f8fz9p\u002fH8\u002fc\u002fx\u002fP4L8fz9u\u002fH8\u002fSfx\u002fP0D8fz8l\u002fH8\u002f\u002fPt\u002fP+37fz\u002fg+38\u002f+vt\u002fP\u002fn7fz8R\u002fH8\u002fOPx\u002fP0r8fz9e\u002fH8\u002fnPx\u002fP+L8fz\u002fu\u002fH8\u002f7\u002fx\u002fP7\u002f8fz9V\u002fH8\u002f\u002fPt\u002fP\u002f37fz9J\u002fH8\u002fi\u002fx\u002fP5z8fz+r\u002fH8\u002f6Px\u002fPx39fz8k\u002fX8\u002fDv1\u002fP\u002fn8fz\u002fD\u002fH8\u002fcfx\u002fPwj8fz\u002fk+38\u002f2\u002ft\u002fP\u002fL7fz8K\u002fH8\u002fVvx\u002fP7b8fz\u002fJ\u002fH8\u002fsvx\u002fP4T8fz9e\u002fH8\u002fVvx\u002fP0v8fz9d\u002fH8\u002flfx\u002fP8b8fz\u002f2\u002fH8\u002fAv1\u002fP+f8fz+h\u002fH8\u002fXfx\u002fP0X8fz9B\u002fH8\u002fR\u002fx\u002fP1H8fz9w\u002fH8\u002fe\u002fx\u002fP1v8fz9L\u002fH8\u002fNvx\u002fP0D8fz97\u002fH8\u002f0vx\u002fP\u002fD8fz\u002fK\u002fH8\u002fqPx\u002fP4r8fz9l\u002fH8\u002fNfx\u002fPwX8fz8F\u002fH8\u002fLvx\u002fP1n8fz+B\u002fH8\u002fn\u002fx\u002fP1v8fz8V\u002fH8\u002fD\u002fx\u002fPxv8fz8T\u002fH8\u002fE\u002fx\u002fP0\u002f8fz+M\u002fH8\u002fmPx\u002fP4H8fz9b\u002fH8\u002fTvx\u002fPyn8fz8X\u002fH8\u002fLvx\u002fP2n8fz+P\u002fH8\u002fifx\u002fP6T8fz+a\u002fH8\u002fhPx\u002fP238fz9l\u002fH8\u002fXfx\u002fPy78fz8M\u002fH8\u002f\u002f\u002ft\u002fPxL8fz9P\u002fH8\u002fl\u002fx\u002fP8f8fz\u002fe\u002fH8\u002f+\u002fx\u002fP\u002fz8fz+6\u002fH8\u002fWfx\u002fP\u002f37fz\u002fM+38\u002f1vt\u002fPwj8fz82\u002fH8\u002fN\u002fx\u002fP0D8fz9F\u002fH8\u002fIvx\u002fP\u002f77fz8O\u002fH8\u002fYPx\u002fP7b8fz\u002fp\u002fH8\u002fG\u002f1\u002fP+b8fz9i\u002fH8\u002f1\u002ft\u002fP3L7fz+N+38\u002f+\u002ft\u002fP2L8fz9r\u002fH8\u002fMvx\u002fPwb8fz8L\u002fH8\u002fCfx\u002fPzv8fz+e\u002fH8\u002fDv1\u002fPzj9fz\u002fs\u002fH8\u002fePx\u002fPw78fz\u002fU+38\u002f7Pt\u002fPw\u002f8fz8R\u002fH8\u002fHfx\u002fP2z8fz+w\u002fH8\u002f6vx\u002fPxf9fz8o\u002fX8\u002fMv1\u002fPyn9fz8\u002f\u002fX8\u002fNf1\u002fP9z8fz9O\u002fH8\u002f5Pt\u002fP8v7fz\u002fE+38\u002f+Pt\u002fPz78fz98\u002fH8\u002fmvx\u002fP7v8fz+O\u002fH8\u002fT\u002fx\u002fP\u002f\u002f7fz\u002fB+38\u002f0Pt\u002fP\u002f77fz9c\u002fH8\u002f+Px\u002fP4r9fz+u\u002fX8\u002fb\u002f1\u002fPyT9fz\u002fS\u002fH8\u002flPx\u002fP5r8fz90\u002fH8\u002fSPx\u002fP2b8fz+Y\u002fH8\u002fufx\u002fP5D8fz9c\u002fH8\u002fTvx\u002fPzv8fz\u002f9+38\u002f5\u002ft\u002fP\u002fX7fz8c\u002fH8\u002fJ\u002fx\u002fPzD8fz9X\u002fH8\u002fifx\u002fP3X8fz9E\u002fH8\u002fIvx\u002fP1P8fz\u002fF\u002fH8\u002f+\u002fx\u002fP\u002fn8fz\u002fS\u002fH8\u002fmfx\u002fP6H8fz+5\u002fH8\u002fnvx\u002fP5f8fz9f\u002fH8\u002fI\u002fx\u002fPwj8fz8Q\u002fH8\u002fG\u002fx\u002fPwT8fz\u002fc+38\u002f2Pt\u002fP6n7fz9h+38\u002fY\u002ft\u002fP837fz+I\u002fH8\u002fb\u002f1\u002fP+T9fz+s\u002fX8\u002f9\u002fx\u002fP1D8fz\u002fR+38\u002fevt\u002fP3v7fz\u002f0+38\u002fr\u002fx\u002fP2P9fz+R\u002fX8\u002fTf1\u002fP\u002fT8fz97\u002fH8\u002f\u002f\u002ft\u002fP8L7fz+o+38\u002fxft\u002fPxr8fz+B\u002fH8\u002fzfx\u002fPxr9fz8m\u002fX8\u002f8\u002fx\u002fP9\u002f8fz\u002fj\u002fH8\u002fx\u002fx\u002fP6r8fz99\u002fH8\u002fJ\u002fx\u002fP\u002fr7fz\u002fz+38\u002f9Pt\u002fP+n7fz\u002fs+38\u002fF\u002fx\u002fP2P8fz++\u002fH8\u002f8fx\u002fP6H8fz8q\u002fH8\u002f\u002fPt\u002fP8f7fz+b+38\u002fpvt\u002fP8P7fz8Y\u002fH8\u002fdPx\u002fP9n8fz\u002f\u002f\u002fH8\u002fyPx\u002fP2f8fz8h\u002fH8\u002f+Pt\u002fP7P7fz+X+38\u002frft\u002fP637fz+7+38\u002f1vt\u002fP\u002fP7fz8B\u002fH8\u002fNvx\u002fP5j8fz\u002fV\u002fH8\u002fzvx\u002fP6n8fz9z\u002fH8\u002fMPx\u002fP\u002fX7fz\u002fU+38\u002f8Pt\u002fP1L8fz+Z\u002fH8\u002fpfx\u002fP5z8fz+F\u002fH8\u002fSfx\u002fPxT8fz\u002f\u002f+38\u002fEvx\u002fP1b8fz+L\u002fH8\u002fzfx\u002fP9L8fz\u002fA\u002fH8\u002fw\u002fx\u002fP4L8fz9p\u002fH8\u002fafx\u002fP1\u002f8fz+G\u002fH8\u002fsvx\u002fP\u002f38fz9R\u002fX8\u002fXv1\u002fP1X9fz8R\u002fX8\u002fi\u002fx\u002fPwX8fz+Z+38\u002fhPt\u002fP\u002fL7fz91\u002fH8\u002f4vx\u002fP279fz\u002fP\u002fX8\u002fjP1\u002fPwz9fz9f\u002fH8\u002fsvt\u002fP5L7fz+X+38\u002f7Pt\u002fP4b8fz8z\u002fX8\u002fq\u002f1\u002fP8H9fz+y\u002fX8\u002fN\u002f1\u002fP1b8fz92+38\u002fSvt\u002fP6z7fz+F\u002fH8\u002faf1\u002fP4r9fz8n\u002fX8\u002fkfx\u002fP\u002fX7fz+M+38\u002ffPt\u002fP5L7fz\u002fB+38\u002fL\u002fx\u002fP6\u002f8fz8O\u002fX8\u002fS\u002f1\u002fPy39fz++\u002fH8\u002fevx\u002fP2P8fz9j\u002fH8\u002fdvx\u002fP7L8fz\u002f7\u002fH8\u002fLv1\u002fP1H9fz8O\u002fX8\u002fovx\u002fP4L8fz9D\u002fH8\u002f0\u002ft\u002fP2v7fz85+38\u002fYvt\u002fP4z7fz\u002fO+38\u002fQfx\u002fP5v8fz\u002fE\u002fH8\u002ftfx\u002fP3z8fz80\u002fH8\u002f1Pt\u002fP+T7fz8X\u002fH8\u002fivx\u002fPxz9fz9k\u002fX8\u002fOP1\u002fP9T8fz9w\u002fH8\u002f"},"z":{"dtype":"f4","bdata":"bwKPPqzCjj6ZiI4+NVCOPlUZjj6I440+Gq+NPgx8jT5eSo0+ohqNPtrsjD5QwYw+9peMPmBwjD4nS4w+DyiMPkwHjD6Y6Is+w8uLPt6wiz7El4s+ZoCLPqxqiz5ZVos+eUOLPvIxiz7NIYs+xxKLPsgEiz6g94o+JeuKPjvfij7d04o+\u002f8iKPpK+ij6MtIo+3aqKPnehij5AmIo+Lo+KPkaGij51fYo+uXSKPh9sij6uY4o+T1uKPuRSij5mSoo+4UGKPnQ5ij4cMYo+viiKPlMgij7jF4o+gA+KPjUHij79\u002fok+s\u002faJPlTuiT4I5ok+0N2JPqDViT5ezYk+GsWJPu+8iT7ItIk+vqyJPtikiT7onIk+0pSJPrSMiT6fhIk+pHyJPrx0iT7PbIk+4WSJPvJciT4KVYk+J02JPm9FiT7nPYk+djaJPiIviT7MJ4k+eCCJPjEZiT71EYk+vAqJPl4DiT7i+4g+c\u002fSIPirtiD785Yg+z96IPp7XiD5f0Ig+EsmIPuLBiD73uog+JrSIPk+tiD5upog+nJ+IPt2YiD4fkog+iYuIPgWFiD52fog+A3iIPqNxiD5oa4g+ZWWIPnVfiD51WYg+hFOIPqhNiD7YR4g+CUKIPlM8iD6rNog+9TCIPisriD5IJYg+ax+IPqQZiD7NE4g+\u002fw2IPjkIiD5wAog+svyHPgb3hz5i8Yc+4uuHPpjmhz5f4Yc+PdyHPlfXhz6G0oc+ps2HPqPIhz6Xw4c+kr6HPla5hz4EtIc+uK6HPmiphz4npIc+CZ+HPhiahz42lYc+XZCHPoaLhz6jhoc+tYGHPuZ8hz5FeIc+tnOHPjFvhz62aoc+T2aHPvBhhz7DXYc+llmHPn9Vhz7LUYc+AU6HPgFKhz4BRoc++0GHPgI+hz4YOoc+JTaHPikyhz44Loc+XyqHPoUmhz68Ioc++B6HPiUbhz5JF4c+gxOHPuYPhz5KDIc+4wiHPp8Fhz5KAoc+Ef+GPsn7hj5m+IY+NfWGPhzyhj7n7oY+jOuGPgXohj6k5IY+k+GGPmnehj4S24Y+wteGPoXUhj4y0YY+zM2GPoHKhj5bx4Y+VMSGPkrBhj4\u002fvoY+SbuGPoq4hj70tYY+crOGPgWxhj6LroY+OKyGPgGqhj7Cp4Y+dqWGPjCjhj7zoIY+rJ6GPjKchj6TmYY+0paGPs2Thj7KkIY+FY6GPqaLhj74iIY+BYaGPiGDhj5ygIY+GX6GPgB8hj4MeoY+IHiGPld2hj6bdIY+rnKGPptwhj46boY+zGuGPkxphj6vZoY+CGSGPkphhj6uXoY+JlyGPqVZhj6CV4Y+uFWGPhpUhj5qUoY+slCGPuxOhj7+TIY+MUuGPodJhj7ZR4Y+zEWGPp1Dhj7XQYY+OkCGPtQ+hj6WPYY+IjyGPqQ6hj5oOYY+WziGPkI3hj4KNoY+qzSGPkQzhj7VMYY+RzCGPtwuhj6wLYY+ZSyGPrwqhj4PKYY+jSeGPjMmhj4NJYY+ACSGPgkjhj44IoY+tSGGPkAhhj6xIIY+ICCGPq4fhj5NH4Y+hx6GPn0dhj59HIY+xxuGPjMbhj6NGoY+EhqGPqUZhj7yGIY+CRiGPg4Xhj4nFoY+WxWGPpIUhj7iE4Y+OROGPpIShj7wEYY+WBGGPsYQhj4cEIY+bg+GPhAPhj5AD4Y+lw+GPtAPhj5dEIY+PRGGPrMRhj7BEYY+nBGGPioRhj6lEIY+XxCGPjcQhj66D4Y+Ig+GPp8Ohj7fDYY+2wyGPvELhj4uC4Y+TgqGPnIJhj7FCIY+7geGPiwHhj6XBoY+HQaGPsYFhj5QBYY+ogSGPsEDhj67AoY+rQGGPmUAhj4K\u002f4U+0P2FPoL8hT4o+4U+E\u002fqFPiX5hT5K+IU+i\u002feFPtL2hT4r9oU+5PWFPtv1hT6c9YU+SvWFPhD1hT6b9IU+BvSFPqbzhT5u84U+TvOFPjDzhT4B84U+\u002fPKFPjLzhT5584U+uPOFPrbzhT6H84U+W\u002fOFPlXzhT4\u002f84U+wvKFPizyhT4m8oU+jfKFPubyhT5l84U+7\u002fOFPiv0hT5u9IU+A\u002fWFPov1hT4A9oU+C\u002feFPkH4hT5U+YU+WPqFPjX7hT77+4U+g\u002fyFPqT8hT7A\u002fIU+Mf2FPpL9hT6e\u002fYU+cf2FPjD9hT7X\u002fIU+jfyFPkT8hT7R+4U+TvuFPtT6hT6S+oU+uPqFPsf6hT7C+oU+4vqFPuX6hT4i+4U+bPuFPhj7hT6T+oU+ZfqFPoT6hT7r+oU+2vqFPlT6hT73+YU+0fmFPqn5hT6c+YU+jfmFPmD5hT7\u002f+IU+w\u002fiFPv34hT4u+YU+RPmFPoz5hT4l+oU+nvqFPr\u002f6hT6R+oU+LPqFPtX5hT6z+YU+zvmFPvD5hT4M+oU+B\u002fqFPu\u002f5hT6Y+YU+1\u002fiFPhz4hT4i94U+C\u002faFPuD0hT6p84U+pvKFPsLxhT4q8YU+p\u002fCFPj7whT4f8IU+LvCFPmvwhT688IU+LvGFPsHxhT468oU+fPKFPmTyhT5e8oU+lfKFPmjyhT7p8YU+a\u002fGFPqjwhT7W74U+SO+FPtHuhT5m7oU+Ae6FPuLthT7f7YU+te2FPjvthT7j7IU+9uyFPhLthT5o7YU+6+2FPozuhT4i74U+jO+FPpbvhT4p74U+uO6FPqzuhT4S74U+Ye+FPmHvhT4874U+Bu+FPtTuhT7q7oU+Qe+FPpvvhT5\u002f74U+Nu+FPvzuhT7P7oU+CO+FPpbvhT5a8IU+JPGFPo3xhT5w8YU+LvGFPvzwhT6r8IU+R\u002fCFPvrvhT6H74U+he+FPtHvhT7T74U+pe+FPlvvhT5l74U+ze+FPjfwhT6P8IU+k\u002fCFPlTwhT568IU+\u002f\u002fCFPo7xhT4x8oU+2fKFPgrzhT4M84U+cfOFPvjzhT529IU+w\u002fSFPrn0hT6W9IU+OfSFPpTzhT7N8oU+R\u002fKFPlzyhT6j8oU+1PKFPnbyhT7V8YU+fPGFPjbxhT5Z8YU+vfGFPhfyhT498oU+LvKFPufxhT5r8YU+t\u002fCFPrfvhT5k7oU+O+2FPmDshT7M64U+0OuFPsPrhT5264U+FeuFPmLqhT6Z6YU+u+iFPqfnhT4O54U+s+aFPlvmhT5y5oU+ouaFPoXmhT5h5oU+eOaFPrTmhT4M54U+MeeFPm3nhT6l54U+yOeFPkzohT7E6IU+AOmFPobphT5H6oU++OqFPjfrhT4M64U+tOqFPqTqhT606oU+qeqFPrzqhT7Y6oU+NOuFPmrrhT6E64U+L+yFPsnshT677IU+MOyFPrjrhT5j64U+veqFPrnphT5n6IU+TOeFPqnmhT4m5oU++eWFPtTlhT595YU+XuWFPqrlhT715YU+3uWFPuHlhT4W5oU+EeaFPt7lhT6Z5YU+NOWFPrXkhT425IU+muOFPujihT5c4oU+5eGFPknihT5Q44U+D+SFPrjkhT435YU+3uWFPoDmhT7G5oU+ueaFPmvmhT4z5oU+6eWFPoHlhT4k5YU+1uSFPgTlhT695YU+muaFPnbnhT5+6IU+2+mFPqHrhT527YU+8e6FPrbwhT7H8oU+hPSFPs71hT4P94U+n\u002fiFPl\u002f6hT4L\u002fIU+r\u002f2FPgr\u002fhT7Y\u002f4U+hQCGPhMBhj5mAYY+YgGGPjsBhj4BAYY+iACGPvv\u002fhT7B\u002f4U+6\u002f+FPgIAhj6o\u002f4U++f6FPpT+hT4d\u002foU+oP2FPjf9hT5M\u002fIU+NvuFPm\u002f5hT7b9oU+JfSFPtvxhT5e8IU+z+6FPjDthT7X64U+m+qFPlrphT6954U+UuaFPtPlhT5X5oU+neeFPnTphT4q64U+w+uFPn\u002frhT7l64U+NO2FPovuhT4S8IU+U\u002fGFPvLxhT728YU+gvGFPq3whT6J74U+Tu6FPlXthT7x7IU+ruyFPlLshT4e7IU+wuuFPmjrhT6E64U+BOyFPvrshT7o7YU+G+6FPv3thT4y7oU+Uu6FPsnthT7w7IU+kOyFPgrshT6j64U+2euFPsDrhT6x64U+AOyFPhTshT7P64U+Z+uFPhDrhT7t6oU+iuqFPhjqhT4r6oU+J+qFPujphT7P6YU+tumFPj7phT5b6IU+QueFPgrmhT7o5IU+nuOFPtThhT4J4IU+1N6FPjzehT7X3YU+vd2FPuTdhT5Q3oU+nt+FPjrhhT6v4oU+POSFPr3lhT7A5oU+FeeFPmnnhT5654U+A+eFPrPmhT7i5oU+veeFPr3ohT5X6YU+\u002fOmFPr7qhT5l64U+GuyFPobshT607IU+0uyFPrfshT6x7IU+NO2FPgbuhT5J7oU++O2FPoDthT7N7IU+FeyFPvPrhT4I7IU+\u002feuFPj\u002fshT6Y7IU+2OyFPk7thT4J7oU+we6FPhfwhT5t8YU+TPGFPm7whT5P8IU+k\u002fCFPorwhT7o8IU+v\u002fGFPkTyhT748oU+G\u002fSFPiT1hT4M9oU+5PaFPh73hT7K9oU+BfaFPkT1hT4C9YU+6fSFPpz0hT7x84U+QfOFPjbyhT628YU+HfKFPjvyhT7R8YU+NfGFPkDxhT7F8YU+EfKFPnHxhT5A8IU+fu+FPjnvhT6b74U+kPCFPp7xhT5J8oU+ofKFPnPyhT4g8oU+oPGFPsjwhT7x74U+Vu+FPmnvhT5W74U+4O6FPoLuhT7Y7YU+Vu2FPkrthT4w7YU+r+yFPiXshT7T64U+G+yFPt\u002fshT637YU+He6FPjDuhT517oU+0+6FPonvhT5O8IU+dfGFPvzyhT7C84U+ZPSFPlr1hT5r9oU+IfeFPnj3hT6Y94U+h\u002feFPrL3hT6294U+efeFPgn3hT4u9oU+kvSFPkLyhT6q74U+XO2FPlrrhT6s6YU+HuiFPgXmhT7U44U+++GFPpHghT6334U+Cd+FPo7ehT5C3oU+ZN6FPg7fhT6834U+M+CFPm3ghT5L4IU+TuCFPlzhhT794oU+GuSFPnbkhT575IU+m+SFPgjlhT6p5YU+ZuaFPojmhT6E5oU+zeaFPrjmhT7g5YU+3+SFPjvkhT6644U+XOOFPrjjhT5L5IU+1+SFPnDlhT6q5YU+XeWFPqvkhT7I44U+9OKFPsvihT5A44U+aOSFPkHlhT4v5YU+EeWFPt3khT7844U+q+KFPrDhhT724IU+3N+FPgXehT543IU+TtyFPpLchT6I3IU+WdyFPt7bhT6k24U+6NuFPk\u002fchT7w3IU+v92FPuTehT7R4IU+DeOFPtPlhT7I6IU+COuFPuTshT6g7oU+zO+FPsLwhT6U8YU+W\u002fKFPg3zhT6m84U+A\u002fWFPn\u002f2hT6h94U+YviFPnL4hT4v+IU+ffeFPrX2hT5k9oU+KfaFPgf2hT7V9YU+6PWFPnv2hT6f9oU+zPWFPkb1hT419YU+kfSFPuvyhT4u8YU+iO+FPpvthT6H64U+RumFPtTmhT7f5IU++uOFPsjjhT7V44U+meOFPorjhT7T44U+iOSFPuHlhT4654U+reiFPhfqhT4n64U+TeuFPq3qhT6a6oU+tOuFPu7shT5U7YU+wu2FPp3thT6y7IU+SuuFPl7phT5v54U+vOWFPsrkhT7144U+IuOFPrDihT5I4oU+9+GFPhzihT5B44U+WuSFPtjkhT7a5YU+j+eFPnXphT4i64U+WOyFPpfshT7E64U+3OqFPlTqhT606YU++eiFPp7nhT6I5oU+1uWFPh7lhT7r5IU+m+SFPt3khT5\u002f5YU+SuWFPhTlhT6h5YU+8+WFPnDlhT4a5YU+A+aFPp7nhT4N6YU+VOqFPs3rhT6o7YU+\u002f++FPvrxhT7C8oU+tvKFPmzyhT4a8oU+rfGFPprxhT6z8YU+YvGFPv7whT7S8IU+YfCFPr3vhT4O74U+ge6FPqDuhT6\u002f74U+AfGFPpPxhT5F8oU+afOFPkb0hT4w9YU+E\u002faFPlD2hT5K9oU+WvWFPpzzhT6h8YU+SO+FPmbthT6964U+F+qFPljohT725oU+yuaFPibnhT5s54U+KOiFPs\u002fphT7c64U+uu2FPqXvhT6J8YU+r\u002fKFPlrzhT7y84U+PfSFPn\u002fzhT538oU+SPKFPtzxhT6k8IU+Zu+FPmPuhT7I7YU+Eu2FPtzrhT6A64U+gOyFPuvthT7d74U+MPKFPgL0hT4p9oU+OviFPl35hT72+YU+Z\u002fqFPs76hT5O+4U+jvuFPj\u002f7hT6m+oU+dfqFPtL5hT6B+IU+gPeFPiD3hT7j9oU+vPaFPnv2hT4I9oU+FvaFPmr2hT7\u002f9oU+NPeFPjH2hT7v9IU+O\u002fSFPp3zhT4e84U+lvKFPpHxhT6R8IU+Vu+FPuvthT537IU+C+uFPtnphT6t6YU+K+qFPuHphT526YU+9+mFPtjqhT6O6oU+NOmFPnnnhT5G5oU+cuaFPqznhT4H6YU+JeqFPq\u002frhT5T7YU+G+6FPjfuhT517oU+re6FPoruhT5S7oU+x+6FPqTvhT6w8IU+BfKFPinzhT5R84U+KPOFPmbzhT4u84U+\u002fPKFPkDzhT6084U+PfSFPv30hT709YU+ofaFPtj2hT4p94U+ZfeFPvv2hT4Z9oU+dvSFPtHxhT6u74U+WO6FPqjthT797IU+6+uFPnvrhT5864U+M+uFPujqhT6t6oU+gOmFPoPnhT5Z5YU+quOFPlHjhT6c44U+seOFPt7ihT5a4oU+q+KFPlXjhT5p5IU+5eSFPpvkhT5Q44U+puGFPtbghT6434U+B96FPkDchT4z2oU+UteFPjPVhT5Z1IU+9tOFPuvUhT5q1oU+69eFPs7ZhT6X24U+i9yFPhLdhT5v3oU+i+GFPv\u002fkhT7D5oU+eOeFPpznhT6q54U+BOiFPnbohT7Y6YU+feuFPs7shT5b7oU+vO6FPkfthT6i6oU+QuiFPnLmhT4k5IU+BOKFPtDghT5m4YU+C+SFPsrnhT5o64U+W+2FPhTuhT6P7oU+2e6FPkfvhT4k8IU+dvGFPmHyhT7+8YU+DvGFPgHwhT6i7oU+i+2FPmXshT6T6oU+POmFPkXphT5j6YU+8OmFPoDrhT4i7YU+G+6FPuzuhT6o74U+Q\u002fCFPujwhT5G8YU+9\u002fGFPkbzhT5w9IU+W\u002fWFPmH2hT5P94U+B\u002fiFPqL4hT4v+YU+XfmFPrP4hT7+9oU+Z\u002fWFPtv0hT5i9IU+EvOFPjjyhT7N8YU+a\u002fGFPqTxhT7c8YU+dvKFPq70hT4K94U+m\u002feFPsD3hT4h+IU+7fiFPuf5hT6q+YU+LPiFPrL2hT539YU+hPSFPpXzhT6O8oU+q\u002fGFPpHxhT4Z8oU+1vGFPrfwhT6Q7oU+1OuFPh3phT7P5oU+BuWFPvPjhT4E5IU+quOFPo3ihT7g4IU+6N6FPgjdhT4P24U+btmFPkPZhT4+24U+596FPuvihT6o5oU+CeqFPs3shT6174U+xvKFPp71hT4T+IU+yvmFPu76hT49\u002fIU+hfyFPvP6hT5R+YU+3viFPvn4hT4f+IU+wPaFPmT1hT7+8oU+j\u002fCFPq\u002fvhT5x8IU+xfGFPk7zhT799IU+avaFPur2hT5194U+SfiFPuH3hT7N9oU+M\u002fWFPnjyhT727oU+FuyFPi7qhT4Z6IU+leWFPkjjhT6q4YU+GOGFPj7ghT6g3oU+Mt2FPhHdhT4w3oU+ft+FPqXghT5M4YU+duGFPpHghT7y34U+\u002fuCFPnzhhT7G4IU+yOCFPlfihT7w44U+geWFPpPnhT6S6YU+z+qFPv3rhT5Q7oU+r\u002fGFPhr1hT7e94U+0\u002fmFPh77hT52\u002fIU+rv2FPtj+hT6PAIY+eAKGPu8Dhj5aBIY++AOGPmUChj7VAIY+MQCGPtb\u002fhT7i\u002foU+5vyFPov6hT7U94U+QvWFPhT0hT6F84U+UfKFPo3xhT5f8YU+S\u002fGFPt7xhT6k8oU+d\u002fOFPrP0hT4S9YU+VvOFPorwhT5r7YU+QeqFPq7nhT575YU+UeOFPmHhhT5N4YU+leOFPpPlhT5d5oU+quaFPt\u002fmhT7m5oU+j+eFPizqhT7c7YU+\u002fPCFPoryhT7e8oU+m\u002fOFPnH0hT5A9IU+OPSFPqX0hT7g9IU+Z\u002fSFPhPzhT5o8YU+C++FPlnshT4Q6oU+CeiFPvzlhT475IU+luOFPsvjhT4L5IU+uOOFPljihT624IU+puCFPobhhT5d4oU+cuKFPkrihT5R44U+jOWFPgnnhT7k5oU+SueFPhrohT616IU+NOqFPifthT7P8IU+XfSFPjT4hT4k\u002fIU+k\u002f6FPo7\u002fhT7X\u002f4U+1P2FPg76hT4o9oU+APKFPvbthT4Y6oU+mOeFPsXlhT6W5IU+i+WFPuzmhT7U54U+HeiFPtDohT6u6YU+aumFPnznhT4H5IU+muCFPqTehT413YU+pNuFPoHZhT4014U+\u002fNWFPlrUhT5k0oU+2NCFPi3RhT5p04U+bNWFPjLWhT7S1IU+\u002fdKFPq3ThT501oU+kNmFPvvahT7m24U+Gd6FPiHhhT6q5IU+4OeFPojqhT4H7IU+bu2FPljvhT4s8YU+ofKFPg\u002f1hT5p+IU+HPuFPub8hT53\u002fYU+Pf2FPrD8hT7f\u002fIU+BP+FPskAhj7rAYY+fQSGPiwHhj4gCYY+UAqGPogKhj6JCYY+tweGPlkGhj56BoY+fAeGPhMHhj7hBYY+wASGPpkChj77\u002f4U+zf2FPlv7hT4E+YU+GPiFPjf3hT499YU+F\u002fKFPrLuhT4z7IU+S+uFPsTrhT6k64U+oeqFPvrphT4s6oU+4OuFPqDthT607YU+pO2FPuTuhT4374U+6+6FPtPuhT5m7oU+Ve6FPpTuhT7D7oU+re2FPq\u002frhT4H6YU+E+aFPmXjhT474YU+dOCFPvLghT6Z4oU+3+OFPvPkhT7i5YU+XuWFPrzkhT4+5YU+YuaFPuXmhT5454U+P+mFPlHrhT7U7YU+afCFPp3xhT7B8IU+rO6FPnrshT6Z6oU+U+qFPv7qhT577IU+l++FPgbzhT5X9YU+aPaFPrv2hT6r9oU+a\u002faFPvH1hT789IU+FfOFPjDxhT4074U+V+yFPt3phT6F6IU+jeaFPhjkhT7n4oU+1OOFPk3lhT6F5oU+weaFPrbmhT4J54U+S+eFPt3nhT4Y54U+Z+aFPtfmhT7a54U+uuiFPpTohT7n5oU+FuWFPkXkhT5U44U+RuKFPgrihT6v4oU+ieOFPv3khT7q5oU+z+eFPmznhT7u5YU+s+OFPs\u002fghT5Y3YU+ydiFPmrThT7OzYU+h8aFPhq\u002fhT47uoU+zriFPkO6hT4EvIU+Ub2FPke\u002fhT6uwYU+c8SFPtfHhT5wzYU+ytKFPv\u002fWhT7I24U+NuGFPtzlhT6B6IU+4eqFPjTuhT4A8YU+dfKFPt7zhT5k9oU+bfmFPvv8hT4PAYY+kQSGPl8Hhj56CoY+hg2GPqIQhj5RFIY+4xaGPngXhj70FoY+sxSGPtAQhj5FDIY+AwiGPu8Ehj5rAYY+zPyFPkz5hT6B94U+CPeFPun2hT5b9oU+dvaFPnX2hT6M94U+HPmFPnv5hT7t+IU+4veFPsT3hT5Y+YU+If2FPhYChj4nBoY+bgmGPoMLhj7iCoY+uwmGPpIIhj7vBoY+agWGPm0Ehj6yA4Y+zAKGPn0Chj7wAoY+dQKGPu7\u002fhT6W\u002fIU+WvmFPpr2hT7R84U+pu+FPqjqhT7S5oU+a+SFPsLihT7f4YU+KeKFPsrjhT4v5YU+geWFPv\u002flhT5u54U+S+iFPlnphT4X64U+vu2FPlrxhT6H9YU+tfmFPpz8hT4G\u002f4U+9QGGPjUEhj7ZBIY+2AWGPmUIhj6kCYY+IwmGPiYIhj6aBIY+IAGGPkH\u002fhT7G\u002fYU+pPuFPo\u002f4hT6T9YU+5vGFPpLuhT6F7YU+Bu6FPlHwhT7f8oU+oPSFPg73hT4s+YU+yfqFPij+hT4+AoY+xwOGPnUDhj4kA4Y+OQKGPtT\u002fhT7o+oU+wvSFPrnvhT7T64U+yuiFPrTnhT4L54U+hOWFPlbkhT5c5IU++uWFPi7ohT6o6YU+yeqFPo\u002fphT565oU+OOWFPpfjhT6t4YU+MuGFPjffhT4j3IU+l9qFPlvZhT462YU+5NqFPhjbhT7B2YU+idmFPiPahT5724U+nd2FPlbghT4Q44U+1OSFPrPlhT5G5YU+lOSFPtLlhT4S54U+iueFPjzlhT5i4IU+s9yFPurahT702YU+kNeFPkjVhT5V1IU+JtSFPkTWhT522YU+SdyFPrHehT5k4IU+Z+GFPrbhhT5W4IU+r9yFPkTahT4Z2oU+DtyFPprhhT4R6IU+Au6FPnHzhT6Y94U+N\u002fqFPrn7hT68\u002fYU+rwCGPsgEhj5RCIY+4gmGPhcJhj5XBoY+OAOGPvn\u002fhT46\u002fYU+jfqFPib3hT7t9IU+tfKFPvnvhT7v7YU+XuuFPpznhT4+5IU+xuGFPiPfhT5J3YU+Vd2FPiLdhT7p3IU+N92FPk\u002fchT7v24U+PNyFPiXchT5a3YU+FOCFPrvghT7W4IU+2eGFPozhhT4M4oU+leSFPgzphT4t7oU++fGFPoP1hT5b+YU+Cf2FPin\u002fhT7x\u002f4U+vgGGPswDhj7kA4Y+pwGGPtz\u002fhT7j\u002foU+bv2FPov7hT6\u002f+IU+m\u002faFPpf1hT4o84U+Ye+FPgDshT4r6IU+5uOFPu3dhT6314U+UtOFPh\u002fPhT5UzIU+5suFPojPhT4H1YU+mNmFPofchT6F3YU+wd2FPiXdhT703YU+CeGFPhLlhT626IU+XuuFPvrthT7h8IU+"},"type":"scatter3d"},{"marker":{"color":"red","size":5},"mode":"markers","x":[2.0],"y":[1.0],"z":[0.2697848975658417],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"scene":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"xaxis":{"title":{"text":"intensity"}},"yaxis":{"title":{"text":"radius"}},"zaxis":{"title":{"text":"scale"}},"aspectmode":"cube"},"legend":{"tracegroupgap":0},"margin":{"t":30,"l":10,"r":10,"b":10},"width":700,"height":500,"title":{"text":"Theta Trajectory vs Theoretical Solution"},"showlegend":false},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('81d5fad7-6a5c-4e70-861a-539a7efee210');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<div id="0f03df8f" class="cell" data-execution_count="32">
+<details class="code-fold">
+<summary>Neural Network definition and Training</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">class</span> MyNN(torch.nn.Module):</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb13-5"><a href="#cb13-5"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb13-6"><a href="#cb13-6"></a>        <span class="va">self</span>.net <span class="op">=</span> torch.nn.Sequential(</span>
+<span id="cb13-7"><a href="#cb13-7"></a>            torch.nn.Linear(<span class="dv">2</span>, <span class="dv">16</span>),</span>
+<span id="cb13-8"><a href="#cb13-8"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-9"><a href="#cb13-9"></a>            torch.nn.Linear(<span class="dv">16</span>, <span class="dv">128</span>),</span>
+<span id="cb13-10"><a href="#cb13-10"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-11"><a href="#cb13-11"></a>            torch.nn.Linear(<span class="dv">128</span>, <span class="dv">128</span>),</span>
+<span id="cb13-12"><a href="#cb13-12"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-13"><a href="#cb13-13"></a>            torch.nn.Linear(<span class="dv">128</span>, <span class="dv">128</span>),</span>
+<span id="cb13-14"><a href="#cb13-14"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-15"><a href="#cb13-15"></a>            torch.nn.Linear(<span class="dv">128</span>, <span class="dv">16</span>),</span>
+<span id="cb13-16"><a href="#cb13-16"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-17"><a href="#cb13-17"></a>            torch.nn.Linear(<span class="dv">16</span>, <span class="dv">4</span>),</span>
+<span id="cb13-18"><a href="#cb13-18"></a>            torch.nn.Tanh(),</span>
+<span id="cb13-19"><a href="#cb13-19"></a>            torch.nn.Linear(<span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb13-20"><a href="#cb13-20"></a>        )</span>
+<span id="cb13-21"><a href="#cb13-21"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb13-22"><a href="#cb13-22"></a>        <span class="cf">return</span> <span class="va">self</span>.net(x).squeeze(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb13-23"><a href="#cb13-23"></a></span>
+<span id="cb13-24"><a href="#cb13-24"></a><span class="co"># model</span></span>
+<span id="cb13-25"><a href="#cb13-25"></a>model <span class="op">=</span> MyNN()</span>
+<span id="cb13-26"><a href="#cb13-26"></a>model.train()</span>
+<span id="cb13-27"><a href="#cb13-27"></a></span>
+<span id="cb13-28"><a href="#cb13-28"></a><span class="co"># training</span></span>
+<span id="cb13-29"><a href="#cb13-29"></a>l1_list, l2_list, loss_list <span class="op">=</span> algorithm_1(model, <span class="fl">0.8</span>, <span class="dv">256</span>, <span class="fl">0.8</span>, <span class="dv">512</span>, <span class="dv">200</span>, <span class="dv">10</span>)</span>
+<span id="cb13-30"><a href="#cb13-30"></a></span>
+<span id="cb13-31"><a href="#cb13-31"></a><span class="co"># plot evolution of the losses</span></span>
+<span id="cb13-32"><a href="#cb13-32"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb13-33"><a href="#cb13-33"></a>ax.plot(loss_list, label<span class="op">=</span><span class="st">'Total Loss'</span>)</span>
+<span id="cb13-34"><a href="#cb13-34"></a>ax.plot(l1_list, label<span class="op">=</span><span class="st">'PDE Loss'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb13-35"><a href="#cb13-35"></a>ax.plot(l2_list, label<span class="op">=</span><span class="st">'Data Loss'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb13-36"><a href="#cb13-36"></a>ax.set_xlabel(<span class="st">'Epoch'</span>)</span>
+<span id="cb13-37"><a href="#cb13-37"></a>ax.set_ylabel(<span class="st">'Loss'</span>)</span>
+<span id="cb13-38"><a href="#cb13-38"></a>ax.set_title(<span class="st">'Loss Evolution'</span>)</span>
+<span id="cb13-39"><a href="#cb13-39"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb13-40"><a href="#cb13-40"></a>ax.legend()</span>
+<span id="cb13-41"><a href="#cb13-41"></a>plt.tight_layout()</span>
+<span id="cb13-42"><a href="#cb13-42"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"335482844da04dfa9f0cab922d8f2be6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"f1caf0acc34b4c45886549933c5f3b77","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"7e2d076d07c54d3c912acc3314e04c92","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"cb3bd9a334c343dd9015b6d4cb04913b","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"1f03a27dca614fa495a676cae5137e47","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"a3195bc14e504ebf973f41396dbd9815","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"5d2eb33a95914b45a4e4f2c059799bd4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"7eaa8ba34ffe48d98f05044c10f01206","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"2458737805f14b0e84a6790fa13df663","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"8ef16f53ad7a4043ada28585c6c66fa9","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"e549c49905aa4b27b3d1209e8785005c","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-14-output-12.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="c79ad446" class="cell" data-execution_count="33">
+<details class="code-fold">
+<summary>Plot the final solution</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># plot the final solution</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb14-3"><a href="#cb14-3"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>hx, hy <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span>r,r,hx)</span>
+<span id="cb14-7"><a href="#cb14-7"></a>y <span class="op">=</span> torch.linspace(<span class="op">-</span>r,r,hy)</span>
+<span id="cb14-8"><a href="#cb14-8"></a>x,y <span class="op">=</span> torch.meshgrid(x,y, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9"></a>xy <span class="op">=</span> torch.stack((x,y), dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>sol <span class="op">=</span> method(xy.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>)).reshape(hx,hy)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>app <span class="op">=</span> model(xy).reshape(hx,hy)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># genero 2 subplot, uno con la soluzione teorica e uno con la soluzione approssimata</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
+<span id="cb14-15"><a href="#cb14-15"></a>imsol <span class="op">=</span> ax[<span class="dv">0</span>].imshow(</span>
+<span id="cb14-16"><a href="#cb14-16"></a>    sol.detach().numpy(),</span>
+<span id="cb14-17"><a href="#cb14-17"></a>    cmap<span class="op">=</span><span class="st">'viridis'</span>,</span>
+<span id="cb14-18"><a href="#cb14-18"></a>    extent<span class="op">=</span>[<span class="op">-</span>r,r,<span class="op">-</span>r,r],</span>
+<span id="cb14-19"><a href="#cb14-19"></a>    vmin<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb14-20"><a href="#cb14-20"></a>    aspect<span class="op">=</span><span class="st">'equal'</span></span>
+<span id="cb14-21"><a href="#cb14-21"></a>)</span>
+<span id="cb14-22"><a href="#cb14-22"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Method Output'</span>)</span>
+<span id="cb14-23"><a href="#cb14-23"></a>fig.colorbar(imsol, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
+<span id="cb14-24"><a href="#cb14-24"></a></span>
+<span id="cb14-25"><a href="#cb14-25"></a>imapp <span class="op">=</span> ax[<span class="dv">1</span>].imshow(</span>
+<span id="cb14-26"><a href="#cb14-26"></a>    app.detach().numpy(),</span>
+<span id="cb14-27"><a href="#cb14-27"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb14-28"><a href="#cb14-28"></a>    extent<span class="op">=</span>[<span class="op">-</span>r, r, <span class="op">-</span>r, r],</span>
+<span id="cb14-29"><a href="#cb14-29"></a>    vmin<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb14-30"><a href="#cb14-30"></a>    aspect<span class="op">=</span><span class="st">"equal"</span></span>
+<span id="cb14-31"><a href="#cb14-31"></a>)</span>
+<span id="cb14-32"><a href="#cb14-32"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Model Output'</span>)</span>
+<span id="cb14-33"><a href="#cb14-33"></a></span>
+<span id="cb14-34"><a href="#cb14-34"></a><span class="co"># insert colorbar</span></span>
+<span id="cb14-35"><a href="#cb14-35"></a>fig.colorbar(imapp, ax<span class="op">=</span>ax[<span class="dv">1</span>])</span>
+<span id="cb14-36"><a href="#cb14-36"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/StefanoMagriniAlunno\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Stefano Magrini Alunno</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

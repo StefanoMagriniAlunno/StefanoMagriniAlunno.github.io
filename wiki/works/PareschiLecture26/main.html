@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>main – Stefano Magrini Alunno</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cac0433bb97fa58dc0fc6599c25c149a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-d34ec0ee24c3a79fe80f8b1f132259e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="google-site-verification" content="xPmUsSVlvFsBnebW1VBvnARMf01L-lCjemevT1oJ2Pw">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Stefano Magrini Alunno</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">CV &amp; Bio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../wiki/index.html"> 
+<span class="menu-text">Wiki &amp; Notebooks</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/StefanoMagriniAlunno"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/stefano-magrini-alunno-6594a5241"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#project" id="toc-project" class="nav-link active" data-scroll-target="#project">Project</a>
+  <ul class="collapse">
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents:</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction </a><a name="introduction" class="nav-link" data-scroll-target="undefined"></a></li>
+  <li><a href="#other-works" id="toc-other-works" class="nav-link" data-scroll-target="#other-works">Other Works </a><a name="other-works" class="nav-link" data-scroll-target="undefined"></a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation </a><a name="implementation" class="nav-link" data-scroll-target="undefined"></a></li>
+  <li><a href="#imex-net" id="toc-imex-net" class="nav-link" data-scroll-target="#imex-net">IMEX-Net </a><a name="imex-net" class="nav-link" data-scroll-target="undefined"></a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<p><a href="../index.qmd">← Back to article notes</a></p>
+<section id="project" class="level1">
+<h1>Project</h1>
+<section id="table-of-contents" class="level2">
+<h2 data-anchor-id="table-of-contents">Table of Contents:</h2>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li>Inviscid Burgers’ equation</li>
+<li>Viscous Burgers’ equation and Jin-Xin’s model</li>
+</ul></li>
+<li><a href="#other-works">Other Works</a>
+<ul>
+<li>IMEX methods</li>
+<li>RelaxNN architectures</li>
+</ul></li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li>IMEX RK schemes</li>
+<li>RelaxNN</li>
+</ul></li>
+<li><a href="#imex-net">IMEX-Net</a></li>
+</ul>
+</section>
+<section id="introduction" class="level2">
+<h2 data-anchor-id="introduction">Introduction <a name="introduction"></a></h2>
+<p>Let <span class="math inline">\(u\in C^1\left(\mathbb{R}\times\mathbb{R}^+;\mathbb{R}\right)\)</span> be the state variable of the equation, and <span class="math inline">\(f\in C^1\left(\mathbb{R};\mathbb{R}\right)\)</span> be the flux function (in the classical definition, <span class="math inline">\(f(u)=\frac12 u^2\)</span>). The inviscid Burgers’ equation is defined as follows:</p>
+<p><span class="math display">\[\partial_t u + \partial_x f(u) = 0\]</span></p>
+<section id="shockwaves-and-information" class="level3">
+<h3 data-anchor-id="shockwaves-and-information">Shockwaves and Information</h3>
+<p>Given a characteristic curve <span class="math inline">\(\varphi(t)\)</span> with initial value <span class="math inline">\(u_0=u(\varphi(0),0)\)</span>, we observe that:</p>
+<p><span class="math display">\[
+\begin{align*}
+&amp;\partial_t u\left(\varphi(t),t\right) + \partial_x f\left(u\right)\left(\varphi(t),t\right) = 0\\
+&amp;0 = \frac{\mathrm{d} u\left(\varphi(t),t\right)}{\mathrm{d}t} = {\partial_t u}\left(\varphi(t),t\right) + \varphi'(t){\partial_x u}\left(\varphi(t),t\right)
+\end{align*}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\varphi'(t)=\frac{\partial_x f\left(u\right)}{\partial_x u}\left(\varphi(t),t\right) = f'(u\left(\varphi(t),t\right)) = f'(u_0)\)</span>.</p>
+<p>When two characteristic curves carrying different states meet, a shockwave is formed. This occurs when there exist initial points <span class="math inline">\(x_0 &lt; x_1\)</span> such that <span class="math inline">\(f'(u_0)&gt;f'(u_1)\)</span>. Specifically, the information originating from <span class="math inline">\(x_0\)</span> collides with that of <span class="math inline">\(x_1\)</span> at time <span class="math inline">\(t_\textrm{shock} = \frac{x_1-x_0}{f'(u_0) - f'(u_1)}\)</span>, provided the respective information survives until this time without being absorbed by other interactions.</p>
+<p>Shockwaves’ dynamics: Let <span class="math inline">\(x_s(t)\)</span> be the position of a shockwave separating the states <span class="math inline">\(u_L\)</span> and <span class="math inline">\(u_R\)</span>. Given a control volume <span class="math inline">\([x_1,x_2]\)</span> such that <span class="math inline">\(x_s(t)\in[x_1,x_2]\)</span>, we observe that:</p>
+<p><span class="math display">\[\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}t} \int_{x_1}^{x_s(t)} u(x,t) dx &amp;= \int_{x_1}^{x_s(t)}\partial_t udx + u_L\frac{\mathrm{d}x_s(t)}{\mathrm{d}t}
+    \\
+    \frac{\mathrm{d}}{\mathrm{d}t} \int_{x_s(t)}^{x_2} u(x,t) dx &amp;= \int_{x_s(t)}^{x_2}\partial_t udx - u_R\frac{\mathrm{d}x_s(t)}{\mathrm{d}t}
+    \end{align*}\]</span></p>
+<p>And thus:</p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t} \int_{x_1}^{x_2} u(x,t) dx = \int_{x_1}^{x_2}\partial_t udx + \left(u_L - u_R\right)\frac{\mathrm{d}x_s(t)}{\mathrm{d}t}\]</span></p>
+<p>From the conservation law in integral form, we also have:</p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t} \int_{x_1}^{x_2} u(x,t) dx = f(u_L) - f(u_R)\]</span></p>
+<p>Taking the limit as the spatial interval shrinks to the shock position <span class="math inline">\(x_1 \to x_s(t)\)</span> and <span class="math inline">\(x_2 \to x_s(t)\)</span>, the integrals of the partial derivatives vanish, yielding the Rankine-Hugoniot jump condition:</p>
+<p><span class="math display">\[\begin{align*}
+    \left(u_L - u_R\right)\frac{\mathrm{d}x_s(t)}{\mathrm{d}t} &amp;= f(u_L) - f(u_R)
+    \\
+    x_s'(t)=\frac{\mathrm{d}x_s(t)}{\mathrm{d}t} &amp;= \frac{f(u_L) - f(u_R)}{u_L - u_R}
+    \end{align*}\]</span></p>
+</section>
+<section id="loss-of-information" class="level3">
+<h3 data-anchor-id="loss-of-information">Loss of information</h3>
+<p>Assuming that <span class="math inline">\(f\)</span> is a strictly convex function, the Lax entropy condition ensures that <span class="math inline">\(x_s'(t)\in\left[f'(u_R),f'(u_L)\right]\)</span>. The shockwave “absorbs” the information carried by the characteristic curves. We can compute the relative rates at which the shockwave overtakes the surrounding information as follows:</p>
+<p><span class="math display">\[r_L(t) = f'(u_L(t)) - x_s'(t), \quad r_R(t) = x_s'(t) - f'(u_R(t))\]</span></p>
+<p>This irreversible absorption is the basis of the entropy analysis for this equation. In particular, a physical shockwave increases the entropy of the system, making it impossible to perfectly reconstruct the previous exact information backward in time.</p>
+</section>
+<section id="summary-of-the-dynamics" class="level3">
+<h3 data-anchor-id="summary-of-the-dynamics">Summary of the Dynamics</h3>
+<ul>
+<li><p><strong>Velocity of the information:</strong> <br> <span class="math inline">\(\frac{\mathrm{d}\varphi(t)}{\mathrm{d}t} = \varphi'(t) = f'(u_0)\)</span> where <span class="math inline">\(u_0=u(\varphi(0),0)\)</span>.</p></li>
+<li><p><strong>Velocity of a shockwave:</strong> <br> <span class="math inline">\(\frac{\mathrm{d} x_s(t)}{\mathrm{d}t} = x_s'(t) = \frac{f(u_L)-f(u_R)}{u_L-u_R}\)</span> where <span class="math inline">\(u_L, u_R\)</span> are the boundary values at the shock.</p></li>
+<li><p>A shockwave irreversibly erases local information over time.</p></li>
+</ul>
+</section>
+<section id="viscosity-and-the-jin-xin-model" class="level3">
+<h3 data-anchor-id="viscosity-and-the-jin-xin-model">Viscosity and the Jin-Xin model</h3>
+<p>The main variant of the inviscid Burgers’ equation is the viscous Burgers’ model, defined as follows:</p>
+<p><span class="math display">\[\partial_t u + \partial_x f(u) = \nu\partial_{xx} u\]</span></p>
+<p>This is a parabolic equation due to the second-order viscous term.</p>
+<p>The Jin-Xin model is a hyperbolic relaxation system that implicitly acts as a viscous approximation of the Burgers’ equation. It is defined as follows:</p>
+<p><span class="math display">\[\begin{cases}
+        \partial_t u + \partial_x v = 0\\
+        \partial_t v + a \partial_x u = -\frac1\varepsilon\left(v-f(u)\right)
+    \end{cases}\]</span></p>
+<p>Using the Chapman-Enskog expansion, we can link the Jin-Xin model with the viscous Burgers’ equation. Let <span class="math inline">\(u, v\)</span> be the solutions parameterized by the relaxation time <span class="math inline">\(\varepsilon\)</span>. We expand the flux <span class="math inline">\(v\)</span> as <span class="math inline">\(v=v_0+\varepsilon v_1 + \varepsilon^2 v_2 + \mathcal{O}\left(\varepsilon^3\right)\)</span>:</p>
+<p><span class="math display">\[
+\begin{cases}
+    \partial_t u + \partial_x \left(v_0+\varepsilon v_1+\mathcal{O}\left(\varepsilon^2\right)\right) = 0\\
+    v_0+\varepsilon v_1 + \mathcal{O}\left(\varepsilon^2\right) = f(u) - \varepsilon\left(\partial_t \left(v_0+\varepsilon v_1+\mathcal{O}\left(\varepsilon^2\right)\right) + a \partial_x u\right)
+\end{cases}
+\]</span></p>
+<p>By matching the <span class="math inline">\(\mathcal{O}(1)\)</span> terms, we get the first-order local equilibrium:</p>
+<p><span class="math display">\[\begin{cases}
+        \partial_t u + \partial_x \left(v_0\right) = 0\\
+        v_0 = f(u)
+    \end{cases} \quad (\textrm{Zeroth order})\]</span></p>
+<p>Using this zeroth-order approximation, we evaluate the <span class="math inline">\(\mathcal{O}(\varepsilon)\)</span> correction term:</p>
+<p><span class="math display">\[\begin{align*}
+        v_1 &amp;= - \left(\partial_t v_0 + a \partial_x u\right)\\
+            &amp;= - \left(f'(u)\partial_t u + a \partial_x u\right)\\
+            &amp;= - \left(f'(u)\left(-\partial_x v_0\right) + a \partial_x u\right)\\
+            &amp;= - \left(f'(u)\left(-f'(u)\partial_x u\right) + a \partial_x u\right)\\
+            &amp;= - \left(a - \left(f'(u)\right)^2\right)\partial_x u
+    \end{align*}\]</span></p>
+<p>Thus, the flux up to the first order is:</p>
+<p><span class="math display">\[v \approx v_0 + \varepsilon v_1 = f(u) - \varepsilon \left(a - \left(f'(u)\right)^2\right)\partial_x u\]</span></p>
+<p>Substituting this back into the first equation yields:</p>
+<p><span class="math display">\[
+\begin{align*}
+    &amp;\partial_t u + \partial_x \left(f(u) - \varepsilon \left(a - \left(f'(u)\right)^2\right)\partial_x u\right) \approx 0\\
+    &amp;\partial_t u + \partial_x f(u) \approx \varepsilon \partial_x\left(\left(a - \left(f'(u)\right)^2\right)\partial_x u\right)
+\end{align*}
+\]</span></p>
+<p>The effective viscosity coefficient depends on <span class="math inline">\(u\)</span> and is defined as follows:</p>
+<p><span class="math display">\[\nu(u) = \varepsilon \left(a - \left(f'(u)\right)^2\right)\]</span></p>
+<p>Depending on the sign of this coefficient, we recognize two regimes:</p>
+<ul>
+<li><p><strong>Anti-diffusion:</strong> <span class="math inline">\(a &lt; \left(f'(u)\right)^2\)</span>. The viscosity is negative, and the problem is ill-posed (exponentially unstable).</p></li>
+<li><p><strong>Sub-characteristic condition:</strong> <span class="math inline">\(a &gt; \left(f'(u)\right)^2\)</span>. The viscosity is strictly positive, which is required for a physically and mathematically well-posed problem.</p></li>
+</ul>
+</section>
+<section id="summary" class="level3">
+<h3 data-anchor-id="summary">Summary:</h3>
+<ul>
+<li><p>The viscous Burgers’ model is defined as <span class="math inline">\(\partial_t u + \partial_x f(u) = \nu\partial_{xx} u\)</span></p></li>
+<li><p>The Jin-Xin’s model behaves asymptotically (<span class="math inline">\(\varepsilon \to 0\)</span>) as <span class="math inline">\(\partial_t u + \partial_x f(u) \approx \partial_x \left(\nu(u)\partial_x u\right)\)</span>, where <span class="math inline">\(\nu(u)=\varepsilon \left(a - \left(f'(u)\right)^2\right)\)</span>.</p></li>
+<li><p>The viscous Burgers’ model is a parabolic equation.</p></li>
+<li><p>The Jin-Xin’s model remains a strictly hyperbolic system.</p></li>
+<li><p>We require the sub-characteristic condition <span class="math inline">\(a &gt; \left(f'(u)\right)^2\)</span> to guarantee stability.</p></li>
+</ul>
+</section>
+<section id="physics-informed-neural-networks-pinns-analysis" class="level3">
+<h3 data-anchor-id="physics-informed-neural-networks-pinns-analysis">Physics-Informed Neural Networks (PINNs) Analysis</h3>
+<p>If we want to implement a PINN for one of these models (inviscid Burgers, viscous Burgers, or Jin-Xin), we observe the following architectural challenges:</p>
+<ul>
+<li><p><strong>Inviscid Burgers:</strong> A PINN is inherently a continuous function and struggles to learn high-frequency features. A perfect discontinuity can only be approximated by infinitely high frequencies (spectral bias problem). Even if the neural network manages to approximate a sharp gradient, the spatial derivative explodes, leading to an explosion of the local PDE residual during training.</p></li>
+<li><p><strong>Viscous Burgers:</strong> The computation of the second derivative (<span class="math inline">\(\partial_{xx} u\)</span>) via automatic differentiation is computationally demanding and scales poorly. Furthermore, second-order derivatives heavily amplify the noise, increasing the complexity and non-convexity of the loss landscape.</p></li>
+<li><p><strong>Jin-Xin:</strong> This system solves the aforementioned drawbacks by maintaining a first-order structure and yielding smooth solutions. However, when trying to capture the inviscid limit (<span class="math inline">\(\varepsilon \approx 0\)</span>), the source term <span class="math inline">\(\frac{1}{\varepsilon}\)</span> diverges, leading once again to gradient explosion (stiffness) and requiring Asymptotic-Preserving formulations.</p></li>
+</ul>
+<div id="4163ee09" class="cell" data-execution_count="126">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="9d3ff17a" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Simulating Model 1: Jin-Xin...
+Simulating Model 2: Burgers with Chapman-Enskog Viscosity...
+Simulating Model 3: Burgers with Classical Viscosity (nu = eps*a)...
+Simulating Model 4: Inviscid Burgers (nu = 0)...</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="other-works" class="level2">
+<h2 data-anchor-id="other-works">Other Works <a name="other-works"></a></h2>
+<p>In the literature, we find two main classes of schemes to solve the Jin-Xin model: classical numerical schemes and Physics-Informed Neural Networks (PINNs). Here are the state-of-the-art examples for both approaches:</p>
+<ul>
+<li><p><strong>Implicit-Explicit (IMEX) schemes:</strong> These methods treat the non-stiff differential part explicitly (avoiding costly nonlinear system inversions) and the stiff relaxation term implicitly. A properly designed IMEX scheme possesses the Asymptotic-Preserving (AP) property: it transitions seamlessly to a consistent and stable macroscopic solver for the inviscid Burgers’ equation as <span class="math inline">\(\varepsilon \to 0\)</span>, without suffering from restrictive CFL constraints.</p></li>
+<li><p><strong>RelaxNN (Relaxation Neural Networks):</strong> Representing the current state-of-the-art for hyperbolic relaxation in SciML, RelaxNN frameworks fundamentally reformulate the PDE residuals to bypass the stiffness. Instead of dividing by <span class="math inline">\(\varepsilon\)</span>, the residuals are scaled appropriately (e.g., multiplying the governing equations by <span class="math inline">\(\varepsilon\)</span> or reformulating the loss to separate the equilibrium penalty from the flux gradient). This balancing act equalizes the backpropagated gradients, preventing the Neural Tangent Kernel (NTK) from diverging and allowing the network to uniformly converge to the correct shock profile independently of the magnitude of the relaxation time.</p></li>
+</ul>
+<section id="imex-methods" class="level3">
+<h3 data-anchor-id="imex-methods">IMEX Methods</h3>
+<p>A first-order IMEX method for the Jin-Xin system can be described as follows: <span class="math display">\[
+    \begin{cases}
+        \frac{u^{n+1} - u^{n}}{\Delta t} + \partial_x v^{n} = 0
+        \\
+        \frac{v^{n+1}-v^{n}}{\Delta t} + a \partial_x u^{n} = -\frac1\varepsilon \left(v^{n+1}-f(u^{n+1})\right)
+    \end{cases}
+\]</span> In particular, we apply an explicit scheme for the first equation (transport term) to compute <span class="math inline">\(u^{n+1}\)</span>, and then an implicit scheme for the second equation to compute <span class="math inline">\(v^{n+1}\)</span> evaluating the stiff relaxation term at the new time step.</p>
+<p><strong>Drawbacks:</strong> - Designing high-order IMEX Runge-Kutta methods that are rigorously AP and uniformly stable is algebraically complex.</p>
+</section>
+<section id="relaxnn-architecture" class="level3">
+<h3 data-anchor-id="relaxnn-architecture">RelaxNN Architecture</h3>
+<p>The standard approach for a PINN requires the formulation of a physical loss function. For the Jin-Xin relaxation equation, it contains the following residual:</p>
+<p><span class="math display">\[\mathcal{R}_{standard} = \partial_t v + a \partial_x u + \frac{1}{\varepsilon} \left(v-f(u)\right)\]</span></p>
+<p>However, if <span class="math inline">\(\varepsilon \ll 1\)</span>, the training process is completely dominated by the penalty term <span class="math inline">\(\frac{1}{\varepsilon}(v-f(u))\)</span>. The optimizer ignores the differential operators, severely degrading the performance of the training and leading to the so-called Gradient Pathology.</p>
+<p>To overcome this, the current state-of-the-art relies on a Macro-Micro decomposition, employing two separate neural networks (or two distinct outputs). We define the perturbation <span class="math inline">\(w\)</span> as follows:</p>
+<p><span class="math display">\[v = f(u) - \varepsilon\left(\partial_t v + a \partial_x u\right) = f(u) + \varepsilon w\]</span></p>
+<p>where <span class="math inline">\(w\)</span> is another function that describes the microscopic perturbation of <span class="math inline">\(v\)</span> from the local equilibrium flux <span class="math inline">\(f(u)\)</span>.</p>
+<p>Instead of estimating <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> directly, we estimate <span class="math inline">\(u\)</span> and <span class="math inline">\(w\)</span> to reconstruct the original variables. We can rewrite the Jin-Xin model using these new coordinates:</p>
+<p><span class="math display">\[\begin{cases}
+        \begin{aligned}
+            0 &amp;= \partial_t u + \partial_x v \\
+              &amp;= \partial_t u + \partial_x \left(f(u) + \varepsilon w\right) \\
+              &amp;= \partial_t u + \partial_x f(u) + \varepsilon \partial_x w
+        \end{aligned}
+        \\[10pt]
+        \begin{aligned}
+            -w &amp;= - \frac{1}{\varepsilon}\left(f(u) + \varepsilon w - f(u)\right) \\
+               &amp;= - \frac{1}{\varepsilon}\left(v - f(u)\right) \\
+               &amp;= \partial_t v + a\partial_x u \\
+               &amp;= \partial_t \left(f(u) + \varepsilon w\right) + a\partial_x u \\
+               &amp;= \partial_t f(u) + \varepsilon \partial_t w + a\partial_x u
+        \end{aligned}
+    \end{cases}\]</span></p>
+<p>The final Macro-Micro model becomes:</p>
+<p><span class="math display">\[\begin{cases}
+        \partial_t u + \partial_x f(u) + \varepsilon \partial_x w = 0
+        \\[6pt]
+        w + \partial_t f(u) + a\partial_x u + \varepsilon \partial_t w = 0
+    \end{cases}\]</span></p>
+<p>This represents an APNN (Asymptotic-Preserving Neural Network) formulation. Indeed, as <span class="math inline">\(\varepsilon \to 0\)</span>, the singularity <span class="math inline">\(\frac{1}{\varepsilon}\)</span> has completely disappeared from the loss function, and we perfectly recover the asymptotic limit: <span class="math display">\[
+    \begin{cases}
+        \partial_t u + \partial_x f(u) = 0 &amp; (\textrm{Inviscid Burgers' Equation})
+        \\[6pt]
+        w = -\left(\partial_t f(u) + a\partial_x u\right) &amp; (\textrm{Micro Equation})
+    \end{cases}
+\]</span></p>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li><p><strong>Computational Cost:</strong> Training a PINN involves minimizing a highly non-convex loss function over many epochs, making it significantly more computationally expensive than the sequential time-stepping of a classical numerical scheme.</p></li>
+<li><p><strong>Residual Spectral Bias:</strong> Although RelaxNN solves the gradient pathology, neural networks inherently struggle to represent perfect mathematical discontinuities (like a pure Heaviside step at <span class="math inline">\(\varepsilon=0\)</span>). The network output will typically exhibit a slightly smoothed shock profile.</p></li>
+<li><p><strong>Hyperparameter Sensitivity:</strong> Balancing the loss weights between the macroscopic network, microscopic network, and boundary/initial conditions requires meticulous tuning.</p></li>
+</ul>
+</section>
+<section id="summary-1" class="level3">
+<h3 data-anchor-id="summary-1">Summary</h3>
+<p>To highlight the structural differences between these state-of-the-art approaches, we compare them across several critical dimensions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>IMEX</th>
+<th>RelaxNN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Asymptotic-Preserving (AP)</td>
+<td>Requires highly complex algebraic design to satisfy stiff accuracy conditions (e.g., specific Butcher tableaus).</td>
+<td>Naturally and elegantly achieved through architectural design (Macro-Micro analytical splitting).</td>
+</tr>
+<tr class="even">
+<td>Computational Cost</td>
+<td>Extremely fast and efficient for a single forward simulation.</td>
+<td>Expensive and time-consuming to train. However, once trained, inference is exceptionally fast and allows continuous evaluations.</td>
+</tr>
+<tr class="odd">
+<td>Accuracy &amp; Shockwaves</td>
+<td>High accuracy relies on advanced shock-capturing limiters (e.g., WENO, TVD). Prone to numerical diffusion or dispersion at low resolution.</td>
+<td>Provides a globally continuous analytical approximation. Suffers from spectral bias, rendering shocks slightly smoother than classical schemes but inherently avoiding Gibbs oscillations.</td>
+</tr>
+<tr class="even">
+<td>Grid Dependence</td>
+<td>Grid-dependent. Subjected to CFL constraints (though relaxed by implicit terms).</td>
+<td>Completely mesh-free. The solution can be evaluated at any arbitrary, continuous spatiotemporal coordinate.</td>
+</tr>
+<tr class="odd">
+<td>Dimensionality &amp; Scaling</td>
+<td>Suffers drastically from the “curse of dimensionality”.</td>
+<td>Scales exceptionally well to high-dimensional PDEs and inverse problems (parameter estimation).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="remarks-on-high-dimensionality" class="level3">
+<h3 data-anchor-id="remarks-on-high-dimensionality">Remarks on High-Dimensionality</h3>
+<p>A notable advantage of applying PINN-based approaches like RelaxNN is their scalability to higher dimensions. The multi-dimensional Jin-Xin model is defined as: <span class="math display">\[
+    \begin{cases}
+        \partial_t u + \nabla_x \cdot v = 0
+        \\
+        \partial_t v + D \nabla_x u = -\frac1\varepsilon\left(v - f(u)\right)
+    \end{cases}
+\]</span> where <span class="math inline">\(x \in \mathbb{R}^n\)</span>, the state variable is <span class="math inline">\(u: \mathbb{R}^n \times \mathbb{R}^+ \to \mathbb{R}\)</span>, the flux variable is a vector field <span class="math inline">\(v: \mathbb{R}^n \times \mathbb{R}^+ \to \mathbb{R}^n\)</span>, and <span class="math inline">\(f(u) = (f_1(u), \dots, f_n(u))^T\)</span>. To ensure strict hyperbolicity and physical stability, <span class="math inline">\(D \in \mathbb{R}^{n\times n}\)</span> must be a diagonal positive-definite matrix <span class="math inline">\(D = \text{diag}(d_1, \dots, d_n)\)</span> satisfying the sub-characteristic condition for each spatial dimension: <span class="math display">\[d_i &gt; (f_i'(u))^2 \quad \text{for } i = 1, \dots, n\]</span></p>
+<p>The PDE of the RelaxNN will be: <span class="math display">\[
+\begin{align*}
+    &amp;\begin{cases}
+        \partial_t u + \nabla_x \cdot \left(f(u) + \varepsilon w\right) = 0
+        \\
+        \partial_t \left(f(u) + \varepsilon w\right) + D \nabla_x u = -\frac1\varepsilon\left(\left(f(u) + \varepsilon w\right) - f(u)\right)
+    \end{cases}\\
+    &amp;\begin{cases}
+        \partial_t u + \nabla_x \cdot f(u) = -\varepsilon\nabla_x \cdot w
+        \\
+        w = -\partial_t f(u) - \varepsilon \partial_t w - D \nabla_x u
+    \end{cases}
+\end{align*}
+\]</span> with limit: <span class="math display">\[
+    \begin{cases}
+        \partial_t u + \nabla_x \cdot f(u) = 0
+        \\
+        w = -\partial_t f(u) - D \nabla_x u
+    \end{cases}
+\]</span></p>
+</section>
+</section>
+<section id="implementation" class="level2">
+<h2 data-anchor-id="implementation">Implementation <a name="implementation"></a></h2>
+<section id="imex-1d" class="level3">
+<h3 data-anchor-id="imex-1d">IMEX 1D</h3>
+<p>In this implementation we use the Rusanov flux for the computation of <span class="math inline">\(\partial_x u\)</span> and <span class="math inline">\(\partial_x v\)</span>. For this purpose, we rewrite the Jin-Xin model as follows: <span class="math display">\[
+    \partial_t U + \partial_x F(U) = h(U)
+\]</span> where: <span class="math inline">\(U=(u,v)\)</span>, <span class="math inline">\(F(U)=(v,au)\)</span>, <span class="math inline">\(h(U)=\left(0,-\frac1\varepsilon\left(v-f(u)\right)\right)\)</span>.</p>
+<p>The Rusanov flux computes an intermediate state and then we use it to compute the derivative of <span class="math inline">\(U\)</span>: <span class="math display">\[
+    \begin{align*}
+        &amp;R_{i} = \frac{F(U)_{i-\frac12}+F(U)_{i+\frac12}}{2} - \sqrt{a}\frac{U_{i+\frac12}-U_{i-\frac12}}{2} \\&amp;\quad
+        \begin{cases}
+            r_{i}^{(1)} = \frac{v_{i-\frac12}+v_{i+\frac12}}{2} - \sqrt{a}\frac{u_{i+\frac12}-u_{i-\frac12}}{2}
+            \\
+            r_{i}^{(2)} = a\frac{u_{i-\frac12}+u_{i+\frac12}}{2} - \sqrt{a}\frac{v_{i+\frac12}-v_{i-\frac12}}{2}
+        \end{cases} \quad\forall i=\frac12,\frac32,\ldots \\[2ex]
+        &amp;\left(\partial_x F(U)\right)_{k} = \frac{R_{k+\frac12}-R_{k-\frac12}}{\Delta x} \\&amp;\quad
+        \begin{cases}
+            \left(\partial_x v\right)_{k} = \frac{r_{k-\frac12}^{(1)}+v_{k+\frac12}^{(1)}}{\Delta x}
+            \\
+            \left(\partial_x au\right)_{k} = \frac{r_{k-\frac12}^{(2)}+v_{k+\frac12}^{(2)}}{\Delta x}
+        \end{cases} \quad\forall k=1,2,\ldots
+    \end{align*}
+\]</span> We use this approximation to solve the step: <span class="math display">\[
+\begin{align*}
+    &amp;\begin{cases}
+        \frac{u^{t+1}-u^{t}}{\Delta t} + \left(\partial_x v^t\right) = 0
+        \\
+        \frac{v^{t+1}-v^{t}}{\Delta t} + \left(\partial_x au^t\right) = -\frac1\varepsilon\left(v^{t+1}-f(u^{t+1})\right)
+    \end{cases} \\\implies&amp;
+    \begin{cases}
+        u^{t+1} = u^t - \Delta t\left(\partial_x v^t\right)
+        \\
+        v^{t+1} = \frac{\varepsilon}{\varepsilon+\Delta t}\left(v^{t}-\Delta t\left(\partial_x au^t\right)\right) + \frac{\Delta t}{\varepsilon+\Delta t}f(u^{t+1})
+    \end{cases}
+\end{align*}
+\]</span></p>
+<div id="f9982256" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>import libraries</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> torch</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> torch <span class="im">import</span> nn</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> torch.nn <span class="im">import</span> functional <span class="im">as</span> F</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">from</span> tqdm.notebook <span class="im">import</span> tqdm</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation, PillowWriter</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="im">import</span> diffutils <span class="im">as</span> dfu</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="im">from</span> typing <span class="im">import</span> Callable, Any</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="im">import</span> os</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="05b5c0b0" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Functions</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> f(u: torch.Tensor, d: <span class="bu">int</span>) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">"""u has shape (B,)</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">    f(u) has shape (B, d)"""</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    r <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> u <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> torch.stack([r] <span class="op">+</span> [torch.zeros_like(r)] <span class="op">*</span> (d <span class="op">-</span> <span class="dv">1</span>), dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">def</span> df(u: torch.Tensor, d: <span class="bu">int</span>) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="co">"""u has shape (B,)</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">    df(u) has shape (B, d)"""</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">return</span> torch.stack([u] <span class="op">+</span> [torch.zeros_like(u)] <span class="op">*</span> (d <span class="op">-</span> <span class="dv">1</span>), dim<span class="op">=-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="96b8d4cf" class="cell" data-execution_count="131">
+<details class="code-fold">
+<summary>IMEX scheme for 1D Jin-Xin relaxation system</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> compute_fluxes(u, v, a, Dx):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    sqrt_a <span class="op">=</span> sqrt(a)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    u_pad <span class="op">=</span> F.pad(u[<span class="va">None</span>, :], (<span class="dv">1</span>,<span class="dv">1</span>), mode<span class="op">=</span><span class="st">'constant'</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    v_pad <span class="op">=</span> F.pad(v[<span class="va">None</span>, :], (<span class="dv">1</span>,<span class="dv">1</span>), mode<span class="op">=</span><span class="st">'constant'</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    </span>
+<span id="cb4-7"><a href="#cb4-7"></a>    u_L <span class="op">=</span> u_pad[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    u_R <span class="op">=</span> u_pad[<span class="dv">1</span>:]</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    v_L <span class="op">=</span> v_pad[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    v_R <span class="op">=</span> v_pad[<span class="dv">1</span>:]</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    </span>
+<span id="cb4-12"><a href="#cb4-12"></a>    v_flux  <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (v_L <span class="op">+</span> v_R) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (u_R <span class="op">-</span> u_L)</span>
+<span id="cb4-13"><a href="#cb4-13"></a>    au_flux <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> a <span class="op">*</span> (u_L <span class="op">+</span> u_R) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (v_R <span class="op">-</span> v_L)</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15"></a>    difv <span class="op">=</span> (v_flux[<span class="dv">1</span>:] <span class="op">-</span> v_flux[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">/</span> Dx</span>
+<span id="cb4-16"><a href="#cb4-16"></a>    adifu <span class="op">=</span> (au_flux[<span class="dv">1</span>:] <span class="op">-</span> au_flux[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">/</span> Dx</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    </span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="cf">return</span> adifu, difv</span>
+<span id="cb4-19"><a href="#cb4-19"></a></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="kw">def</span> imex_step(u, v, Dt, Dx, eps, a):</span>
+<span id="cb4-21"><a href="#cb4-21"></a>    adifu, difv <span class="op">=</span> compute_fluxes(u, v, a, Dx)</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    </span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="co"># explicit step: u is updated by the derivatives of v</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a>    u_next <span class="op">=</span> u <span class="op">-</span> Dt <span class="op">*</span> difv</span>
+<span id="cb4-25"><a href="#cb4-25"></a>    </span>
+<span id="cb4-26"><a href="#cb4-26"></a>    <span class="co"># implicit step: v relaxes towards f(u_next)</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a>    v_next <span class="op">=</span> (eps <span class="op">*</span> v <span class="op">-</span> eps <span class="op">*</span> Dt <span class="op">*</span> adifu <span class="op">+</span> Dt <span class="op">*</span> f(u_next, <span class="dv">1</span>)[:,<span class="dv">0</span>]) <span class="op">/</span> (eps <span class="op">+</span> Dt)</span>
+<span id="cb4-28"><a href="#cb4-28"></a>    </span>
+<span id="cb4-29"><a href="#cb4-29"></a>    <span class="cf">return</span> u_next, v_next</span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co"># --- SETUP ---</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>L: <span class="bu">float</span> <span class="op">=</span> <span class="fl">2.0</span>   <span class="co"># Spatial domain length</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>T: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.0</span>    <span class="co"># Final time</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>N: <span class="bu">int</span> <span class="op">=</span> <span class="dv">5000</span>    <span class="co"># Number of spatial points</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>Dx: <span class="bu">float</span> <span class="op">=</span> L <span class="op">/</span> (N<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-36"><a href="#cb4-36"></a>a: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.1</span>    <span class="co"># Sub-characteristic condition: a &gt; u^2. Since u max = 1, a=1.1 is safe.</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co"># 1D Courant-Friedrichs-Lewy Condition</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>Dt: <span class="bu">float</span> <span class="op">=</span> Dx <span class="op">/</span> sqrt(a)</span>
+<span id="cb4-40"><a href="#cb4-40"></a>eps: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.005</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a>steps: <span class="bu">int</span> <span class="op">=</span> <span class="bu">int</span>(T <span class="op">/</span> Dt)</span>
+<span id="cb4-42"><a href="#cb4-42"></a></span>
+<span id="cb4-43"><a href="#cb4-43"></a>x: torch.Tensor <span class="op">=</span> torch.linspace(<span class="op">-</span>L<span class="op">/</span><span class="dv">2</span>, L<span class="op">/</span><span class="dv">2</span>, N)</span>
+<span id="cb4-44"><a href="#cb4-44"></a>u: torch.Tensor <span class="op">=</span> <span class="op">-</span>torch.sin(torch.pi<span class="op">*</span>x)  <span class="co"># Shape: (N,)</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a>v: torch.Tensor <span class="op">=</span> f(u, <span class="dv">1</span>)[:, <span class="dv">0</span>]  <span class="co"># Shape: (N,)</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a></span>
+<span id="cb4-47"><a href="#cb4-47"></a>u_init_np <span class="op">=</span> u.squeeze().numpy()</span>
+<span id="cb4-48"><a href="#cb4-48"></a>v_init_np <span class="op">=</span> v.squeeze().numpy()</span>
+<span id="cb4-49"><a href="#cb4-49"></a></span>
+<span id="cb4-50"><a href="#cb4-50"></a>u_history <span class="op">=</span> np.empty((steps, N), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb4-51"><a href="#cb4-51"></a>v_history <span class="op">=</span> np.empty((steps, N), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb4-52"><a href="#cb4-52"></a></span>
+<span id="cb4-53"><a href="#cb4-53"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
+<span id="cb4-54"><a href="#cb4-54"></a>    u, v <span class="op">=</span> imex_step(u, v, Dt, Dx, eps, a)</span>
+<span id="cb4-55"><a href="#cb4-55"></a>    u_history[n] <span class="op">=</span> u.cpu().numpy()</span>
+<span id="cb4-56"><a href="#cb4-56"></a>    v_history[n] <span class="op">=</span> v.cpu().numpy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p><img src="imex_simulation.gif" alt="IMEX Jin-Xin relaxation animation" width="600"></p>
+<div id="145bd2cd" class="cell" data-execution_count="133">
+<details class="code-fold">
+<summary>IMEX scheme for 2D Jin-Xin relaxation system</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> compute_fluxes_2d(u, v, a, Dx, Dy):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># u has shape (N, N), v has shape (2, N, N) where the last dimension is for the two velocity components</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    sqrt_a <span class="op">=</span> sqrt(a)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    </span>
+<span id="cb5-5"><a href="#cb5-5"></a>    u_pad <span class="op">=</span> F.pad(u[<span class="va">None</span>, <span class="va">None</span>, :, :], (<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), mode<span class="op">=</span><span class="st">'constant'</span>)[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    v_pad <span class="op">=</span> F.pad(v.permute(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)[<span class="va">None</span>, :, :, :], (<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), mode<span class="op">=</span><span class="st">'constant'</span>)[<span class="dv">0</span>].permute(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    </span>
+<span id="cb5-8"><a href="#cb5-8"></a>    u_L_x <span class="op">=</span> u_pad[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, :<span class="op">-</span><span class="dv">1</span>]    <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    u_R_x <span class="op">=</span> u_pad[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:]     <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    v_L_x <span class="op">=</span> v_pad[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, :<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>] <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>    v_R_x <span class="op">=</span> v_pad[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:, <span class="dv">0</span>]  <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>    u_D_y <span class="op">=</span> u_pad[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]    <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>    u_U_y <span class="op">=</span> u_pad[<span class="dv">1</span>:, <span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]     <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>    v_D_y <span class="op">=</span> v_pad[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    v_U_y <span class="op">=</span> v_pad[<span class="dv">1</span>:, <span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>]  <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>    </span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="co"># X case</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>    v_flux_x  <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (v_L_x <span class="op">+</span> v_R_x) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (u_R_x <span class="op">-</span> u_L_x)     <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>    au_flux_x <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> a <span class="op">*</span> (u_L_x <span class="op">+</span> u_R_x) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (v_R_x <span class="op">-</span> v_L_x) <span class="co"># shape (N, N+1)</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="co"># Y case</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>    w_flux_y  <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (v_D_y <span class="op">+</span> v_U_y) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (u_U_y <span class="op">-</span> u_D_y)     <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>    bu_flux_y <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> a <span class="op">*</span> (u_D_y <span class="op">+</span> u_U_y) <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sqrt_a <span class="op">*</span> (v_U_y <span class="op">-</span> v_D_y) <span class="co"># shape (N+1, N)</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>    </span>
+<span id="cb5-24"><a href="#cb5-24"></a>    difv <span class="op">=</span> (v_flux_x[:, <span class="dv">1</span>:] <span class="op">-</span> v_flux_x[:, :<span class="op">-</span><span class="dv">1</span>]) <span class="op">/</span> Dx     <span class="co"># shape (N, N)</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    difw <span class="op">=</span> (w_flux_y[<span class="dv">1</span>:, :] <span class="op">-</span> w_flux_y[:<span class="op">-</span><span class="dv">1</span>, :]) <span class="op">/</span> Dy     <span class="co"># shape (N, N)</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a>    adifu <span class="op">=</span> (au_flux_x[:, <span class="dv">1</span>:] <span class="op">-</span> au_flux_x[:, :<span class="op">-</span><span class="dv">1</span>]) <span class="op">/</span> Dx  <span class="co"># shape (N, N)</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>    bdifu <span class="op">=</span> (bu_flux_y[<span class="dv">1</span>:, :] <span class="op">-</span> bu_flux_y[:<span class="op">-</span><span class="dv">1</span>, :]) <span class="op">/</span> Dy  <span class="co"># shape (N, N)</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>    </span>
+<span id="cb5-29"><a href="#cb5-29"></a>    <span class="cf">return</span> torch.stack((adifu, bdifu), dim<span class="op">=-</span><span class="dv">1</span>), torch.stack((difv, difw), dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="kw">def</span> imex_step_2d(u, v, Dt, Dx, Dy, eps, a):</span>
+<span id="cb5-32"><a href="#cb5-32"></a>    Ddifu, difv <span class="op">=</span> compute_fluxes_2d(u, v, a, Dx, Dy)</span>
+<span id="cb5-33"><a href="#cb5-33"></a>    </span>
+<span id="cb5-34"><a href="#cb5-34"></a>    <span class="co"># explicit step: u is updated by the divergences in X and Y</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a>    u_next <span class="op">=</span> u <span class="op">-</span> Dt <span class="op">*</span> torch.<span class="bu">sum</span>(difv, dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb5-36"><a href="#cb5-36"></a>    </span>
+<span id="cb5-37"><a href="#cb5-37"></a>    <span class="co"># implicit step: v and w relax independently</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a>    fu_next <span class="op">=</span> f(u_next, <span class="dv">2</span>)</span>
+<span id="cb5-39"><a href="#cb5-39"></a>    v_next <span class="op">=</span> (eps <span class="op">*</span> v <span class="op">-</span> eps <span class="op">*</span> Dt <span class="op">*</span> Ddifu <span class="op">+</span> Dt <span class="op">*</span> fu_next) <span class="op">/</span> (eps <span class="op">+</span> Dt)</span>
+<span id="cb5-40"><a href="#cb5-40"></a>    </span>
+<span id="cb5-41"><a href="#cb5-41"></a>    <span class="cf">return</span> u_next, v_next</span>
+<span id="cb5-42"><a href="#cb5-42"></a></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co"># --- SETUP 2D ---</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a>L: <span class="bu">float</span> <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a>T: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a>N: <span class="bu">int</span> <span class="op">=</span> <span class="dv">400</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a>Dx: <span class="bu">float</span> <span class="op">=</span> L <span class="op">/</span> (N<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb5-48"><a href="#cb5-48"></a>Dy: <span class="bu">float</span> <span class="op">=</span> L <span class="op">/</span> (N<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb5-49"><a href="#cb5-49"></a>a: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.1</span>     </span>
+<span id="cb5-50"><a href="#cb5-50"></a></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="co"># 2D Courant-Friedrichs-Lewy Condition</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a>Dt: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> Dx <span class="op">/</span> sqrt(a)</span>
+<span id="cb5-53"><a href="#cb5-53"></a>eps: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.03</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a>steps: <span class="bu">int</span> <span class="op">=</span> <span class="bu">int</span>(T <span class="op">/</span> Dt)</span>
+<span id="cb5-55"><a href="#cb5-55"></a></span>
+<span id="cb5-56"><a href="#cb5-56"></a>x: torch.Tensor <span class="op">=</span> torch.linspace(<span class="op">-</span>L<span class="op">/</span><span class="dv">2</span>, L<span class="op">/</span><span class="dv">2</span>, N)</span>
+<span id="cb5-57"><a href="#cb5-57"></a>y: torch.Tensor <span class="op">=</span> torch.linspace(<span class="op">-</span>L<span class="op">/</span><span class="dv">2</span>, L<span class="op">/</span><span class="dv">2</span>, N)</span>
+<span id="cb5-58"><a href="#cb5-58"></a>Y, X <span class="op">=</span> torch.meshgrid(y, x, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb5-59"><a href="#cb5-59"></a>u: torch.Tensor <span class="op">=</span> <span class="op">-</span>torch.sin(torch.pi <span class="op">*</span> X)<span class="op">*</span>torch.cos(torch.pi<span class="op">/</span><span class="dv">2</span> <span class="op">*</span> Y)  <span class="co"># Shape: (N, N)</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a>v <span class="op">=</span> f(u.reshape(<span class="op">-</span><span class="dv">1</span>), <span class="dv">2</span>).reshape(N, N, <span class="dv">2</span>)  <span class="co"># Shape: (N, N, 2)</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a></span>
+<span id="cb5-62"><a href="#cb5-62"></a>u_init_np <span class="op">=</span> u.squeeze().numpy()</span>
+<span id="cb5-63"><a href="#cb5-63"></a>v_init_np <span class="op">=</span> v.squeeze().numpy()</span>
+<span id="cb5-64"><a href="#cb5-64"></a></span>
+<span id="cb5-65"><a href="#cb5-65"></a>u_history <span class="op">=</span> np.empty((steps, N, N), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb5-66"><a href="#cb5-66"></a>vel_history <span class="op">=</span> np.empty((steps, N, N, <span class="dv">2</span>), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb5-67"><a href="#cb5-67"></a>fu_history <span class="op">=</span> np.empty((steps, N, N, <span class="dv">2</span>), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
+<span id="cb5-69"><a href="#cb5-69"></a>    u, v <span class="op">=</span> imex_step_2d(u, v, Dt, Dx, Dy, eps, a)</span>
+<span id="cb5-70"><a href="#cb5-70"></a>    u_history[n] <span class="op">=</span> u.cpu().numpy()</span>
+<span id="cb5-71"><a href="#cb5-71"></a>    vel_history[n] <span class="op">=</span> v.cpu().numpy()</span>
+<span id="cb5-72"><a href="#cb5-72"></a>    fu_history[n] <span class="op">=</span> f(u.reshape(<span class="op">-</span><span class="dv">1</span>),<span class="dv">2</span>).reshape(N,N,<span class="dv">2</span>).cpu().numpy()</span>
+<span id="cb5-73"><a href="#cb5-73"></a></span>
+<span id="cb5-74"><a href="#cb5-74"></a>r_history <span class="op">=</span> np.linalg.norm(vel_history <span class="op">-</span> fu_history, axis<span class="op">=-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p><img src="imex_simulation_2D.gif" alt="IMEX 2D Jin-Xin relaxation animation" width="600"></p>
+<div id="440d88c0" class="cell">
+<details class="code-fold">
+<summary>RelaxNN definitions</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">class</span> RelaxNN(nn.Module):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, d: <span class="bu">int</span>):</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="bu">super</span>(RelaxNN, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="va">self</span>.d <span class="op">=</span> d</span>
+<span id="cb6-5"><a href="#cb6-5"></a>        <span class="va">self</span>.encoder <span class="op">=</span> nn.Sequential(</span>
+<span id="cb6-6"><a href="#cb6-6"></a>            nn.Linear(<span class="dv">1</span><span class="op">+</span><span class="va">self</span>.d, <span class="dv">64</span>),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>            nn.SiLU(),</span>
+<span id="cb6-8"><a href="#cb6-8"></a>            nn.Linear(<span class="dv">64</span>, <span class="dv">512</span>),</span>
+<span id="cb6-9"><a href="#cb6-9"></a>            nn.SiLU(),</span>
+<span id="cb6-10"><a href="#cb6-10"></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb6-11"><a href="#cb6-11"></a>            nn.SiLU(),</span>
+<span id="cb6-12"><a href="#cb6-12"></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb6-13"><a href="#cb6-13"></a>            nn.SiLU(),</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        )</span>
+<span id="cb6-15"><a href="#cb6-15"></a>        <span class="va">self</span>.head_u <span class="op">=</span> nn.Sequential(</span>
+<span id="cb6-16"><a href="#cb6-16"></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb6-17"><a href="#cb6-17"></a>            nn.Tanh(),</span>
+<span id="cb6-18"><a href="#cb6-18"></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">1</span>),</span>
+<span id="cb6-19"><a href="#cb6-19"></a>            nn.Identity(),</span>
+<span id="cb6-20"><a href="#cb6-20"></a>        )</span>
+<span id="cb6-21"><a href="#cb6-21"></a>        <span class="va">self</span>.head_w <span class="op">=</span> nn.Sequential(</span>
+<span id="cb6-22"><a href="#cb6-22"></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb6-23"><a href="#cb6-23"></a>            nn.Tanh(),</span>
+<span id="cb6-24"><a href="#cb6-24"></a>            nn.Linear(<span class="dv">512</span>, <span class="va">self</span>.d),</span>
+<span id="cb6-25"><a href="#cb6-25"></a>            nn.Identity(),</span>
+<span id="cb6-26"><a href="#cb6-26"></a>        )</span>
+<span id="cb6-27"><a href="#cb6-27"></a></span>
+<span id="cb6-28"><a href="#cb6-28"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, xt):</span>
+<span id="cb6-29"><a href="#cb6-29"></a>        lat_vec <span class="op">=</span> <span class="va">self</span>.encoder(xt)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>        u <span class="op">=</span> <span class="va">self</span>.head_u(lat_vec)  <span class="co"># shape (N, 1)</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a>        w <span class="op">=</span> <span class="va">self</span>.head_w(lat_vec)  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a>        <span class="cf">return</span> torch.cat([u, w], dim<span class="op">=-</span><span class="dv">1</span>)  <span class="co"># shape (N, 1 + d)</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="kw">def</span> convection_loss_fn(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor, t: torch.Tensor, eps: <span class="bu">float</span>):</span>
+<span id="cb6-35"><a href="#cb6-35"></a>    <span class="co"># x has shape (N, d) and t has shape (N,) or (N, 1)</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a>    model_in <span class="op">=</span> torch.cat([t, x], dim<span class="op">=-</span><span class="dv">1</span>)  <span class="co"># shape (N, d + 1)</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a>    jacob <span class="op">=</span> dfu.compute_jacobian(model, model_in)  <span class="co"># shape (N, d+1, d+1)</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a>    </span>
+<span id="cb6-39"><a href="#cb6-39"></a>    u_w <span class="op">=</span> model(model_in)  <span class="co"># shape (N, d+1)</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a>    u <span class="op">=</span> u_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-41"><a href="#cb6-41"></a>    w <span class="op">=</span> u_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N,d)</span></span>
+<span id="cb6-42"><a href="#cb6-42"></a>    </span>
+<span id="cb6-43"><a href="#cb6-43"></a>    Dtu_w <span class="op">=</span> jacob[:, :, <span class="dv">0</span>]  <span class="co"># shape (N, d+1)</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a>    Dxu_w <span class="op">=</span> jacob[:, :, <span class="dv">1</span>:]  <span class="co"># shape (N, d+1, d)</span></span>
+<span id="cb6-45"><a href="#cb6-45"></a>    </span>
+<span id="cb6-46"><a href="#cb6-46"></a>    Dtu <span class="op">=</span> Dtu_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a>    Dtw <span class="op">=</span> Dtu_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a>    Dxu <span class="op">=</span> Dxu_w[:, <span class="dv">0</span>]  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a>    Dxw <span class="op">=</span> Dxu_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N, d, d)</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a>    Divxw <span class="op">=</span> torch.einsum(<span class="st">'nii-&gt;n'</span>, Dxw)  <span class="co"># shape (N,)</span></span>
+<span id="cb6-51"><a href="#cb6-51"></a>    df_u <span class="op">=</span> df(u, model.d)  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-52"><a href="#cb6-52"></a>    </span>
+<span id="cb6-53"><a href="#cb6-53"></a>    res <span class="op">=</span> Dtu <span class="op">+</span> torch.einsum(<span class="st">'ni, ni -&gt; n'</span>, df_u, Dxu) <span class="op">+</span> eps <span class="op">*</span> Divxw  <span class="co"># shape (N,)</span></span>
+<span id="cb6-54"><a href="#cb6-54"></a>    <span class="co"># L1 loss for convection residual (regularization-style)</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a>    loss <span class="op">=</span> torch.mean(res.<span class="bu">abs</span>())</span>
+<span id="cb6-56"><a href="#cb6-56"></a>    </span>
+<span id="cb6-57"><a href="#cb6-57"></a>    <span class="cf">return</span> loss, res</span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a><span class="kw">def</span> flux_loss_fn(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor, t: torch.Tensor, eps: <span class="bu">float</span>, a: <span class="bu">float</span>):</span>
+<span id="cb6-60"><a href="#cb6-60"></a>    <span class="co"># x has shape (N, d) and t has shape (N,) or (N, 1)</span></span>
+<span id="cb6-61"><a href="#cb6-61"></a>    model_in <span class="op">=</span> torch.cat([t, x], dim<span class="op">=-</span><span class="dv">1</span>)  <span class="co"># shape (N, d + 1)</span></span>
+<span id="cb6-62"><a href="#cb6-62"></a>    jacob <span class="op">=</span> dfu.compute_jacobian(model, model_in)  <span class="co"># shape (N, d+1, d+1)</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a>    </span>
+<span id="cb6-64"><a href="#cb6-64"></a>    u_w <span class="op">=</span> model(model_in)  <span class="co"># shape (N, d+1)</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a>    u <span class="op">=</span> u_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-66"><a href="#cb6-66"></a>    w <span class="op">=</span> u_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N,d)</span></span>
+<span id="cb6-67"><a href="#cb6-67"></a>    </span>
+<span id="cb6-68"><a href="#cb6-68"></a>    Dtu_w <span class="op">=</span> jacob[:, :, <span class="dv">0</span>]  <span class="co"># shape (N, d+1)</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a>    Dxu_w <span class="op">=</span> jacob[:, :, <span class="dv">1</span>:]  <span class="co"># shape (N, d+1, d)</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a>    </span>
+<span id="cb6-71"><a href="#cb6-71"></a>    Dtu <span class="op">=</span> Dtu_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a>    Dtw <span class="op">=</span> Dtu_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a>    Dxu <span class="op">=</span> Dxu_w[:, <span class="dv">0</span>]  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-74"><a href="#cb6-74"></a>    Dxw <span class="op">=</span> Dxu_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N, d, d)</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a>    Divxw <span class="op">=</span> torch.einsum(<span class="st">'nii-&gt;n'</span>, Dxw)  <span class="co"># shape (N,)</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a>    df_u <span class="op">=</span> df(u, model.d)  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-77"><a href="#cb6-77"></a>    </span>
+<span id="cb6-78"><a href="#cb6-78"></a>    res <span class="op">=</span> w <span class="op">+</span> df_u <span class="op">*</span> Dtu[:, <span class="va">None</span>] <span class="op">+</span> a <span class="op">*</span> Dxu <span class="op">+</span> eps <span class="op">*</span> Dtw <span class="co"># shape (N, d)</span></span>
+<span id="cb6-79"><a href="#cb6-79"></a>    <span class="co"># L1 loss for flux residual (regularization-style)</span></span>
+<span id="cb6-80"><a href="#cb6-80"></a>    loss <span class="op">=</span> torch.mean(res.<span class="bu">abs</span>())</span>
+<span id="cb6-81"><a href="#cb6-81"></a>    </span>
+<span id="cb6-82"><a href="#cb6-82"></a>    <span class="cf">return</span> loss, res</span>
+<span id="cb6-83"><a href="#cb6-83"></a></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="kw">def</span> IC_loss_fn(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor, eps: <span class="bu">float</span>):</span>
+<span id="cb6-85"><a href="#cb6-85"></a>    <span class="co"># x has shape (N, 1)</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a>    </span>
+<span id="cb6-87"><a href="#cb6-87"></a>    u_w <span class="op">=</span> model(torch.cat([torch.zeros_like(x[:,[<span class="dv">0</span>]]), x], dim<span class="op">=-</span><span class="dv">1</span>))  <span class="co"># shape (N, 1+d)</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a>    u <span class="op">=</span> u_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-89"><a href="#cb6-89"></a>    w <span class="op">=</span> u_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N,d)</span></span>
+<span id="cb6-90"><a href="#cb6-90"></a>    </span>
+<span id="cb6-91"><a href="#cb6-91"></a>    v <span class="op">=</span> f(u, model.d) <span class="op">+</span> eps <span class="op">*</span> w</span>
+<span id="cb6-92"><a href="#cb6-92"></a>    </span>
+<span id="cb6-93"><a href="#cb6-93"></a>    res_u <span class="op">=</span> u <span class="op">-</span> u0(x)  <span class="co"># shape (N,)</span></span>
+<span id="cb6-94"><a href="#cb6-94"></a>    res_v <span class="op">=</span> v <span class="op">-</span> v0(x, model.d)  <span class="co"># shape (N,d)</span></span>
+<span id="cb6-95"><a href="#cb6-95"></a>    </span>
+<span id="cb6-96"><a href="#cb6-96"></a>    res <span class="op">=</span> torch.concatenate([res_u[:, <span class="va">None</span>], res_v], dim<span class="op">=-</span><span class="dv">1</span>)  <span class="co"># shape (N, 1 + d)</span></span>
+<span id="cb6-97"><a href="#cb6-97"></a>    <span class="co"># L2 loss for initial condition residual (mainly for training)</span></span>
+<span id="cb6-98"><a href="#cb6-98"></a>    loss_1 <span class="op">=</span> torch.mean(res_u <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb6-99"><a href="#cb6-99"></a>    loss_2 <span class="op">=</span> torch.mean(res_v <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb6-100"><a href="#cb6-100"></a>    loss <span class="op">=</span> torch.mean(res_u <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> torch.mean(res_v <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb6-101"><a href="#cb6-101"></a>    </span>
+<span id="cb6-102"><a href="#cb6-102"></a>    <span class="cf">return</span> loss, res</span>
+<span id="cb6-103"><a href="#cb6-103"></a></span>
+<span id="cb6-104"><a href="#cb6-104"></a><span class="kw">def</span> BC_loss_fn(model: Callable[[torch.Tensor], torch.Tensor], x: torch.Tensor, t: torch.Tensor, eps: <span class="bu">float</span>):</span>
+<span id="cb6-105"><a href="#cb6-105"></a>    <span class="co"># t has shape (N,), x has shape (N, d-1)</span></span>
+<span id="cb6-106"><a href="#cb6-106"></a>    </span>
+<span id="cb6-107"><a href="#cb6-107"></a>    <span class="co"># for each boundary, we compute the residuals and losses separately, then sum them up</span></span>
+<span id="cb6-108"><a href="#cb6-108"></a>    losses <span class="op">=</span> []</span>
+<span id="cb6-109"><a href="#cb6-109"></a>    <span class="cf">for</span> axis <span class="kw">in</span> <span class="bu">range</span>(model.d):</span>
+<span id="cb6-110"><a href="#cb6-110"></a>        <span class="cf">for</span> boundary <span class="kw">in</span> [<span class="st">'left'</span>, <span class="st">'right'</span>]:</span>
+<span id="cb6-111"><a href="#cb6-111"></a>            <span class="co"># x_boundary has shape (N, d) with the axis-th component set to a constant value (e.g., -L/2)</span></span>
+<span id="cb6-112"><a href="#cb6-112"></a>            <span class="cf">if</span> boundary <span class="op">==</span> <span class="st">'left'</span>:</span>
+<span id="cb6-113"><a href="#cb6-113"></a>                x_boundary <span class="op">=</span> torch.empty(x.shape[<span class="dv">0</span>], model.d, device<span class="op">=</span>x.device)</span>
+<span id="cb6-114"><a href="#cb6-114"></a>                x_boundary[:, [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(model.d) <span class="cf">if</span> i <span class="op">!=</span> axis]] <span class="op">=</span> x</span>
+<span id="cb6-115"><a href="#cb6-115"></a>                x_boundary[:, axis] <span class="op">=</span> <span class="op">-</span>L<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb6-116"><a href="#cb6-116"></a>            <span class="cf">else</span>:</span>
+<span id="cb6-117"><a href="#cb6-117"></a>                x_boundary <span class="op">=</span> torch.empty(x.shape[<span class="dv">0</span>], model.d, device<span class="op">=</span>x.device)</span>
+<span id="cb6-118"><a href="#cb6-118"></a>                x_boundary[:, [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(model.d) <span class="cf">if</span> i <span class="op">!=</span> axis]] <span class="op">=</span> x</span>
+<span id="cb6-119"><a href="#cb6-119"></a>                x_boundary[:, axis] <span class="op">=</span> L<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb6-120"><a href="#cb6-120"></a>            u_w <span class="op">=</span> model(torch.cat([t, x_boundary], dim<span class="op">=-</span><span class="dv">1</span>))  <span class="co"># shape (N, 1+d)</span></span>
+<span id="cb6-121"><a href="#cb6-121"></a>            u <span class="op">=</span> u_w[:, <span class="dv">0</span>]  <span class="co"># shape (N,)</span></span>
+<span id="cb6-122"><a href="#cb6-122"></a>            w <span class="op">=</span> u_w[:, <span class="dv">1</span>:]  <span class="co"># shape (N,d)</span></span>
+<span id="cb6-123"><a href="#cb6-123"></a>            res_u <span class="op">=</span> u  <span class="co"># shape (N,)</span></span>
+<span id="cb6-124"><a href="#cb6-124"></a>            res_v <span class="op">=</span> f(u, model.d) <span class="op">+</span> eps <span class="op">*</span> w  <span class="co"># shape (N, d)</span></span>
+<span id="cb6-125"><a href="#cb6-125"></a>            losses.append(torch.mean(res_u <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> torch.mean(res_v <span class="op">**</span> <span class="dv">2</span>))</span>
+<span id="cb6-126"><a href="#cb6-126"></a>    </span>
+<span id="cb6-127"><a href="#cb6-127"></a>    loss <span class="op">=</span> torch.mean(torch.stack(losses))</span>
+<span id="cb6-128"><a href="#cb6-128"></a>    </span>
+<span id="cb6-129"><a href="#cb6-129"></a>    <span class="cf">return</span> loss</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="f0abf291" class="cell">
+<details class="code-fold">
+<summary>RelaxNN scheme for 1D Jin-Xin relaxation system</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> u0(x: torch.Tensor) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">return</span> <span class="op">-</span>torch.sin(torch.pi <span class="op">*</span> x[:,<span class="dv">0</span>])  <span class="co"># initial condition for u</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">def</span> v0(x: torch.Tensor, d: <span class="bu">int</span>) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">return</span> f(u0(x), d<span class="op">=</span>d)  <span class="co"># shape (N, d)</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>model1D <span class="op">=</span> RelaxNN(d<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>optimizer <span class="op">=</span> torch.optim.Adam(model1D.parameters(), lr<span class="op">=</span><span class="fl">0.002</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>scheduler <span class="op">=</span> torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode<span class="op">=</span><span class="st">'min'</span>, factor<span class="op">=</span><span class="fl">0.5</span>, patience<span class="op">=</span><span class="dv">400</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a>eps <span class="op">=</span> <span class="fl">0.005</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>a <span class="op">=</span> <span class="fl">1.1</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>T <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>L <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co"># hole size: 0.1, with probability 0.1</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a>Cn_samples <span class="op">=</span> <span class="dv">1510</span>  <span class="co"># 2D space</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>Fn_samples <span class="op">=</span> <span class="dv">1510</span>  <span class="co"># 2D space</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>ICn_samples <span class="op">=</span> <span class="dv">105</span>  <span class="co"># 1D space</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>BCn_samples <span class="op">=</span> <span class="dv">46</span>   <span class="co"># 1D space</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>Closs_history <span class="op">=</span> []</span>
+<span id="cb7-21"><a href="#cb7-21"></a>Floss_history <span class="op">=</span> []</span>
+<span id="cb7-22"><a href="#cb7-22"></a>ICloss_history <span class="op">=</span> []</span>
+<span id="cb7-23"><a href="#cb7-23"></a>BCloss_history <span class="op">=</span> []</span>
+<span id="cb7-24"><a href="#cb7-24"></a>loss_history <span class="op">=</span> []</span>
+<span id="cb7-25"><a href="#cb7-25"></a>lr_history <span class="op">=</span> []</span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="cf">while</span> optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>] <span class="op">&gt;</span> <span class="fl">0.0001</span>:</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    optimizer.zero_grad()</span>
+<span id="cb7-28"><a href="#cb7-28"></a>    </span>
+<span id="cb7-29"><a href="#cb7-29"></a>    <span class="co"># Convection loss</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a>    x <span class="op">=</span> (torch.rand(Cn_samples, <span class="dv">1</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a>    t <span class="op">=</span> torch.rand(Cn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a>    Closs, _ <span class="op">=</span> convection_loss_fn(model1D, x, t, eps)</span>
+<span id="cb7-33"><a href="#cb7-33"></a>    </span>
+<span id="cb7-34"><a href="#cb7-34"></a>    <span class="co"># Flux loss</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>    x <span class="op">=</span> (torch.rand(Fn_samples, <span class="dv">1</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb7-36"><a href="#cb7-36"></a>    t <span class="op">=</span> torch.rand(Fn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb7-37"><a href="#cb7-37"></a>    Floss, _ <span class="op">=</span> flux_loss_fn(model1D, x, t, eps, a)</span>
+<span id="cb7-38"><a href="#cb7-38"></a>    </span>
+<span id="cb7-39"><a href="#cb7-39"></a>    <span class="co"># IC loss</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a>    x <span class="op">=</span> (torch.rand(ICn_samples, <span class="dv">1</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb7-41"><a href="#cb7-41"></a>    ICloss, _ <span class="op">=</span> IC_loss_fn(model1D, x, eps)</span>
+<span id="cb7-42"><a href="#cb7-42"></a>    </span>
+<span id="cb7-43"><a href="#cb7-43"></a>    <span class="co"># BC loss</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a>    x <span class="op">=</span> (torch.rand(BCn_samples, <span class="dv">0</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d-1)</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a>    t <span class="op">=</span> torch.rand(BCn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a>    BCloss <span class="op">=</span> BC_loss_fn(model1D, x, t, eps)</span>
+<span id="cb7-47"><a href="#cb7-47"></a>    </span>
+<span id="cb7-48"><a href="#cb7-48"></a>    loss <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>Closs <span class="op">+</span> Floss <span class="op">+</span> <span class="dv">30</span><span class="op">*</span>ICloss <span class="op">+</span> BCloss</span>
+<span id="cb7-49"><a href="#cb7-49"></a>    </span>
+<span id="cb7-50"><a href="#cb7-50"></a>    <span class="co"># regularization losses</span></span>
+<span id="cb7-51"><a href="#cb7-51"></a>    <span class="co"># L2 regularization on model1D.encoder</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a>    model_params <span class="op">=</span> <span class="bu">list</span>(model1D.encoder.parameters())</span>
+<span id="cb7-53"><a href="#cb7-53"></a>    l2_reg <span class="op">=</span> <span class="bu">sum</span>(torch.<span class="bu">sum</span>(param <span class="op">**</span> <span class="dv">2</span>) <span class="cf">for</span> param <span class="kw">in</span> model_params)</span>
+<span id="cb7-54"><a href="#cb7-54"></a>    <span class="co"># L1 regularization on model1D.head_u and model1D.head_w</span></span>
+<span id="cb7-55"><a href="#cb7-55"></a>    model_params_u <span class="op">=</span> <span class="bu">list</span>(model1D.head_u.parameters())</span>
+<span id="cb7-56"><a href="#cb7-56"></a>    model_params_w <span class="op">=</span> <span class="bu">list</span>(model1D.head_w.parameters())</span>
+<span id="cb7-57"><a href="#cb7-57"></a>    l1_reg <span class="op">=</span> <span class="bu">sum</span>(torch.<span class="bu">sum</span>(torch.<span class="bu">abs</span>(param)) <span class="cf">for</span> param <span class="kw">in</span> model_params_u <span class="op">+</span> model_params_w)</span>
+<span id="cb7-58"><a href="#cb7-58"></a>    loss <span class="op">+=</span> <span class="fl">1e-6</span> <span class="op">*</span> l2_reg <span class="op">+</span> <span class="fl">1e-6</span> <span class="op">*</span> l1_reg</span>
+<span id="cb7-59"><a href="#cb7-59"></a>    </span>
+<span id="cb7-60"><a href="#cb7-60"></a>    loss_history.append(loss.item())</span>
+<span id="cb7-61"><a href="#cb7-61"></a>    Closs_history.append(Closs.item())</span>
+<span id="cb7-62"><a href="#cb7-62"></a>    Floss_history.append(Floss.item())</span>
+<span id="cb7-63"><a href="#cb7-63"></a>    ICloss_history.append(ICloss.item())</span>
+<span id="cb7-64"><a href="#cb7-64"></a>    BCloss_history.append(BCloss.item())</span>
+<span id="cb7-65"><a href="#cb7-65"></a>    lr_history.append(optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>])</span>
+<span id="cb7-66"><a href="#cb7-66"></a>    loss.backward()</span>
+<span id="cb7-67"><a href="#cb7-67"></a>    optimizer.step()</span>
+<span id="cb7-68"><a href="#cb7-68"></a>    scheduler.step(loss)</span>
+<span id="cb7-69"><a href="#cb7-69"></a>    <span class="cf">if</span> optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>] <span class="op">&lt;</span> lr_history[<span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb7-70"><a href="#cb7-70"></a>        <span class="bu">print</span>(<span class="ss">f"Learning rate reduced to </span><span class="sc">{</span>optimizer<span class="sc">.</span>param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>]<span class="sc">:.6f}</span><span class="ss"> at epoch </span><span class="sc">{</span><span class="bu">len</span>(loss_history)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-71"><a href="#cb7-71"></a>    </span>
+<span id="cb7-72"><a href="#cb7-72"></a>plt.plot(loss_history, label<span class="op">=</span><span class="st">'Total Loss'</span>)</span>
+<span id="cb7-73"><a href="#cb7-73"></a>plt.plot(Closs_history, label<span class="op">=</span><span class="st">'Convection Loss'</span>)</span>
+<span id="cb7-74"><a href="#cb7-74"></a>plt.plot(Floss_history, label<span class="op">=</span><span class="st">'Flux Loss'</span>)</span>
+<span id="cb7-75"><a href="#cb7-75"></a>plt.plot(ICloss_history, label<span class="op">=</span><span class="st">'Initial Condition Loss'</span>)</span>
+<span id="cb7-76"><a href="#cb7-76"></a>plt.plot(BCloss_history, label<span class="op">=</span><span class="st">'Boundary Condition Loss'</span>)</span>
+<span id="cb7-77"><a href="#cb7-77"></a>plt.plot(lr_history, label<span class="op">=</span><span class="st">'Learning Rate'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb7-78"><a href="#cb7-78"></a>plt.xlabel(<span class="st">'Epoch'</span>)</span>
+<span id="cb7-79"><a href="#cb7-79"></a>plt.ylabel(<span class="st">'Loss'</span>)</span>
+<span id="cb7-80"><a href="#cb7-80"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb7-81"><a href="#cb7-81"></a>plt.legend()</span>
+<span id="cb7-82"><a href="#cb7-82"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Learning rate reduced to 0.001000 at epoch 4491
+Learning rate reduced to 0.000500 at epoch 5146
+Learning rate reduced to 0.000250 at epoch 6802
+Learning rate reduced to 0.000125 at epoch 7337
+Learning rate reduced to 0.000063 at epoch 8576</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-11-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="relaxNN_lossplot.png" alt="RelaxNN Loss Plot" width="600"><br></p>
+<p><img src="relaxNN_simulation.gif" alt="RelaxNN Jin-Xin relaxation animation" width="600"></p>
+<div id="33909f22" class="cell">
+<details class="code-fold">
+<summary>RelaxNN scheme for 2D Jin-Xin relaxation system</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> u0(x: torch.Tensor) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">return</span> <span class="op">-</span>torch.sin(torch.pi <span class="op">*</span> x[:,<span class="dv">0</span>])<span class="op">*</span>torch.cos(torch.pi<span class="op">/</span><span class="dv">2</span> <span class="op">*</span> x[:,<span class="dv">1</span>])  <span class="co"># initial condition for u</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">def</span> v0(x: torch.Tensor, d: <span class="bu">int</span>) <span class="op">-&gt;</span> torch.Tensor:</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">return</span> f(u0(x), d<span class="op">=</span>d)  <span class="co"># shape (N, d)</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>model2D <span class="op">=</span> RelaxNN(d<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>optimizer <span class="op">=</span> torch.optim.Adam(model2D.parameters(), lr<span class="op">=</span><span class="fl">0.002</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a>scheduler <span class="op">=</span> torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode<span class="op">=</span><span class="st">'min'</span>, factor<span class="op">=</span><span class="fl">0.5</span>, patience<span class="op">=</span><span class="dv">500</span>) </span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>eps <span class="op">=</span> <span class="fl">0.03</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>a <span class="op">=</span> <span class="fl">1.1</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>T <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>L <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co"># hole size: 0.2, with probability 0.1, Coef=0.5</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>Cn_samples <span class="op">=</span> <span class="dv">2116</span>  <span class="co"># 3D space</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>Fn_samples <span class="op">=</span> <span class="dv">2116</span>  <span class="co"># 3D space</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a>ICn_samples <span class="op">=</span> <span class="dv">342</span>  <span class="co"># 2D space</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a>BCn_samples <span class="op">=</span> <span class="dv">342</span>  <span class="co"># 2D space</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a>Closs_history <span class="op">=</span> []</span>
+<span id="cb9-22"><a href="#cb9-22"></a>Floss_history <span class="op">=</span> []</span>
+<span id="cb9-23"><a href="#cb9-23"></a>ICloss_history <span class="op">=</span> []</span>
+<span id="cb9-24"><a href="#cb9-24"></a>BCloss_history <span class="op">=</span> []</span>
+<span id="cb9-25"><a href="#cb9-25"></a>loss_history <span class="op">=</span> []</span>
+<span id="cb9-26"><a href="#cb9-26"></a>lr_history <span class="op">=</span> []</span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="cf">while</span> optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>] <span class="op">&gt;</span> <span class="fl">0.0001</span>:</span>
+<span id="cb9-28"><a href="#cb9-28"></a>    optimizer.zero_grad()</span>
+<span id="cb9-29"><a href="#cb9-29"></a>    </span>
+<span id="cb9-30"><a href="#cb9-30"></a>    x <span class="op">=</span> (torch.rand(Cn_samples, <span class="dv">2</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb9-31"><a href="#cb9-31"></a>    t <span class="op">=</span> torch.rand(Cn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb9-32"><a href="#cb9-32"></a>    Closs, _ <span class="op">=</span> convection_loss_fn(model2D, x, t, eps)</span>
+<span id="cb9-33"><a href="#cb9-33"></a>    </span>
+<span id="cb9-34"><a href="#cb9-34"></a>    x <span class="op">=</span> (torch.rand(Fn_samples, <span class="dv">2</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb9-35"><a href="#cb9-35"></a>    t <span class="op">=</span> torch.rand(Fn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb9-36"><a href="#cb9-36"></a>    Floss, _ <span class="op">=</span> flux_loss_fn(model2D, x, t, eps, a)</span>
+<span id="cb9-37"><a href="#cb9-37"></a>    </span>
+<span id="cb9-38"><a href="#cb9-38"></a>    x <span class="op">=</span> (torch.rand(ICn_samples, <span class="dv">2</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d)</span></span>
+<span id="cb9-39"><a href="#cb9-39"></a>    ICloss, _ <span class="op">=</span> IC_loss_fn(model2D, x, eps)</span>
+<span id="cb9-40"><a href="#cb9-40"></a>    </span>
+<span id="cb9-41"><a href="#cb9-41"></a>    x <span class="op">=</span> (torch.rand(BCn_samples, <span class="dv">1</span>)<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>L<span class="op">/</span><span class="dv">2</span>  <span class="co"># shape (N, d-1)</span></span>
+<span id="cb9-42"><a href="#cb9-42"></a>    t <span class="op">=</span> torch.rand(BCn_samples, <span class="dv">1</span>)<span class="op">*</span>T  <span class="co"># shape (N, 1)</span></span>
+<span id="cb9-43"><a href="#cb9-43"></a>    BCloss <span class="op">=</span> BC_loss_fn(model2D, x, t, eps)</span>
+<span id="cb9-44"><a href="#cb9-44"></a>    </span>
+<span id="cb9-45"><a href="#cb9-45"></a>    <span class="co"># 1D: 10,1,30,1</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a>    <span class="co"># 2D:  5,1,10,1</span></span>
+<span id="cb9-47"><a href="#cb9-47"></a>    loss <span class="op">=</span> <span class="dv">5</span><span class="op">*</span>Closs <span class="op">+</span> Floss <span class="op">+</span> <span class="dv">10</span><span class="op">*</span>ICloss <span class="op">+</span> BCloss</span>
+<span id="cb9-48"><a href="#cb9-48"></a>    </span>
+<span id="cb9-49"><a href="#cb9-49"></a>    <span class="co"># regularization losses</span></span>
+<span id="cb9-50"><a href="#cb9-50"></a>    <span class="co"># L2 regularization on model2D.encoder</span></span>
+<span id="cb9-51"><a href="#cb9-51"></a>    model_params <span class="op">=</span> <span class="bu">list</span>(model2D.encoder.parameters())</span>
+<span id="cb9-52"><a href="#cb9-52"></a>    l2_reg <span class="op">=</span> <span class="bu">sum</span>(torch.<span class="bu">sum</span>(param <span class="op">**</span> <span class="dv">2</span>) <span class="cf">for</span> param <span class="kw">in</span> model_params)</span>
+<span id="cb9-53"><a href="#cb9-53"></a>    <span class="co"># L1 regularization on model2D.head_u and model2D.head_w</span></span>
+<span id="cb9-54"><a href="#cb9-54"></a>    model_params_u <span class="op">=</span> <span class="bu">list</span>(model2D.head_u.parameters())</span>
+<span id="cb9-55"><a href="#cb9-55"></a>    model_params_w <span class="op">=</span> <span class="bu">list</span>(model2D.head_w.parameters())</span>
+<span id="cb9-56"><a href="#cb9-56"></a>    l1_reg <span class="op">=</span> <span class="bu">sum</span>(torch.<span class="bu">sum</span>(torch.<span class="bu">abs</span>(param)) <span class="cf">for</span> param <span class="kw">in</span> model_params_u <span class="op">+</span> model_params_w)</span>
+<span id="cb9-57"><a href="#cb9-57"></a>    loss <span class="op">+=</span> <span class="fl">1e-6</span> <span class="op">*</span> l2_reg <span class="op">+</span> <span class="fl">1e-6</span> <span class="op">*</span> l1_reg</span>
+<span id="cb9-58"><a href="#cb9-58"></a>    </span>
+<span id="cb9-59"><a href="#cb9-59"></a>    loss_history.append(loss.item())</span>
+<span id="cb9-60"><a href="#cb9-60"></a>    Closs_history.append(Closs.item())</span>
+<span id="cb9-61"><a href="#cb9-61"></a>    Floss_history.append(Floss.item())</span>
+<span id="cb9-62"><a href="#cb9-62"></a>    ICloss_history.append(ICloss.item())</span>
+<span id="cb9-63"><a href="#cb9-63"></a>    BCloss_history.append(BCloss.item())</span>
+<span id="cb9-64"><a href="#cb9-64"></a>    lr_history.append(optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>])</span>
+<span id="cb9-65"><a href="#cb9-65"></a>    loss.backward()</span>
+<span id="cb9-66"><a href="#cb9-66"></a>    optimizer.step()</span>
+<span id="cb9-67"><a href="#cb9-67"></a>    scheduler.step(loss)</span>
+<span id="cb9-68"><a href="#cb9-68"></a>    <span class="cf">if</span> optimizer.param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>] <span class="op">&lt;</span> lr_history[<span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb9-69"><a href="#cb9-69"></a>        <span class="bu">print</span>(<span class="ss">f"Learning rate reduced to </span><span class="sc">{</span>optimizer<span class="sc">.</span>param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>]<span class="sc">:.6f}</span><span class="ss"> at epoch </span><span class="sc">{</span><span class="bu">len</span>(loss_history)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-70"><a href="#cb9-70"></a>    </span>
+<span id="cb9-71"><a href="#cb9-71"></a>plt.plot(loss_history, label<span class="op">=</span><span class="st">'Total Loss'</span>)</span>
+<span id="cb9-72"><a href="#cb9-72"></a>plt.plot(Closs_history, label<span class="op">=</span><span class="st">'Convection Loss'</span>)</span>
+<span id="cb9-73"><a href="#cb9-73"></a>plt.plot(Floss_history, label<span class="op">=</span><span class="st">'Flux Loss'</span>)</span>
+<span id="cb9-74"><a href="#cb9-74"></a>plt.plot(ICloss_history, label<span class="op">=</span><span class="st">'Initial Condition Loss'</span>)</span>
+<span id="cb9-75"><a href="#cb9-75"></a>plt.plot(BCloss_history, label<span class="op">=</span><span class="st">'Boundary Condition Loss'</span>)</span>
+<span id="cb9-76"><a href="#cb9-76"></a>plt.plot(lr_history, label<span class="op">=</span><span class="st">'Learning Rate'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb9-77"><a href="#cb9-77"></a>plt.xlabel(<span class="st">'Epoch'</span>)</span>
+<span id="cb9-78"><a href="#cb9-78"></a>plt.ylabel(<span class="st">'Loss'</span>)</span>
+<span id="cb9-79"><a href="#cb9-79"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb9-80"><a href="#cb9-80"></a>plt.legend()</span>
+<span id="cb9-81"><a href="#cb9-81"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Learning rate reduced to 0.001000 at epoch 3750
+Learning rate reduced to 0.000500 at epoch 4455
+Learning rate reduced to 0.000250 at epoch 5126
+Learning rate reduced to 0.000125 at epoch 6889
+Learning rate reduced to 0.000063 at epoch 8070</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="relaxNN_simulation_2D.gif" alt="IMEX 2D Jin-Xin relaxation animation" width="600"></p>
+</section>
+</section>
+<section id="imex-net" class="level2">
+<h2 data-anchor-id="imex-net">IMEX-Net <a name="imex-net"></a></h2>
+<p>The model IMEX-Net is an hybrid scheme: - A neural network compute the derivatives <span class="math inline">\(\nabla_x u\)</span> and <span class="math inline">\(\nabla_x\cdot v\)</span>. - The IMEX method takes these results and returns the next state.</p>
+<p>Formally, the holes in the grids imply a loss of informations, the role of the neural network is preserve these informations.</p>
+<p>In this document, the neural network is a Full Convolutional Network (FCN) that takes in input the grid with values <span class="math inline">\(u,v\)</span> or a them embedding and returns the same grid with the approximations. The Dataset contains grids with respective well-known derivatives but, pay attention: the dataset is noised, in other words for similar grids we can have very differents derivatives.</p>
+<section id="dataloader" class="level3">
+<h3 data-anchor-id="dataloader">DataLoader</h3>
+<p>For a simple experiment here we fix the quadratic family for the function <span class="math inline">\(u=\frac12\left\|x\right\|_Q^2+\vec{\beta}\cdot x + c\)</span> and the quasi-equilibrium state for the velocity <span class="math inline">\(v\)</span> following the Chapman-Enskog expantion: <span class="math display">\[
+v = f(u) - \varepsilon\left(a\textrm{Id}-f'(u)^2\right)\nabla_x u
+\]</span> The spatial divergence of <span class="math inline">\(v\)</span> is: <span class="math display">\[
+\begin{align*}
+    \nabla_x\cdot v &amp;= \nabla_x\cdot\left(f(u) - \varepsilon\left(a\textrm{Id}-f'(u)^2\right)\nabla_x u\right)\\
+    &amp;=\nabla_x\cdot\left(f(u)\right) - \varepsilon\nabla_x\cdot\left(\left(a\textrm{Id}-f'(u)^2\right)\nabla_x u\right)\\
+    &amp;=f'(u)\cdot \nabla_x u - \varepsilon\left(\left(\nabla_x\cdot\left(a\textrm{Id}-f'(u)^2\right)\right)\cdot\nabla_x u+\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u\right)\\
+    &amp;=f'(u)\cdot \nabla_x u - \varepsilon\left(-\left(\nabla_x\cdot\left(f'(u)^2\right)\right)\cdot\nabla_x u+\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u\right)\\
+    &amp;=f'(u)\cdot \nabla_x u - \varepsilon\left(-\left(f'(u)\nabla_x\cdot f'(u)+\nabla_x f'(u)f'(u)\right)\cdot\nabla_x u+\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u\right)\\
+    &amp;=f'(u)\cdot \nabla_x u - \varepsilon\left(-\left(f'(u)f''(x)\cdot\nabla_x u+f''(u)f'(u)\cdot\nabla_x u\right)\cdot\nabla_x u+\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u\right)\\
+    &amp;=f'(u)\cdot \nabla_x u - \varepsilon\left(-2\left(f'(u)\cdot \nabla_x u \right)\left(f''(u)\cdot\nabla_x u\right)+\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u\right)\\
+    &amp;=\left(f'(u)\cdot \nabla_x u\right)\left(1+2\varepsilon\left(f''(u)\cdot\nabla_x u\right)\right)-\varepsilon\left(a\textrm{Id}-f'(u)^2\right)\cdot\nabla^2_x u
+\end{align*}
+\]</span> Now, we use the definition of <span class="math inline">\(u\)</span>: <span class="math inline">\(\nabla_x u = Qx + \vec{\beta}\)</span> and <span class="math inline">\(\nabla_x^2 u = Q\)</span>. So: <span class="math display">\[
+    \begin{align*}
+    v &amp;= f(u) - \varepsilon\left(a\textrm{Id}-f'(u)^2\right)\left(Qx + \vec{\beta}\right)
+    \\
+    \nabla_x\cdot v &amp;= \left(f'(u)\cdot \left(Qx + \vec{\beta}\right)\right)\left(1+2\varepsilon\left(f''(u)\cdot\left(Qx + \vec{\beta}\right)\right)\right)-\varepsilon\left(a\textrm{Id}-f'(u)^2\right)\cdot Q
+    \end{align*}
+\]</span> Then, for the 1D case we have <span class="math inline">\(f(u)=\frac12u^2\)</span> <span class="math display">\[
+    \begin{align*}
+    v &amp;= \frac12u^2 - \varepsilon\left(a-u^2\right)\left(Qx + \vec{\beta}\right)
+    \\
+    \nabla_x\cdot v &amp;= u \left(Qx + \vec{\beta}\right)\left(1+2\varepsilon\left(Qx + \vec{\beta}\right)\right)-\varepsilon\left(a-u^2\right) Q
+    \end{align*}
+\]</span></p>
+<p>The dataloader makes collocation points <span class="math display">\[\left(u,v\;\middle|\;\nabla_x u, \nabla_x\cdot v\right)=\left(u,\frac12u^2 - \varepsilon\left(a-u^2\right)\left(Qx + \vec{\beta}\right)\;\middle|\;Qx + \vec{\beta},u \left(Qx + \vec{\beta}\right)\left(1+2\varepsilon\left(Qx + \vec{\beta}\right)\right)-\varepsilon\left(a-u^2\right) Q\right)\]</span></p>
+<p>The neural network (an FCN) interpolates the dataset by using the additivity regularization: <span class="math display">\[
+    M(M(U,p),q) = M(U,p+q)
+\]</span> where <span class="math inline">\(M\)</span> is the IMEX-Net model, <span class="math inline">\(U=(u,v)\)</span> and <span class="math inline">\(p,q&gt;0\)</span> are such that <span class="math inline">\(p+q&lt;\Delta T\)</span> the time interval of the scheme.</p>
+<div id="e4ac1f1a" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>make dataset for 1D Jin-Xin relaxation system</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> get_datapoint(x, q, b, c, eps, a):</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="co"># x has shape (N,D)</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="co"># q has shape (N,)</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="co"># b has shape (N,)</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="co"># c has shape (N,)</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="co"># compute u</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    u <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span><span class="op">*</span>q[:,<span class="va">None</span>]<span class="op">/</span><span class="dv">2</span> <span class="op">+</span> x<span class="op">*</span>b[:,<span class="va">None</span>] <span class="op">+</span> c[:,<span class="va">None</span>]  <span class="co"># shape (N,D)</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>    <span class="co"># compute grad_u</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>    grad_u <span class="op">=</span> q[:,<span class="va">None</span>]<span class="op">*</span>x<span class="op">+</span>b[:,<span class="va">None</span>]  <span class="co"># shape (N,D)</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>    <span class="co"># compute v</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>    v <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>u<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> eps<span class="op">*</span>grad_u<span class="op">*</span>(a<span class="op">-</span>u<span class="op">**</span><span class="dv">2</span>)  <span class="co"># shape (N,D)</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a>    <span class="co"># compute div_v</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>    div_v <span class="op">=</span> u<span class="op">*</span>grad_u<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">*</span>eps<span class="op">*</span>grad_u)<span class="op">-</span>eps<span class="op">*</span>(a<span class="op">-</span>u<span class="op">**</span><span class="dv">2</span>)<span class="op">*</span>q[:,<span class="va">None</span>]  <span class="co"># shape (N,D)</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a>    </span>
+<span id="cb11-16"><a href="#cb11-16"></a>    <span class="cf">return</span> u, v, grad_u, div_v</span>
+<span id="cb11-17"><a href="#cb11-17"></a></span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="kw">def</span> make_dataset(N, eps, a, grid_size, L, curvature_variance<span class="op">=</span><span class="fl">1.0</span>, coefficient_variance<span class="op">=</span><span class="fl">1.0</span>, term_variance<span class="op">=</span><span class="fl">1.0</span>, noise_intensity<span class="op">=</span><span class="fl">0.0</span>):</span>
+<span id="cb11-19"><a href="#cb11-19"></a>    <span class="co"># N is the number of datapoints</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a>    <span class="co"># eps is the relaxation parameter</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>    <span class="co"># a is the flux parameter</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>    <span class="co"># grid_size is the size of the grid in each dimension (integer value)</span></span>
+<span id="cb11-23"><a href="#cb11-23"></a>    <span class="co"># L is the length of the domain in each dimension (float value)</span></span>
+<span id="cb11-24"><a href="#cb11-24"></a>    </span>
+<span id="cb11-25"><a href="#cb11-25"></a>    Q0 <span class="op">=</span> torch.randn(N) <span class="op">*</span> curvature_variance<span class="op">/</span>((eps<span class="op">/</span><span class="fl">0.219</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb11-26"><a href="#cb11-26"></a>    beta0 <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>torch.rand(N)<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> coefficient_variance<span class="op">/</span>(<span class="dv">4</span><span class="op">*</span>eps)</span>
+<span id="cb11-27"><a href="#cb11-27"></a>    c <span class="op">=</span> torch.randn(N) <span class="op">*</span> term_variance</span>
+<span id="cb11-28"><a href="#cb11-28"></a>    </span>
+<span id="cb11-29"><a href="#cb11-29"></a>    <span class="co"># makes grids</span></span>
+<span id="cb11-30"><a href="#cb11-30"></a>    <span class="co"># each row contains values between -L/2, L/2</span></span>
+<span id="cb11-31"><a href="#cb11-31"></a>    x_grid <span class="op">=</span> torch.linspace(<span class="op">-</span>L<span class="op">/</span><span class="dv">2</span>, L<span class="op">/</span><span class="dv">2</span>, grid_size).unsqueeze(<span class="dv">0</span>).repeat(N, <span class="dv">1</span>)</span>
+<span id="cb11-32"><a href="#cb11-32"></a>    <span class="co"># computes values</span></span>
+<span id="cb11-33"><a href="#cb11-33"></a>    u, v, grad_u, div_v <span class="op">=</span> get_datapoint(x_grid, Q0, beta0, c, eps, a)</span>
+<span id="cb11-34"><a href="#cb11-34"></a>    <span class="co"># u has shape (N, grid_size)</span></span>
+<span id="cb11-35"><a href="#cb11-35"></a>    <span class="co"># v has shape (N, grid_size)</span></span>
+<span id="cb11-36"><a href="#cb11-36"></a>    <span class="co"># grad_u has shape (N, grid_size)</span></span>
+<span id="cb11-37"><a href="#cb11-37"></a>    <span class="co"># div_v has shape (N, grid_size)</span></span>
+<span id="cb11-38"><a href="#cb11-38"></a>    </span>
+<span id="cb11-39"><a href="#cb11-39"></a>    <span class="co"># add noise to u and v</span></span>
+<span id="cb11-40"><a href="#cb11-40"></a>    Dx <span class="op">=</span> L <span class="op">/</span> (grid_size <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb11-41"><a href="#cb11-41"></a>    u <span class="op">=</span> u <span class="op">+</span> noise_intensity <span class="op">*</span> torch.randn_like(u) <span class="op">*</span> Dx</span>
+<span id="cb11-42"><a href="#cb11-42"></a>    v <span class="op">=</span> v <span class="op">+</span> noise_intensity <span class="op">*</span> torch.randn_like(v) <span class="op">*</span> Dx</span>
+<span id="cb11-43"><a href="#cb11-43"></a>    </span>
+<span id="cb11-44"><a href="#cb11-44"></a>    fu <span class="op">=</span> u<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb11-45"><a href="#cb11-45"></a>    <span class="cf">return</span> u, v, fu, grad_u, div_v</span>
+<span id="cb11-46"><a href="#cb11-46"></a></span>
+<span id="cb11-47"><a href="#cb11-47"></a>influence <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb11-48"><a href="#cb11-48"></a>Dx <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb11-49"><a href="#cb11-49"></a>grid_size <span class="op">=</span> influence <span class="op">+</span> (influence<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb11-50"><a href="#cb11-50"></a>u,v,fu,grad_u,div_v <span class="op">=</span> make_dataset(N<span class="op">=</span><span class="dv">100000</span>, eps<span class="op">=</span><span class="fl">0.05</span>, a<span class="op">=</span><span class="fl">1.1</span>, grid_size<span class="op">=</span>grid_size, L<span class="op">=</span>(grid_size<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>Dx, noise_intensity<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb11-51"><a href="#cb11-51"></a></span>
+<span id="cb11-52"><a href="#cb11-52"></a><span class="co"># make the unique tensor</span></span>
+<span id="cb11-53"><a href="#cb11-53"></a>dsetin <span class="op">=</span> torch.stack([u, v], dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-54"><a href="#cb11-54"></a>dsetout <span class="op">=</span> torch.stack([grad_u, div_v], dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-55"><a href="#cb11-55"></a></span>
+<span id="cb11-56"><a href="#cb11-56"></a><span class="kw">class</span> IMEXNet(nn.Module):</span>
+<span id="cb11-57"><a href="#cb11-57"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, INCh: <span class="bu">int</span>, OUTCh: <span class="bu">int</span>, a: <span class="bu">float</span>, eps: <span class="bu">float</span>):</span>
+<span id="cb11-58"><a href="#cb11-58"></a>        <span class="bu">super</span>(IMEXNet, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb11-59"><a href="#cb11-59"></a>        <span class="va">self</span>.a <span class="op">=</span> a</span>
+<span id="cb11-60"><a href="#cb11-60"></a>        <span class="va">self</span>.eps <span class="op">=</span> eps</span>
+<span id="cb11-61"><a href="#cb11-61"></a>        <span class="va">self</span>.FCN <span class="op">=</span> nn.Sequential(</span>
+<span id="cb11-62"><a href="#cb11-62"></a>            nn.Conv1d(in_channels<span class="op">=</span>INCh, out_channels<span class="op">=</span>OUTCh, kernel_size<span class="op">=</span><span class="dv">7</span>, padding<span class="op">=</span><span class="dv">3</span>, padding_mode<span class="op">=</span><span class="st">'circular'</span>, bias<span class="op">=</span><span class="va">False</span>),</span>
+<span id="cb11-63"><a href="#cb11-63"></a>        )</span>
+<span id="cb11-64"><a href="#cb11-64"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, u, v, dt):</span>
+<span id="cb11-65"><a href="#cb11-65"></a>        x <span class="op">=</span> torch.stack([u, v], dim<span class="op">=</span><span class="dv">1</span>)  </span>
+<span id="cb11-66"><a href="#cb11-66"></a>        net_out <span class="op">=</span> <span class="va">self</span>.FCN(x)</span>
+<span id="cb11-67"><a href="#cb11-67"></a>        adifu <span class="op">=</span> <span class="va">self</span>.a <span class="op">*</span> net_out[:, <span class="dv">0</span>, :]  </span>
+<span id="cb11-68"><a href="#cb11-68"></a>        difv <span class="op">=</span> net_out[:, <span class="dv">1</span>, :]  </span>
+<span id="cb11-69"><a href="#cb11-69"></a></span>
+<span id="cb11-70"><a href="#cb11-70"></a>        <span class="co"># Explicit step</span></span>
+<span id="cb11-71"><a href="#cb11-71"></a>        u_next <span class="op">=</span> u <span class="op">-</span> dt <span class="op">*</span> difv  </span>
+<span id="cb11-72"><a href="#cb11-72"></a>    </span>
+<span id="cb11-73"><a href="#cb11-73"></a>        <span class="co"># Implicit step: Usiamo lo stesso identico flusso 1D del dataset</span></span>
+<span id="cb11-74"><a href="#cb11-74"></a>        f_u_next <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> u_next<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb11-75"><a href="#cb11-75"></a>        v_next <span class="op">=</span> (<span class="va">self</span>.eps <span class="op">*</span> v <span class="op">-</span> <span class="va">self</span>.eps <span class="op">*</span> dt <span class="op">*</span> adifu <span class="op">+</span> dt <span class="op">*</span> f_u_next) <span class="op">/</span> (<span class="va">self</span>.eps <span class="op">+</span> dt)  </span>
+<span id="cb11-76"><a href="#cb11-76"></a>    </span>
+<span id="cb11-77"><a href="#cb11-77"></a>        <span class="cf">return</span> u_next, v_next</span>
+<span id="cb11-78"><a href="#cb11-78"></a>    </span>
+<span id="cb11-79"><a href="#cb11-79"></a>myModel <span class="op">=</span> IMEXNet(INCh<span class="op">=</span><span class="dv">2</span>, OUTCh<span class="op">=</span><span class="dv">2</span>, a<span class="op">=</span><span class="fl">1.1</span>, eps<span class="op">=</span><span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="866dfe4d" class="cell">
+<details class="code-fold">
+<summary>Training the IMEXNet model</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>Dt: <span class="bu">float</span> <span class="op">=</span> Dx <span class="op">/</span> sqrt(myModel.a)  <span class="co"># Time step size based on CFL condition</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># train the network like interpolator</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>optimizer <span class="op">=</span> torch.optim.LBFGS(myModel.parameters(), lr<span class="op">=</span><span class="fl">1.0</span>, line_search_fn<span class="op">=</span><span class="st">'strong_wolfe'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>scheduler <span class="op">=</span> torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode<span class="op">=</span><span class="st">'min'</span>, factor<span class="op">=</span><span class="fl">0.5</span>, patience<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># dataloader</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>dataloader <span class="op">=</span> torch.utils.data.DataLoader(torch.utils.data.TensorDataset(dsetin, dsetout), batch_size<span class="op">=</span><span class="dv">100000</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>epoch_bar <span class="op">=</span> tqdm(<span class="bu">range</span>(<span class="dv">100</span>), desc<span class="op">=</span><span class="st">"Training"</span>, unit<span class="op">=</span><span class="st">"epoch"</span>, colour<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="kw">def</span> compute_loss(batch_in, batch_out, dq, dp):</span>
+<span id="cb12-10"><a href="#cb12-10"></a>    optimizer.zero_grad()</span>
+<span id="cb12-11"><a href="#cb12-11"></a>    </span>
+<span id="cb12-12"><a href="#cb12-12"></a>    <span class="co"># 1. Interpolation Loss (sui 7 punti centrali non corrotti da padding)</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a>    output <span class="op">=</span> myModel.FCN(batch_in)</span>
+<span id="cb12-14"><a href="#cb12-14"></a>    grid_size <span class="op">=</span> output.shape[<span class="dv">2</span>] <span class="co"># 13</span></span>
+<span id="cb12-15"><a href="#cb12-15"></a>    </span>
+<span id="cb12-16"><a href="#cb12-16"></a>    <span class="co"># indici 3:10 seleziona esattamente i 7 punti centrali puliti</span></span>
+<span id="cb12-17"><a href="#cb12-17"></a>    output_clean <span class="op">=</span> output[:, :, <span class="dv">3</span>:<span class="dv">10</span>]</span>
+<span id="cb12-18"><a href="#cb12-18"></a>    target_clean <span class="op">=</span> batch_out[:, :, <span class="dv">3</span>:<span class="dv">10</span>]</span>
+<span id="cb12-19"><a href="#cb12-19"></a>    interpolation_loss <span class="op">=</span> nn.MSELoss()(output_clean, target_clean)</span>
+<span id="cb12-20"><a href="#cb12-20"></a>    </span>
+<span id="cb12-21"><a href="#cb12-21"></a>    <span class="co"># 2. Additivity Loss</span></span>
+<span id="cb12-22"><a href="#cb12-22"></a>    u_source, v_source <span class="op">=</span> batch_in[:, <span class="dv">0</span>, :], batch_in[:, <span class="dv">1</span>, :]</span>
+<span id="cb12-23"><a href="#cb12-23"></a>    </span>
+<span id="cb12-24"><a href="#cb12-24"></a>    u_middle, v_middle <span class="op">=</span> myModel(u_source, v_source, dt<span class="op">=</span>dp)</span>
+<span id="cb12-25"><a href="#cb12-25"></a>    u_final1, v_final1 <span class="op">=</span> myModel(u_middle, v_middle, dt<span class="op">=</span>dq)</span>
+<span id="cb12-26"><a href="#cb12-26"></a>    u_final2, v_final2 <span class="op">=</span> myModel(u_source, v_source, dt<span class="op">=</span>Dt)</span>
+<span id="cb12-27"><a href="#cb12-27"></a>    </span>
+<span id="cb12-28"><a href="#cb12-28"></a>    <span class="co"># Comparison only over the central point</span></span>
+<span id="cb12-29"><a href="#cb12-29"></a>    center_idx <span class="op">=</span> grid_size <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb12-30"><a href="#cb12-30"></a>    u_final1_center <span class="op">=</span> u_final1[:, [center_idx]]</span>
+<span id="cb12-31"><a href="#cb12-31"></a>    v_final1_center <span class="op">=</span> v_final1[:, [center_idx]]</span>
+<span id="cb12-32"><a href="#cb12-32"></a>    u_final2_center <span class="op">=</span> u_final2[:, [center_idx]]</span>
+<span id="cb12-33"><a href="#cb12-33"></a>    v_final2_center <span class="op">=</span> v_final2[:, [center_idx]]</span>
+<span id="cb12-34"><a href="#cb12-34"></a>    additivity_loss <span class="op">=</span> nn.MSELoss()(u_final1_center, u_final2_center) <span class="op">+</span> nn.MSELoss()(v_final1_center, v_final2_center)</span>
+<span id="cb12-35"><a href="#cb12-35"></a>    </span>
+<span id="cb12-36"><a href="#cb12-36"></a>    <span class="co"># 3. Regularization Loss</span></span>
+<span id="cb12-37"><a href="#cb12-37"></a>    reg_loss <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb12-38"><a href="#cb12-38"></a>    <span class="cf">for</span> param <span class="kw">in</span> myModel.parameters():</span>
+<span id="cb12-39"><a href="#cb12-39"></a>        reg_loss <span class="op">+=</span> param.<span class="bu">abs</span>().<span class="bu">sum</span>()</span>
+<span id="cb12-40"><a href="#cb12-40"></a>    </span>
+<span id="cb12-41"><a href="#cb12-41"></a>    loss <span class="op">=</span> interpolation_loss <span class="op">+</span> additivity_loss <span class="op">/</span> Dt <span class="op">+</span> <span class="fl">1e-6</span> <span class="op">*</span> reg_loss</span>
+<span id="cb12-42"><a href="#cb12-42"></a>    </span>
+<span id="cb12-43"><a href="#cb12-43"></a>    <span class="cf">return</span> loss</span>
+<span id="cb12-44"><a href="#cb12-44"></a></span>
+<span id="cb12-45"><a href="#cb12-45"></a><span class="co"># --- Loop di Training modificato ---</span></span>
+<span id="cb12-46"><a href="#cb12-46"></a>myModel.train()</span>
+<span id="cb12-47"><a href="#cb12-47"></a><span class="cf">for</span> epoch <span class="kw">in</span> epoch_bar:</span>
+<span id="cb12-48"><a href="#cb12-48"></a>    total_batches <span class="op">=</span> <span class="bu">len</span>(dataloader)</span>
+<span id="cb12-49"><a href="#cb12-49"></a>    <span class="cf">for</span> i, (batch_in, batch_out) <span class="kw">in</span> <span class="bu">enumerate</span>(dataloader):</span>
+<span id="cb12-50"><a href="#cb12-50"></a>        </span>
+<span id="cb12-51"><a href="#cb12-51"></a>        <span class="co"># Fissiamo i tempi casuali FUORI dalla closure per L-BFGS</span></span>
+<span id="cb12-52"><a href="#cb12-52"></a>        dq <span class="op">=</span> torch.rand(batch_in.shape[<span class="dv">0</span>], <span class="dv">1</span>) <span class="op">*</span> Dt  </span>
+<span id="cb12-53"><a href="#cb12-53"></a>        dp <span class="op">=</span> torch.rand(batch_in.shape[<span class="dv">0</span>], <span class="dv">1</span>) <span class="op">*</span> (Dt <span class="op">-</span> dq)  </span>
+<span id="cb12-54"><a href="#cb12-54"></a>        </span>
+<span id="cb12-55"><a href="#cb12-55"></a>        <span class="kw">def</span> closure():</span>
+<span id="cb12-56"><a href="#cb12-56"></a>            optimizer.zero_grad()</span>
+<span id="cb12-57"><a href="#cb12-57"></a>            loss <span class="op">=</span> compute_loss(batch_in, batch_out, dq, dp)</span>
+<span id="cb12-58"><a href="#cb12-58"></a>            loss.backward()</span>
+<span id="cb12-59"><a href="#cb12-59"></a>            <span class="cf">return</span> loss</span>
+<span id="cb12-60"><a href="#cb12-60"></a></span>
+<span id="cb12-61"><a href="#cb12-61"></a>        optimizer.step(closure)</span>
+<span id="cb12-62"><a href="#cb12-62"></a>       </span>
+<span id="cb12-63"><a href="#cb12-63"></a>        epoch_bar.set_postfix({</span>
+<span id="cb12-64"><a href="#cb12-64"></a>            <span class="st">'Batch'</span>: <span class="ss">f"</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>total_batches<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb12-65"><a href="#cb12-65"></a>            <span class="st">'Loss'</span>: <span class="ss">f"</span><span class="sc">{</span>compute_loss(batch_in, batch_out, dq, dp)<span class="sc">.</span>item()<span class="sc">:.3e}</span><span class="ss">"</span>,</span>
+<span id="cb12-66"><a href="#cb12-66"></a>            <span class="st">'lr'</span>: <span class="ss">f"</span><span class="sc">{</span>optimizer<span class="sc">.</span>param_groups[<span class="dv">0</span>][<span class="st">'lr'</span>]<span class="sc">:.3e}</span><span class="ss">"</span></span>
+<span id="cb12-67"><a href="#cb12-67"></a>        })</span>
+<span id="cb12-68"><a href="#cb12-68"></a>         </span>
+<span id="cb12-69"><a href="#cb12-69"></a>    <span class="co"># make validation set</span></span>
+<span id="cb12-70"><a href="#cb12-70"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb12-71"><a href="#cb12-71"></a>        myModel.<span class="bu">eval</span>()</span>
+<span id="cb12-72"><a href="#cb12-72"></a>        u_val, v_val, fu_val, grad_u_val, div_v_val <span class="op">=</span> make_dataset(N<span class="op">=</span><span class="dv">1000</span>, eps<span class="op">=</span><span class="fl">0.05</span>, a<span class="op">=</span><span class="fl">1.1</span>, grid_size<span class="op">=</span>grid_size, L<span class="op">=</span>(grid_size<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>Dx, noise_intensity<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb12-73"><a href="#cb12-73"></a>        dq <span class="op">=</span> torch.rand(u_val.shape[<span class="dv">0</span>], <span class="dv">1</span>) <span class="op">*</span> Dt  </span>
+<span id="cb12-74"><a href="#cb12-74"></a>        dp <span class="op">=</span> torch.rand(u_val.shape[<span class="dv">0</span>], <span class="dv">1</span>) <span class="op">*</span> (Dt <span class="op">-</span> dq)</span>
+<span id="cb12-75"><a href="#cb12-75"></a>        val_loss <span class="op">=</span> compute_loss(torch.stack([u_val, v_val], dim<span class="op">=</span><span class="dv">1</span>), torch.stack([grad_u_val, div_v_val], dim<span class="op">=</span><span class="dv">1</span>), dq, dp)</span>
+<span id="cb12-76"><a href="#cb12-76"></a>        scheduler.step(val_loss)</span>
+<span id="cb12-77"><a href="#cb12-77"></a>        myModel.train()</span>
+<span id="cb12-78"><a href="#cb12-78"></a>        </span>
+<span id="cb12-79"><a href="#cb12-79"></a><span class="co"># save the trained model</span></span>
+<span id="cb12-80"><a href="#cb12-80"></a><span class="co"># torch.save(myModel.state_dict(), "IMEXNet_model.pth")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="d2b21ea3" class="cell">
+<details class="code-fold">
+<summary>Analyze the learned kernel weights of the IMEXNet model</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a>weights <span class="op">=</span> myModel.FCN[<span class="dv">0</span>].weight.detach().cpu().numpy()</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>out_labels <span class="op">=</span> [<span class="st">'Output 0 (grad_u)'</span>, <span class="st">'Output 1 (div_v)'</span>]</span>
+<span id="cb13-7"><a href="#cb13-7"></a>in_labels <span class="op">=</span> [<span class="st">'Input 0 (u)'</span>, <span class="st">'Input 1 (v)'</span>]</span>
+<span id="cb13-8"><a href="#cb13-8"></a></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="bu">print</span>(<span class="st">"--- KERNEL WEIGHTS ---"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="cf">for</span> out_idx <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb13-11"><a href="#cb13-11"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>out_labels[out_idx]<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12"></a>    <span class="cf">for</span> in_idx <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(in_labels)):</span>
+<span id="cb13-13"><a href="#cb13-13"></a>        conv <span class="op">=</span> myModel.FCN[<span class="dv">0</span>]</span>
+<span id="cb13-14"><a href="#cb13-14"></a>        in_per_group <span class="op">=</span> conv.in_channels <span class="op">//</span> conv.groups</span>
+<span id="cb13-15"><a href="#cb13-15"></a>        out_per_group <span class="op">=</span> conv.out_channels <span class="op">//</span> conv.groups</span>
+<span id="cb13-16"><a href="#cb13-16"></a></span>
+<span id="cb13-17"><a href="#cb13-17"></a>        group_id <span class="op">=</span> out_idx <span class="op">//</span> out_per_group</span>
+<span id="cb13-18"><a href="#cb13-18"></a>        in_start <span class="op">=</span> group_id <span class="op">*</span> in_per_group</span>
+<span id="cb13-19"><a href="#cb13-19"></a>        in_end <span class="op">=</span> in_start <span class="op">+</span> in_per_group</span>
+<span id="cb13-20"><a href="#cb13-20"></a></span>
+<span id="cb13-21"><a href="#cb13-21"></a>        <span class="cf">if</span> in_start <span class="op">&lt;=</span> in_idx <span class="op">&lt;</span> in_end:</span>
+<span id="cb13-22"><a href="#cb13-22"></a>            local_in_idx <span class="op">=</span> in_idx <span class="op">-</span> in_start</span>
+<span id="cb13-23"><a href="#cb13-23"></a>            stencil <span class="op">=</span> weights[out_idx, local_in_idx, :]</span>
+<span id="cb13-24"><a href="#cb13-24"></a>        <span class="cf">else</span>:</span>
+<span id="cb13-25"><a href="#cb13-25"></a>            stencil <span class="op">=</span> np.zeros(weights.shape[<span class="op">-</span><span class="dv">1</span>], dtype<span class="op">=</span>weights.dtype)</span>
+<span id="cb13-26"><a href="#cb13-26"></a>        stencil_str <span class="op">=</span> <span class="st">", "</span>.join([<span class="ss">f"</span><span class="sc">{</span>w<span class="sc">:+.4f}</span><span class="ss">"</span> <span class="cf">for</span> w <span class="kw">in</span> stencil])</span>
+<span id="cb13-27"><a href="#cb13-27"></a>        <span class="bu">print</span>(<span class="ss">f"  Da </span><span class="sc">{</span>in_labels[in_idx]<span class="sc">}</span><span class="ss"> -&gt; [</span><span class="sc">{</span>stencil_str<span class="sc">}</span><span class="ss">]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>--- ANALISI DEI PESI DEL KERNEL ---
+
+Output 0 (grad_u):
+  Da Input 0 (u) -&gt; [-10.6788, -7.0659, -3.5373, -0.0023, +3.5547, +7.0748, +10.6546]
+  Da Input 1 (v) -&gt; [+0.0607, -0.0002, -0.0409, -0.0528, -0.0158, +0.0046, +0.0426]
+
+Output 1 (div_v):
+  Da Input 0 (u) -&gt; [-0.3260, +0.0050, +0.1833, +0.2565, +0.1986, -0.0042, -0.3227]
+  Da Input 1 (v) -&gt; [-10.5733, -7.1607, -3.6514, -0.0000, +3.6381, +7.1761, +10.5713]</code></pre>
+</div>
+</div>
+<div id="e78fa9b7" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Make a simulation with the trained network</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># --- SETUP ---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>N: <span class="bu">int</span> <span class="op">=</span> <span class="dv">2001</span>    <span class="co"># Number of spatial points</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>L: <span class="bu">float</span> <span class="op">=</span> (N<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> Dx   <span class="co"># Spatial domain length</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>T: <span class="bu">float</span> <span class="op">=</span> <span class="fl">20.0</span>    <span class="co"># Final time</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># CFL</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>Dt: <span class="bu">float</span> <span class="op">=</span> Dx <span class="op">/</span> sqrt(myModel.a)<span class="op">*</span><span class="fl">0.01</span>  <span class="co"># Time step size based on CFL condition </span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>steps: <span class="bu">int</span> <span class="op">=</span> <span class="bu">int</span>(T <span class="op">/</span> Dt)</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a>x: torch.Tensor <span class="op">=</span> torch.linspace(<span class="op">-</span>L<span class="op">/</span><span class="dv">2</span>, L<span class="op">/</span><span class="dv">2</span>, N)</span>
+<span id="cb15-10"><a href="#cb15-10"></a>u: torch.Tensor <span class="op">=</span> torch.cos(<span class="dv">2</span><span class="op">*</span>x<span class="op">*</span>torch.pi <span class="op">/</span> L)  <span class="co"># Shape: (N,)</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>v: torch.Tensor <span class="op">=</span> u<span class="op">**</span><span class="dv">2</span><span class="op">*</span><span class="fl">0.5</span>  <span class="co"># Shape: (N,)</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>u_init_np <span class="op">=</span> u.squeeze().numpy()</span>
+<span id="cb15-14"><a href="#cb15-14"></a>v_init_np <span class="op">=</span> v.squeeze().numpy()</span>
+<span id="cb15-15"><a href="#cb15-15"></a></span>
+<span id="cb15-16"><a href="#cb15-16"></a>u_history <span class="op">=</span> np.empty((steps, N), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb15-17"><a href="#cb15-17"></a>v_history <span class="op">=</span> np.empty((steps, N), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb15-18"><a href="#cb15-18"></a></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb15-20"><a href="#cb15-20"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(steps):    </span>
+<span id="cb15-21"><a href="#cb15-21"></a>        u, v <span class="op">=</span> myModel(u[<span class="va">None</span>,...], v[<span class="va">None</span>,...], Dt)</span>
+<span id="cb15-22"><a href="#cb15-22"></a>        u, v <span class="op">=</span> u.squeeze(), v.squeeze()</span>
+<span id="cb15-23"><a href="#cb15-23"></a>        u_history[n] <span class="op">=</span> u.detach().cpu().numpy()</span>
+<span id="cb15-24"><a href="#cb15-24"></a>        v_history[n] <span class="op">=</span> v.detach().cpu().numpy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p><img src="imexnet_simulation.gif" alt="IMEXNet Jin-Xin relaxation animation" width="600"></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/StefanoMagriniAlunno\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Stefano Magrini Alunno</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
