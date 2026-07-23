@@ -1444,7 +1444,7 @@ v = f(u) - \varepsilon\left(a\textrm{Id}-f'(u)^2\right)\nabla_x u
 <span id="cb12-80"><a href="#cb12-80"></a><span class="co"># torch.save(myModel.state_dict(), "IMEXNet_model.pth")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="d2b21ea3" class="cell">
+<div id="d2b21ea3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Analyze the learned kernel weights of the IMEXNet model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1476,7 +1476,7 @@ v = f(u) - \varepsilon\left(a\textrm{Id}-f'(u)^2\right)\nabla_x u
 <span id="cb13-27"><a href="#cb13-27"></a>        <span class="bu">print</span>(<span class="ss">f"  Da </span><span class="sc">{</span>in_labels[in_idx]<span class="sc">}</span><span class="ss"> -&gt; [</span><span class="sc">{</span>stencil_str<span class="sc">}</span><span class="ss">]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>--- ANALISI DEI PESI DEL KERNEL ---
+<pre><code>--- KERNEL WEIGHTS ---
 
 Output 0 (grad_u):
   Da Input 0 (u) -&gt; [-10.6788, -7.0659, -3.5373, -0.0023, +3.5547, +7.0748, +10.6546]
