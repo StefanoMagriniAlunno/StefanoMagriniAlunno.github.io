@@ -6,8 +6,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zheyuan Hu">
+<meta name="author" content="Zhongqiang Zhang">
+<meta name="author" content="George Em Karniadakis">
+<meta name="author" content="Kenji Kawaguchi">
+<meta name="dcterms.date" content="2024-02-12">
 
-<title>Wiki – Stefano Magrini Alunno</title>
+<title>Score-Based Physics-Informed Neural Networks for High-Dimensional Fokker-Planck Equations – Stefano Magrini Alunno</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,28 +31,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-cac0433bb97fa58dc0fc6599c25c149a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d34ec0ee24c3a79fe80f8b1f132259e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cac0433bb97fa58dc0fc6599c25c149a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-d34ec0ee24c3a79fe80f8b1f132259e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,63 +78,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-library-list .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-library-list'] = new List('listing-library-list', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-works-list .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-works-list'] = new List('listing-works-list', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <meta name="google-site-verification" content="xPmUsSVlvFsBnebW1VBvnARMf01L-lCjemevT1oJ2Pw">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,7 +116,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -342,7 +288,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Stefano Magrini Alunno</span>
     </a>
   </div>
@@ -353,15 +299,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">CV &amp; Bio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../wiki/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../wiki/index.html"> 
 <span class="menu-text">Wiki &amp; Notebooks</span></a>
   </li>  
 </ul>
@@ -392,8 +338,8 @@ window.Quarto = {
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library">Library</a></li>
-  <li><a href="#my-works" id="toc-my-works" class="nav-link" data-scroll-target="#my-works">My Works</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
   </ul>
 </nav>
 </nav>
@@ -407,14 +353,35 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wiki</h1>
-</div>
+<h1 class="title">Score-Based Physics-Informed Neural Networks for High-Dimensional Fokker-Planck Equations</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Fokker-Planck Equations</div>
+    <div class="quarto-category">Score-Based Methods</div>
+    <div class="quarto-category">High-Dimensional Statistics</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zheyuan Hu </p>
+             <p>Zhongqiang Zhang </p>
+             <p>George Em Karniadakis </p>
+             <p>Kenji Kawaguchi </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -424,86 +391,41 @@ window.Quarto = {
 </header>
 
 
-<section id="library" class="level1">
-<h1>Library</h1>
-<div id="listing-library-list" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1784814710415" data-listing-reading-time-sort="1" data-listing-word-count-sort="12" data-listing-title-sort="Score-Based Physics-Informed Neural Networks for High-Dimensional Fokker-Planck Equations">
-<td>
-<a href="../wiki/library/HZKK2024/index.html" class="title listing-title">Score-Based Physics-Informed Neural Networks for High-Dimensional Fokker-Planck Equations</a>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-file-modified-sort="1784814710399" data-listing-reading-time-sort="1" data-listing-word-count-sort="12" data-listing-title-sort="A deep learning method for solving Fokker-Planck equations">
-<td>
-<a href="../wiki/library/LDZ2022/index.html" class="title listing-title">A deep learning method for solving Fokker-Planck equations</a>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1784814710415" data-listing-reading-time-sort="1" data-listing-word-count-sort="12" data-listing-title-sort="Subspace clustering in high-dimensions: Phase transitions &amp; Statistical-to-Computational gap">
-<td>
-<a href="../wiki/library/PLKZ2022/index.html" class="title listing-title">Subspace clustering in high-dimensions: Phase transitions &amp; Statistical-to-Computational gap</a>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<section id="description" class="level2">
+<h2 data-anchor-id="description">Description</h2>
+<p>This article defines a neural network model for the Fokker Planck equation in High Dimension. <span class="math display">\[
+  \partial_t u = \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\nabla_\textbf{x}\cdot\left(\Sigma u\right)\right)
+\]</span> A vanilla approach shows the following drawbacks:</p>
+<ul>
+<li><p><strong>Twice differentiation</strong>: for each differentiation the computation cost increases and the loss landscape becomes stiff. The complex loss landscape depends on the stability of the activation function. SIREN is a neural network with trigonometric activation functions, in this way the differentiation is stable. Another approach (very similar to the one of this article) is define two neural networks <span class="math inline">\(\tilde{u}_\theta\)</span> and <span class="math inline">\(\tilde{v}_\theta\)</span> such that <span class="math inline">\(\tilde{v}_\theta\approx\nabla\tilde{u}_\theta\)</span></p></li>
+<li><p><strong>Diffusive error</strong>: The neural network tries to solve the PDE in the whole space, so at the beginning of the training the neural network we have a “good” result near the Interpolation Points (Boundary Conditions and Initial Conditions) and a drift inside the domain. For this reason if we rewrite the neural network as follows: <span class="math display">\[
+\tilde{u}\left(\textbf{x},t\right) = u\left(\textbf{x}_\perp,t_\perp\right) + d\left(\left(\textbf{x},t\right),\left(\textbf{x}_\perp,t_\perp\right)\right)\textrm{NN}\left(x,t\right)
+\]</span> where <span class="math inline">\(\textbf{x}_\perp,t_\perp\)</span> is the nearest interpolation point. Another approach defines a dynamic dataloader that slowly focuses the neural network from the interpolation points to the entire domain.</p></li>
+<li><p><strong>Over Parametrization</strong>: The classical MLP does not have a good performance or training in high dimensions. In literature, we can find a simple solution Tensor Neural Networks (TNNs). These model defines <span class="math inline">\(r\)</span> neural networks for each dimension that here we write like <span class="math inline">\(N_{j}^{(i)}(\textbf{x}_j)\)</span>. The final model is defined like <span class="math inline">\(N(\textbf{x}) = \sum_{i=1}^r \prod_j N_{j}^{(i)}(\textbf{x}_j)\)</span> The accuracy of the neural network is given by <span class="math inline">\(N\)</span> and the rank <span class="math inline">\(r\)</span>, an important analytical property of this neural network is an easier derivation and easier integration.</p></li>
+</ul>
+<p>In this article the authors address only the first point. In particular, they rewrite the FPE as follows: <span class="math display">\[
+  \begin{align*}
+    \partial_t u + \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\nabla_\textbf{x}\cdot\left(\Sigma u\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\left(\Sigma\nabla_\textbf{x} u + u\nabla_\textbf{x}\cdot\Sigma\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(u\left(-\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma\frac{\nabla_\textbf{x} u}u\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(u\left(-\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma \textbf{s}\right)\right) = 0 \\
+    \textbf{F}_\textrm{eff} = -\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma \textbf{s} \\
+  \end{align*}
+\]</span> where <span class="math inline">\(\textbf{s}=\nabla_\textbf{x}\log u\)</span> is the score-matching of <span class="math inline">\(u\)</span>. It is scale-invariant, so its estimation can be performed through the simulation of <span class="math inline">\(u\)</span>, for this purpose there is the following SDE: <span class="math display">\[
+  \textrm{d}\textbf{X}_t = \textbf{f}\textrm{d}t + \sigma\textrm{d}\textbf{W}_t \quad \text{where $\sigma\sigma^T=\Sigma$}
+\]</span></p>
+<section id="notebook" class="level3">
+<h3 data-anchor-id="notebook">Notebook</h3>
+<ul>
+<li><a href="../../../wiki/library/HZKK2024/code/main.html">Notebook</a></li>
+</ul>
 </section>
-<section id="my-works" class="level1">
-<h1>My Works</h1>
-<div id="listing-works-list" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1784814710665" data-listing-reading-time-sort="1" data-listing-word-count-sort="9" data-listing-title-sort="Jin-Xin Relaxation Systems and IMEX-Net">
-<td>
-<a href="../wiki/works/PareschiLecture26/index.html" class="title listing-title">Jin-Xin Relaxation Systems and IMEX-Net</a>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
+</section>
+<section id="links" class="level2">
+<h2 data-anchor-id="links">Links</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2402.07465">https://arxiv.org/abs/2402.07465</a></li>
+</ul>
 
 
 </section>
