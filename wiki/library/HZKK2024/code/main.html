@@ -395,6 +395,7 @@ window.Quarto = {
   <li><a href="#implementation-notebook" id="toc-implementation-notebook" class="nav-link active" data-scroll-target="#implementation-notebook">Implementation notebook</a>
   <ul class="collapse">
   <li><a href="#score-pinn" id="toc-score-pinn" class="nav-link" data-scroll-target="#score-pinn">Score-PINN</a></li>
+  <li><a href="#score-pinn-idea" id="toc-score-pinn-idea" class="nav-link" data-scroll-target="#score-pinn-idea">Score-PINN idea</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -616,10 +617,24 @@ window.Quarto = {
 </div>
 </div>
 <p><img src="score_field.gif" alt="ScorePINN simulation animation" width="600"></p>
-
-
-
 </section>
+</section>
+<section id="score-pinn-idea" class="level2">
+<h2 data-anchor-id="score-pinn-idea">Score-PINN idea</h2>
+<p>The authors insert the evolution of the score by using the FPE as follows: <span class="math display">\[
+\begin{align*}
+    \partial_t \textbf{s} &amp;= \partial_t \nabla_\textbf{x} \log u(\textbf{x},t) \\
+    &amp;= \nabla_\textbf{x} \partial_t \log u(\textbf{x},t) \\
+    &amp;= \nabla_\textbf{x} \left[\frac{\partial_t u(\textbf{x},t)}{u(\textbf{x},t)}\right] \\
+    &amp;= \nabla_\textbf{x} \left[\frac{\nabla_\textbf{x}\cdot\left(u\left(\textbf{w}+\frac12\Sigma \textbf{s}\right)\right)}{u}\right] \\
+    &amp;\text{where $\textbf{w}=-\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma$}\\
+    &amp;= \nabla_\textbf{x} \left[\frac{\nabla_\textbf{x}u\cdot\left(\textbf{w}+\frac12\Sigma \textbf{s}\right)+u\nabla_\textbf{x}\cdot\left(\textbf{w}+\frac12\Sigma \textbf{s}\right)}{u}\right] \\
+    &amp;= \nabla_\textbf{x} \left[\textbf{s}\cdot\left(\textbf{w}+\frac12\Sigma \textbf{s}\right)+\nabla_\textbf{x}\cdot\left(\textbf{w}+\frac12\Sigma \textbf{s}\right)\right]
+\end{align*}
+\]</span></p>
+
+
+
 </section>
 </section>
 
