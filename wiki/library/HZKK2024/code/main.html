@@ -418,14 +418,18 @@ window.Quarto = {
 <li>Authors: Hu, Zhang, Karniadakis, Kawaguchi</li>
 <li>Year: 2024</li>
 </ul>
-<div id="f88c5f07" class="cell">
+<div id="f88c5f07" class="cell" data-execution_count="109">
 <details class="code-fold">
 <summary>Show</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation, PillowWriter</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> TensorDataset, DataLoader</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">from</span> tqdm.notebook <span class="im">import</span> tqdm</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation, PillowWriter</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="score-pinn" class="level2">
@@ -462,32 +466,32 @@ window.Quarto = {
     \lim_{\varepsilon\to0} \mathbb{E}_{q_\varepsilon\left(\tilde{\textbf{x}}\middle| \textbf{x}\right)}\left[\frac12\left\|\textbf{s}_\theta\left(\tilde{\textbf{x}},t\right)\right\|^2+\nabla_{\tilde{\textbf{x}}}\cdot\textbf{s}_\theta\left(\tilde{\textbf{x}},t\right)\right] = \mathbb{E}_{\textbf{x}\sim\textrm{SDE}}\left[\frac12\left\|\textbf{s}_\theta\left(\textbf{x},t\right)\right\|^2+\nabla_{\textbf{x}}\cdot\textbf{s}_\theta\left(\textbf{x},t\right)\right]
 \end{align*}
 \]</span> So we know that for each optimization problem the loss function converges to the ideal loss function. In other words, it is like an Asymptotic Preserving property. Howevere, we have to remark that the theoretical optimal solution of the relaxation problem converges to the limit solution (the pure score-matching), in the case of the PINN (vanilla approach) the target’s noise diverges. So the quality of the training and the optimal theoretical PINN does not converges to the optimal theoretical PINN of the limit loss.</p>
-<div id="42eb6194" class="cell" data-execution_count="2">
+<div id="42eb6194" class="cell" data-execution_count="110">
 <details class="code-fold">
 <summary>Score-PINN model</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> torch</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">class</span> ScoreNetwork(nn.Module):</span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, spatial_dim, hidden_dim):</span>
-<span id="cb2-6"><a href="#cb2-6"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
-<span id="cb2-7"><a href="#cb2-7"></a>        input_dim <span class="op">=</span> spatial_dim <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>        <span class="va">self</span>.net <span class="op">=</span> nn.Sequential(</span>
-<span id="cb2-9"><a href="#cb2-9"></a>            nn.Linear(input_dim, hidden_dim),</span>
-<span id="cb2-10"><a href="#cb2-10"></a>            nn.SiLU(),</span>
-<span id="cb2-11"><a href="#cb2-11"></a>            nn.Linear(hidden_dim, hidden_dim),</span>
-<span id="cb2-12"><a href="#cb2-12"></a>            nn.SiLU(),</span>
-<span id="cb2-13"><a href="#cb2-13"></a>            nn.Linear(hidden_dim, hidden_dim),</span>
-<span id="cb2-14"><a href="#cb2-14"></a>            nn.SiLU(),</span>
-<span id="cb2-15"><a href="#cb2-15"></a>            nn.Linear(hidden_dim, spatial_dim) </span>
-<span id="cb2-16"><a href="#cb2-16"></a>        )</span>
-<span id="cb2-17"><a href="#cb2-17"></a></span>
-<span id="cb2-18"><a href="#cb2-18"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, input_tensor):</span>
-<span id="cb2-19"><a href="#cb2-19"></a>        score <span class="op">=</span> <span class="va">self</span>.net(input_tensor)</span>
-<span id="cb2-20"><a href="#cb2-20"></a>        <span class="cf">return</span> score</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> ScoreNetwork(nn.Module):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, spatial_dim, hidden_dim):</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        input_dim <span class="op">=</span> spatial_dim <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="va">self</span>.net <span class="op">=</span> nn.Sequential(</span>
+<span id="cb2-6"><a href="#cb2-6"></a>            nn.Linear(input_dim, hidden_dim),</span>
+<span id="cb2-7"><a href="#cb2-7"></a>            nn.SiLU(),</span>
+<span id="cb2-8"><a href="#cb2-8"></a>            nn.Linear(hidden_dim, hidden_dim),</span>
+<span id="cb2-9"><a href="#cb2-9"></a>            nn.SiLU(),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>            nn.Linear(hidden_dim, hidden_dim),</span>
+<span id="cb2-11"><a href="#cb2-11"></a>            nn.SiLU(),</span>
+<span id="cb2-12"><a href="#cb2-12"></a>            nn.Linear(hidden_dim, spatial_dim) </span>
+<span id="cb2-13"><a href="#cb2-13"></a>        )</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, input_tensor):</span>
+<span id="cb2-16"><a href="#cb2-16"></a>        score <span class="op">=</span> <span class="va">self</span>.net(input_tensor)</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="cf">return</span> score</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="c2975b6a" class="cell" data-execution_count="3">
+<p>In this implementation we have to compute the score for each frame. Here the following loss is implemented: <span class="math display">\[
+\mathbb{E}_{p(t)q_\varepsilon\left(\tilde{\textbf{x}}\middle|\textbf{x}\right)}\left[\frac12\left\|\textbf{s}_\theta\left(\textbf{x} + \textbf{z}_\varepsilon,t\right) + \frac{\textbf{z}_\varepsilon}{\varepsilon}\right\|^2\right]
+\]</span></p>
+<div id="c2975b6a" class="cell" data-execution_count="111">
 <details class="code-fold">
 <summary>Score matching loss function</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> score_matching_loss(score_net, x_samples, t_samples, noise_std):</span>
@@ -500,7 +504,7 @@ window.Quarto = {
 <span id="cb3-8"><a href="#cb3-8"></a>    <span class="cf">return</span> loss <span class="op">-</span> x_samples.shape[<span class="op">-</span><span class="dv">1</span>]<span class="op">/</span>noise_std<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="b24bdab1" class="cell" data-execution_count="50">
+<div id="b24bdab1" class="cell" data-execution_count="112">
 <details class="code-fold">
 <summary>Euler-Maruyama sampler</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> drift_function(x: torch.Tensor, t: torch.Tensor):</span>
@@ -510,7 +514,7 @@ window.Quarto = {
 <span id="cb4-5"><a href="#cb4-5"></a>    <span class="co"># t shape (N,)</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>    <span class="cf">if</span> t.ndim <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb4-7"><a href="#cb4-7"></a>        t <span class="op">=</span> t.unsqueeze(<span class="dv">0</span>)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="cf">return</span> <span class="op">-</span>(torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>x</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="cf">return</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> (torch.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>, dim<span class="op">=-</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>) <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> x</span>
 <span id="cb4-9"><a href="#cb4-9"></a><span class="kw">def</span> sigma_function(x: torch.Tensor, t: torch.Tensor):</span>
 <span id="cb4-10"><a href="#cb4-10"></a>    <span class="co"># x shape (N,d)</span></span>
 <span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">if</span> x.ndim <span class="op">==</span> <span class="dv">1</span>:</span>
@@ -519,7 +523,7 @@ window.Quarto = {
 <span id="cb4-14"><a href="#cb4-14"></a>    <span class="cf">if</span> t.ndim <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb4-15"><a href="#cb4-15"></a>        t <span class="op">=</span> t.unsqueeze(<span class="dv">0</span>)</span>
 <span id="cb4-16"><a href="#cb4-16"></a>    N, d <span class="op">=</span> x.shape</span>
-<span id="cb4-17"><a href="#cb4-17"></a>    <span class="cf">return</span> <span class="fl">0.2</span><span class="op">*</span>torch.eye(d, device<span class="op">=</span>x.device).repeat(N, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="cf">return</span> <span class="fl">1.5</span><span class="op">*</span>torch.eye(d, device<span class="op">=</span>x.device).repeat(N, <span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb4-18"><a href="#cb4-18"></a></span>
 <span id="cb4-19"><a href="#cb4-19"></a><span class="kw">def</span> euler_maruyama_sampler(x_init: torch.Tensor, t_init: <span class="bu">float</span>, t_final: <span class="bu">float</span>, n_steps: <span class="bu">int</span>):</span>
 <span id="cb4-20"><a href="#cb4-20"></a>    dt <span class="op">=</span> (t_final <span class="op">-</span> t_init) <span class="op">/</span> n_steps</span>
@@ -539,313 +543,75 @@ window.Quarto = {
 </details>
 </div>
 <p><img src="sde_simulation.gif" alt="SDE simulation animation" width="600"></p>
-<div id="75046758" class="cell" data-execution_count="54">
+<div id="75046758" class="cell" data-execution_count="114">
 <details class="code-fold">
 <summary>Training loop</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> tqdm.notebook <span class="im">import</span> tqdm</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">def</span> train_score_network(score_net, x_init, t_init, t_final, n_steps, epochs<span class="op">=</span><span class="dv">1000</span>, lr<span class="op">=</span><span class="fl">1e-3</span>, noise_std<span class="op">=</span><span class="fl">0.1</span>):</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    optimizer <span class="op">=</span> optim.Adam(score_net.parameters(), lr<span class="op">=</span>lr)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    x_samples, t_samples <span class="op">=</span> euler_maruyama_sampler(x_init, t_init, t_final, n_steps)</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    n_steps, N, d <span class="op">=</span> x_samples.shape</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    x_train <span class="op">=</span> x_samples.reshape(<span class="op">-</span><span class="dv">1</span>, d)</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    t_train <span class="op">=</span> t_samples.repeat(N, <span class="dv">1</span>).T.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    score_net.train()</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    epoch_bar <span class="op">=</span> tqdm(<span class="bu">range</span>(epochs))</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> epoch_bar:</span>
-<span id="cb5-13"><a href="#cb5-13"></a>        perm <span class="op">=</span> torch.randperm(x_train.size(<span class="dv">0</span>))</span>
-<span id="cb5-14"><a href="#cb5-14"></a>        x_train <span class="op">=</span> x_train[perm]</span>
-<span id="cb5-15"><a href="#cb5-15"></a>        t_train <span class="op">=</span> t_train[perm]</span>
-<span id="cb5-16"><a href="#cb5-16"></a>        batch_bar <span class="op">=</span> tqdm(<span class="bu">range</span>(<span class="dv">0</span>, x_train.shape[<span class="dv">0</span>], <span class="dv">4096</span>), leave<span class="op">=</span><span class="va">False</span>, desc<span class="op">=</span><span class="st">"Batches"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17"></a>        <span class="cf">for</span> i <span class="kw">in</span> batch_bar:</span>
-<span id="cb5-18"><a href="#cb5-18"></a>            x_batch <span class="op">=</span> x_train[i:i<span class="op">+</span><span class="dv">4096</span>]</span>
-<span id="cb5-19"><a href="#cb5-19"></a>            t_batch <span class="op">=</span> t_train[i:i<span class="op">+</span><span class="dv">4096</span>]</span>
-<span id="cb5-20"><a href="#cb5-20"></a>            optimizer.zero_grad()</span>
-<span id="cb5-21"><a href="#cb5-21"></a>            loss <span class="op">=</span> score_matching_loss(score_net, x_batch, t_batch, noise_std)</span>
-<span id="cb5-22"><a href="#cb5-22"></a>            loss.backward()</span>
-<span id="cb5-23"><a href="#cb5-23"></a>            optimizer.step()</span>
-<span id="cb5-24"><a href="#cb5-24"></a>        <span class="co"># show loss in the bar</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a>        epoch_bar.set_description(<span class="ss">f"Epoch </span><span class="sc">{</span>epoch<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>epochs<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb5-26"><a href="#cb5-26"></a>    <span class="cf">return</span> score_net</span>
-<span id="cb5-27"><a href="#cb5-27"></a></span>
-<span id="cb5-28"><a href="#cb5-28"></a>dim <span class="op">=</span> <span class="dv">2</span>          <span class="co"># Dimensione spaziale (d)</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a>N <span class="op">=</span> <span class="dv">4096</span>         <span class="co"># Numero di particelle simulate</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a>n_steps <span class="op">=</span> <span class="dv">200</span>    <span class="co"># Passi temporali</span></span>
-<span id="cb5-31"><a href="#cb5-31"></a>t_init <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb5-32"><a href="#cb5-32"></a>t_final <span class="op">=</span> <span class="fl">5.0</span></span>
-<span id="cb5-33"><a href="#cb5-33"></a></span>
-<span id="cb5-34"><a href="#cb5-34"></a><span class="co"># Inizializziamo le particelle (N, d)</span></span>
-<span id="cb5-35"><a href="#cb5-35"></a>x_init <span class="op">=</span> torch.randn(N, dim)<span class="op">*</span><span class="fl">0.5</span></span>
-<span id="cb5-36"><a href="#cb5-36"></a></span>
-<span id="cb5-37"><a href="#cb5-37"></a><span class="co"># Inizializziamo la rete</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a>score_net <span class="op">=</span> ScoreNetwork(spatial_dim<span class="op">=</span>dim, hidden_dim<span class="op">=</span><span class="dv">256</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> train_score_network(score_net, x_init, t_init, t_final, n_steps, epochs<span class="op">=</span><span class="dv">50</span>, lr<span class="op">=</span><span class="fl">1e-3</span>, noise_std<span class="op">=</span><span class="fl">0.1</span>, batch_size<span class="op">=</span><span class="dv">4096</span>):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    optimizer <span class="op">=</span> optim.Adam(score_net.parameters(), lr<span class="op">=</span>lr)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="co"># 1. Generazione Dati SDE</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    x_samples, t_samples <span class="op">=</span> euler_maruyama_sampler(x_init, t_init, t_final, n_steps)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    n_steps_total, N, d <span class="op">=</span> x_samples.shape</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    </span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="co"># Flattening</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    x_train <span class="op">=</span> x_samples.reshape(<span class="op">-</span><span class="dv">1</span>, d)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    t_train <span class="op">=</span> t_samples.repeat(N, <span class="dv">1</span>).T.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    </span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="co"># Inseriamo i dati in un Dataset e usiamo il DataLoader per dividerli in batch </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>    dataset <span class="op">=</span> TensorDataset(x_train, t_train)</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="co"># shuffle=True è cruciale per mescolare i frame temporali ed evitare che la rete veda solo t=0 o t=5 in sequenza!</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    dataloader <span class="op">=</span> DataLoader(dataset, batch_size<span class="op">=</span>batch_size, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    </span>
+<span id="cb5-17"><a href="#cb5-17"></a>    score_net.train()</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    epoch_bar <span class="op">=</span> tqdm(<span class="bu">range</span>(epochs))</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    </span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> epoch_bar:</span>
+<span id="cb5-21"><a href="#cb5-21"></a>        epoch_loss <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>        </span>
+<span id="cb5-23"><a href="#cb5-23"></a>        <span class="co"># Iteriamo su tutti i mini-batch</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a>        <span class="cf">for</span> batch_x, batch_t <span class="kw">in</span> dataloader:</span>
+<span id="cb5-25"><a href="#cb5-25"></a>            optimizer.zero_grad()</span>
+<span id="cb5-26"><a href="#cb5-26"></a>            </span>
+<span id="cb5-27"><a href="#cb5-27"></a>            <span class="co"># Calcoliamo la loss SOLO sul mini-batch (es. 4096 campioni)</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>            loss <span class="op">=</span> score_matching_loss(score_net, batch_x, batch_t, noise_std)</span>
+<span id="cb5-29"><a href="#cb5-29"></a>            loss.backward()</span>
+<span id="cb5-30"><a href="#cb5-30"></a>            optimizer.step()</span>
+<span id="cb5-31"><a href="#cb5-31"></a>            </span>
+<span id="cb5-32"><a href="#cb5-32"></a>            epoch_loss <span class="op">+=</span> loss.item()</span>
+<span id="cb5-33"><a href="#cb5-33"></a>            </span>
+<span id="cb5-34"><a href="#cb5-34"></a>        <span class="co"># Calcoliamo la loss media dell'epoca</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a>        avg_loss <span class="op">=</span> epoch_loss <span class="op">/</span> <span class="bu">len</span>(dataloader)</span>
+<span id="cb5-36"><a href="#cb5-36"></a>        epoch_bar.set_description(<span class="ss">f"Epoch </span><span class="sc">{</span>epoch<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>epochs<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>avg_loss<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb5-37"><a href="#cb5-37"></a>        </span>
+<span id="cb5-38"><a href="#cb5-38"></a>    <span class="cf">return</span> score_net</span>
 <span id="cb5-39"><a href="#cb5-39"></a></span>
-<span id="cb5-40"><a href="#cb5-40"></a><span class="co"># Avviamo l'addestramento!</span></span>
-<span id="cb5-41"><a href="#cb5-41"></a>trained_net <span class="op">=</span> train_score_network(</span>
-<span id="cb5-42"><a href="#cb5-42"></a>    score_net, </span>
-<span id="cb5-43"><a href="#cb5-43"></a>    x_init, t_init, t_final, n_steps, </span>
-<span id="cb5-44"><a href="#cb5-44"></a>    epochs<span class="op">=</span><span class="dv">50</span>,</span>
-<span id="cb5-45"><a href="#cb5-45"></a>    noise_std<span class="op">=</span><span class="fl">0.1</span>,</span>
-<span id="cb5-46"><a href="#cb5-46"></a>    lr<span class="op">=</span><span class="fl">1e-4</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a>)</span>
+<span id="cb5-40"><a href="#cb5-40"></a>dim <span class="op">=</span> <span class="dv">2</span>          <span class="co"># Dimensione spaziale (d)</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a>N <span class="op">=</span> <span class="dv">4096</span>         <span class="co"># Numero di particelle simulate</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a>n_steps <span class="op">=</span> <span class="dv">200</span>    <span class="co"># Passi temporali</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>t_init <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a>t_final <span class="op">=</span> <span class="fl">3.0</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co"># Inizializziamo le particelle (N, d)</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a>x_init <span class="op">=</span> torch.randn(N, dim)<span class="op">*</span><span class="fl">0.5</span></span>
 <span id="cb5-48"><a href="#cb5-48"></a></span>
-<span id="cb5-49"><a href="#cb5-49"></a><span class="co"># save the model</span></span>
-<span id="cb5-50"><a href="#cb5-50"></a>torch.save(trained_net.state_dict(), <span class="st">"score_network.pth"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co"># Inizializziamo la rete</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a>score_net <span class="op">=</span> ScoreNetwork(spatial_dim<span class="op">=</span>dim, hidden_dim<span class="op">=</span><span class="dv">256</span>)</span>
+<span id="cb5-51"><a href="#cb5-51"></a></span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="co"># Avviamo l'addestramento!</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a>trained_net <span class="op">=</span> train_score_network(</span>
+<span id="cb5-54"><a href="#cb5-54"></a>    score_net, </span>
+<span id="cb5-55"><a href="#cb5-55"></a>    x_init, t_init, t_final, n_steps, </span>
+<span id="cb5-56"><a href="#cb5-56"></a>    epochs<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb5-57"><a href="#cb5-57"></a>    noise_std<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb5-58"><a href="#cb5-58"></a>    lr<span class="op">=</span><span class="fl">1e-3</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a>)</span>
+<span id="cb5-60"><a href="#cb5-60"></a></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="co"># save the model</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a>torch.save(trained_net.state_dict(), <span class="st">"score_network.pth"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"9108bbaf81c14cabb8b64d5ade3f32e3","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"e4daac9c208d424481a77a956556f56e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"81fc7c085e694a8894430a7e4c7aae80","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"be9945456f644d96a413277444392654","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5c15d70320e74355b10edc436de1221e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"f2ac9ca72f4d4a2ca02fdf9dd85433b0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"6803d56565af44efa817b83543f871a0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ab106ba4cead454b96785a428c6f3be5","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"d5b2cfe4c5824eb49c4526833c936845","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ba59068786654c84b1ccd5c89a4dc1c0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"e2005fd22e5741e5ae9522727718ab73","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"337b3bbe16734b27bb639e4cd6dd5caf","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ad7e10d217404fc48584a65386d48647","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5931af43accf4760b603496bab3e7ef2","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"d3b80953da0d48a39a24602579f57e96","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"21bc777feae147a3b409ce8234041493","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3fdde144b7f14488a3978d8872c1f31d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3951d6241d474fe5a9b90b178bf402e4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"fd5ea51e8cfa447ea65c18aaa75eba65","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"c9562ae85f604a489075f07bbb41f399","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"c75422302ab84b81a85740ed0e88ba8b","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"f839fe14c45648289a210247f797ec25","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5b7e9a372b9243eea00cc2670882b090","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"bb3faed603e94515be4f62a76b87c91d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"09591145b59b46e4a06b74dbf166f575","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"c07989f999ef4a5c873fd9255b8b374c","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"7544cd54ec0a43f3acc6d2cc665555a3","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"4350d51eca7b4fd59a918465aace9789","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"68d9feec0c36427ab496215d9c99a13e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"2e8d5f68c6e540fa8496b932dc5298e3","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3624d9c9c94c4303b874329cf6f5c1a0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5fd7f83ce7e84d81b90774fe09b03c9f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"f30b39cb7185411ca24631f10923946e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"22f579bc3c7a4741ab3f0061b35bfc96","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"37569918798f47c2991bd2b5db6d2ff8","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"047d6864063b4769a5b6dbc025136ded","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"913d00ea9fab46a59ec42bfb21c029af","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"4dddc5331e67407e9e66f55a0ded4439","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"7647d95537d544288b948144ce59a59b","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"6144b8dddf1c482e8c5832464918cd34","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"7e404a6cacac4e89ac3e9fa725cb4402","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"e67d8022d947429b8edd2690e46ba24f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"503052a330be47248822884c1d99a1ac","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"cf8b838514eb4e83875bdc1326ac7d61","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3a38aeaa63bb4c49b4de6e09e6c9e86e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"559eb604754a46428e527decbd23ef35","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"a4d983a1564247f684de276c07429749","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"30c61175848d4bb5b9e6e86fd6a469b6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"9b0a4a8209774b46b15b07ae945a6993","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"825b6d0a2e774bb7b9fb8dd5c8b3c76a","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"4ec6c54f13b042cfa3f3c00a8f89ed7f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"0b70a19b28e045c88b90d9b83986d5a6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
