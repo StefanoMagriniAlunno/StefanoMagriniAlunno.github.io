@@ -1,0 +1,16 @@
+title: "Score-Based Physics-Informed Neural Networks for High-Dimensional Fokker-Planck Equations"
+date: 2024-2-12
+author:
+  - Zheyuan Hu
+  - Zhongqiang Zhang
+  - George Em Karniadakis
+  - Kenji Kawaguchi
+lang: en
+categories:
+  - Machine Learning
+  - Fokker-Planck Equations
+  - Score-Based Methods
+  - High-Dimensional Statistics
+
+source-url: "https://arxiv.org/abs/2402.07465"
+origin: library

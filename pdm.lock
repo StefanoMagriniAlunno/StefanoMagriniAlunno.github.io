@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:d156d927e060b5ca4722e801eddf8727596d014e68b9b904fbde6de0fd31f375"
+content_hash = "sha256:e721881983dfb3d2426bb6c4292f6a79c9cc3f1abd05fc297d0222a45cf6f63e"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -2042,6 +2042,23 @@ files = [
 ]
 
 [[package]]
+name = "torchsde"
+version = "0.2.6"
+requires_python = ">=3.8"
+summary = "SDE solvers and stochastic adjoint sensitivity analysis in PyTorch."
+groups = ["default"]
+dependencies = [
+    "numpy>=1.19",
+    "scipy>=1.5",
+    "torch>=1.6.0",
+    "trampoline>=0.1.2",
+]
+files = [
+    {file = "torchsde-0.2.6-py3-none-any.whl", hash = "sha256:19bf7ff02eec7e8e46ba1cdb4aa0f9db1c51d492524a16975234b467f7fc463b"},
+    {file = "torchsde-0.2.6.tar.gz", hash = "sha256:81d074d3504f9d190f1694fb526395afbe4608ee43a88adb1262a639e5b4778b"},
+]
+
+[[package]]
 name = "tornado"
 version = "6.5.7"
 requires_python = ">=3.9"
@@ -2083,6 +2100,15 @@ groups = ["default"]
 files = [
     {file = "traitlets-5.15.1-py3-none-any.whl", hash = "sha256:770a53705f84b81ac107e83a1b3328ff2dae16094d8fc3cfc004e4b22dfd8e92"},
     {file = "traitlets-5.15.1.tar.gz", hash = "sha256:7b1c07854fe25acb39e009bae49f11b79ff6cbb2f27999104e9110e7a6b53722"},
+]
+
+[[package]]
+name = "trampoline"
+version = "0.1.2"
+summary = "Simple and tiny yield-based trampoline implementation."
+groups = ["default"]
+files = [
+    {file = "trampoline-0.1.2-py3-none-any.whl", hash = "sha256:36cc9a4ff9811843d177fc0e0740efbd7da39eadfe6e50c9e2937cbc06d899d9"},
 ]
 
 [[package]]

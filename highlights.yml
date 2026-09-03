@@ -2,10 +2,10 @@
   badge: "New contents"
   badge_color: "success"
   description: "New contents on the wiki about machine learning for PDEs. Here I introduce the IMEX-Net model for Jin-Xin relaxation systems."
-  link: "https://stefanomagrinialunno.github.io/wiki/works/Exam26/index.html"
+  link: "https://stefanomagrinialunno.github.io/wiki/works/PareschiLecture26/index.html"
   link_text: "Open the work"
 
-- title: "ADAMUS conference"
+- title: "Next Conference on Kinetic Theory and Numerical Analysis"
   badge: "Upcoming Event"
   badge_color: "warning"
   description: "An interdisciplinary workshop that combines kinetic theory, numerical analysis, and complex systems to develop advanced computational methods (multiscale, UQ, and data-driven). The event aims to address the challenges of high-dimensional models and to foster new scientific collaborations."

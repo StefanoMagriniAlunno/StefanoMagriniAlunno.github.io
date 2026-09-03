@@ -1,0 +1,39 @@
+This article defines a neural network model for the Fokker Planck equation in High Dimension.
+$$
+  \partial_t u = \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\nabla_\textbf{x}\cdot\left(\Sigma u\right)\right)
+$$
+A vanilla approach shows the following drawbacks:
+
+- **Twice differentiation**: for each differentiation the computation cost increases and the loss landscape becomes stiff.
+The complex loss landscape depends on the stability of the activation function. SIREN is a neural network with trigonometric activation functions, in this way the differentiation is stable.
+Another approach (very similar to the one of this article) is define two neural networks $\tilde{u}_\theta$ and $\tilde{v}_\theta$ such that $\tilde{v}_\theta\approx\nabla\tilde{u}_\theta$
+
+- **Diffusive error**: The neural network tries to solve the PDE in the whole space, so at the beginning of the training the neural network we have a "good" result near the Interpolation Points (Boundary Conditions and Initial Conditions) and a drift inside the domain.
+For this reason if we rewrite the neural network as follows:
+$$
+  \tilde{u}\left(\textbf{x},t\right) = u\left(\textbf{x}_\perp,t_\perp\right) + d\left(\left(\textbf{x},t\right),\left(\textbf{x}_\perp,t_\perp\right)\right)\textrm{NN}\left(x,t\right)
+$$
+where $\textbf{x}_\perp,t_\perp$ is the nearest interpolation point. Another approach defines a dynamic dataloader that slowly focuses the neural network from the interpolation points to the entire domain.
+
+- **Over Parametrization**: The classical MLP does not have a good performance or training in high dimensions. In literature, we can find a simple solution Tensor Neural Networks (TNNs).
+These model defines $r$ neural networks for each dimension that here we write like $N_{j}^{(i)}(\textbf{x}_j)$. The final model is defined like $N(\textbf{x}) = \sum_{i=1}^r \prod_j N_{j}^{(i)}(\textbf{x}_j)$
+The accuracy of the neural network is given by $N$ and the rank $r$, an important analytical property of this neural network is an easier derivation and easier integration.
+
+In this article the authors address only the first point. In particular, they rewrite the FPE as follows:
+$$
+  \begin{align*}
+    \partial_t u + \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\nabla_\textbf{x}\cdot\left(\Sigma u\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(-\textbf{f}u + \frac12\left(\Sigma\nabla_\textbf{x} u + u\nabla_\textbf{x}\cdot\Sigma\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(u\left(-\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma\frac{\nabla_\textbf{x} u}u\right)\right) = 0 \\
+    \partial_t u + \nabla_\textbf{x}\cdot\left(u\left(-\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma \textbf{s}\right)\right) = 0 \\
+    \textbf{F}_\textrm{eff} = -\textbf{f}+\frac12\nabla_\textbf{x}\cdot\Sigma + \frac12\Sigma \textbf{s} \\
+  \end{align*}
+$$
+where $\textbf{s}=\nabla_\textbf{x}\log u$ is the score-matching of $u$. It is scale-invariant, so its estimation can be performed through the simulation of $u$, for this purpose there is the following SDE:
+$$
+  \textrm{d}\textbf{X}_t = \textbf{f}\textrm{d}t + \sigma\textrm{d}\textbf{W}_t \quad \text{where $\sigma\sigma^T=\Sigma$}
+$$
+
+### Notebook
+
+- [Notebook](./code/main.ipynb)
