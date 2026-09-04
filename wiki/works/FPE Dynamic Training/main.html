@@ -333,10 +333,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div id="7b469685" class="cell" data-execution_count="17">
+<div id="7b469685" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"6ebde6ae401a4b65a6fff83c6a3297f5","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"2ef428ad39d544f9a3ac98429b97cbcf","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-display">
@@ -347,69 +347,34 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Final loss: 0.7211421728134155</code></pre>
+<pre><code>Final loss: 0.9287362098693848</code></pre>
 </div>
 </div>
-<div id="5934f8f3" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="main_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="main_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
+<div id="6e753d7f" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-stdout">
-<pre><code>Final loss: 0.7233837246894836
-Best loss: 0.693015456199646</code></pre>
+<pre><code>Empirical mass: 1.0190187692642212
+Normalization constant of objective density: 52.96672821044922</code></pre>
 </div>
 </div>
-<div id="6e753d7f" class="cell" data-execution_count="19">
+<div id="ed24e289" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-stdout">
-<pre><code>Empirical mass: 2.4588189125061035
-Normalization constant of objective density: 1.0</code></pre>
-</div>
-</div>
-<div id="aa36428f" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="b48a8d93" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 11</span>
-<span class="ansi-green-fg">      7</span>     entropy = torch.mean(PGenerator.log_prob(Psamples)) - torch.log(torch.tensor(Z.item()))
-<span class="ansi-green-fg">      8</span>     KL_divergence = entropy - torch.mean(QGenerator_log_prob(Psamples))
-<span class="ansi-green-fg">      9</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> KL_divergence
-<span class="ansi-green-fg">     10</span> log_p_corrected = <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span> x: torch.log(p_corrected(myNet, x) + <span class="ansi-green-fg">1e-12</span>) <span style="font-style:italic;color:rgb(95,135,135)"># 1e-12 per evitare log(0)</span>
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">11</span> print(f"KL divergence: {KL_divergence(PGenerator, log_p_corrected).item()}")
-<span class="ansi-green-fg">     12</span> 
-<span class="ansi-green-fg">     13</span> <span style="font-style:italic;color:rgb(95,135,135)"># 2. JS(p_true | p_corrected) = 0.5 * KL(p_true | m) + 0.5 * KL(p_corrected | m), where m = 0.5 * (p_true + p_corrected)</span>
-<span class="ansi-green-fg">     14</span> m_log_prob = <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span> x: torch.log(<span class="ansi-green-fg">0.5</span> * (p_true(PGenerator, x) + p_corrected(myNet, x)))
-
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 7</span>, in <span class="ansi-cyan-fg">KL_divergence</span><span class="ansi-blue-fg">(PGenerator, QGenerator_log_prob)</span>
-<span class="ansi-green-fg">      4</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> KL_divergence(PGenerator, QGenerator_log_prob):
-<span class="ansi-green-fg">      5</span>     Psamples = PGenerator(n_samples=<span class="ansi-green-fg">100000</span>)
-<span class="ansi-green-fg">      6</span>     Z = utils.compute_normalization_constant(PGenerator, Psamples, PGenerator.log_prob(Psamples))
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">7</span>     entropy = torch.mean(PGenerator.log_prob(Psamples)) - torch.log(torch.tensor(Z.item()))
-<span class="ansi-green-fg">      8</span>     KL_divergence = entropy - torch.mean(QGenerator_log_prob(Psamples))
-<span class="ansi-green-fg">      9</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> KL_divergence
-
-<span class="ansi-red-fg">AttributeError</span>: 'float' object has no attribute 'item'</pre>
-</div>
+<pre><code>\begin{center}
+\begin{tabular}{ c || c c c c c | c }
+ 5D &amp; Test1 &amp; Test2 &amp; Test3 &amp; Test4 &amp; Test5 &amp; Average \\
+ \hline
+ \hline
+ $\text{Mass}$ &amp; $0.999$ &amp; $0.980$ &amp; $1.024$ &amp; $0.985$ &amp; $1.019$ &amp; $1.001$ \\
+ \hline
+ $L_1$ &amp; $0.313$ &amp; $0.374$ &amp; $0.297$ &amp; $0.363$ &amp; $0.323$ &amp; $0.334$ \\
+ $L_2$ &amp; $0.031$ &amp; $0.037$ &amp; $0.027$ &amp; $0.040$ &amp; $0.029$ &amp; $0.033$ \\
+ $L_\infty$ &amp; $0.029$ &amp; $0.031$ &amp; $0.023$ &amp; $0.037$ &amp; $0.024$ &amp; $0.029$ \\
+ \hline
+ $\text{KL Div}$ &amp; $4.072$ &amp; $3.890$ &amp; $4.085$ &amp; $3.729$ &amp; $4.073$ &amp; $3.970$ \\
+ $\text{JS Div}$ &amp; $1.998$ &amp; $1.888$ &amp; $2.022$ &amp; $1.799$ &amp; $2.014$ &amp; $1.944$ \\
+ \hline
+ $\text{Fisher Div}$ &amp; $22.073$ &amp; $24.788$ &amp; $22.633$ &amp; $25.593$ &amp; $21.936$ &amp; $23.405$
+\end{tabular}
+\end{center}</code></pre>
 </div>
 </div>
 
