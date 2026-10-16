@@ -1,5 +1,13 @@
 [
   {
+    "listing": "/about.html",
+    "items": []
+  },
+  {
+    "listing": "/index.html",
+    "items": []
+  },
+  {
     "listing": "/wiki/index.html",
     "items": [
       "/wiki/library/HZKK2024/index.html",
@@ -7,13 +15,5 @@
       "/wiki/library/PLKZ2022/index.html",
       "/wiki/works/PareschiLecture26/index.html"
     ]
-  },
-  {
-    "listing": "/about.html",
-    "items": []
-  },
-  {
-    "listing": "/index.html",
-    "items": []
   }
 ]
