@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>esercizi_difficili – Stefano Magrini Alunno</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cac0433bb97fa58dc0fc6599c25c149a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-d34ec0ee24c3a79fe80f8b1f132259e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-fcb5236660a70eed4fb9febde893695a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="google-site-verification" content="xPmUsSVlvFsBnebW1VBvnARMf01L-lCjemevT1oJ2Pw">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Stefano Magrini Alunno</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">CV &amp; Bio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../wiki/index.html"> 
+<span class="menu-text">Wiki &amp; Notebooks</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/StefanoMagriniAlunno"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/stefano-magrini-alunno-6594a5241"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#esercizi-programmazione-iii" id="toc-esercizi-programmazione-iii" class="nav-link active" data-scroll-target="#esercizi-programmazione-iii">Esercizi Programmazione III</a>
+  <ul class="collapse">
+  <li><a href="#pacchetto-x-file-argv-e-make-test" id="toc-pacchetto-x-file-argv-e-make-test" class="nav-link" data-scroll-target="#pacchetto-x-file-argv-e-make-test">Pacchetto X: FILE*, argv e make test</a></li>
+  <li><a href="#pacchetto-y-qsort-e-bsearch" id="toc-pacchetto-y-qsort-e-bsearch" class="nav-link" data-scroll-target="#pacchetto-y-qsort-e-bsearch">Pacchetto Y: qsort e bsearch</a></li>
+  <li><a href="#pacchetto-z-integrazione-e-modularita" id="toc-pacchetto-z-integrazione-e-modularita" class="nav-link" data-scroll-target="#pacchetto-z-integrazione-e-modularita">Pacchetto Z: Integrazione e modularita’</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section id="esercizi-programmazione-iii" class="level1">
+<h1>Esercizi Programmazione III</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Blocco</th>
+<th>Argomento</th>
+<th>Esercizi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X</td>
+<td>FILE*, argv e make test</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>Y</td>
+<td>qsort e bsearch</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Z</td>
+<td>Integrazione e modularita’</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<section id="pacchetto-x-file-argv-e-make-test" class="level2">
+<h2 data-anchor-id="pacchetto-x-file-argv-e-make-test">Pacchetto X: FILE*, argv e make test</h2>
+<p>Finora i nostri programmi hanno letto i dati dalla tastiera e scritto i risultati sullo schermo. I programmi “veri” lavorano spesso in un altro modo: ricevono le indicazioni direttamente sulla riga di comando, come fa gcc quando scrivete <code>gcc -o somma somma.c</code>, e leggono e scrivono file. In questo pacchetto imparate a fare lo stesso. La prima parte (X1-X10) introduce gli argomenti della riga di comando (<code>argc</code> e <code>argv</code>) e i file (<code>FILE*</code>); nella seconda (X11-X20) i programmi vengono controllati automaticamente con un Makefile e il comando <code>make test</code>.</p>
+<p>Il materiale che accompagna il pacchetto (la cartella <code>materiale_difficili</code>) contiene i file di dati della prima parte (nella cartella <code>parte1_dati</code>, in cui spostarsi con <code>cd</code> per provare gli esempi) e, per ogni esercizio della seconda, una cartella con il Makefile e i test.</p>
+<section id="prima-parte-file-e-argv" class="level3">
+<h3 data-anchor-id="prima-parte-file-e-argv">Prima parte: FILE* e argv</h3>
+<p>Compilate sempre con <code>gcc -g -Wall -Wextra</code>. Salvo indicazione diversa, ogni programma di questo pacchetto segue tre regole: i messaggi di errore vanno su <code>stderr</code>; in caso di errore (argomenti sbagliati, file che non si apre, dato non valido) il programma termina con codice di uscita <span class="math inline">\(1\)</span>; se tutto va bene, con codice <span class="math inline">\(0\)</span>. I codici di uscita sono spiegati piu’ avanti, nella sezione sui file.</p>
+<section id="gli-argomenti-della-riga-di-comando" class="level4">
+<h4 data-anchor-id="gli-argomenti-della-riga-di-comando">Gli argomenti della riga di comando</h4>
+<p>Se <code>main</code> si dichiara cosi’, riceve le parole scritte sulla riga di comando:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>argv<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">/* ... */</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>argc</code> e’ il numero delle parole, compreso il nome del programma; <code>argv[0]</code> e’ il nome del programma, <code>argv[1]</code> la prima parola dopo, e cosi’ via fino a <code>argv[argc - 1]</code>. Con il comando <code>./binomiale 10 3</code>, per esempio, <code>argc</code> vale <span class="math inline">\(3\)</span>, <code>argv[1]</code> e’ <code>"10"</code> e <code>argv[2]</code> e’ <code>"3"</code>. A dividere la riga in parole e’ il terminale: gli spazi separano le parole, e le virgolette ne tengono insieme piu’ di una (<code>"due tre"</code> e’ una sola parola).</p>
+<p>Attenzione: <code>argv[1]</code> non e’ il numero <span class="math inline">\(10\)</span>, ma il testo <code>"10"</code>. Per trasformarlo in un numero si usa <code>sscanf</code>, che funziona come <code>scanf</code> ma legge da un testo invece che dalla tastiera, e come <code>scanf</code> restituisce quanti valori e’ riuscita a leggere:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> <span class="op">(</span>sscanf<span class="op">(</span>argv<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">)</span> <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Errore: </span><span class="sc">%s</span><span class="st"> non e' un numero intero</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> argv<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="le-stringhe-in-breve" class="level4">
+<h4 data-anchor-id="le-stringhe-in-breve">Le stringhe, in breve</h4>
+<p>Un testo come <code>"10"</code> o <code>"dati.txt"</code> e’ una <em>stringa</em>: un array di <code>char</code> che termina con il carattere speciale <code>'\0'</code> (il codice <span class="math inline">\(0\)</span>), che ne segna la fine. La stringa <code>"ciao"</code> occupa quindi cinque <code>char</code>: <code>'c'</code>, <code>'i'</code>, <code>'a'</code>, <code>'o'</code> e <code>'\0'</code>. Per ora leggete <code>char *</code> come “stringa”: <code>argv</code> e’ un array di stringhe, e <code>argv[1][0]</code> e’ il primo carattere della prima parola. Bastano pochi strumenti:</p>
+<ul>
+<li><code>printf("%s", s)</code> stampa la stringa <code>s</code>;</li>
+<li><code>strlen(s)</code> restituisce il numero dei caratteri prima del <code>'\0'</code>;</li>
+<li><code>strcmp(a, b)</code> restituisce <span class="math inline">\(0\)</span> se le due stringhe sono uguali (non si confrontano con <code>==</code>, come gli array in F14).</li>
+</ul>
+<p>Le funzioni <code>strlen</code> e <code>strcmp</code> sono nella libreria <code>string.h</code>.</p>
+</section>
+<section id="i-file" class="level4">
+<h4 data-anchor-id="i-file">I file</h4>
+<p>Un file si apre con <code>fopen</code>, che restituisce un <code>FILE *</code>, cioe’ un riferimento al file aperto da usare in tutte le operazioni successive:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="dt">FILE</span> <span class="op">*</span>f<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>f <span class="op">=</span> fopen<span class="op">(</span>argv<span class="op">[</span><span class="dv">1</span><span class="op">],</span> <span class="st">"r"</span><span class="op">);</span>     <span class="co">/* "r" lettura, "w" scrittura, "a" aggiunta in fondo */</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">if</span> <span class="op">(</span>f <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Errore: non riesco ad aprire </span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> argv<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="op">}</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="cf">while</span> <span class="op">(</span>fscanf<span class="op">(</span>f<span class="op">,</span> <span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co">/* usa x */</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="op">}</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>fclose<span class="op">(</span>f<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se l’apertura non riesce (il file non esiste, oppure non si puo’ scrivere in quella cartella), <code>fopen</code> restituisce <code>NULL</code>, un riferimento “a niente”: va sempre controllato. Il modo <code>"w"</code> crea il file, oppure lo svuota se esiste gia’; <code>"a"</code> scrive in fondo a quello che c’e’.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funzione</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fscanf(f, "%d", &amp;x)</code></td>
+<td>come <code>scanf</code>, ma legge da <code>f</code>; restituisce quanti valori ha letto, <span class="math inline">\(0\)</span> se il dato non e’ valido, <code>EOF</code> se il file e’ finito</td>
+</tr>
+<tr class="even">
+<td><code>fprintf(f, "%d\n", x)</code></td>
+<td>come <code>printf</code>, ma scrive in <code>f</code></td>
+</tr>
+<tr class="odd">
+<td><code>fgetc(f)</code></td>
+<td>legge un carattere e ne restituisce il codice, oppure <code>EOF</code> se il file e’ finito; il risultato va messo in un <code>int</code>, non in un <code>char</code></td>
+</tr>
+<tr class="even">
+<td><code>fputc(c, f)</code></td>
+<td>scrive il carattere <code>c</code></td>
+</tr>
+<tr class="odd">
+<td><code>fclose(f)</code></td>
+<td>chiude il file; per i file aperti in scrittura e’ il momento in cui i dati vengono salvati davvero</td>
+</tr>
+</tbody>
+</table>
+<p>Tre file sono gia’ aperti quando il programma parte: <code>stdin</code> (la tastiera), <code>stdout</code> (lo schermo) e <code>stderr</code> (ancora lo schermo, ma riservato ai messaggi di errore). In effetti <code>printf(...)</code> e’ la stessa cosa di <code>fprintf(stdout, ...)</code>, e <code>scanf(...)</code> di <code>fscanf(stdin, ...)</code>. Il valore restituito da <code>main</code> (il <em>codice di uscita</em>) segnala com’e’ andata: per convenzione <span class="math inline">\(0\)</span> se tutto e’ andato bene, un altro numero in caso di errore.</p>
+<p>Qualche comando del terminale utile in questo pacchetto:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comando</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>./prog &gt; uscita.txt</code></td>
+<td>scrive nel file <code>uscita.txt</code> quello che il programma stampa su <code>stdout</code></td>
+</tr>
+<tr class="even">
+<td><code>./prog 2&gt; errori.txt</code></td>
+<td>scrive nel file <code>errori.txt</code> quello che il programma stampa su <code>stderr</code></td>
+</tr>
+<tr class="odd">
+<td><code>./prog &lt; dati.txt</code></td>
+<td>il programma legge <code>dati.txt</code> come se lo scriveste da tastiera (provatelo con il programma di E8, scrivendo i numeri in un file)</td>
+</tr>
+<tr class="even">
+<td><code>echo $?</code></td>
+<td>mostra il codice di uscita dell’ultimo programma eseguito (rivedete M11)</td>
+</tr>
+<tr class="odd">
+<td><code>cat dati.txt</code></td>
+<td>mostra il contenuto di un file</td>
+</tr>
+<tr class="even">
+<td><code>diff a.txt b.txt</code></td>
+<td>mostra le righe diverse tra due file; se non stampa nulla, i file sono identici</td>
+</tr>
+<tr class="odd">
+<td><code>wc dati.txt</code></td>
+<td>conta righe, parole e caratteri di un file</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gdb-con-gli-argomenti" class="level4">
+<h4 data-anchor-id="gdb-con-gli-argomenti">gdb con gli argomenti</h4>
+<p>Gli argomenti si scrivono dopo <code>run</code>, esattamente come sulla riga di comando: <code>run dati.txt 3</code>, oppure <code>run dati.txt &lt; tastiera.txt</code>. Quando il programma si ferma, gdb mostra anche gli argomenti di <code>main</code>, per esempio <code>main (argc=3, argv=0x7fffffffea48)</code>. Il numero che compare in <code>print argv[1]</code>, per esempio <code>0x7fffffffecbf "alfa"</code>, e’ l’indirizzo in memoria della stringa e si puo’ ignorare; quello che conta e’ il testo tra virgolette. Allo stesso modo <code>print f</code> mostra l’indirizzo di un <code>FILE *</code>, oppure <code>0x0</code> se vale <code>NULL</code>. Come nei pacchetti precedenti, le domande che usano gdb iniziano con <strong>Con gdb.</strong></p>
+</section>
+<section id="esercizi-x1-x10" class="level4">
+<h4 data-anchor-id="esercizi-x1-x10">Esercizi (X1-X10)</h4>
+<p><strong>X1.</strong> Il programma stampa tutti i suoi argomenti.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>argv<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="dt">int</span> i<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    printf<span class="op">(</span><span class="st">"argc = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> argc<span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> argc<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>        printf<span class="op">(</span><span class="st">"argv[</span><span class="sc">%d</span><span class="st">] = </span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">,</span> argv<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>$ ./argomenti uno "due tre" 3+4</span>
+<span id="cb5-2"><a href="#cb5-2"></a>argc = 4</span>
+<span id="cb5-3"><a href="#cb5-3"></a>argv[0] = ./argomenti</span>
+<span id="cb5-4"><a href="#cb5-4"></a>argv[1] = uno</span>
+<span id="cb5-5"><a href="#cb5-5"></a>argv[2] = due tre</span>
+<span id="cb5-6"><a href="#cb5-6"></a>argv[3] = 3+4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Prevedete l’output, poi eseguite: <code>./argomenti</code>, <code>./argomenti 1 2 3</code>, <code>./argomenti "1 2" 3</code>, <code>./argomenti '*'</code> e <code>./argomenti *.c</code>. Perche’ l’ultimo comando stampa i nomi dei vostri file? Chi ha trasformato <code>*.c</code> in quei nomi?</li>
+<li><strong>Con gdb.</strong> Mettete un breakpoint sulla prima <code>printf</code>, lanciate <code>run alfa "beta gamma"</code> e provate <code>print argv[1]</code>, <code>print argv[1][0]</code> e <code>print *argv@argc</code>, che mostra in un colpo solo tutto l’array. Che cosa c’e’ in <code>argv[argc]</code>, subito dopo l’ultimo argomento?</li>
+</ol>
+<p><strong>X2.</strong> Scrivete un programma <code>binomiale</code> che riceve <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> sulla riga di comando e stampa il coefficiente binomiale <span class="math inline">\(\binom{n}{k}\)</span>, calcolato in una variabile <code>long r</code> con la formula <span class="math inline">\(\binom{n}{i} = \binom{n}{i-1} \cdot \frac{n - i + 1}{i}\)</span>, per <code>i</code> da <span class="math inline">\(1\)</span> a <span class="math inline">\(k\)</span>, cioe’ con la riga <code>r = r * (n - i + 1) / i;</code>. Requisiti:</p>
+<ul>
+<li>se gli argomenti non sono esattamente due, il programma scrive su <code>stderr</code> come si usa (<code>Uso: ./binomiale n k</code>) e termina con codice <span class="math inline">\(1\)</span>;</li>
+<li>se un argomento non e’ un intero, errore e codice <span class="math inline">\(1\)</span>. Con <code>sscanf(argv[1], "%d", &amp;n)</code> il testo <code>"10x"</code> verrebbe accettato come <span class="math inline">\(10\)</span>; il trucco e’ chiedere anche un carattere in piu’: <code>sscanf(argv[1], "%d%c", &amp;n, &amp;extra)</code> restituisce <span class="math inline">\(1\)</span> solo se dopo il numero non c’e’ nulla;</li>
+<li>deve valere <span class="math inline">\(0 \le k \le n \le 60\)</span> (<code>#define N_MAX 60</code>), altrimenti errore e codice <span class="math inline">\(1\)</span>;</li>
+<li>se <span class="math inline">\(k &gt; n - k\)</span>, conviene calcolare <span class="math inline">\(\binom{n}{n-k}\)</span>, che e’ uguale e richiede meno passi.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>$ ./binomiale 10 3</span>
+<span id="cb6-2"><a href="#cb6-2"></a>C(10, 3) = 120</span>
+<span id="cb6-3"><a href="#cb6-3"></a>$ ./binomiale 60 30</span>
+<span id="cb6-4"><a href="#cb6-4"></a>C(60, 30) = 118264581564861424</span>
+<span id="cb6-5"><a href="#cb6-5"></a>$ ./binomiale 10 tre</span>
+<span id="cb6-6"><a href="#cb6-6"></a>Errore: n e k devono essere numeri interi</span>
+<span id="cb6-7"><a href="#cb6-7"></a>$ echo $?</span>
+<span id="cb6-8"><a href="#cb6-8"></a>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Perche’ a ogni passo la divisione per <span class="math inline">\(i\)</span> e’ esatta? E perche’ bisogna moltiplicare prima di dividere?</li>
+<li>Portate <code>N_MAX</code> a <span class="math inline">\(70\)</span> e provate <code>./binomiale 62 31</code>: il risultato e’ negativo. Perche’?</li>
+<li><strong>Con gdb.</strong> Sempre con <code>N_MAX</code> a <span class="math inline">\(70\)</span>, trovate il primo passo in cui <code>r * (n - i + 1)</code> supera il massimo di un <code>long</code> (<span class="math inline">\(2^{63} - 1 = 9223372036854775807\)</span>): mettete sulla riga che aggiorna <code>r</code> un breakpoint con la condizione <code>if r &gt; 9223372036854775807 / (n - i + 1)</code> e lanciate <code>run 62 31</code>. Quanto vale <code>i</code> alla prima fermata? Rivedete M18: perche’ la condizione si scrive con una divisione?</li>
+</ol>
+<p><strong>X3.</strong> Scrivete un programma <code>tartaglia</code> che riceve un numero di righe e il nome di un file, e scrive in quel file le prime righe del triangolo di Tartaglia, calcolate con un solo array come in F10. Requisiti:</p>
+<ul>
+<li>se gli argomenti non sono esattamente due, o se il numero di righe non e’ un intero da <span class="math inline">\(1\)</span> a <span class="math inline">\(30\)</span>, errore;</li>
+<li>il file si apre in scrittura con <code>f = fopen(argv[2], "w");</code>, dove <code>f</code> e’ una variabile <code>FILE *</code>; se l’apertura non riesce, errore;</li>
+<li>sullo schermo il programma stampa soltanto un messaggio di conferma.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>$ ./tartaglia 6 triangolo.txt</span>
+<span id="cb7-2"><a href="#cb7-2"></a>Scritte 6 righe nel file triangolo.txt</span>
+<span id="cb7-3"><a href="#cb7-3"></a>$ cat triangolo.txt</span>
+<span id="cb7-4"><a href="#cb7-4"></a>1</span>
+<span id="cb7-5"><a href="#cb7-5"></a>1 1</span>
+<span id="cb7-6"><a href="#cb7-6"></a>1 2 1</span>
+<span id="cb7-7"><a href="#cb7-7"></a>1 3 3 1</span>
+<span id="cb7-8"><a href="#cb7-8"></a>1 4 6 4 1</span>
+<span id="cb7-9"><a href="#cb7-9"></a>1 5 10 10 5 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Eseguitelo due volte di seguito sullo stesso file, con <span class="math inline">\(6\)</span> e poi con <span class="math inline">\(3\)</span> righe: che cosa contiene il file alla fine? Poi cambiate il modo in <code>"a"</code>, cancellate il file con <code>rm triangolo.txt</code> e ripetete le due esecuzioni: che cosa contiene ora?</li>
+<li>Provate a scrivere in una cartella che non esiste, per esempio <code>./tartaglia 3 /cartella_inesistente/t.txt</code>: il vostro programma se ne accorge? Che codice di uscita restituisce?</li>
+<li><strong>Con gdb.</strong> Mettete un breakpoint sulla riga della <code>fopen</code> e stampate <code>f</code> prima e dopo l’apertura (con <code>next</code>). Ripetete con la cartella inesistente: che cosa vale <code>f</code> dopo la <code>fopen</code>?</li>
+</ol>
+<p><strong>X4.</strong> Scrivete un programma <code>statistiche</code> che legge da un file una sequenza di interi, separati da spazi o a capo, e ne stampa quantita’, minimo, massimo, media e varianza (la media dei quadrati meno il quadrato della media), queste ultime due con tre decimali. Requisiti:</p>
+<ul>
+<li>il nome del file e’ l’unico argomento; argomenti sbagliati o un file che non si apre sono errori;</li>
+<li>il programma distingue i due modi in cui puo’ finire la lettura: se <code>fscanf</code> restituisce <code>EOF</code> il file e’ finito regolarmente; se restituisce <span class="math inline">\(0\)</span> c’e’ un dato non valido, e il programma lo segnala e termina con errore;</li>
+<li>anche un file senza numeri e’ un errore.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>$ cat misure.txt</span>
+<span id="cb8-2"><a href="#cb8-2"></a>12 15 9</span>
+<span id="cb8-3"><a href="#cb8-3"></a>21 18</span>
+<span id="cb8-4"><a href="#cb8-4"></a>        7 30 14</span>
+<span id="cb8-5"><a href="#cb8-5"></a>$ ./statistiche misure.txt</span>
+<span id="cb8-6"><a href="#cb8-6"></a>Numeri letti: 8</span>
+<span id="cb8-7"><a href="#cb8-7"></a>Minimo: 7</span>
+<span id="cb8-8"><a href="#cb8-8"></a>Massimo: 30</span>
+<span id="cb8-9"><a href="#cb8-9"></a>Media: 15.750</span>
+<span id="cb8-10"><a href="#cb8-10"></a>Varianza: 46.938</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Salvate in una variabile <code>esito</code> il valore restituito da <code>fscanf</code> e stampatelo dopo il ciclo: quanto vale con <code>misure.txt</code>? E con <code>misure_rotte.txt</code>, che contiene <code>12 15 9 21 dieci 18</code>?</li>
+<li>Il minimo e il massimo partono dal primo numero letto: perche’ sarebbe sbagliato farli partire da <span class="math inline">\(0\)</span> (rivedete F15)? Come fate, se il primo numero viene letto dentro il ciclo?</li>
+<li>Provate con un file che contiene un numero solo (scrivetelo voi) e con il file vuoto <code>vuoto.txt</code>: che cosa stampa il vostro programma? Che codice di uscita restituisce?</li>
+</ol>
+<p><strong>X5.</strong> Scrivete un programma <code>conta</code> che legge un file carattere per carattere con <code>fgetc</code>, mettendo ogni carattere letto nella variabile <code>c</code>, e stampa il numero di righe, di parole e di caratteri, seguiti dal nome del file. Requisiti:</p>
+<ul>
+<li>il nome del file e’ l’unico argomento; argomenti sbagliati o un file che non si apre sono errori;</li>
+<li>le righe sono gli a capo (<code>'\n'</code>) contenuti nel file, come le conta <code>wc</code>; i caratteri sono tutti quelli letti, a capo compresi;</li>
+<li>una parola e’ una sequenza di caratteri diversi da spazio, tabulazione (<code>'\t'</code>) e a capo; per contarle, ricordate se siete dentro o fuori da una parola con <code>enum posizione {FUORI, DENTRO};</code>;</li>
+<li>i tre numeri e il nome del file si stampano su una riga, separati da uno spazio.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>$ ./conta prova.txt</span>
+<span id="cb9-2"><a href="#cb9-2"></a>2 8 43 prova.txt</span>
+<span id="cb9-3"><a href="#cb9-3"></a>$ wc prova.txt</span>
+<span id="cb9-4"><a href="#cb9-4"></a> 2  8 43 prova.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Il comando <code>wc</code> del terminale fa lo stesso conto: confrontate i vostri risultati su qualche file, anche su un vostro programma <code>.c</code>.</li>
+<li>Che valore ha <code>c</code> quando il ciclo termina? Perche’ <code>c</code> deve essere un <code>int</code> e non un <code>char</code>?</li>
+<li><strong>In piu’.</strong> Create un file che contiene un carattere “strano” con <code>printf 'ab\377cd\n' &gt; strano.txt</code> e confrontate il vostro programma con <code>wc -c strano.txt</code>. Poi dichiarate <code>c</code> come <code>char</code> e ripetete: quanti caratteri conta ora, e perche’? (Il carattere <code>\377</code> ha codice <span class="math inline">\(255\)</span>; in un <code>char</code>, che sul vostro computer ha segno, diventa <span class="math inline">\(-1\)</span>.)</li>
+</ol>
+<p><strong>X6.</strong> Scrivete un programma <code>cesare</code> che cifra un intero file di testo con il cifrario di Cesare (F8): <code>./cesare spostamento ingresso uscita</code>. Requisiti:</p>
+<ul>
+<li>le lettere minuscole e maiuscole si spostano restando tali; tutti gli altri caratteri (spazi, punteggiatura, cifre, a capo) si copiano invariati;</li>
+<li>lo spostamento puo’ essere qualsiasi intero, anche negativo o maggiore di <span class="math inline">\(26\)</span>;</li>
+<li>un numero di argomenti diverso da tre, uno spostamento che non e’ un intero o un file che non si apre sono errori;</li>
+<li>sullo schermo il programma non stampa nulla, se non in caso di errore.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href="#cb10-1"></a>$ cat chiaro.txt</span>
+<span id="cb10-2"><a href="#cb10-2"></a>Alea iacta est, disse Cesare nel 49 a.C.</span>
+<span id="cb10-3"><a href="#cb10-3"></a>Zebra!</span>
+<span id="cb10-4"><a href="#cb10-4"></a>$ ./cesare 3 chiaro.txt cifrato.txt</span>
+<span id="cb10-5"><a href="#cb10-5"></a>$ cat cifrato.txt</span>
+<span id="cb10-6"><a href="#cb10-6"></a>Dohd ldfwd hvw, glvvh Fhvduh qho 49 d.F.</span>
+<span id="cb10-7"><a href="#cb10-7"></a>Cheud!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Come trasformate uno spostamento qualsiasi, anche negativo, in uno tra <span class="math inline">\(0\)</span> e <span class="math inline">\(25\)</span>? Ricordate che in C il resto di un numero negativo e’ negativo. Verificate che <span class="math inline">\(29\)</span> dia lo stesso risultato di <span class="math inline">\(3\)</span>.</li>
+<li>Verificate che cifrare con <span class="math inline">\(3\)</span> e poi con <span class="math inline">\(-3\)</span> restituisca il testo originale: <code>./cesare -3 cifrato.txt di_nuovo.txt</code> seguito da <code>diff chiaro.txt di_nuovo.txt</code>. Che cosa dovrebbe stampare <code>diff</code>?</li>
+<li>Su una <em>copia</em> di un file, provate <code>./cesare 3 copia.txt copia.txt</code>: che cosa resta nel file, e perche’? Impedite questo caso confrontando i due nomi con <code>strcmp</code>, prima di aprire qualsiasi file.</li>
+</ol>
+<p><strong>X7.</strong> Scrivete un programma <code>istogramma</code> che legge voti d’esame e ne disegna l’istogramma. Requisiti:</p>
+<ul>
+<li>se riceve il nome di un file lo legge da li’, altrimenti legge da <code>stdin</code>: basta partire da <code>FILE *f = stdin;</code> e sostituirlo con il file aperto, se c’e’ l’argomento (e chiudere <code>f</code> alla fine solo se non e’ <code>stdin</code>); piu’ di un argomento, un file che non si apre o un dato non numerico sono errori;</li>
+<li>i voti fuori dall’intervallo da <span class="math inline">\(18\)</span> a <span class="math inline">\(30\)</span> vengono segnalati su <code>stderr</code>, con la loro posizione nella sequenza, e non vengono contati;</li>
+<li>ogni riga dell’istogramma contiene il voto, uno spazio e la barra <code>|</code>, poi, se il voto compare, uno spazio e un asterisco per ogni volta che compare; l’ultima riga riassume i voti validi e quelli scartati.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>$ cat voti.txt</span>
+<span id="cb11-2"><a href="#cb11-2"></a>27 30 18 24 33 27 26 30 30 21 28 15 27</span>
+<span id="cb11-3"><a href="#cb11-3"></a>$ ./istogramma voti.txt</span>
+<span id="cb11-4"><a href="#cb11-4"></a>Voto non valido in posizione 5: 33</span>
+<span id="cb11-5"><a href="#cb11-5"></a>Voto non valido in posizione 12: 15</span>
+<span id="cb11-6"><a href="#cb11-6"></a>18 | *</span>
+<span id="cb11-7"><a href="#cb11-7"></a>19 |</span>
+<span id="cb11-8"><a href="#cb11-8"></a>20 |</span>
+<span id="cb11-9"><a href="#cb11-9"></a>21 | *</span>
+<span id="cb11-10"><a href="#cb11-10"></a>22 |</span>
+<span id="cb11-11"><a href="#cb11-11"></a>23 |</span>
+<span id="cb11-12"><a href="#cb11-12"></a>24 | *</span>
+<span id="cb11-13"><a href="#cb11-13"></a>25 |</span>
+<span id="cb11-14"><a href="#cb11-14"></a>26 | *</span>
+<span id="cb11-15"><a href="#cb11-15"></a>27 | ***</span>
+<span id="cb11-16"><a href="#cb11-16"></a>28 | *</span>
+<span id="cb11-17"><a href="#cb11-17"></a>29 |</span>
+<span id="cb11-18"><a href="#cb11-18"></a>30 | ***</span>
+<span id="cb11-19"><a href="#cb11-19"></a>Voti validi: 11, scartati: 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Provate <code>./istogramma voti.txt</code>, <code>./istogramma &lt; voti.txt</code> e <code>./istogramma voti.txt &gt; grafico.txt 2&gt; errori.txt</code>. Che cosa contengono i due file? Perche’ e’ utile che i messaggi di errore vadano su <code>stderr</code>?</li>
+<li>Senza argomenti e senza <code>&lt;</code>, il programma aspetta i voti dalla tastiera: per dirgli che sono finiti si preme Ctrl+D a inizio riga. Provate.</li>
+</ol>
+<p><strong>X8.</strong> Scrivete un programma <code>serie</code> che calcola le somme parziali di alcune serie viste nei pacchetti precedenti: <code>./serie nome n [passo]</code> (le parentesi quadre indicano un argomento facoltativo). Requisiti:</p>
+<ul>
+<li>il nome puo’ essere <code>armonica</code> (<span class="math inline">\(\sum 1/k\)</span>), <code>basilea</code> (<span class="math inline">\(\sum 1/k^2\)</span>), <code>leibniz</code> (<span class="math inline">\(4 \sum (-1)^{k+1}/(2k-1)\)</span>, che tende a <span class="math inline">\(\pi\)</span>) o <code>geometrica</code> (<span class="math inline">\(\sum 1/2^k\)</span>); in tutte le serie <span class="math inline">\(k\)</span> parte da <span class="math inline">\(1\)</span>;</li>
+<li>riconoscete il nome con <code>strcmp</code> e salvatelo in una variabile <code>s</code> di tipo <code>enum serie {ARMONICA, BASILEA, LEIBNIZ, GEOMETRICA, SCONOSCIUTA};</code>, poi calcolate i termini con uno <code>switch</code>;</li>
+<li>senza il terzo argomento il programma stampa solo la somma dei primi <span class="math inline">\(n\)</span> termini; con il <code>passo</code> stampa la somma dopo <code>passo</code>, <code>2 * passo</code>, <code>3 * passo</code>, … termini, fino a <span class="math inline">\(n\)</span>; le somme si stampano con <span class="math inline">\(10\)</span> decimali;</li>
+<li><span class="math inline">\(n\)</span> e <code>passo</code> devono essere interi positivi e <code>passo</code> deve dividere <span class="math inline">\(n\)</span>; un nome sconosciuto produce un errore che elenca le serie disponibili; anche un numero sbagliato di argomenti e’ un errore.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href="#cb12-1"></a>$ ./serie basilea 1000</span>
+<span id="cb12-2"><a href="#cb12-2"></a>basilea(1000) = 1.6439345667</span>
+<span id="cb12-3"><a href="#cb12-3"></a>$ ./serie leibniz 100000 25000</span>
+<span id="cb12-4"><a href="#cb12-4"></a>leibniz(25000) = 3.1415526536</span>
+<span id="cb12-5"><a href="#cb12-5"></a>leibniz(50000) = 3.1415726536</span>
+<span id="cb12-6"><a href="#cb12-6"></a>leibniz(75000) = 3.1415793203</span>
+<span id="cb12-7"><a href="#cb12-7"></a>leibniz(100000) = 3.1415826536</span>
+<span id="cb12-8"><a href="#cb12-8"></a>$ ./serie fibonacci 10</span>
+<span id="cb12-9"><a href="#cb12-9"></a>Serie sconosciuta: fibonacci (disponibili: armonica, basilea, leibniz, geometrica)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Perche’ non si puo’ fare lo <code>switch</code> direttamente su <code>argv[1]</code>?</li>
+<li>Con il passo, osservate come si avvicinano ai loro limiti le serie di Basilea e di Leibniz. Quante cifre giuste guadagna Leibniz ogni volta che <span class="math inline">\(n\)</span> viene moltiplicato per <span class="math inline">\(10\)</span>?</li>
+<li><strong>Con gdb.</strong> Lanciate <code>run basilea 1000</code> e fermatevi dopo il riconoscimento del nome: cosa rispondono <code>print s</code> e <code>print/d s</code>?</li>
+</ol>
+<p><strong>X9.</strong> Il gioco della vita di Conway si gioca su una griglia di celle vive (<code>#</code>) o morte (<code>.</code>). A ogni generazione una cella viva sopravvive se ha <span class="math inline">\(2\)</span> o <span class="math inline">\(3\)</span> vicine vive (tra le <span class="math inline">\(8\)</span> che la circondano), altrimenti muore; una cella morta nasce se ha esattamente <span class="math inline">\(3\)</span> vicine vive. Le celle fuori dalla griglia sono considerate morte. Scrivete un programma <code>vita</code> che legge una griglia da un file, calcola un certo numero di generazioni e scrive la griglia finale in un altro file: <code>./vita ingresso uscita generazioni</code>. Requisiti:</p>
+<ul>
+<li>il file contiene sulla prima riga il numero di righe <span class="math inline">\(R\)</span> e di colonne <span class="math inline">\(C\)</span> (da <span class="math inline">\(1\)</span> a <span class="math inline">\(50\)</span>), poi la griglia; il file di uscita ha lo stesso formato;</li>
+<li>tenete il numero di colonne nella variabile <code>C</code> e le celle nell’array <code>griglia</code>. Non avete ancora visto gli array a due dimensioni, ma non servono: la cella di riga <span class="math inline">\(r\)</span> e colonna <span class="math inline">\(c\)</span> si mette nell’elemento <code>griglia[r * C + c]</code> di un array lungo <span class="math inline">\(R \cdot C\)</span>;</li>
+<li>per leggere le celle saltando gli a capo, usate <code>fscanf(f, " %c", &amp;ch)</code> (lo spazio prima di <code>%c</code> salta spazi e a capo); se una cella non e’ <code>#</code> ne’ <code>.</code>, il programma segnala la riga sbagliata e termina con errore;</li>
+<li>argomenti sbagliati, un numero di generazioni negativo, file che non si aprono o una griglia incompleta sono errori;</li>
+<li>sullo schermo il programma non stampa nulla, se non in caso di errore.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>$ cat aliante.txt</span>
+<span id="cb13-2"><a href="#cb13-2"></a>6 6</span>
+<span id="cb13-3"><a href="#cb13-3"></a>.#....</span>
+<span id="cb13-4"><a href="#cb13-4"></a>..#...</span>
+<span id="cb13-5"><a href="#cb13-5"></a>###...</span>
+<span id="cb13-6"><a href="#cb13-6"></a>......</span>
+<span id="cb13-7"><a href="#cb13-7"></a>......</span>
+<span id="cb13-8"><a href="#cb13-8"></a>......</span>
+<span id="cb13-9"><a href="#cb13-9"></a>$ ./vita aliante.txt dopo4.txt 4</span>
+<span id="cb13-10"><a href="#cb13-10"></a>$ cat dopo4.txt</span>
+<span id="cb13-11"><a href="#cb13-11"></a>6 6</span>
+<span id="cb13-12"><a href="#cb13-12"></a>......</span>
+<span id="cb13-13"><a href="#cb13-13"></a>..#...</span>
+<span id="cb13-14"><a href="#cb13-14"></a>...#..</span>
+<span id="cb13-15"><a href="#cb13-15"></a>.###..</span>
+<span id="cb13-16"><a href="#cb13-16"></a>......</span>
+<span id="cb13-17"><a href="#cb13-17"></a>......</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Perche’ serve un secondo array per la nuova generazione? Che cosa succederebbe aggiornando la griglia mentre la si scorre?</li>
+<li><strong>Con gdb.</strong> Mettete un breakpoint sulla prima riga dentro il ciclo delle generazioni e stampate una riga intera della griglia: per esempio <code>print griglia[2 * C]@C</code> mostra la terza riga. Perche’ funziona?</li>
+<li>Il <em>lampeggiatore</em> (tre celle vive in fila, al centro di una griglia <span class="math inline">\(5 \times 5\)</span>) torna uguale ogni due generazioni. Verificatelo con <code>diff</code> tra il file di partenza e quello ottenuto dopo <span class="math inline">\(2\)</span> generazioni.</li>
+<li>Dopo <span class="math inline">\(4\)</span> generazioni l’aliante e’ uguale a se stesso, ma spostato di una riga e di una colonna. Dove si trova dopo <span class="math inline">\(12\)</span> generazioni? E che cosa succede quando arriva al bordo?</li>
+</ol>
+<p><strong>X10.</strong> Scrivete un programma <code>fondi</code> che riceve i nomi di due file, ciascuno con una sequenza di interi gia’ ordinata in modo crescente, e scrive in un terzo file la sequenza ordinata di tutti i numeri, uno per riga: <code>./fondi primo secondo uscita</code>. Requisiti:</p>
+<ul>
+<li>non si possono caricare i numeri in un array: il programma legge i due file contemporaneamente, tenendo sempre a disposizione il prossimo numero di ciascuno e scrivendo il piu’ piccolo dei due;</li>
+<li>un file di ingresso vuoto e’ valido: contiene la sequenza vuota;</li>
+<li>il programma controlla che i file siano davvero ordinati: se trova un numero minore del precedente nello stesso file, lo segnala e termina con errore;</li>
+<li>un dato non numerico, un numero di argomenti diverso da tre o un file che non si apre sono errori;</li>
+<li>alla fine stampa quanti numeri ha scritto.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>$ cat quadrati.txt</span>
+<span id="cb14-2"><a href="#cb14-2"></a>1 4 9 16 25 36</span>
+<span id="cb14-3"><a href="#cb14-3"></a>$ cat cubi.txt</span>
+<span id="cb14-4"><a href="#cb14-4"></a>1 8 27</span>
+<span id="cb14-5"><a href="#cb14-5"></a>$ ./fondi quadrati.txt cubi.txt tutti.txt</span>
+<span id="cb14-6"><a href="#cb14-6"></a>Scritti 9 numeri in tutti.txt</span>
+<span id="cb14-7"><a href="#cb14-7"></a>$ cat tutti.txt</span>
+<span id="cb14-8"><a href="#cb14-8"></a>1</span>
+<span id="cb14-9"><a href="#cb14-9"></a>1</span>
+<span id="cb14-10"><a href="#cb14-10"></a>4</span>
+<span id="cb14-11"><a href="#cb14-11"></a>8</span>
+<span id="cb14-12"><a href="#cb14-12"></a>9</span>
+<span id="cb14-13"><a href="#cb14-13"></a>16</span>
+<span id="cb14-14"><a href="#cb14-14"></a>25</span>
+<span id="cb14-15"><a href="#cb14-15"></a>27</span>
+<span id="cb14-16"><a href="#cb14-16"></a>36</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li><strong>Con gdb.</strong> Per ciascun file servono due variabili: il prossimo numero e un indicatore che dica se un numero c’e’ ancora (cioe’ se l’ultima <code>fscanf</code> ha restituito <span class="math inline">\(1\)</span>). Con un breakpoint dentro il ciclo, seguitele con <code>display</code>.</li>
+<li>Provate con <code>vuoto.txt</code> come primo o come secondo file: il risultato e’ quello che vi aspettate? Poi provate <code>./fondi quadrati.txt disordinato.txt tutti.txt</code>, dove <code>disordinato.txt</code> contiene <code>2 3 5 4 11</code>: quanti numeri ha gia’ scritto il vostro programma quando si accorge dell’errore?</li>
+<li>Che cosa succede se il file di uscita coincide con uno dei due di ingresso? Impedite questo caso come in X6, prima di aprire qualsiasi file.</li>
+</ol>
+</section>
+</section>
+<section id="seconda-parte-make-test" class="level3">
+<h3 data-anchor-id="seconda-parte-make-test">Seconda parte: make test</h3>
+<p>Quando un programma si fa lungo, provarlo a mano dopo ogni modifica diventa noioso e si finisce per non farlo. In questa parte le prove le fa il computer: ogni cartella del materiale contiene un <em>Makefile</em> gia’ pronto e una cartella <code>test</code> con i casi di prova, e basta il comando <code>make test</code> per controllare il programma su tutti i casi. Non serve sapere come e’ fatto un Makefile: lo si usa come si usa gcc. Il programma <code>make</code> di solito e’ installato insieme a gcc; se non lo fosse, si installa con <code>sudo apt install make</code>. Su macOS il Makefile usa il comando <code>gtimeout</code>, che si installa con <code>brew install coreutils</code>; senza, il limite di 5 secondi descritto piu’ avanti non c’e’, e un programma che non termina blocca <code>make test</code> finche’ non premete Ctrl+C.</p>
+<section id="i-tre-comandi" class="level4">
+<h4 data-anchor-id="i-tre-comandi">I tre comandi</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comando</th>
+<th>Cosa fa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>make</code></td>
+<td>compila il programma con <code>gcc -g -Wall -Wextra</code>, ma solo se il sorgente e’ stato modificato dopo l’ultima compilazione</td>
+</tr>
+<tr class="even">
+<td><code>make test</code></td>
+<td>compila (se serve) e prova il programma su tutti i casi della cartella <code>test</code></td>
+</tr>
+<tr class="odd">
+<td><code>make clean</code></td>
+<td>cancella l’eseguibile e i file prodotti dai test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="il-makefile" class="level4">
+<h4 data-anchor-id="il-makefile">Il Makefile</h4>
+<p>Il Makefile e’ uguale in tutte le cartelle, tranne la riga <code>PROG = ...</code> con il nome del programma, e non va modificato. Chi e’ curioso puo’ aprirlo: e’ commentato riga per riga. Non ricopiatelo da altri documenti: le righe dei comandi devono iniziare con un TAB, che copiando diventa spesso una serie di spazi (make risponderebbe <code>missing separator</code>).</p>
+</section>
+<section id="come-funzionano-i-test" class="level4">
+<h4 data-anchor-id="come-funzionano-i-test">Come funzionano i test</h4>
+<p>Per ogni test, nella cartella <code>test</code> ci sono:</p>
+<ul>
+<li><code>NOME.arg</code>, una riga con gli argomenti da passare al programma (un file vuoto vuol dire nessun argomento);</li>
+<li><code>NOME.atteso</code>, l’output che il programma deve stampare su <code>stdout</code>, seguito da una riga come <code>[codice di uscita: 0]</code>;</li>
+<li>a volte <code>NOME.in</code>, il contenuto da leggere da tastiera;</li>
+<li>i file di dati usati negli argomenti.</li>
+</ul>
+<p>I messaggi su <code>stderr</code> non vengono controllati: il testo degli errori potete sceglierlo voi, ma il codice di uscita deve essere quello giusto, e in caso di errore su <code>stdout</code> non deve comparire nulla di piu’ di quanto previsto. L’output invece deve coincidere carattere per carattere, spazi e a capo compresi. Prima di scrivere un programma, leggete tutti i file <code>.arg</code> e <code>.atteso</code> della sua cartella: completano gli esempi del testo.</p>
+</section>
+<section id="quando-un-test-fallisce" class="level4">
+<h4 data-anchor-id="quando-un-test-fallisce">Quando un test fallisce</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>FALLITO  test/02_decimali    (./media_mobile 2 test/decimali.txt)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>1c1</span>
+<span id="cb15-3"><a href="#cb15-3"></a>&lt; 1.50</span>
+<span id="cb15-4"><a href="#cb15-4"></a>---</span>
+<span id="cb15-5"><a href="#cb15-5"></a>&gt; 1.00</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La riga <code>FALLITO</code> riporta il comando eseguito: potete ripeterlo dal terminale. Sotto c’e’ il resoconto di <code>diff</code>: le righe che iniziano con <code>&lt;</code> sono quelle attese, quelle con <code>&gt;</code> quelle ottenute. Le righe come <code>1c1</code> dicono dove stanno le differenze: a sinistra della lettera ci sono i numeri di riga del file atteso, a destra quelli del file ottenuto; <code>c</code> vuol dire righe cambiate, <code>d</code> righe che mancano nell’ottenuto, <code>a</code> righe in piu’. Per esempio <code>1c1,2</code> significa che al posto della riga 1 attesa sono comparse le righe 1 e 2 ottenute. Il file <code>NOME.ottenuto</code> resta nella cartella <code>test</code> e potete aprirlo. Il codice di uscita da’ altri indizi: <span class="math inline">\(124\)</span> significa che il programma e’ stato fermato dopo 5 secondi (quasi sempre un ciclo infinito), mentre un numero maggiore di <span class="math inline">\(128\)</span> significa che il programma e’ andato in crash (<span class="math inline">\(136\)</span> per una divisione per zero, <span class="math inline">\(139\)</span> o <span class="math inline">\(135\)</span> per un accesso alla memoria non valido, <span class="math inline">\(134\)</span> per un <code>assert</code> fallito o per una scrittura fuori da un array scoperta dal programma stesso).</p>
+<p>Per capire <em>perche’</em> un test fallisce, ripetete il comando dal terminale; se non basta, usate gdb con gli stessi argomenti (per esempio <code>run 2 test/decimali.txt</code>) oppure aggiungete qualche <code>printf</code> di controllo.</p>
+</section>
+<section id="esercizi-x11-x20" class="level4">
+<h4 data-anchor-id="esercizi-x11-x20">Esercizi (X11-X20)</h4>
+<p><strong>X11.</strong> Primo incontro con <code>make</code>. Nella cartella <code>X11_mcd</code> trovate il Makefile, i test e un programma gia’ completo e corretto, <code>mcd.c</code>, che calcola il massimo comun divisore e il minimo comune multiplo di tutti i numeri positivi contenuti in un file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>$ ./mcd test/esempio.txt</span>
+<span id="cb16-2"><a href="#cb16-2"></a>MCD = 6</span>
+<span id="cb16-3"><a href="#cb16-3"></a>mcm = 180</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Spostatevi nella cartella con <code>cd</code> e guardate i test: <code>ls test</code>, poi <code>cat test/01_esempio.arg test/01_esempio.atteso</code>. Quali situazioni controllano i nove test?</li>
+<li>Date <code>make</code> e poi <code>make test</code>: devono risultare <span class="math inline">\(9\)</span> test superati su <span class="math inline">\(9\)</span>. Che cosa risponde <code>make</code> se lo date una seconda volta senza modificare il programma?</li>
+<li>Ora rompete il programma, una modifica alla volta, lanciate <code>make test</code> e leggete il resoconto; dopo ogni prova rimettete il programma com’era.
+<ul>
+<li>Nella <code>printf</code> finale scrivete <code>M.C.D. =</code> al posto di <code>MCD =</code>. Quali test falliscono? Che cosa vi dice il <code>diff</code>?</li>
+<li>Togliete il controllo sul file senza numeri. Quale test fallisce, e che cosa compare nella riga del codice di uscita?</li>
+</ul></li>
+<li>Date <code>make clean</code> e guardate che cosa e’ rimasto nella cartella.</li>
+</ol>
+<p><strong>X12.</strong> Trova gli errori con <code>make test</code>. Nella cartella <code>X12_media_mobile</code> c’e’ il programma <code>media_mobile.c</code>, che contiene tre errori. Il programma dovrebbe funzionare cosi’. Si lancia con <code>./media_mobile k file</code>, dove <span class="math inline">\(k\)</span> e’ un intero tra <span class="math inline">\(1\)</span> e <span class="math inline">\(100\)</span>. Legge gli interi del file e, a partire dal <span class="math inline">\(k\)</span>-esimo, stampa con due decimali la media degli ultimi <span class="math inline">\(k\)</span> numeri letti (la <em>media mobile</em>), una per riga; i <span class="math inline">\(k\)</span> numeri vengono tenuti in un array usato in modo circolare. Alla fine stampa la media mobile piu’ alta, indicando le posizioni del primo e dell’ultimo numero di quella finestra (a parita’ vale la prima). Se i numeri sono meno di <span class="math inline">\(k\)</span>, se un dato non e’ valido o se gli argomenti sono sbagliati, il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>$ ./media_mobile 2 test/decimali.txt</span>
+<span id="cb17-2"><a href="#cb17-2"></a>1.50</span>
+<span id="cb17-3"><a href="#cb17-3"></a>3.00</span>
+<span id="cb17-4"><a href="#cb17-4"></a>5.50</span>
+<span id="cb17-5"><a href="#cb17-5"></a>Media mobile massima: 5.50 (numeri da 3 a 4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Lanciate <code>make test</code>: quanti test falliscono? Per ciascun test fallito, leggete il <code>diff</code> e formulate un’ipotesi sull’errore prima di guardare il codice.</li>
+<li>Per ogni ipotesi, cercate la riga sbagliata ripetendo il test con gli stessi argomenti, con gdb oppure con qualche <code>printf</code> di controllo. Correggete un errore alla volta e rilanciate <code>make test</code> dopo ogni correzione.</li>
+<li>Il test <code>01_interi</code> viene superato anche dal programma sbagliato. Perche’? Che cosa insegna questo sui test?</li>
+<li>Spiegate perche’ l’indice <code>pos</code> dell’array circolare si aggiorna con <code>pos = (pos + 1) % k</code>.</li>
+</ol>
+<p><strong>X13.</strong> Scrivete il programma <code>romani.c</code> nella cartella <code>X13_romani</code>, in modo che superi tutti i test. Il programma riceve il nome di un file che contiene interi e, per ciascuno, stampa la sua scrittura in numeri romani. Requisiti:</p>
+<ul>
+<li>i numeri da <span class="math inline">\(1\)</span> a <span class="math inline">\(3999\)</span> si stampano come <code>12 = XII</code>; quelli fuori da questo intervallo non si possono scrivere e si segnalano su <code>stdout</code>, come <code>0: fuori intervallo</code>; non e’ un errore, e il codice di uscita resta <span class="math inline">\(0\)</span>;</li>
+<li>se incontra un dato non valido, il programma si ferma con errore, dopo aver stampato le righe dei numeri precedenti;</li>
+<li>un file vuoto non produce nessuna riga (codice <span class="math inline">\(0\)</span>);</li>
+<li>un numero di argomenti diverso da uno o un file che non si apre sono errori.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="#cb18-1"></a>$ cat test/fuori.txt</span>
+<span id="cb18-2"><a href="#cb18-2"></a>0 -7 4000 12</span>
+<span id="cb18-3"><a href="#cb18-3"></a>$ ./romani test/fuori.txt</span>
+<span id="cb18-4"><a href="#cb18-4"></a>0: fuori intervallo</span>
+<span id="cb18-5"><a href="#cb18-5"></a>-7: fuori intervallo</span>
+<span id="cb18-6"><a href="#cb18-6"></a>4000: fuori intervallo</span>
+<span id="cb18-7"><a href="#cb18-7"></a>12 = XII</span>
+<span id="cb18-8"><a href="#cb18-8"></a>$ ./romani test/base.txt</span>
+<span id="cb18-9"><a href="#cb18-9"></a>1 = I</span>
+<span id="cb18-10"><a href="#cb18-10"></a>4 = IV</span>
+<span id="cb18-11"><a href="#cb18-11"></a>9 = IX</span>
+<span id="cb18-12"><a href="#cb18-12"></a>14 = XIV</span>
+<span id="cb18-13"><a href="#cb18-13"></a>40 = XL</span>
+<span id="cb18-14"><a href="#cb18-14"></a>90 = XC</span>
+<span id="cb18-15"><a href="#cb18-15"></a>400 = CD</span>
+<span id="cb18-16"><a href="#cb18-16"></a>900 = CM</span>
+<span id="cb18-17"><a href="#cb18-17"></a>1994 = MCMXCIV</span>
+<span id="cb18-18"><a href="#cb18-18"></a>2026 = MMXXVI</span>
+<span id="cb18-19"><a href="#cb18-19"></a>3999 = MMMCMXCIX</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Suggerimento: preparate due array paralleli, uno con i valori <span class="math inline">\(1000, 900, 500, 400, \dots, 4, 1\)</span> e uno con i simboli corrispondenti. Per i simboli potete usare un array di stringhe, come <code>argv</code>: <code>char *simboli[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};</code>.</p>
+<p><strong>X14.</strong> Riprendete il programma di X5 e trasformatelo nel programma <code>conta.c</code> della cartella <code>X14_conta</code>, che accetta opzioni e piu’ file, come il vero <code>wc</code>: <code>./conta [-r] [-p] [-c] file...</code>. Requisiti:</p>
+<ul>
+<li>le opzioni <code>-r</code>, <code>-p</code> e <code>-c</code> scelgono che cosa stampare (righe, parole, caratteri) e possono comparire in qualsiasi ordine e in qualsiasi posizione, anche dopo i nomi dei file; senza opzioni si stampano tutti e tre i numeri;</li>
+<li>i numeri si stampano sempre nell’ordine righe, parole, caratteri, ciascuno seguito da uno spazio, e poi il nome del file;</li>
+<li>se sulla riga di comando ci sono piu’ nomi di file, alla fine c’e’ una riga di totali con la parola <code>totale</code> al posto del nome, anche se qualcuno dei file non si apre;</li>
+<li>un file che non si apre viene segnalato su <code>stderr</code> e saltato, ma alla fine il codice di uscita e’ <span class="math inline">\(1\)</span>;</li>
+<li>un’opzione sconosciuta (qualsiasi argomento che inizia con <code>-</code> e non e’ tra le tre) e la mancanza di file sono errori, con codice <span class="math inline">\(1\)</span>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href="#cb19-1"></a>$ ./conta test/dante.txt test/numeri.txt</span>
+<span id="cb19-2"><a href="#cb19-2"></a>3 19 104 test/dante.txt</span>
+<span id="cb19-3"><a href="#cb19-3"></a>2 5 10 test/numeri.txt</span>
+<span id="cb19-4"><a href="#cb19-4"></a>5 24 114 totale</span>
+<span id="cb19-5"><a href="#cb19-5"></a>$ ./conta -c -r test/dante.txt</span>
+<span id="cb19-6"><a href="#cb19-6"></a>3 104 test/dante.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il programma deve scorrere gli argomenti due volte: la prima per raccogliere le opzioni, la seconda per elaborare i file.</p>
+<p><strong>X15.</strong> Questa volta i test li scrivete voi. Nella cartella <code>X15_ordina</code> c’e’ il programma <code>ordina.c</code>, che dovrebbe rispettare questi requisiti:</p>
+<ul>
+<li>legge gli interi di un file (al massimo <span class="math inline">\(100\)</span>) e li stampa in ordine crescente, uno per riga: <code>./ordina [-r] [-u] file</code>;</li>
+<li>con l’opzione <code>-r</code> li stampa in ordine decrescente; con <code>-u</code> ogni numero compare una sola volta, anche se nel file e’ ripetuto (<code>3 1 3 2</code> diventa <code>1 2 3</code>); le due opzioni si possono combinare e possono stare in qualsiasi posizione;</li>
+<li>un file vuoto non produce nessuna riga (codice <span class="math inline">\(0\)</span>);</li>
+<li>un file con piu’ di <span class="math inline">\(100\)</span> numeri, un dato non valido, un’opzione sconosciuta, un numero di file diverso da uno o un file che non si apre sono errori.</li>
+</ul>
+<p>I due test forniti vengono superati, ma il programma contiene due errori.</p>
+<ol type="1">
+<li>Scrivete almeno sei nuovi test, ciascuno con il suo file di dati, il file <code>.arg</code> e il file <code>.atteso</code> calcolato a mano, pensando ai casi difficili: file vuoto, un solo numero, numeri negativi, numeri ripetuti con e senza <code>-u</code>, <code>-r</code> e <code>-u</code> insieme, un file con piu’ di <span class="math inline">\(100\)</span> numeri. Chiamateli <code>03_...</code>, <code>04_...</code> e cosi’ via, perche’ vengano eseguiti in ordine. Ricordate che ogni <code>.atteso</code> termina con la riga del codice di uscita e un a capo. Per creare il file di <span class="math inline">\(101\)</span> numeri potete usare il terminale: <code>seq 101 &gt; test/troppi.txt</code> scrive i numeri da <span class="math inline">\(1\)</span> a <span class="math inline">\(101\)</span>, uno per riga.</li>
+<li>Lanciate <code>make test</code>. I vostri test trovano degli errori? Prima di correggere il programma, controllate che non sia sbagliato il test.</li>
+<li>Trovate gli errori e correggeteli. Uno dei due puo’ far scrivere il programma fuori dall’array (F11): quale?</li>
+<li>Che cosa rende un insieme di test “buono”? Il vostro avrebbe trovato gli errori di X12?</li>
+</ol>
+<p><strong>X16.</strong> Il cifrario di Vigenere generalizza quello di Cesare: invece di uno spostamento fisso usa una parola chiave, e ogni lettera del testo si sposta della quantita’ indicata dalla lettera corrispondente della chiave (<code>a</code> o <code>A</code> vale <span class="math inline">\(0\)</span>, <code>b</code> vale <span class="math inline">\(1\)</span>, e cosi’ via), ricominciando dall’inizio della chiave quando e’ finita. Con la chiave <code>lemon</code>, <code>ATTACKATDAWN</code> diventa <code>LXFOPVEFRNHR</code>. Scrivete il programma <code>vigenere.c</code> nella cartella <code>X16_vigenere</code>: <code>./vigenere -c|-d chiave ingresso uscita</code>, dove <code>-c</code> cifra e <code>-d</code> decifra. Requisiti:</p>
+<ul>
+<li>come in X6, le lettere restano minuscole o maiuscole e gli altri caratteri si copiano invariati; la chiave avanza di una posizione solo quando si cifra una lettera;</li>
+<li>la chiave puo’ contenere solo lettere, maiuscole o minuscole, con lo stesso significato; altrimenti errore e codice <span class="math inline">\(1\)</span>;</li>
+<li>se il nome del file di uscita e’ <code>-</code>, il programma scrive su <code>stdout</code> (e alla fine non lo chiude): e’ una convenzione diffusa nei comandi del terminale, ed e’ cosi’ che i test controllano il risultato;</li>
+<li>un’opzione diversa da <code>-c</code> e <code>-d</code>, un numero sbagliato di argomenti, un file che non si apre o un file di uscita uguale a quello di ingresso sono errori, con codice <span class="math inline">\(1\)</span>. L’ultimo controllo va fatto prima di aprire i file: il test <code>08_stesso_file</code> usa una copia, <code>test/copia.txt</code>, che un programma sbagliato svuoterebbe.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href="#cb20-1"></a>$ ./vigenere -c lemon test/attacco.txt -</span>
+<span id="cb20-2"><a href="#cb20-2"></a>LXFOPVEFRNHR</span>
+<span id="cb20-3"><a href="#cb20-3"></a>$ ./vigenere -c Roma test/frase.txt -</span>
+<span id="cb20-4"><a href="#cb20-4"></a>Zz pauc q' tioftf, rusjs Oejode.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per scorrere la chiave vi servono la sua lunghezza (<code>strlen</code>) e un contatore delle lettere cifrate: la lettera della chiave da usare e’ quella di posto <code>contatore % lunghezza</code>.</p>
+<p><strong>X17.</strong> Scrivete il programma <code>sudoku.c</code> nella cartella <code>X17_sudoku</code>, che controlla una griglia di sudoku. Requisiti:</p>
+<ul>
+<li>il file contiene <span class="math inline">\(81\)</span> cifre da <code>0</code> a <code>9</code>, disposte in <span class="math inline">\(9\)</span> righe; <code>0</code> indica una casella vuota e non conta come ripetizione; le cifre di una riga possono essere separate da spazi;</li>
+<li>il programma controlla, in quest’ordine, le righe dalla prima all’ultima, poi le colonne da sinistra a destra, poi i riquadri <span class="math inline">\(3 \times 3\)</span>, numerati da <span class="math inline">\(1\)</span> a <span class="math inline">\(9\)</span> da sinistra a destra e dall’alto in basso; anche righe e colonne si numerano da <span class="math inline">\(1\)</span>;</li>
+<li>alla prima cifra ripetuta stampa che cosa ha trovato, come <code>Riga 4: il 2 compare due volte</code> (oppure <code>Colonna ...</code> o <code>Riquadro ...</code>), e termina con codice <span class="math inline">\(2\)</span>;</li>
+<li>se non trova errori stampa <code>Griglia valida e completa</code>, oppure <code>Griglia valida, caselle vuote:</code> seguito dal numero di caselle vuote, con codice <span class="math inline">\(0\)</span>;</li>
+<li>un file che non si apre, un carattere diverso da cifre, spazi e a capo, un numero di cifre diverso da <span class="math inline">\(81\)</span> o un numero di argomenti diverso da uno producono codice <span class="math inline">\(1\)</span>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href="#cb21-1"></a>$ ./sudoku test/completa.txt</span>
+<span id="cb21-2"><a href="#cb21-2"></a>Griglia valida e completa</span>
+<span id="cb21-3"><a href="#cb21-3"></a>$ ./sudoku test/parziale.txt</span>
+<span id="cb21-4"><a href="#cb21-4"></a>Griglia valida, caselle vuote: 51</span>
+<span id="cb21-5"><a href="#cb21-5"></a>$ ./sudoku test/riga.txt</span>
+<span id="cb21-6"><a href="#cb21-6"></a>Riga 4: il 2 compare due volte</span>
+<span id="cb21-7"><a href="#cb21-7"></a>$ ./sudoku test/riquadro.txt</span>
+<span id="cb21-8"><a href="#cb21-8"></a>Riquadro 1: il 3 compare due volte</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mettete la griglia in un array di <span class="math inline">\(81\)</span> elementi, con la casella di riga <span class="math inline">\(r\)</span> e colonna <span class="math inline">\(c\)</span> in posizione <code>r * 9 + c</code> (come in X9). La parte piu’ delicata sono i riquadri: per il riquadro <span class="math inline">\(b\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>) e la sua casella <span class="math inline">\(k\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>), scrivete su carta le formule della riga e della colonna, poi controllatele, per esempio con gdb (<code>display</code> su <code>r</code> e <code>c</code>) mentre il programma scorre un riquadro. Per sapere se una cifra e’ gia’ comparsa, usate un array <code>visto[10]</code> da azzerare all’inizio di ogni riga, colonna o riquadro.</p>
+<p><strong>X18.</strong> Scrivete il programma <code>polinomi.c</code> nella cartella <code>X18_polinomi</code>, che fa calcoli su polinomi a coefficienti interi letti da file. Ogni file contiene il grado <span class="math inline">\(n\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(20\)</span>) e poi gli <span class="math inline">\(n + 1\)</span> coefficienti, dal termine noto <span class="math inline">\(a_0\)</span> fino ad <span class="math inline">\(a_n\)</span>. Requisiti:</p>
+<ul>
+<li><p><code>./polinomi valuta file x</code> stampa il valore del polinomio in <span class="math inline">\(x\)</span> intero (schema di Horner, F17), con il formato <code>p(3) = 5</code>;</p></li>
+<li><p><code>./polinomi derivata file</code> stampa la derivata;</p></li>
+<li><p><code>./polinomi somma file1 file2</code> e <code>./polinomi prodotto file1 file2</code> stampano la somma e il prodotto;</p></li>
+<li><p>i polinomi si stampano dal grado piu’ alto al piu’ basso, saltando i coefficienti nulli. Il primo termine ha il segno <code>-</code> attaccato se e’ negativo; gli altri sono preceduti da <code>+</code> o <code>-</code> e scritti con il coefficiente in valore assoluto. Un coefficiente <span class="math inline">\(1\)</span> o <span class="math inline">\(-1\)</span> non si scrive, tranne nel termine noto. La potenza si scrive <code>x^3</code>, <code>x^2</code>, <code>x</code> per il primo grado e niente per il termine noto. Il polinomio nullo si stampa <code>0</code>;</p></li>
+<li><p>un’operazione sconosciuta, un numero sbagliato di argomenti, una <span class="math inline">\(x\)</span> che non e’ un intero, un file che non si apre o un file malformato (grado fuori intervallo, coefficienti mancanti o non numerici) sono errori, con codice <span class="math inline">\(1\)</span>.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href="#cb22-1"></a>$ cat test/p.txt</span>
+<span id="cb22-2"><a href="#cb22-2"></a>3</span>
+<span id="cb22-3"><a href="#cb22-3"></a>-1 2 -6 2</span>
+<span id="cb22-4"><a href="#cb22-4"></a>$ ./polinomi derivata test/p.txt</span>
+<span id="cb22-5"><a href="#cb22-5"></a>6x^2 - 12x + 2</span>
+<span id="cb22-6"><a href="#cb22-6"></a>$ ./polinomi prodotto test/p.txt test/q.txt</span>
+<span id="cb22-7"><a href="#cb22-7"></a>-2x^5 + 6x^4 - 5x^2 + 2x - 1</span>
+<span id="cb22-8"><a href="#cb22-8"></a>$ ./polinomi somma test/x.txt test/q.txt</span>
+<span id="cb22-9"><a href="#cb22-9"></a>-x^2 + x + 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Riconoscete l’operazione con <code>strcmp</code> e un <code>enum</code>. Attenzione al grado del risultato: nella somma i coefficienti piu’ alti possono annullarsi (il test <code>06_somma_nulla</code> somma un polinomio e il suo opposto). La stampa dei polinomi ha molti casi particolari: quando un test fallisce, in gdb mettete un breakpoint condizionato sul ciclo di stampa per fermarvi proprio sul termine che esce sbagliato.</p>
+<p><strong>X19.</strong> Scrivete il programma <code>labirinto.c</code> nella cartella <code>X19_labirinto</code>, che trova il percorso piu’ breve in un labirinto. Requisiti:</p>
+<ul>
+<li>il file contiene sulla prima riga il numero di righe e di colonne (da <span class="math inline">\(1\)</span> a <span class="math inline">\(40\)</span>), poi il labirinto: <code>#</code> e’ un muro, <code>.</code> una casella libera, <code>S</code> la partenza ed <code>E</code> l’uscita; ci si muove in orizzontale e in verticale;</li>
+<li>il programma stampa la lunghezza del percorso minimo, come <code>Percorso minimo: 11 passi</code> (al singolare, <code>Percorso minimo: 1 passo</code>), e poi il labirinto con il percorso segnato da <code>*</code> (esclusi <code>S</code> ed <code>E</code>);</li>
+<li>se l’uscita non si puo’ raggiungere, stampa soltanto <code>Uscita irraggiungibile</code>; in entrambi i casi il codice e’ <span class="math inline">\(0\)</span>;</li>
+<li>un file senza <code>S</code> o senza <code>E</code>, con piu’ di una <code>S</code> o di una <code>E</code>, con caratteri diversi da quelli previsti o incompleto, un file che non si apre o un numero di argomenti diverso da uno producono codice <span class="math inline">\(1\)</span>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb23-1"><a href="#cb23-1"></a>$ ./labirinto test/esempio.txt</span>
+<span id="cb23-2"><a href="#cb23-2"></a>Percorso minimo: 11 passi</span>
+<span id="cb23-3"><a href="#cb23-3"></a>S.#....</span>
+<span id="cb23-4"><a href="#cb23-4"></a>*##.##.</span>
+<span id="cb23-5"><a href="#cb23-5"></a>***#***</span>
+<span id="cb23-6"><a href="#cb23-6"></a>.#***#E</span>
+<span id="cb23-7"><a href="#cb23-7"></a>...#...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il metodo da usare e’ la <em>visita in ampiezza</em>. Si parte da <code>S</code> a distanza <span class="math inline">\(0\)</span>; poi si esaminano le caselle in ordine di distanza: ogni casella libera, non ancora raggiunta, vicina di una casella a distanza <span class="math inline">\(d\)</span> si trova a distanza <span class="math inline">\(d + 1\)</span>. Le caselle in attesa di essere esaminate stanno in una <em>coda</em>: un array con due indici, <code>testa</code> (la prossima da esaminare) e <code>fondo</code> (dove aggiungere le nuove). Servono altri due array lunghi quanto il labirinto: <code>dist</code>, con la distanza di ogni casella (<span class="math inline">\(-1\)</span> se non ancora raggiunta), e <code>prec</code>, con la casella da cui ciascuna e’ stata raggiunta, che permette di ripercorrere il cammino all’indietro da <code>E</code> a <code>S</code>. Perche’ il percorso stampato sia unico, i vicini di una casella si esaminano sempre nell’ordine: su, giu’, sinistra, destra.</p>
+<p><strong>X20.</strong> <strong>Sfida.</strong> La compressione. La codifica <em>run-length</em> (RLE) sostituisce ogni sequenza di caratteri uguali con la sua lunghezza seguita dal carattere: <code>aaab</code> diventa <code>3a1b</code>, e anche gli a capo e gli spazi si codificano allo stesso modo. Scrivete il programma <code>rle.c</code> nella cartella <code>X20_rle</code>: <code>./rle -c ingresso uscita</code> comprime, <code>./rle -d ingresso uscita</code> decomprime, e <code>-</code> come uscita vuol dire <code>stdout</code> (X16). Requisiti:</p>
+<ul>
+<li>un testo da comprimere non puo’ contenere cifre, perche’ renderebbero ambigua la decompressione;</li>
+<li>un testo da decomprimere deve essere una sequenza di coppie numero positivo e carattere; un carattere senza numero davanti, un numero <span class="math inline">\(0\)</span> o un numero alla fine del file sono errori;</li>
+<li>in caso di errore il programma non deve scrivere nulla nel file di uscita e termina con codice <span class="math inline">\(1\)</span>. Per riuscirci servono due passate: la prima controlla il contenuto senza scrivere, poi <code>rewind(f)</code> riporta la lettura all’inizio del file e la seconda passata scrive. Il file di uscita si apre solo dopo la prima passata, cosi’ in caso di errore un file gia’ esistente non viene svuotato;</li>
+<li>opzioni e argomenti sbagliati, file che non si aprono e file di uscita uguale a quello di ingresso sono errori, con codice <span class="math inline">\(1\)</span>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href="#cb24-1"></a>$ cat test/testo_1.txt</span>
+<span id="cb24-2"><a href="#cb24-2"></a>aaabccccccccccccd</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  xx</span>
+<span id="cb24-5"><a href="#cb24-5"></a>$ ./rle -c test/testo_1.txt -</span>
+<span id="cb24-6"><a href="#cb24-6"></a>3a1b12c1d2</span>
+<span id="cb24-7"><a href="#cb24-7"></a>2 2x1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(Nell’output compresso, <code>1d2</code> seguito da un a capo significa: una <code>d</code>, poi due a capo.)</p>
+<ol type="1">
+<li>Scrivete il programma e fate passare tutti i test.</li>
+<li>I test controllano compressione e decompressione separatamente. Controllate che vadano d’accordo: comprimete ciascun file <code>test/testo_*.txt</code> in un file di prova, decomprimete il risultato e confrontatelo con l’originale usando <code>diff</code>. Che cosa deve stampare <code>diff</code>, se tutto funziona?</li>
+<li>Aggiungete almeno due test vostri, uno per la compressione e uno per un errore di formato nella decompressione. Attenzione: un editor aggiunge quasi sempre un a capo alla fine del file, e in un file da decomprimere quell’a capo e’ un carattere senza numero davanti. Per creare un file <code>.rle</code> esattamente come lo volete, usate <code>printf</code>, per esempio <code>printf '3a2b' &gt; test/mio.rle</code>.</li>
+<li>Su quali testi la compressione RLE allunga il file invece di accorciarlo? Usate <code>wc -c</code> per confrontare le lunghezze.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="pacchetto-y-qsort-e-bsearch" class="level2">
+<h2 data-anchor-id="pacchetto-y-qsort-e-bsearch">Pacchetto Y: qsort e bsearch</h2>
+<p>Nei Pacchetti G e H avete scritto a mano ordinamenti e ricerche, e con <code>time</code> e gprof avete visto quanto possono costare. La libreria standard (Pacchetto O) ne offre due versioni pronte, in <code>stdlib.h</code>: <code>qsort</code> ordina un array e <code>bsearch</code> ci cerca un valore con la ricerca binaria. Sono veloci: <code>qsort</code> usa algoritmi molto piu’ furbi dei tre dei Pacchetti G e H, e quando il numero di elementi raddoppia il suo tempo cresce di poco piu’ del doppio, non di quattro volte. Funzionano con array di qualsiasi tipo, e proprio per questo chiedono un piccolo sforzo: bisogna scrivere una <em>funzione</em> che dica come confrontare due elementi. Cominciamo da li’.</p>
+<p>Gli esercizi di questo pacchetto sono pochi e lunghi, e riprendono tutto: gli argomenti della riga di comando, i file e <code>make test</code> del Pacchetto X, <code>time</code>, <code>-O2</code> e gprof dei Pacchetti G e H, la libreria standard del Pacchetto O. Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio: quelle di Y1, Y2 e Y5 contengono il Makefile e i test, come in X11-X20; quelle di Y3 e Y4 i file di dati. Valgono le regole di X: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<section id="le-funzioni-in-breve" class="level3">
+<h3 data-anchor-id="le-funzioni-in-breve">Le funzioni, in breve</h3>
+<p>Una funzione e’ un pezzo di programma con un nome, che riceve dei valori e ne restituisce uno. Anche <code>main</code> e’ una funzione.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="dt">int</span> quadrato<span class="op">(</span><span class="dt">int</span> x<span class="op">)</span> <span class="op">{</span>               <span class="co">/* riceve un int, che dentro si chiama x, e restituisce un int */</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>    <span class="cf">return</span> x <span class="op">*</span> x<span class="op">;</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="op">}</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> quadrato<span class="op">(</span>a<span class="op">)</span> <span class="op">+</span> quadrato<span class="op">(</span><span class="dv">3</span><span class="op">));</span>   <span class="co">/* stampa 58 */</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>La prima riga dice il tipo del valore restituito (<code>int</code>), il nome della funzione (<code>quadrato</code>) e, tra parentesi, i <em>parametri</em>, ciascuno con il suo tipo.</li>
+<li><code>return</code> termina la funzione e restituisce il valore.</li>
+<li>La funzione si scrive prima di <code>main</code>, cosi’ quando <code>main</code> la usa il compilatore la conosce gia’.</li>
+<li>Una funzione puo’ chiamarne un’altra, scritta piu’ in alto.</li>
+<li>I parametri sono copie: se la funzione cambia <code>x</code>, la variabile <code>a</code> di <code>main</code> non cambia. Le variabili dichiarate dentro una funzione esistono solo li’; quelle dichiarate prima di tutte le funzioni, come gli array grandi di H6, sono visibili da tutte.</li>
+</ul>
+<p>Per ora basta questo: le funzioni sono il tema del Pacchetto I dell’eserciziario facile.</p>
+</section>
+<section id="ordinare-con-qsort" class="level3">
+<h3 data-anchor-id="ordinare-con-qsort">Ordinare con qsort</h3>
+<p><code>qsort</code> non sa come confrontare gli elementi dell’array: glielo dice una funzione scritta da noi, il <em>comparatore</em>, che riceve due elementi e restituisce un numero negativo se il primo deve venire prima del secondo, positivo se deve venire dopo, <span class="math inline">\(0\)</span> se per l’ordinamento sono equivalenti. Ecco la ricetta per un array di <code>int</code> in ordine crescente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="dt">int</span> confronta<span class="op">(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span> a<span class="op">;</span>       <span class="co">/* il primo elemento da confrontare */</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="dt">int</span> y <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span> b<span class="op">;</span>       <span class="co">/* il secondo */</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>    <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12"></a>    <span class="op">}</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="op">}</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a></span>
+<span id="cb26-15"><a href="#cb26-15"></a><span class="co">/* in main, per ordinare i primi n elementi dell'array v: */</span></span>
+<span id="cb26-16"><a href="#cb26-16"></a>qsort<span class="op">(</span>v<span class="op">,</span> n<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>v<span class="op">[</span><span class="dv">0</span><span class="op">]),</span> confronta<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>qsort</code> riceve l’array, il numero di elementi da ordinare, la dimensione in byte di un elemento (con <code>sizeof</code>, come in F1 e N14) e il nome del comparatore, che chiamera’ tutte le volte che gli serve confrontare due elementi. Le due righe che definiscono <code>x</code> e <code>y</code> sono la parte misteriosa: <code>a</code> e <code>b</code> non sono gli elementi, ma i loro <em>indirizzi</em> in memoria, e <code>*(const int *) a</code> vuol dire “l’<code>int</code> che si trova all’indirizzo <code>a</code>”. Per ora leggetele come una formula da copiare, come <code>char *argv[]</code> in X; i puntatori sono un argomento che incontrerete piu’ avanti. Per un array di <code>double</code> basta scrivere <code>double</code> al posto di <code>int</code> nelle due righe (e come tipo di <code>x</code> e <code>y</code>). Per l’ordine decrescente basta scambiare <code>-1</code> e <code>1</code>.</p>
+</section>
+<section id="cercare-con-bsearch" class="level3">
+<h3 data-anchor-id="cercare-con-bsearch">Cercare con bsearch</h3>
+<p><code>bsearch</code> esegue la ricerca binaria di F20 in un array <em>gia’ ordinato</em> con lo stesso comparatore. Riceve l’indirizzo del valore da cercare (<code>&amp;x</code>, come in <code>scanf</code>), poi gli stessi argomenti di <code>qsort</code>. Restituisce l’indirizzo dell’elemento trovato, oppure <code>NULL</code> (come <code>fopen</code> in X) se il valore non c’e’. Anche qui c’e’ una piccola ricetta: se l’elemento e’ stato trovato, la sua posizione nell’array e’ <code>p - v</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">42</span><span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>p <span class="op">=</span> bsearch<span class="op">(&amp;</span>x<span class="op">,</span> v<span class="op">,</span> n<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>v<span class="op">[</span><span class="dv">0</span><span class="op">]),</span> confronta<span class="op">);</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="cf">if</span> <span class="op">(</span>p <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> non c'e'</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> e' in posizione </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> x<span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>p <span class="op">-</span> v<span class="op">));</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se il valore compare piu’ volte, <code>bsearch</code> puo’ restituire uno qualsiasi degli elementi uguali.</p>
+</section>
+<section id="gdb-e-gprof-con-le-funzioni" class="level3">
+<h3 data-anchor-id="gdb-e-gprof-con-le-funzioni">gdb e gprof con le funzioni</h3>
+<ul>
+<li><code>break confronta</code> (con il nome di una funzione al posto del numero di riga) ferma il programma all’inizio della funzione, ogni volta che viene chiamata.</li>
+<li><strong>Comando nuovo: <code>bt</code></strong> (<em>backtrace</em>). Quando il programma e’ fermo dentro una funzione, <code>bt</code> mostra la catena delle chiamate che l’hanno portato li’: in cima la funzione in cui si trova, sotto quella che l’ha chiamata, e cosi’ via fino a <code>main</code>.</li>
+<li>gprof senza <code>-l</code> mostra il tempo per funzione, ma solo per le funzioni compilate con <code>-pg</code>, cioe’ le vostre: il tempo passato dentro <code>qsort</code> e <code>bsearch</code>, che fanno parte della libreria, non lo vede, e nemmeno conta le volte che <code>qsort</code> chiama il vostro comparatore. Per sapere quante volte viene chiamato, usate un contatore: una variabile <code>long</code> dichiarata prima delle funzioni, che il comparatore aumenta di uno a ogni chiamata. Il resoconto per righe (<code>-l</code>) resta invece utile per i cicli scritti da voi.</li>
+</ul>
+</section>
+<section id="esercizi-y1-y5" class="level3">
+<h3 data-anchor-id="esercizi-y1-y5">Esercizi (Y1-Y5)</h3>
+<p><strong>Y1.</strong> Scrivete il programma <code>ordina.c</code> nella cartella <code>Y1_ordina</code>, che legge gli interi di un file e li stampa ordinati con <code>qsort</code>, uno per riga: <code>./ordina [-r] [-a | -c] file</code>. Requisiti:</p>
+<ul>
+<li>senza opzioni, l’ordine e’ crescente;</li>
+<li>con <code>-a</code> i numeri si ordinano per valore assoluto crescente; a parita’ di valore assoluto, viene prima il negativo (<span class="math inline">\(-3\)</span> prima di <span class="math inline">\(3\)</span>);</li>
+<li>con <code>-c</code> si ordinano per ultima cifra crescente (l’ultima cifra del valore assoluto: per <span class="math inline">\(-12\)</span> e’ <span class="math inline">\(2\)</span>); a parita’ di ultima cifra, per valore crescente;</li>
+<li>con <code>-r</code> la sequenza ottenuta si stampa al contrario, dall’ultimo elemento al primo; <code>-r</code> si puo’ combinare con <code>-a</code> o con <code>-c</code>;</li>
+<li>le opzioni possono stare in qualsiasi posizione, e al massimo una tra <code>-a</code> e <code>-c</code>;</li>
+<li>i numeri sono al massimo <span class="math inline">\(1000000\)</span>, in un array dichiarato prima delle funzioni; un file vuoto non produce nessuna riga (codice <span class="math inline">\(0\)</span>); potete supporre che con <code>-a</code> e <code>-c</code> il file non contenga <span class="math inline">\(-2147483648\)</span>, il cui valore assoluto non entra in un <code>int</code> (F2);</li>
+<li>un numero di file diverso da uno, un’opzione sconosciuta, <code>-a</code> insieme a <code>-c</code>, un file che non si apre, un dato non valido o piu’ di <span class="math inline">\(1000000\)</span> numeri sono errori, con codice <span class="math inline">\(1\)</span>.</li>
+</ul>
+<p>Scrivete un comparatore per ogni criterio: <code>confronta_valore</code>, <code>confronta_assoluto</code> e <code>confronta_cifra</code>. Negli ultimi due, in caso di parita’, potete restituire direttamente <code>confronta_valore(a, b)</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a>$ cat test/numeri.txt</span>
+<span id="cb28-2"><a href="#cb28-2"></a>3 -1 4 1 -5 9 2 -6 5 3</span>
+<span id="cb28-3"><a href="#cb28-3"></a>$ ./ordina -a test/numeri.txt</span>
+<span id="cb28-4"><a href="#cb28-4"></a>-1</span>
+<span id="cb28-5"><a href="#cb28-5"></a>1</span>
+<span id="cb28-6"><a href="#cb28-6"></a>2</span>
+<span id="cb28-7"><a href="#cb28-7"></a>3</span>
+<span id="cb28-8"><a href="#cb28-8"></a>3</span>
+<span id="cb28-9"><a href="#cb28-9"></a>4</span>
+<span id="cb28-10"><a href="#cb28-10"></a>-5</span>
+<span id="cb28-11"><a href="#cb28-11"></a>5</span>
+<span id="cb28-12"><a href="#cb28-12"></a>-6</span>
+<span id="cb28-13"><a href="#cb28-13"></a>9</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Fate passare tutti i <span class="math inline">\(14\)</span> test.</li>
+<li>Un compagno ha scritto <code>confronta_valore</code> in una riga sola: <code>return x - y;</code>. Provatela: quale test fallisce, e perche’? (Rivedete F2.) Si puo’ scrivere comunque il comparatore in una riga, senza rischi? Suggerimento: quanto vale <code>(x &gt; y) - (x &lt; y)</code>?</li>
+<li><strong>Con gdb.</strong> Mettete un breakpoint con <code>break confronta_valore</code>, lanciate <code>run test/numeri.txt</code> e date <code>bt</code>: da chi e’ stata chiamata la funzione? (I nomi delle funzioni interne di <code>qsort</code> possono cambiare da un computer all’altro.) Dopo due <code>next</code>, che cosa valgono <code>x</code> e <code>y</code>?</li>
+<li>Contate le chiamate a <code>confronta_valore</code> con un contatore <code>long chiamate</code>, dichiarato prima delle funzioni, e stampatelo alla fine con <code>fprintf(stderr, ...)</code>: perche’ su <code>stderr</code> e non su <code>stdout</code>? Per avere file grandi, scrivete un programmino <code>genera.c</code> che riceve <span class="math inline">\(N\)</span> sulla riga di comando e stampa <span class="math inline">\(N\)</span> numeri casuali (<code>srand(1)</code> e <code>rand()</code>), uno per riga; per esempio <code>./genera 1000000 &gt; milione.txt</code>. Completate la tabella: le chiamate sono vicine a <span class="math inline">\(N \log_2 N\)</span>? Quanti confronti farebbe il selection sort di G16?</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(N\)</span></th>
+<th><span class="math inline">\(1000\)</span></th>
+<th><span class="math inline">\(100000\)</span></th>
+<th><span class="math inline">\(1000000\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chiamate a <code>confronta_valore</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(N \log_2 N\)</span> (circa)</td>
+<td><span class="math inline">\(10^4\)</span></td>
+<td><span class="math inline">\(1.7 \cdot 10^6\)</span></td>
+<td><span class="math inline">\(2 \cdot 10^7\)</span></td>
+</tr>
+<tr class="odd">
+<td>Confronti del selection sort</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="5" type="1">
+<li><strong>Con time.</strong> Quanto impiega <code>./ordina milione.txt &gt; ordinati.txt</code>? Confrontate con l’insertion sort di G17 su <span class="math inline">\(40000\)</span> numeri. Misurate anche il tempo con <span class="math inline">\(500000\)</span> numeri: per quanto si moltiplica il tempo quando <span class="math inline">\(N\)</span> raddoppia?</li>
+</ol>
+<p><strong>Y2.</strong> Nella cartella <code>Y2_comuni</code> c’e’ il programma <code>comuni.c</code>, corretto ma lento: <code>./comuni [-l] primo secondo</code> legge gli interi di due file (al massimo <span class="math inline">\(1000000\)</span> ciascuno) e stampa quanti numeri del primo file compaiono anche nel secondo; i numeri ripetuti nel primo file si contano ogni volta. Con <code>-l</code>, che puo’ stare in qualsiasi posizione, stampa prima anche questi numeri, uno per riga, nell’ordine del primo file. Un numero di file diverso da due, un’opzione sconosciuta, un file che non si apre, un dato non valido o troppi numeri sono errori.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>$ cat test/a.txt</span>
+<span id="cb29-2"><a href="#cb29-2"></a>7 3 12 7 5 20 1 8</span>
+<span id="cb29-3"><a href="#cb29-3"></a>$ cat test/b.txt</span>
+<span id="cb29-4"><a href="#cb29-4"></a>1 2 3 5 8 13 21</span>
+<span id="cb29-5"><a href="#cb29-5"></a>$ ./comuni -l test/a.txt test/b.txt</span>
+<span id="cb29-6"><a href="#cb29-6"></a>3</span>
+<span id="cb29-7"><a href="#cb29-7"></a>5</span>
+<span id="cb29-8"><a href="#cb29-8"></a>1</span>
+<span id="cb29-9"><a href="#cb29-9"></a>8</span>
+<span id="cb29-10"><a href="#cb29-10"></a>Presenti nel secondo file: 4 su 8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Lanciate <code>make test</code>: quale test fallisce, e con quale codice di uscita? Rivedete la seconda parte del Pacchetto X: che cosa significa? Lanciate a mano quel test con <code>time</code> (ci vuole pazienza): quanto impiega il programma?</li>
+<li><strong>Con gprof.</strong> Con il resoconto per righe, sui file del test grande: quale riga occupa quasi tutto il tempo? Circa quante volte viene eseguita?</li>
+<li>Riscrivete la parte di ricerca usando <code>qsort</code> e <code>bsearch</code>: ordinate una volta sola l’array del secondo file, poi cercate con <code>bsearch</code> ogni numero del primo. Tutti i <span class="math inline">\(10\)</span> test devono passare. Perche’ si puo’ ordinare il secondo file e non il primo?</li>
+<li>Contate, come in Y1, le chiamate al comparatore nel test grande e confrontatele con una stima: quanti confronti servono, circa, per ordinare il secondo file (<span class="math inline">\(N_2 \log_2 N_2\)</span>), e quanti per le <span class="math inline">\(N_1\)</span> ricerche binarie?</li>
+<li><strong>Con time.</strong> Quanto impiega ora il programma sul test grande?</li>
+<li><strong>In piu’.</strong> Se si potessero ordinare entrambi i file, non servirebbe nemmeno <code>bsearch</code>: basterebbero due indici che avanzano insieme, come nella fusione di G6. Scrivete questa versione, che con <code>-l</code> stampa i numeri comuni in ordine crescente. Quanti confronti fa, dopo gli ordinamenti?</li>
+</ol>
+<p><strong>Y3.</strong> La media e’ molto sensibile ai valori sbagliati: basta un errore di battitura per spostarla di molto. Per questo in statistica si usano spesso i <em>quartili</em>, che si calcolano sui dati ordinati. Scrivete un programma <code>quantili.c</code> (che usa <code>math.h</code>: compilatelo con <code>-lm</code>, O1) che riceve il nome di un file di numeri reali e stampa: quanti sono, minimo, primo quartile, mediana, terzo quartile, massimo, media e deviazione standard (come in O8), tutti con due decimali, e infine i <em>valori anomali</em>. Requisiti:</p>
+<ul>
+<li>i numeri, al massimo <span class="math inline">\(1000000\)</span>, si leggono in un array <code>double</code> e si ordinano con <code>qsort</code>;</li>
+<li>il quantile di livello <span class="math inline">\(p\)</span> (con <span class="math inline">\(p\)</span> uguale a <span class="math inline">\(0\)</span>, <span class="math inline">\(0.25\)</span>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.75\)</span> e <span class="math inline">\(1\)</span> per minimo, quartili, mediana e massimo) si calcola cosi’, con l’array ordinato <code>v</code> di <code>n</code> elementi: <span class="math inline">\(h = (n - 1) \cdot p\)</span>, <span class="math inline">\(k\)</span> e’ la parte intera di <span class="math inline">\(h\)</span> (<code>floor</code>), e il quantile vale <code>v[k] + (h - k) * (v[k + 1] - v[k])</code>, oppure semplicemente <code>v[k]</code> se <span class="math inline">\(k = n - 1\)</span>;</li>
+<li>detta <span class="math inline">\(IQR\)</span> la differenza tra terzo e primo quartile, un valore e’ anomalo se e’ minore di <span class="math inline">\(Q_1 - 1.5 \cdot IQR\)</span> o maggiore di <span class="math inline">\(Q_3 + 1.5 \cdot IQR\)</span>; i valori anomali si stampano in ordine crescente, dopo gli estremi dell’intervallo, oppure si stampa <code>nessuno</code>;</li>
+<li>un numero di argomenti diverso da uno, un file che non si apre, un dato non valido, un file senza numeri o troppi numeri sono errori.</li>
+</ul>
+<p>Il file <code>tempi.txt</code> della cartella <code>Y3_quantili</code> contiene i tempi di reazione, in millisecondi, di <span class="math inline">\(25\)</span> persone a un segnale luminoso; due misure sono state registrate male.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a href="#cb30-1"></a>$ ./quantili tempi.txt</span>
+<span id="cb30-2"><a href="#cb30-2"></a>Valori letti: 25</span>
+<span id="cb30-3"><a href="#cb30-3"></a>Minimo: 268.00</span>
+<span id="cb30-4"><a href="#cb30-4"></a>Primo quartile: 288.00</span>
+<span id="cb30-5"><a href="#cb30-5"></a>Mediana: 299.00</span>
+<span id="cb30-6"><a href="#cb30-6"></a>Terzo quartile: 315.00</span>
+<span id="cb30-7"><a href="#cb30-7"></a>Massimo: 1450.00</span>
+<span id="cb30-8"><a href="#cb30-8"></a>Media: 374.68</span>
+<span id="cb30-9"><a href="#cb30-9"></a>Deviazione standard: 261.42</span>
+<span id="cb30-10"><a href="#cb30-10"></a>Valori anomali (fuori da [247.50, 355.50]): 1020.00 1450.00</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Controllate a mano la mediana e i quartili, contando sui dati ordinati. Con un numero pari di dati, che cosa calcola la formula per la mediana?</li>
+<li>Togliete dal file i due valori anomali: di quanto cambia la media? E la mediana? Quale delle due descrive meglio il tempo di reazione tipico?</li>
+<li>Un compagno ha scritto il comparatore cosi’: <code>return (int) (x - y);</code>. Con <code>tempi.txt</code> sembra funzionare, ma con il file <code>piccoli.txt</code>, che contiene numeri tra <span class="math inline">\(0\)</span> e <span class="math inline">\(1\)</span>, stampa un minimo piu’ grande del massimo. <strong>Con gdb.</strong> Fermatevi nel comparatore, con <code>break</code> seguito dal suo nome, e dopo qualche <code>next</code> provate <code>print x - y</code> e <code>print (int) (x - y)</code>: che cosa crede <code>qsort</code> di tutte le coppie?</li>
+<li>Modificate il programma di O10 perche’ stampi i suoi <span class="math inline">\(100000\)</span> numeri, uno per riga con <code>%f</code>, invece delle statistiche, e salvateli con <code>./campana &gt; normali.txt</code>. Per la curva a campana con media <span class="math inline">\(0\)</span> e deviazione standard <span class="math inline">\(1\)</span>, i quartili valgono circa <span class="math inline">\(-0.674\)</span> e <span class="math inline">\(0.674\)</span>, e i valori anomali sono circa lo <span class="math inline">\(0.7\%\)</span>: e’ quello che trovate?</li>
+<li><strong>Con time.</strong> Con un milione di numeri (portate <code>N</code> a <span class="math inline">\(1000000\)</span> in O10), quanto impiega il programma? Usando i tempi di G17, stimate quanto impiegherebbe se ordinasse con l’insertion sort.</li>
+</ol>
+<p><strong>Y4.</strong> Riprendiamo i giudici e i candidati di H2, questa volta con una classifica completa. Scrivete un programma <code>classifica.c</code> che riceve il nome di un file e stampa la classifica dei candidati. Requisiti:</p>
+<ul>
+<li>il file contiene sulla prima riga il numero di giudici (da <span class="math inline">\(1\)</span> a <span class="math inline">\(20\)</span>) e il numero di candidati (da <span class="math inline">\(1\)</span> a <span class="math inline">\(100\)</span>), poi una riga per giudice con i voti, da <span class="math inline">\(0\)</span> a <span class="math inline">\(5\)</span>, che ha dato ai candidati, nell’ordine;</li>
+<li>i candidati si ordinano per punteggio totale decrescente; a parita’ di totale, per numero di voti <span class="math inline">\(5\)</span> ricevuti, decrescente; a parita’ anche di questo, per numero di candidato crescente (i candidati si numerano da <span class="math inline">\(1\)</span>);</li>
+<li>per ogni candidato si stampano la posizione, il numero, il totale e il numero di voti <span class="math inline">\(5\)</span>, con il formato <code>"%4d %9d %6d %6d\n"</code>, sotto l’intestazione <code>Pos. Candidato Totale Voti 5</code>;</li>
+<li>due candidati con lo stesso totale e lo stesso numero di voti <span class="math inline">\(5\)</span> sono a pari merito e hanno la stessa posizione; il candidato successivo prende la posizione che gli spetterebbe contando tutti quelli che lo precedono (come nello sport: <span class="math inline">\(1, 1, 3, \dots\)</span>);</li>
+<li>argomenti sbagliati, un file che non si apre, numeri di giudici o candidati fuori intervallo, un voto mancante, non numerico o fuori da <span class="math inline">\(0\)</span>-<span class="math inline">\(5\)</span> sono errori; per un voto sbagliato, il messaggio indica giudice e candidato.</li>
+</ul>
+<p>Per ordinare i candidati con <code>qsort</code>, mettete i loro dati in una matrice <code>int dati[MAX_C][3]</code>, una riga per candidato con numero, totale e voti <span class="math inline">\(5\)</span>, e ordinate le righe: <code>qsort(dati, c, sizeof(dati[0]), confronta);</code>. Ogni elemento dell’array e’ una riga intera, quindi nel comparatore la ricetta cambia un poco: <code>const int *r1 = (const int *) a;</code> permette di leggere la prima riga come <code>r1[0]</code>, <code>r1[1]</code> e <code>r1[2]</code>, e lo stesso per <code>r2</code> con <code>b</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb31-1"><a href="#cb31-1"></a>$ ./classifica voti.txt</span>
+<span id="cb31-2"><a href="#cb31-2"></a>Pos. Candidato Totale Voti 5</span>
+<span id="cb31-3"><a href="#cb31-3"></a>   1         2     21      2</span>
+<span id="cb31-4"><a href="#cb31-4"></a>   1         4     21      2</span>
+<span id="cb31-5"><a href="#cb31-5"></a>   3         6     20      1</span>
+<span id="cb31-6"><a href="#cb31-6"></a>   4         9     19      2</span>
+<span id="cb31-7"><a href="#cb31-7"></a>   5         7     19      1</span>
+<span id="cb31-8"><a href="#cb31-8"></a>   5         8     19      1</span>
+<span id="cb31-9"><a href="#cb31-9"></a>   7        12     19      0</span>
+<span id="cb31-10"><a href="#cb31-10"></a>   8        10     18      1</span>
+<span id="cb31-11"><a href="#cb31-11"></a>   8        11     18      1</span>
+<span id="cb31-12"><a href="#cb31-12"></a>  10         1     17      1</span>
+<span id="cb31-13"><a href="#cb31-13"></a>  11         3     12      0</span>
+<span id="cb31-14"><a href="#cb31-14"></a>  12         5      8      0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Con il file <code>voti_errati.txt</code> il programma deve terminare con un errore, indicando il giudice <span class="math inline">\(3\)</span> e il candidato <span class="math inline">\(8\)</span>.</li>
+<li><strong>Con gdb.</strong> Fermatevi subito prima di <code>qsort</code> e date <code>print dati[0]</code> e <code>print dati[0]@3</code>. Poi fermatevi nel comparatore e, dopo due <code>next</code> (cosi’ <code>r1</code> e <code>r2</code> hanno un valore), provate <code>print *r1@3</code> e <code>print *r2@3</code>: quali candidati sta confrontando <code>qsort</code>?</li>
+<li>Lo standard del C non garantisce che <code>qsort</code> lasci nell’ordine di partenza gli elementi che il comparatore considera equivalenti (si dice che non e’ <em>stabile</em>), anche se sul vostro computer puo’ sembrare che lo faccia. Che cosa potrebbe succedere alla classifica senza il terzo criterio, quello sul numero di candidato?</li>
+<li>Aggiungete, dopo quella dei candidati, la classifica dei giudici, dal piu’ severo (meno punti assegnati in tutto) al piu’ generoso, a parita’ per numero di giudice crescente, con un secondo comparatore.</li>
+</ol>
+<p><strong>Y5.</strong> <strong>Sfida.</strong> Il problema delle <em>tre somme</em>: dato un insieme di numeri interi tutti diversi, trovare tutte le terne di numeri che hanno somma <span class="math inline">\(0\)</span>. Scrivete il programma <code>tresomme.c</code> nella cartella <code>Y5_tresomme</code>: <code>./tresomme [-1 | -2 | -3] file</code>. Requisiti:</p>
+<ul>
+<li>i numeri del file, al massimo <span class="math inline">\(100000\)</span>, sono compresi tra <span class="math inline">\(-100000000\)</span> e <span class="math inline">\(100000000\)</span> (cosi’ la somma di tre numeri sta in un <code>int</code>) e devono essere tutti diversi; altrimenti e’ un errore;</li>
+<li>il programma ordina i numeri con <code>qsort</code> e stampa le terne <span class="math inline">\(a &lt; b &lt; c\)</span> con <span class="math inline">\(a + b + c = 0\)</span>, una per riga (<code>-6 -1 7</code>), in ordine crescente di <span class="math inline">\(a\)</span> e, a parita’ di <span class="math inline">\(a\)</span>, di <span class="math inline">\(b\)</span>; alla fine stampa <code>Terne:</code> seguito dal numero di terne;</li>
+<li>il metodo si sceglie con l’opzione, che puo’ stare in qualsiasi posizione (senza opzione si usa <code>-3</code>):
+<ul>
+<li><code>-1</code>: tre cicli uno dentro l’altro, sulle posizioni <span class="math inline">\(i &lt; j &lt; k\)</span> dell’array ordinato;</li>
+<li><code>-2</code>: due cicli su <span class="math inline">\(i &lt; j\)</span>, e per il terzo numero, che deve valere <span class="math inline">\(-(a + b)\)</span>, una ricerca con <code>bsearch</code> tra gli elementi che seguono la posizione <span class="math inline">\(j\)</span>; ricetta: l’array che comincia dalla posizione <code>j + 1</code> si scrive <code>v + j + 1</code>, e ha <code>n - j - 1</code> elementi;</li>
+<li><code>-3</code>: per ogni <span class="math inline">\(i\)</span>, due indici, <code>sinistra</code> che parte da <span class="math inline">\(i + 1\)</span> e <code>destra</code> che parte da <span class="math inline">\(n - 1\)</span>; finche’ <code>sinistra &lt; destra</code>, se la somma dei tre numeri e’ <span class="math inline">\(0\)</span> si stampa la terna e si spostano entrambi gli indici verso il centro, se e’ minore di <span class="math inline">\(0\)</span> si aumenta <code>sinistra</code>, altrimenti si diminuisce <code>destra</code>;</li>
+</ul></li>
+<li>un numero di file diverso da uno, un’opzione sconosciuta, piu’ di un metodo, un file che non si apre, un dato non valido, un numero fuori intervallo o ripetuto, troppi numeri sono errori.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb32-1"><a href="#cb32-1"></a>$ cat test/piccolo.txt</span>
+<span id="cb32-2"><a href="#cb32-2"></a>-4 7 2 -1 0 3 -6 5 1 -2 9</span>
+<span id="cb32-3"><a href="#cb32-3"></a>$ ./tresomme test/piccolo.txt</span>
+<span id="cb32-4"><a href="#cb32-4"></a>-6 -1 7</span>
+<span id="cb32-5"><a href="#cb32-5"></a>-6 1 5</span>
+<span id="cb32-6"><a href="#cb32-6"></a>-4 -1 5</span>
+<span id="cb32-7"><a href="#cb32-7"></a>-4 1 3</span>
+<span id="cb32-8"><a href="#cb32-8"></a>-2 -1 3</span>
+<span id="cb32-9"><a href="#cb32-9"></a>-2 0 2</span>
+<span id="cb32-10"><a href="#cb32-10"></a>-1 0 1</span>
+<span id="cb32-11"><a href="#cb32-11"></a>Terne: 7</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Fate passare tutti gli <span class="math inline">\(11\)</span> test. Due di essi usano il file <code>test/grande.txt</code>, con <span class="math inline">\(4000\)</span> numeri: provate a lanciare a mano il metodo <code>-1</code> su quel file. Perche’ non c’e’ un test grande per il metodo <code>-1</code>?</li>
+<li>Perche’, con l’array ordinato, i tre metodi stampano le terne nello stesso ordine? E perche’ serve che i numeri siano tutti diversi?</li>
+<li>Spiegate perche’ il metodo <code>-3</code> non perde nessuna terna. Suggerimento: se la somma e’ minore di <span class="math inline">\(0\)</span>, quale dei tre numeri conviene cambiare per farla crescere? Il numero <code>v[sinistra]</code> potrebbe ancora far parte di una terna con <code>v[i]</code> e un elemento a sinistra di <code>destra</code>?</li>
+<li><strong>Con time.</strong> La cartella <code>dati</code> contiene file di numeri tutti diversi, da <span class="math inline">\(1000\)</span> a <span class="math inline">\(32000\)</span> numeri. Completate la tabella, misurando ogni metodo solo nelle caselle senza trattino (per il metodo <code>-1</code> con <span class="math inline">\(4000\)</span> numeri ci vuole pazienza), e per ogni metodo calcolate per quanto si moltiplica il tempo quando <span class="math inline">\(N\)</span> raddoppia. Quante volte, circa, viene eseguito il ciclo piu’ interno del metodo <code>-1</code>? E quante volte, in tutto, il ciclo del metodo <code>-3</code>?</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(N\)</span></th>
+<th><span class="math inline">\(1000\)</span></th>
+<th><span class="math inline">\(2000\)</span></th>
+<th><span class="math inline">\(4000\)</span></th>
+<th><span class="math inline">\(8000\)</span></th>
+<th><span class="math inline">\(16000\)</span></th>
+<th><span class="math inline">\(32000\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Metodo <code>-1</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Metodo <code>-2</code></td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Metodo <code>-3</code></td>
+<td>-</td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="5" type="1">
+<li><strong>Con time.</strong> Compilate a mano con <code>-O2</code> e ripetete la misura del metodo <code>-1</code> con <span class="math inline">\(2000\)</span> e <span class="math inline">\(4000\)</span> numeri: l’ottimizzazione cambia il fattore con cui cresce il tempo? Che cosa conta di piu’, il compilatore o l’algoritmo?</li>
+<li><strong>Con gprof.</strong> Con il metodo <code>-1</code> e il file di <span class="math inline">\(2000\)</span> numeri, il resoconto per righe mostra dove passa il tempo. Con il metodo <code>-2</code>, invece, gran parte del tempo e’ dentro <code>bsearch</code>: che cosa mostra gprof, e perche’ (rivedete l’introduzione del pacchetto)?</li>
+</ol>
+</section>
+</section>
+<section id="pacchetto-z-integrazione-e-modularita" class="level2">
+<h2 data-anchor-id="pacchetto-z-integrazione-e-modularita">Pacchetto Z: Integrazione e modularita’</h2>
+<p>Tutti i programmi che avete scritto finora stavano in un file solo. I programmi veri no: sono fatti di decine, a volte migliaia di file, e nessuno li guarda tutti insieme. In questo pacchetto si vede perche’, e soprattutto <strong>come</strong> quei pezzi diventano un programma unico.</p>
+<p>Non vi chiederemo di inventare la divisione in moduli, che e’ un mestiere a se’: i moduli ve li diamo noi, gia’ scritti e documentati. Quello che dovete portare a casa e’ un’altra cosa: che cosa sta in un file <code>.h</code> e che cosa in un <code>.c</code>, che cosa fa ciascuna delle fasi che costruiscono il programma, e come si legge un messaggio di errore per capire <em>quale</em> fase si e’ lamentata. E’ la differenza tra un errore che vi blocca per un pomeriggio e uno che risolvete in trenta secondi.</p>
+<p>Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio, con i moduli gia’ pronti e il Makefile. I test ci sono solo in <code>Z1_vettore</code> e in <code>Z5_rapporto</code>, che sono gli esercizi in cui scrivete del codice; nelle altre tre cartelle i comandi utili sono soltanto <code>make</code> e <code>make clean</code>. Valgono le regole di X: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<p><strong>Due avvertenze prima di cominciare, da leggere adesso e non dopo.</strong></p>
+<p><em>Se il vostro gcc e’ la versione 14 o piu’ recente</em> (lo dice <code>gcc --version</code>), una chiamata a una funzione mai dichiarata non e’ piu’ un avviso ma un errore, e due esercizi di questo pacchetto si reggono proprio su quell’avviso. In Z2 e in Z3, dove il testo ve lo dira’, aggiungete al comando il flag <code>-Wno-error=implicit-function-declaration</code>, che riporta il comportamento a quello delle versioni precedenti. Il flag e’ accettato da tutte le versioni, quindi potete metterlo sempre senza pensarci.</p>
+<p><em>Se lavorate su macOS</em>, i messaggi del collegatore sono diversi da quelli riportati qui, che sono quelli di Linux e di WSL: al posto di <code>undefined reference to 'x'</code> leggerete <code>Undefined symbols for architecture ...</code>, al posto di <code>multiple definition of 'x'</code> leggerete <code>duplicate symbol '_x'</code>, e il collegatore si chiama <code>ld</code> ma senza il percorso <code>/usr/bin/</code>. Anche <code>nm</code> si comporta un po’ diversamente: antepone un <code>_</code> a ogni nome, quindi vedrete <code>_main</code> al posto di <code>main</code>. Le lettere, che sono la cosa che conta, sono le stesse.</p>
+<section id="perche-spezzare-un-programma-in-piu-file" class="level3">
+<h3 data-anchor-id="perche-spezzare-un-programma-in-piu-file">Perche’ spezzare un programma in piu’ file</h3>
+<p>Tre motivi, in ordine di importanza crescente.</p>
+<ul>
+<li><strong>Si ricompila solo cio’ che e’ cambiato.</strong> Un programma di centomila righe in un file solo va ricompilato tutto a ogni virgola spostata. Diviso in cinquanta file, se ne ricompila uno.</li>
+<li><strong>Ogni file e’ un’idea sola.</strong> Chi cerca il calcolo della mediana apre <code>statistiche.c</code> e non gli altri quarantanove. Chi lo modifica sa di non poter rompere nient’altro, purche’ non cambi il modo in cui si chiama.</li>
+<li><strong>Un modulo si riusa senza copiarlo.</strong> Questo lo state facendo da B1: <code>printf</code> non l’avete mai scritta e non ne avete mai visto il codice, eppure la usate. Di <code>stdio.h</code> conoscete solo le dichiarazioni; il corpo delle funzioni e’ altrove, gia’ compilato. Un modulo vostro funziona allo stesso identico modo.</li>
+</ul>
+</section>
+<section id="dichiarazione-e-definizione" class="level3">
+<h3 data-anchor-id="dichiarazione-e-definizione">Dichiarazione e definizione</h3>
+<p>E’ la distinzione su cui si regge tutto il pacchetto, e la conoscete gia’ da I senza saperlo.</p>
+<ul>
+<li>Una <strong>dichiarazione</strong> dice che qualcosa esiste e come si usa, senza crearlo. Il prototipo <code>double media(int v[], int n);</code> e’ una dichiarazione: basta al compilatore per controllare le chiamate.</li>
+<li>Una <strong>definizione</strong> e’ la cosa vera: il corpo della funzione tra graffe, o la variabile che occupa spazio in memoria.</li>
+</ul>
+<p>Di una stessa funzione ci possono essere <strong>tante dichiarazioni</strong> (una in ogni file che la usa) ma <strong>una sola definizione</strong> in tutto il programma. Da qui la divisione del lavoro:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Che cosa contiene</th>
+<th>Chi lo legge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>vettore.h</code> (intestazione, o <em>header</em>)</td>
+<td>le dichiarazioni: prototipi, <code>#define</code>, <code>typedef</code> e <code>struct</code> che compaiono nei prototipi, con la documentazione Doxygen</td>
+<td>il compilatore, ogni volta che qualcuno scrive <code>#include "vettore.h"</code>; e voi, per sapere come si usa il modulo</td>
+</tr>
+<tr class="even">
+<td><code>vettore.c</code></td>
+<td>le definizioni: i corpi delle funzioni</td>
+<td>il compilatore, una volta sola</td>
+</tr>
+</tbody>
+</table>
+<p>Nell’intestazione, quindi, <strong>non</strong> si scrivono corpi di funzioni ne’ variabili: finirebbero duplicati in ogni file che la include, e il collegamento fallirebbe. In Z2 e Z3 vedrete succedere esattamente questo.</p>
+</section>
+<section id="le-quattro-fasi-finalmente-per-esteso" class="level3">
+<h3 data-anchor-id="le-quattro-fasi-finalmente-per-esteso">Le quattro fasi, finalmente per esteso</h3>
+<p>In B10 avevate messo in ordine quattro fasi: editing, compilazione, link, esecuzione. Adesso potete vederle una per una, perche’ con piu’ file non si possono piu’ confondere.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fase</th>
+<th>Comando</th>
+<th>Che cosa entra</th>
+<th>Che cosa esce</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Precompilazione</td>
+<td><code>gcc -E main.c</code></td>
+<td><code>main.c</code></td>
+<td>un unico testo in cui ogni <code>#include</code> e’ stato sostituito dal contenuto del file e ogni macro e’ stata espansa</td>
+</tr>
+<tr class="even">
+<td>Compilazione</td>
+<td><code>gcc -c main.c</code></td>
+<td>un <code>.c</code> (gia’ precompilato)</td>
+<td><code>main.o</code>, il <em>file oggetto</em>: il codice macchina di quel file soltanto, con dei buchi dove si chiamano funzioni che stanno altrove</td>
+</tr>
+<tr class="odd">
+<td>Collegamento</td>
+<td><code>gcc -o prog main.o vettore.o</code></td>
+<td>tutti i <code>.o</code> e le librerie</td>
+<td>l’eseguibile <code>prog</code>, con i buchi riempiti</td>
+</tr>
+<tr class="even">
+<td>Esecuzione</td>
+<td><code>./prog</code></td>
+<td>l’eseguibile</td>
+<td>il risultato</td>
+</tr>
+</tbody>
+</table>
+<p>Due conseguenze che vi serviranno a leggere i messaggi di errore:</p>
+<ul>
+<li>il compilatore lavora su <strong>un file per volta</strong> e non sa niente degli altri. Se chiamate una funzione che non ha mai visto dichiarata, se ne lamenta subito (<code>implicit declaration</code>); ma se la dichiarazione c’e’, si fida e va avanti, anche se la definizione non esiste da nessuna parte;</li>
+<li>il collegatore (<em>linker</em>) vede <strong>tutti</strong> i <code>.o</code> insieme e non sa piu’ niente del C: conosce solo nomi. Se un nome manca dice <code>undefined reference</code>, se ne trova due uguali dice <code>multiple definition</code>. Un errore che nomina <code>/usr/bin/ld</code> o una di queste due frasi viene sempre dal collegamento, mai dalla compilazione.</li>
+</ul>
+</section>
+<section id="guardare-dentro-un-file-oggetto" class="level3">
+<h3 data-anchor-id="guardare-dentro-un-file-oggetto">Guardare dentro un file oggetto</h3>
+<p>Il comando <code>nm</code> elenca i nomi contenuti in un <code>.o</code>. Ogni riga ha una lettera che dice di che cosa si tratta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a href="#cb33-1"></a>$ nm main.o</span>
+<span id="cb33-2"><a href="#cb33-2"></a>0000000000000000 T main</span>
+<span id="cb33-3"><a href="#cb33-3"></a>                 U vettore_media</span>
+<span id="cb33-4"><a href="#cb33-4"></a>                 U vettore_minimo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(L’elenco qui sopra e’ accorciato: <code>nm</code> stampa anche i nomi che vengono dalla libreria standard, come <code>printf</code> e <code>fopen</code>, e li ordina alfabeticamente.)</p>
+<ul>
+<li><code>T</code> (<em>text</em>) e’ una funzione <strong>definita</strong> qui e visibile dagli altri file;</li>
+<li><code>D</code> e’ una variabile definita qui, con un valore iniziale, visibile dagli altri;</li>
+<li><code>B</code> e’ una variabile definita qui senza valore iniziale, visibile dagli altri;</li>
+<li><code>U</code> (<em>undefined</em>) e’ un nome <strong>usato</strong> qui ma definito altrove: e’ uno dei buchi che il collegamento deve riempire;</li>
+<li>le stesse lettere <strong>minuscole</strong> (<code>t</code>, <code>d</code>, <code>b</code>) indicano qualcosa che e’ definito qui ma <strong>non</strong> e’ visibile dagli altri file: ci si arriva con <code>static</code>, come vedrete in Z3;</li>
+<li>i nomi che iniziano con due trattini bassi, come <code>__assert_fail</code>, non li avete scritti voi: li aggiungono le macro e il compilatore, e si possono ignorare. Per toglierli di mezzo: <code>nm main.o | grep -v __</code>.</li>
+</ul>
+<p>Se <code>nm</code> non e’ installato lo si ottiene con <code>sudo apt install binutils</code>; non e’ indispensabile per svolgere gli esercizi, ma e’ il modo piu’ diretto per capire che cosa sta succedendo.</p>
+</section>
+<section id="le-guardie-di-inclusione" class="level3">
+<h3 data-anchor-id="le-guardie-di-inclusione">Le guardie di inclusione</h3>
+<p>Un’intestazione puo’ finire inclusa due volte senza che nessuno l’abbia chiesto: basta che <code>main.c</code> includa sia <code>punto.h</code> sia <code>segmento.h</code>, e che <code>segmento.h</code> a sua volta includa <code>punto.h</code>. Il preprocessore copia il testo tutte le volte che glielo si chiede, e il compilatore si trova <code>struct punto</code> definita due volte: <code>error: redefinition of 'struct punto'</code>.</p>
+<p>La soluzione e’ una formula che troverete in cima a ogni intestazione del mondo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1"></a><span class="pp">#ifndef PUNTO_H          </span><span class="co">/* se PUNTO_H non e' ancora stato definito... */</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="pp">#define PUNTO_H          </span><span class="co">/* ...definiscilo, e prosegui */</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co">/* ... contenuto dell'intestazione ... */</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="pp">#endif</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La prima volta <code>PUNTO_H</code> non esiste, quindi il contenuto viene copiato e il nome viene definito; la seconda volta il nome c’e’ gia’ e il preprocessore salta tutto fino a <code>#endif</code>. Il nome si sceglie dal nome del file, in maiuscolo: e’ solo una convenzione, ma due intestazioni con la stessa guardia si cancellerebbero a vicenda.</p>
+</section>
+<section id="include-mio.h-e-include-stdio.h" class="level3">
+<h3 data-anchor-id="include-mio.h-e-include-stdio.h"><code>#include "mio.h"</code> e <code>#include &lt;stdio.h&gt;</code></h3>
+<p>Le virgolette dicono a gcc di cercare il file <strong>accanto al sorgente</strong>, e solo dopo tra le intestazioni di sistema; le parentesi angolari di cercarlo <strong>solo</strong> tra quelle di sistema. Per le vostre intestazioni servono le virgolette.</p>
+</section>
+<section id="static-ed-extern-tra-file-diversi" class="level3">
+<h3 data-anchor-id="static-ed-extern-tra-file-diversi">static ed extern tra file diversi</h3>
+<p>In J avevate lasciato in sospeso due parole. Adesso hanno senso, perche’ adesso i file sono piu’ di uno.</p>
+<ul>
+<li><code>static</code> davanti a una funzione o a una variabile <strong>globale</strong> non ne cambia la vita, ne cambia la <em>visibilita’</em>: quel nome esiste solo dentro il suo file, e gli altri non possono nominarlo nemmeno sapendo come si chiama. E’ il modo di dire “questo e’ un attrezzo mio, non fa parte di quello che offro”. Nel <code>.h</code> non compare.</li>
+<li><code>extern</code> davanti a una variabile e’ una <strong>dichiarazione</strong>: dice “questa variabile esiste, ma e’ definita altrove”. Si scrive nell’intestazione; la definizione, senza <code>extern</code>, sta in uno e un solo <code>.c</code>. Cosi’ tutti i file che includono l’intestazione vedono la stessa identica variabile.</li>
+</ul>
+<p>Per le funzioni <code>extern</code> non serve: un prototipo e’ gia’ una dichiarazione, e in un’intestazione e’ sottinteso.</p>
+</section>
+<section id="il-makefile-a-piu-oggetti" class="level3">
+<h3 data-anchor-id="il-makefile-a-piu-oggetti">Il Makefile a piu’ oggetti</h3>
+<p>Il Makefile di questo pacchetto e’ diverso da quello di X e Y, perche’ qui il programma nasce da piu’ sorgenti. Le righe che contano sono tre:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>PROG = statistiche</span>
+<span id="cb35-2"><a href="#cb35-2"></a>OGGETTI = main.o vettore.o</span>
+<span id="cb35-3"><a href="#cb35-3"></a>INTESTAZIONI = vettore.h</span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a>$(PROG): $(OGGETTI)</span>
+<span id="cb35-6"><a href="#cb35-6"></a>    $(CC) $(CFLAGS) -o $(PROG) $(OGGETTI)</span>
+<span id="cb35-7"><a href="#cb35-7"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a>%.o: %.c $(INTESTAZIONI)</span>
+<span id="cb35-9"><a href="#cb35-9"></a>    $(CC) $(CFLAGS) -c $&lt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La prima regola e’ il collegamento: l’eseguibile dipende dai <code>.o</code>, quindi va rifatto se uno di loro e’ piu’ recente. La seconda e’ la compilazione, scritta una volta per tutti i file: <code>%.o: %.c</code> si legge “un qualsiasi <code>.o</code> si ottiene dal <code>.c</code> che ha lo stesso nome”, e <code>$&lt;</code> significa “il primo file da cui dipende”, cioe’ quel <code>.c</code>.</p>
+<p>Notate <code>$(INTESTAZIONI)</code> nella seconda regola: dice che un <code>.o</code> va rifatto <strong>anche</strong> quando cambia un’intestazione. Make non legge i sorgenti e non sa che cosa includono: se non glielo dite, non se ne accorge. In Z4 vedrete che cosa succede quando ce lo si dimentica.</p>
+</section>
+<section id="controlli-sugli-array-durante-lesecuzione" class="level3">
+<h3 data-anchor-id="controlli-sugli-array-durante-lesecuzione">Controlli sugli array durante l’esecuzione</h3>
+<p>Un ultimo strumento, che non c’entra con i moduli ma che da qui in avanti vi conviene tenere a portata di mano. Il flag <code>-fsanitize=address</code> aggiunge al programma dei controlli che scattano <strong>mentre il programma gira</strong>, e che segnalano gli accessi fuori da un array, quelli che <code>-Wall</code> non puo’ vedere perche’ dipendono dai dati:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-fsanitize</span><span class="op">=</span>address <span class="at">-o</span> prog main.c vettore.c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se il programma esce da un array si ferma da solo con un messaggio che inizia con <code>ERROR: AddressSanitizer: stack-buffer-overflow</code> e dice in quale funzione e a quale riga. Rallenta parecchio l’esecuzione, quindi si usa mentre si sviluppa e non nella versione finale. Provatelo anche sui programmi dei pacchetti precedenti: e’ il modo piu’ rapido per scoprire un indice sbagliato.</p>
+</section>
+<section id="esercizi-z1-z5" class="level3">
+<h3 data-anchor-id="esercizi-z1-z5">Esercizi (Z1-Z5)</h3>
+<p><strong>Z1.</strong> Nella cartella <code>Z1_vettore</code> trovate un modulo gia’ pronto, <code>vettore.h</code> e <code>vettore.c</code>, il Makefile e i test. Manca il <code>main.c</code>, e lo scrivete voi.</p>
+<p>Il programma si chiama <code>statistiche</code>, riceve sulla riga di comando il nome di un file di interi e stampa cinque righe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a>$ cat test/numeri.txt</span>
+<span id="cb37-2"><a href="#cb37-2"></a>3 1 4 1 5</span>
+<span id="cb37-3"><a href="#cb37-3"></a>9 2 6 5 3</span>
+<span id="cb37-4"><a href="#cb37-4"></a>$ ./statistiche test/numeri.txt</span>
+<span id="cb37-5"><a href="#cb37-5"></a>Numeri letti: 10</span>
+<span id="cb37-6"><a href="#cb37-6"></a>Minimo: 1</span>
+<span id="cb37-7"><a href="#cb37-7"></a>Massimo: 9</span>
+<span id="cb37-8"><a href="#cb37-8"></a>Media: 3.90</span>
+<span id="cb37-9"><a href="#cb37-9"></a>Sopra la media: 5</span>
+<span id="cb37-10"><a href="#cb37-10"></a>Ordinati: 1 1 2 3 3 4 5 5 6 9</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Requisiti:</p>
+<ul>
+<li>i numeri sono al massimo <code>VETTORE_MAX</code>, che e’ definito nell’intestazione: non scrivete <span class="math inline">\(1000\)</span> a mano nel <code>main</code>;</li>
+<li>“Sopra la media” conta i valori <strong>strettamente</strong> maggiori della media;</li>
+<li>l’ordinamento lo fa il modulo, non voi;</li>
+<li>l’ultima riga e’ la parola <code>Ordinati:</code> seguita, per ogni elemento, da uno spazio e dal numero, <strong>senza spazio finale</strong>: in C si ottiene con <code>printf("Ordinati:");</code> e poi <code>printf(" %d", v[i]);</code> dentro il ciclo. I test confrontano l’output carattere per carattere, e uno spazio di troppo in fondo alla riga li fa fallire senza che si veda niente;</li>
+<li>un numero di argomenti diverso da uno, un file che non si apre, un file senza numeri, un dato non valido o piu’ di <code>VETTORE_MAX</code> numeri sono errori, con messaggio su <code>stderr</code> e codice di uscita <span class="math inline">\(1\)</span>. Attenzione al confine: un file con <strong>esattamente</strong> <code>VETTORE_MAX</code> numeri e’ valido e va elaborato, non rifiutato. Un ciclo scritto come <code>while (n &lt; VETTORE_MAX &amp;&amp; fscanf(...) == 1)</code> seguito da un controllo su <code>feof</code> sbaglia proprio su quel caso: capite perche’ prima di scrivere il vostro, e guardate il test <code>07_limite</code>.</li>
+</ul>
+<p><strong>Scrivete il <code>main.c</code> senza mai aprire <code>vettore.c</code>.</strong> Vi serve solo <code>vettore.h</code>: e’ esattamente la situazione di I2, ma questa volta il corpo delle funzioni non e’ nemmeno nello stesso file.</p>
+<ol type="1">
+<li>Quali informazioni vi ha dato <code>vettore.h</code> che non avreste potuto indovinare? Elencate, per una funzione a vostra scelta, tutto cio’ che avete ricavato dalla sua documentazione.</li>
+<li>Costruite il programma a mano, in tre comandi, e guardate che cosa compare nella cartella dopo ciascuno:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-c</span> main.c</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-c</span> vettore.c</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-o</span> statistiche main.o vettore.o</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Poi fate <code>make clean</code> e <code>make</code>: esegue gli stessi tre comandi. Confrontateli uno per uno. L’ordine in cui vengono compilati i due <code>.c</code> non conta, mentre il collegamento deve per forza venire per ultimo: perche’?</p>
+<ol start="3" type="1">
+<li>Ripetete il collegamento dimenticando un pezzo: <code>gcc -g -Wall -Wextra -o statistiche main.o</code>. Il messaggio nomina <code>/usr/bin/ld</code> e ripete cinque volte <code>undefined reference to ...</code>. Quale fase si e’ lamentata? Perche’ la compilazione di <code>main.c</code>, poco fa, non aveva detto niente, visto che quelle funzioni non erano nel file?</li>
+<li><code>gcc -g -Wall -Wextra -o statistiche main.c vettore.c</code> costruisce il programma in un comando solo, senza lasciare nessun <code>.o</code>. Funziona, ed e’ comodo con due file. Perche’ non si fa con duecento? (La risposta e’ il primo dei tre motivi del riquadro iniziale.)</li>
+<li><code>make test</code> deve dare <span class="math inline">\(7\)</span> test superati su <span class="math inline">\(7\)</span>. Se qualcuno fallisce, leggete il <code>.arg</code> e il <code>.atteso</code> del caso che non passa: completano i requisiti qui sopra.</li>
+</ol>
+<p><strong>Z2.</strong> Nella cartella <code>Z2_fasi</code> c’e’ lo stesso modulo di Z1 e un <code>main.c</code> gia’ scritto e funzionante. Qui non si scrive codice: si guarda che cosa fanno le prime tre fasi, rompendole una per volta, e poi a che cosa servono le guardie di inclusione.</p>
+<p><strong>Prima fase.</strong> Lanciate <code>gcc -E main.c -o main.i</code> e aprite <code>main.i</code>.</p>
+<ol type="1">
+<li><code>main.c</code> ha <span class="math inline">\(21\)</span> righe, <code>main.i</code> ne ha circa <span class="math inline">\(850\)</span>. Da dove arrivano tutte le altre? Cercate dentro <code>main.i</code> il prototipo di <code>vettore_media</code>: lo trovate verso il fondo, perche’ il contenuto di <code>stdio.h</code> viene prima. Le righe che iniziano con <code>#</code> sono annotazioni per il compilatore e si possono ignorare, come in N.</li>
+<li>Nel file originale non compare mai il numero <span class="math inline">\(1000\)</span>. In <code>main.i</code> invece si’, in una <code>printf</code>: chi ce l’ha messo, e in quale fase? Rileggete B11.</li>
+</ol>
+<p><strong>Seconda fase.</strong> Copiate <code>main.c</code> in <code>senza_include.c</code> e togliete la riga <code>#include "vettore.h"</code>, poi compilate con <code>gcc -g -Wall -Wextra -c senza_include.c</code>.</p>
+<ol start="3" type="1">
+<li>Escono parecchi messaggi, ma di due tipi soli: cinque <code>warning: implicit declaration of function ...</code>, uno per ogni funzione del modulo, e un solo <code>error: 'VETTORE_MAX' undeclared</code>. Perche’ l’unico errore vero e’ quello sulla costante, mentre per le funzioni il compilatore si limita ad avvisare? Che cosa riesce a fare senza la dichiarazione di una funzione, e che cosa invece non puo’ assolutamente fare senza una <code>#define</code>?</li>
+</ol>
+<p>(Se il vostro gcc e’ la versione 14 o piu’ recente, anche gli avvisi sulle funzioni sono errori: aggiungete <code>-Wno-error=implicit-function-declaration</code> al comando, come dice la premessa del pacchetto, e tornerete a vedere la differenza tra i due casi.)</p>
+<p><strong>Terza fase.</strong> Copiate <code>main.c</code> in <code>include_del_c.c</code> e sostituite <code>#include "vettore.h"</code> con <code>#include "vettore.c"</code>. Poi costruite in due passi, per avere sotto gli occhi i file oggetto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-c</span> include_del_c.c vettore.c</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-o</span> rotto include_del_c.o vettore.o</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Adesso i messaggi dicono <code>multiple definition of 'vettore_minimo'</code> e nominano <code>/usr/bin/ld</code>. Seguite il ragionamento: che cosa ha copiato il preprocessore dentro <code>include_del_c.c</code>? Quante definizioni di <code>vettore_minimo</code> esistono, alla fine, e in quali file oggetto? Controllate con <code>nm include_del_c.o</code> e <code>nm vettore.o</code>. Da qui la regola: <strong>nelle intestazioni si mettono le dichiarazioni, mai le definizioni</strong>.</li>
+<li>Provate <code>gcc -g -Wall -Wextra -o rotto include_del_c.c</code>, cioe’ senza <code>vettore.c</code> e in un comando solo. Questa volta funziona. Spiegate perche’, e dite perche’ resta comunque una pessima idea. (Che cosa succede se un secondo file include anche lui <code>vettore.c</code>?)</li>
+</ol>
+<p><strong>Le guardie.</strong> Nella sottocartella <code>guardie</code> ci sono quattro file: <code>punto.h</code> e <code>segmento.h</code>, <strong>senza</strong> guardie di inclusione, i rispettivi <code>.c</code>, e <code>prova.c</code>, che le include tutte e due.</p>
+<ol start="6" type="1">
+<li>Costruite con <code>gcc -g -Wall -Wextra -o prova prova.c punto.c segmento.c</code>: compare <code>error: redefinition of 'struct punto'</code>. Leggete le prime righe del messaggio, quelle che iniziano con <code>In file included from</code>: raccontano il percorso che ha fatto il preprocessore. Disegnate su carta l’albero delle inclusioni e segnate quante volte arriva <code>punto.h</code>.</li>
+<li>Aggiungete le guardie a <code>punto.h</code> (in <code>punto_con_guardia.h</code> trovate la versione gia’ fatta, ma scrivetele voi) e ricostruite: il programma stampa <code>lunghezza al quadrato: 25</code>. Qui la guardia su <code>punto.h</code> e’ bastata, perche’ nessuno include <code>segmento.h</code> due volte. Immaginate pero’ di aggiungere un terzo file, <code>figura.h</code>, che include anche lui <code>segmento.h</code>, e un <code>main.c</code> che include <code>segmento.h</code> e <code>figura.h</code>: che cosa succederebbe? Mettete la guardia anche a <code>segmento.h</code> e spiegate in una riga perche’ si scrivono <strong>sempre</strong>, anche quando sembrano inutili.</li>
+<li><strong>In piu’.</strong> I comandi dei punti precedenti non lasciano nessun <code>.o</code>: per averli date <code>gcc -g -Wall -Wextra -c punto.c segmento.c</code>. Poi <code>nm punto.o</code> e <code>nm segmento.o</code>: quali nomi sono <code>T</code> e quali <code>U</code> in ciascuno dei due? Quale dei due file oggetto ha un buco che l’altro riempie?</li>
+</ol>
+<p><strong>Z3.</strong> Nella cartella <code>Z3_contatore</code> c’e’ un modulo che tiene un contatore: <code>contatore.h</code>, <code>contatore.c</code> e un <code>main.c</code> che lo usa. Aprite tutti e tre.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb40-1"><a href="#cb40-1"></a>$ make</span>
+<span id="cb40-2"><a href="#cb40-2"></a>$ ./contatore_prova</span>
+<span id="cb40-3"><a href="#cb40-3"></a>Con passo 1, dopo 5 aumenti: 5</span>
+<span id="cb40-4"><a href="#cb40-4"></a>Con passo 10, dopo altri 5: 55</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dentro <code>contatore.c</code> sono definiti sei nomi, e due non compaiono nell’intestazione: la variabile <code>quante</code> e la funzione <code>valido</code> sono <code>static</code>, mentre la variabile <code>contatore_passo</code> e le tre funzioni restano visibili dagli altri file.</p>
+<ol type="1">
+<li>Perche’ <code>quante</code> e’ <code>static</code> e <code>contatore_passo</code> no? Guardate l’intestazione e rispondete in termini di “che cosa offre il modulo a chi lo usa”.</li>
+<li><code>contatore.h</code> contiene <code>extern int contatore_passo;</code> e <code>contatore.c</code> contiene <code>int contatore_passo = 1;</code>. Quale delle due righe e’ la dichiarazione e quale la definizione? Che cosa succederebbe se togliessimo <code>extern</code> dall’intestazione? (Lo vedrete tra poco, al punto 6.)</li>
+<li>Costruite <code>rotto_static.c</code>, che e’ fatto apposta per non funzionare, con <code>gcc -g -Wall -Wextra -o rotto rotto_static.c contatore.c</code>. Escono due messaggi: prima <code>warning: implicit declaration of function 'valido'</code>, che e’ il fenomeno di Z2.3, e poi <code>undefined reference to 'valido'</code>, che viene dal collegamento. Ma <code>valido</code> esiste, ed e’ dentro <code>contatore.c</code> che avete appena compilato: perche’ il collegatore non la trova? (Anche qui, con gcc 14 o piu’ recente serve <code>-Wno-error=implicit-function-declaration</code>: altrimenti ci si ferma al primo messaggio e il collegamento non parte nemmeno.)</li>
+<li>Adesso, in <code>rotto_static.c</code>, sostituite la riga di <code>valido</code> con <code>printf("quante: %ld\n", quante);</code> e ricompilate. Questa volta l’errore e’ <code>error: 'quante' undeclared</code>, e arriva <strong>prima</strong>, dalla compilazione. Perche’ i due casi si comportano diversamente? (Pensate a che cosa il compilatore e’ disposto a fare con un nome di funzione che non conosce, e che cosa invece non puo’ fare con un nome di variabile. Ripensate al punto 3 di Z2.)</li>
+<li>Date <code>nm contatore.o</code> e confrontate le lettere:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a href="#cb41-1"></a>0000000000000030 r __PRETTY_FUNCTION__.0</span>
+<span id="cb41-2"><a href="#cb41-2"></a>                 U __assert_fail</span>
+<span id="cb41-3"><a href="#cb41-3"></a>000000000000002d T contatore_aumenta</span>
+<span id="cb41-4"><a href="#cb41-4"></a>0000000000000017 T contatore_azzera</span>
+<span id="cb41-5"><a href="#cb41-5"></a>0000000000000000 D contatore_passo</span>
+<span id="cb41-6"><a href="#cb41-6"></a>000000000000008b T contatore_valore</span>
+<span id="cb41-7"><a href="#cb41-7"></a>0000000000000000 b quante</span>
+<span id="cb41-8"><a href="#cb41-8"></a>0000000000000000 t valido</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le prime due righe non le avete scritte voi: le aggiunge la macro <code>assert</code>, e si tolgono di mezzo con <code>nm contatore.o | grep -v __</code>. Delle sei che restano, quali nomi sono in maiuscolo e quali in minuscolo? Che cosa hanno in comune i due minuscoli? Rileggete il riquadro su <code>nm</code> e spiegate il collegamento con <code>static</code>.</p>
+<ol start="6" type="1">
+<li>Nella sottocartella <code>doppia</code> c’e’ l’errore classico di chi comincia: in <code>comune.h</code> sta scritto <code>int totale;</code> invece di <code>extern int totale;</code>. Costruite con <code>gcc -g -Wall -Wextra -o prova prova.c a.c b.c</code>: compaiono due <code>multiple definition of 'totale'</code>. Quante copie di <code>totale</code> sono state create, e da chi? Correggete, aggiungendo <code>extern</code> nell’intestazione e la definizione in <strong>uno solo</strong> dei file <code>.c</code>, e verificate che il programma stampi <code>totale: 11</code>.</li>
+<li><strong>In piu’.</strong> Nel modulo <code>contatore</code> manca un controllo: niente impedisce a chi lo usa di scrivere <code>contatore_passo = -5;</code>, e l’<code>assert</code> dentro <code>contatore_aumenta</code> fa morire il programma. Provate. Come si potrebbe togliere a chi usa il modulo la possibilita’ di sbagliare? Basta rispondere a parole, senza scrivere il codice: e’ la stessa idea delle funzioni costruttrici di P13, e la strada e’ rendere <code>static</code> anche <code>contatore_passo</code> e offrire al suo posto due funzioni nell’intestazione.</li>
+</ol>
+<p><strong>Z4.</strong> Nella cartella <code>Z4_make</code> c’e’ un programma su tre sorgenti, <code>main.c</code>, <code>etichette.c</code> e <code>somma.c</code>, con due intestazioni. Ci sono anche due Makefile: quello buono, <code>Makefile</code>, e uno fatto apposta per sbagliare, <code>Makefile_incompleto</code>, che si usa scrivendo <code>make -f Makefile_incompleto</code>. L’unica differenza tra i due e’ la riga delle dipendenze dei <code>.o</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb42-1"><a href="#cb42-1"></a>$ make</span>
+<span id="cb42-2"><a href="#cb42-2"></a>gcc -g -Wall -Wextra -c main.c</span>
+<span id="cb42-3"><a href="#cb42-3"></a>gcc -g -Wall -Wextra -c etichette.c</span>
+<span id="cb42-4"><a href="#cb42-4"></a>gcc -g -Wall -Wextra -c somma.c</span>
+<span id="cb42-5"><a href="#cb42-5"></a>gcc -g -Wall -Wextra -o tabella main.o etichette.o somma.o</span>
+<span id="cb42-6"><a href="#cb42-6"></a>$ ./tabella</span>
+<span id="cb42-7"><a href="#cb42-7"></a>Valori a passo di 10:</span>
+<span id="cb42-8"><a href="#cb42-8"></a>  riga 0: 0</span>
+<span id="cb42-9"><a href="#cb42-9"></a>  riga 1: 10</span>
+<span id="cb42-10"><a href="#cb42-10"></a>  riga 2: 20</span>
+<span id="cb42-11"><a href="#cb42-11"></a>  riga 3: 30</span>
+<span id="cb42-12"><a href="#cb42-12"></a>  riga 4: 40</span>
+<span id="cb42-13"><a href="#cb42-13"></a>Somma: 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Date <code>make</code> una seconda volta, senza toccare niente: risponde <code>make: 'tabella' is up to date.</code> e non compila nulla. Come fa a saperlo? (Guardate le date dei file con <code>ls -l --time-style=full-iso</code>, o semplicemente <code>ls -l</code>.)</li>
+<li>Date <code>touch somma.c</code>, che non cambia il contenuto del file ma ne aggiorna la data, e poi <code>make</code>. Quali comandi esegue? Perche’ <code>main.c</code> ed <code>etichette.c</code> non vengono ricompilati, e perche’ il collegamento invece si rifa’ comunque?</li>
+<li>Con il Makefile <strong>buono</strong>, cambiate <code>#define PASSO 10</code> in <code>#define PASSO 25</code> dentro <code>etichette.h</code> e date <code>make</code>: vengono ricompilati tutti e tre i <code>.o</code>. Perche’ anche <code>somma.c</code>, che non usa <code>PASSO</code> e non include nemmeno <code>etichette.h</code>? Il programma stampa ora <code>Valori a passo di 25</code> e le righe <span class="math inline">\(0\)</span>, <span class="math inline">\(25\)</span>, <span class="math inline">\(50\)</span>, <span class="math inline">\(75\)</span>, <span class="math inline">\(100\)</span>, con <code>Somma: 250</code>: tutto coerente.</li>
+<li>Adesso il guasto. Rimettete <code>PASSO</code> a <span class="math inline">\(10\)</span>, poi:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">make</span> <span class="at">-f</span> Makefile_incompleto clean</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">make</span> <span class="at">-f</span> Makefile_incompleto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cambiate di nuovo <code>PASSO</code> in <span class="math inline">\(25\)</span> dentro <code>etichette.h</code> e date ancora <code>make -f Makefile_incompleto</code>: risponde <code>up to date</code> e <strong>non ricompila niente</strong>. Lanciate <code>./tabella</code>: stampa ancora i valori vecchi. Perche’? Che cosa sa, make, dei file che un sorgente include?</p>
+<ol start="5" type="1">
+<li>Il guasto peggiore. Senza toccare altro, date <code>touch etichette.c</code> (come se aveste modificato anche quel file) e poi <code>make -f Makefile_incompleto</code>. Questa volta ricompila <code>etichette.o</code>, ma non <code>main.o</code>. Il programma stampa:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb44-1"><a href="#cb44-1"></a>Valori a passo di 10:</span>
+<span id="cb44-2"><a href="#cb44-2"></a>  riga 0: 0</span>
+<span id="cb44-3"><a href="#cb44-3"></a>  riga 1: 25</span>
+<span id="cb44-4"><a href="#cb44-4"></a>  riga 2: 50</span>
+<span id="cb44-5"><a href="#cb44-5"></a>  riga 3: 75</span>
+<span id="cb44-6"><a href="#cb44-6"></a>  riga 4: 100</span>
+<span id="cb44-7"><a href="#cb44-7"></a>Somma: 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’intestazione della tabella dice <span class="math inline">\(10\)</span>, le righe vanno di <span class="math inline">\(25\)</span> in <span class="math inline">\(25\)</span> e la somma e’ quella di <span class="math inline">\(10\)</span>. Spiegate riga per riga da quale file oggetto viene ciascuno dei tre numeri. Nessun compilatore ha protestato e nessun test avrebbe potuto accorgersene guardando i sorgenti: perche’ questo tipo di guasto e’ particolarmente insidioso?</p>
+<ol start="6" type="1">
+<li>Correggete <code>Makefile_incompleto</code> aggiungendo la dipendenza mancante, poi rifate la prova del punto 4: ora funziona. Confrontate la vostra correzione con il <code>Makefile</code> buono.</li>
+<li><strong>In piu’.</strong> La regola <code>%.o: %.c $(INTESTAZIONI)</code> dice che <strong>ogni</strong> <code>.o</code> dipende da <strong>tutte</strong> le intestazioni, anche da quelle che non include: e’ il motivo per cui al punto 3 e’ stato ricompilato anche <code>somma.o</code>. E’ una semplificazione grossolana ma prudente: ricompila qualcosa in piu’, e non dimentica mai niente. Che cosa succederebbe, invece, con una regola che si dimentica qualcosa? Nei progetti veri le dipendenze non si scrivono a mano: gcc sa calcolarle da solo, perche’ lui i sorgenti li legge. Provate <code>gcc -MMD -c main.c</code> e aprite il file <code>main.d</code> che compare: contiene una riga sola, <code>main.o: main.c etichette.h somma.h</code>, cioe’ esattamente la dipendenza che a make serviva. Poi date <code>make clean</code>, perche’ quel comando ha ricompilato <code>main.o</code> senza i vostri flag abituali.</li>
+</ol>
+<p><strong>Z5.</strong> <strong>Sfida.</strong> La cartella <code>Z5_rapporto</code> contiene tre moduli gia’ pronti, un’intestazione senza il suo <code>.c</code>, il Makefile e i test. Il programma, <code>rapporto</code>, legge da un file dei valori interi tra <span class="math inline">\(0\)</span> e <span class="math inline">\(99\)</span> e ne stampa un resoconto con l’istogramma.</p>
+<p>I moduli forniti sono:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modulo</th>
+<th>Che cosa offre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>lettura.h</code> / <code>lettura.c</code></td>
+<td><code>lettura_da_file</code>, che apre un file, ne legge gli interi in un array e restituisce quanti ne ha letti, oppure <span class="math inline">\(-1\)</span> in caso di errore (e il messaggio su <code>stderr</code> lo scrive lui)</td>
+</tr>
+<tr class="even">
+<td><code>ordina.h</code> / <code>ordina.c</code></td>
+<td><code>ordina_crescente</code>, che ordina un array di interi usando <code>qsort</code> (Y)</td>
+</tr>
+<tr class="odd">
+<td><code>statistiche.h</code> / <code>statistiche.c</code></td>
+<td>il tipo <code>Statistiche</code> e <code>statistiche_calcola</code>, che restituisce media, mediana, minimo e massimo di un array <strong>gia’ ordinato</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Manca <code>istogramma.c</code>: l’intestazione <code>istogramma.h</code> c’e’ ed e’ documentata, e dovete scrivere voi le due funzioni che dichiara. Poi scrivete il <code>main.c</code> che mette insieme i quattro moduli.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb45-1"><a href="#cb45-1"></a>$ cat test/voti.txt</span>
+<span id="cb45-2"><a href="#cb45-2"></a>45 52 61 38 55 49 72 58 44 51</span>
+<span id="cb45-3"><a href="#cb45-3"></a>67 29 56 63 47 81 53 42 59 35</span>
+<span id="cb45-4"><a href="#cb45-4"></a>$ ./rapporto test/voti.txt</span>
+<span id="cb45-5"><a href="#cb45-5"></a>Valori letti: 20</span>
+<span id="cb45-6"><a href="#cb45-6"></a>Minimo: 29</span>
+<span id="cb45-7"><a href="#cb45-7"></a>Massimo: 81</span>
+<span id="cb45-8"><a href="#cb45-8"></a>Media: 52.85</span>
+<span id="cb45-9"><a href="#cb45-9"></a>Mediana: 52.50</span>
+<span id="cb45-10"><a href="#cb45-10"></a>Istogramma:</span>
+<span id="cb45-11"><a href="#cb45-11"></a>[ 0- 9]  0 |</span>
+<span id="cb45-12"><a href="#cb45-12"></a>[10-19]  0 |</span>
+<span id="cb45-13"><a href="#cb45-13"></a>[20-29]  1 |#</span>
+<span id="cb45-14"><a href="#cb45-14"></a>[30-39]  2 |##</span>
+<span id="cb45-15"><a href="#cb45-15"></a>[40-49]  5 |#####</span>
+<span id="cb45-16"><a href="#cb45-16"></a>[50-59]  7 |#######</span>
+<span id="cb45-17"><a href="#cb45-17"></a>[60-69]  3 |###</span>
+<span id="cb45-18"><a href="#cb45-18"></a>[70-79]  1 |#</span>
+<span id="cb45-19"><a href="#cb45-19"></a>[80-89]  1 |#</span>
+<span id="cb45-20"><a href="#cb45-20"></a>[90-99]  0 |</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Requisiti:</p>
+<ul>
+<li>l’array e’ grande <code>LETTURA_MAX</code> elementi e l’istogramma ha <code>ISTOGRAMMA_CLASSI</code> classi: tutte e due le costanti vengono dalle intestazioni, non scrivetele a mano;</li>
+<li><code>statistiche_calcola</code> vuole l’array <strong>gia’ ordinato</strong>: la documentazione lo dice, e dall’ordine in cui chiamate le funzioni dipende il risultato;</li>
+<li>un numero di argomenti diverso da uno e un file senza valori sono errori del <code>main</code>, con codice <span class="math inline">\(1\)</span>; gli altri errori li riconosce <code>lettura_da_file</code>, che restituisce <span class="math inline">\(-1\)</span> e ha gia’ scritto il messaggio: al <code>main</code> resta solo da terminare con codice <span class="math inline">\(1\)</span> senza stampare altro;</li>
+<li><code>make test</code> deve dare <span class="math inline">\(8\)</span> test superati su <span class="math inline">\(8\)</span>.</li>
+</ul>
+<ol type="1">
+<li>Prima di scrivere una riga, disegnate su carta lo schema delle inclusioni: quali file includono quali intestazioni, e in che ordine <code>main</code> chiama le funzioni dei quattro moduli. Confrontatelo con la progettazione top-down di I10: qual e’ qui il problema grande, e quali i sottoproblemi che i quattro moduli risolvono?</li>
+<li>Aprite <code>statistiche.h</code>: contiene un <code>typedef struct</code>, e non solo dei prototipi. Perche’ quel tipo <strong>deve</strong> stare nell’intestazione e non in <code>statistiche.c</code>? Provate a spostarlo e leggete il messaggio.</li>
+<li>Aprite <code>ordina.c</code>: il comparatore <code>confronta</code> e’ <code>static</code>, e non compare in <code>ordina.h</code>. Perche’ e’ la scelta giusta? Che cosa cambierebbe, per chi usa il modulo, se fosse pubblico?</li>
+<li>Dei quattro moduli, tre li avete ricevuti e uno lo avete scritto. Tornate con la memoria a <strong>mentre scrivevate</strong> <code>istogramma.c</code> e <code>main.c</code>, prima dei due punti qui sopra: quante volte avete dovuto aprire un file <code>.c</code> che non fosse il vostro? Se la risposta e’ zero, le intestazioni hanno fatto il loro mestiere. Se non e’ zero, quale informazione mancava nella documentazione?</li>
+<li>Il Makefile elenca cinque oggetti. Date <code>make clean</code> e poi <code>make</code>, e contate le compilazioni; poi <code>touch istogramma.c</code> e <code>make</code>: quante ne restano? Quanto avreste ricompilato, con tutto il programma in un file solo?</li>
+<li><strong>In piu’.</strong> Il modulo <code>ordina</code> ordina solo in modo crescente. Aggiungete <code>ordina_decrescente</code> e fate stampare al <code>main</code> anche i tre valori piu’ alti. Quali file dovete toccare, e quali no? E quali <code>.o</code> ricompila <code>make</code>?</li>
+<li><strong>In piu’.</strong> <code>lettura_da_file</code> accetta solo valori tra <span class="math inline">\(0\)</span> e <span class="math inline">\(99\)</span>, e l’istogramma ha dieci classi da dieci: <span class="math inline">\(10 \times 10 = 100\)</span>, e il conto torna. Ma le due intestazioni non si parlano, e nessuna delle due dice che quel conto deve tornare. Provate ad allargare l’intervallo in <code>lettura.c</code>, ammettendo i valori fino a <span class="math inline">\(999\)</span>, e date in pasto al programma un file che contiene <span class="math inline">\(150\)</span>: <code>istogramma_conta</code> calcola la classe <span class="math inline">\(15\)</span> e scrive in <code>conteggi[15]</code>, cioe’ fuori da un array di dieci elementi. Il programma non protesta e il risultato e’ imprevedibile. Ricostruite con <code>-fsanitize=address</code>, come spiegato nel riquadro qui sopra, e il programma si ferma da solo segnalando <code>stack-buffer-overflow</code> dentro <code>istogramma_conta</code>. (Il messaggio dice <code>READ</code>, non <code>WRITE</code>: <code>conteggi[15]++</code> legge la casella prima di riscriverla, e il controllo scatta gia’ sulla lettura.) Quando avete finito, <strong>rimettete <span class="math inline">\(99\)</span> in <code>lettura.c</code></strong>, date <code>make clean</code> e <code>make</code>, e controllate che <code>make test</code> torni a dare <span class="math inline">\(8\)</span> su <span class="math inline">\(8\)</span>.</li>
+</ol>
+<p>Come si potrebbe fare in modo che quel conto non possa sbagliare? Pensate a quale delle due intestazioni dovrebbe dipendere dall’altra, e a che cosa potrebbe controllare un <code>assert</code> dentro <code>istogramma_conta</code>.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/StefanoMagriniAlunno\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Stefano Magrini Alunno</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
