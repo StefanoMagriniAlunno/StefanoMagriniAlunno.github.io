@@ -6,6 +6,7 @@
 | N | break, continue, enum e macro | 20 |
 | O | La libreria standard | 10 |
 | P | struct, typedef e union | 20 |
+| Q | Operatori bit a bit e stringhe | 10 |
 
 
 ## Pacchetto M: else if, do while, const e assert
@@ -2052,3 +2053,359 @@ e' solo un modo abbreviato di scrivere un array di dieci `char`: `scala[0]` e' u
 4. La riga lunga al centro, all'altezza in cui la parte immaginaria vale esattamente zero, e' il segmento reale dell'insieme: si estende da $-2$ a $0.25$. Verificatelo con il disegno, contando le colonne.
 5. L'ultimo carattere della scala, `@`, non viene mai stampato: `k * 9 / MAX_ITER` arriva al massimo a $8$, perche' i punti con `k` uguale a `MAX_ITER` prendono l'asterisco. Verificatelo, poi provate `scala[k % 10]` al posto di `scala[k * 9 / MAX_ITER]`: che cosa cambia nel disegno, e perche'?
 6. **Con time.** Il disegno e' istantaneo: $70 \times 25$ punti sono troppo pochi per misurare qualcosa. Scrivete allora una versione senza stampa, che scorre una griglia di $2000 \times 2000$ punti nella stessa regione e conta quanti stanno dentro l'insieme: sono $858336$ su quattro milioni, e ci vogliono circa quattro secondi, compilando senza ottimizzazioni. Portate `MAX_ITER` a $1000$: i punti contati scendono a $838157$ e il tempo sale a una trentina di secondi. Riprovate le due misure aggiungendo `-O2` (G8): di quanto scendono? Perche' i punti diminuiscono? E dove si concentra tutto quel tempo, nei punti dentro l'insieme o in quelli fuori?
+
+
+## Pacchetto Q: Operatori bit a bit e stringhe
+
+Due argomenti che sembrano lontanissimi e che invece si incontrano di continuo. Il primo e' il modo di lavorare **direttamente sui bit** di un numero, cioe' sulla sua scrittura in base due: il C mette a disposizione sei operatori che agiscono su tutti i bit in una volta sola, e che il processore esegue in un colpo solo. Il secondo sono le **stringhe**, cioe' i testi, che in C non sono un tipo di dato a se' ma soltanto array di `char` con una convenzione.
+
+Si incontrano perche' un testo e' fatto di caratteri, e un carattere occupa un byte, cioe' otto bit: letto come `unsigned char` e' un numero da $0$ a $255$ (il `char` semplice, con gcc su questi computer, ha segno e va da $-128$ a $127$; ci torneremo in Q6). ogni volta che si cifra, si comprime o si controlla un testo, si finisce per guardarlo come una sequenza di bit. Gli ultimi quattro esercizi del pacchetto fanno esattamente questo.
+
+Compilate sempre con `gcc -g -Wall -Wextra`; in Q4 serve `time`, e in diversi esercizi serve `ctype.h`, che avete incontrato in O6.
+
+### Gli operatori bit a bit
+
+Sono sei, e lavorano sulla scrittura binaria dei numeri interi. Quattro sono logici e agiscono su ogni bit indipendentemente dagli altri; due spostano i bit.
+
+| Operatore | Nome | Che cosa fa |
+| --- | --- | --- |
+| `a & b` | AND | il bit del risultato vale $1$ se **entrambi** valgono $1$ |
+| `a \| b` | OR | il bit vale $1$ se **almeno uno** vale $1$ |
+| `a ^ b` | XOR | il bit vale $1$ se i due sono **diversi** |
+| `~a` | NOT | rovescia tutti i bit |
+| `a << k` | spostamento a sinistra | sposta i bit di `k` posti a sinistra, riempiendo con zeri |
+| `a >> k` | spostamento a destra | sposta i bit di `k` posti a destra |
+
+Le tabelle di verita' sono quelle della logica, che gia' conoscete: la novita' e' che qui vengono applicate a trentadue coppie di bit in parallelo. Con $12 = 1100_2$ e $10 = 1010_2$:
+
+```text
+   1100   (12)        1100   (12)        1100   (12)
+&  1010   (10)     |  1010   (10)     ^  1010   (10)
+   ----               ----               ----
+   1000   (8)         1110   (14)        0110   (6)
+```
+
+Gli spostamenti sono moltiplicazioni e divisioni per potenze di due: `a << k` vale $a \cdot 2^k$ e, **per `a` non negativo**, `a >> k` vale $a / 2^k$ con la divisione intera. `12 << 2` fa $48$ e `12 >> 2` fa $3$. (Per `a` negativo le due cose non coincidono: lo vedrete in Q3.)
+
+**Usate `unsigned int` quando lavorate sui bit.** Nei tipi con segno il bit piu' a sinistra indica il segno, e allora: `~12` non vale un numero grande ma $-13$; lo spostamento a destra di un numero negativo e' definito dall'implementazione, e con gcc `-7 >> 1` vale $-4$ e non $-3$ come la divisione; lo spostamento a sinistra di un numero negativo e' addirittura comportamento indefinito. Con `unsigned` non ci sono sorprese. Il formattatore di `printf` per `unsigned int` e' `%u`.
+
+### Maschere
+
+Una *maschera* e' un numero scelto perche' ha $1$ esattamente nei bit che interessano. La maschera del solo bit numero `k` e' `1u << k`, e da sola basta per tutte e quattro le operazioni elementari su un singolo bit:
+
+```c
+x = x | (1u << k);     /* accende il bit k            */
+x = x & ~(1u << k);    /* spegne  il bit k            */
+x = x ^ (1u << k);     /* inverte il bit k            */
+if ((x >> k) & 1u)     /* legge   il bit k            */
+```
+
+Da qui nasce l'idea che percorre meta' di questo pacchetto: **un intero senza segno e' un insieme**. Il bit `k` acceso significa "l'elemento `k` c'e'". Allora `|` e' l'unione, `&` e' l'intersezione, `^` e' la differenza simmetrica, e un `unsigned int` rappresenta un qualunque sottoinsieme di un insieme di trentadue elementi occupando quattro byte.
+
+**Attenzione alla precedenza.** Gli operatori `&`, `^` e `|` hanno precedenza **piu' bassa** di `==` e `!=` (mentre `<<` e `>>` l'hanno piu' alta di tutti i confronti ma piu' bassa di `+` e `-`, quindi `x << 1 + 2` vale `x << 3`). La riga
+
+```c
+if (x & 1 == 0)        /* SBAGLIATO */
+```
+
+viene letta come `x & (1 == 0)`, cioe' `x & 0`, che e' sempre falso. Si scrive `if ((x & 1) == 0)`. Mettete sempre le parentesi: e' uno degli errori piu' difficili da vedere rileggendo.
+
+### Le stringhe
+
+In C una stringa non e' un tipo: e' un array di `char` in cui, dopo l'ultimo carattere utile, c'e' il carattere `'\0'`, che vale zero e si chiama *terminatore*. Tutto il resto segue da questa convenzione.
+
+```c
+char s[10] = "ciao";
+```
+
+dichiara dieci caratteri, di cui i primi cinque valgono `'c'`, `'i'`, `'a'`, `'o'`, `'\0'`; gli altri cinque esistono ma non contano. Da cui due conseguenze da tenere a mente sempre:
+
+- **l'array deve essere piu' lungo del testo di almeno un carattere.** Per un testo di al piu' $20$ caratteri serve `char s[21]`;
+- **nessuna funzione sa quanto e' lungo l'array**: sa solo dove si ferma il testo, perche' cerca lo zero. Se il terminatore manca, la funzione continua a leggere oltre la fine dell'array, e il programma fa cose arbitrarie.
+
+Per scorrere una stringa si usa quindi il terminatore come condizione:
+
+```c
+for (i = 0; s[i] != '\0'; i++) { ... }
+```
+
+Per leggerla, `scanf("%s", s)` si ferma al primo spazio e non controlla la lunghezza dell'array; e' preferibile `fgets(s, L, stdin)`, che legge una riga intera, si ferma a `L - 1` caratteri e **tiene il carattere di a capo**, che quasi sempre va tolto:
+
+```c
+char riga[200];
+if (fgets(riga, 200, stdin) != NULL) {
+    int n = (int) strlen(riga);
+    if (n > 0 && riga[n - 1] == '\n') {
+        riga[n - 1] = '\0';
+    }
+}
+```
+
+Notate che nella `scanf` e nella `fgets` il nome dell'array si scrive **senza `&`**: come per gli array di I, il nome da solo basta.
+
+### string.h
+
+E' la libreria che mancava all'appello nella tabella di O. Le funzioni che userete qui sono cinque:
+
+| Funzione | Che cosa fa | Attenzione |
+| --- | --- | --- |
+| `strlen(s)` | la lunghezza, terminatore escluso | la **conta** ogni volta, scorrendo: non e' gratis |
+| `strcpy(d, s)` | copia `s` in `d` | non controlla che `d` sia abbastanza grande |
+| `strcmp(a, b)` | $0$ se uguali, negativo se `a` viene prima | confronta i codici, non le lettere: `'Z'` viene prima di `'a'` |
+| `strcat(d, s)` | attacca `s` in fondo a `d` | come `strcpy`, non controlla niente |
+| `strncpy(d, s, n)` | copia al piu' `n` caratteri | se `s` e' lungo `n` o piu', **non** mette il terminatore |
+
+`strlen` non restituisce un `int` ma un tipo senza segno, quindi per stamparlo con `%d` va scritto `(int) strlen(s)`, come per `sizeof`.
+
+### Esercizi (Q1-Q10)
+
+#### Gli operatori bit a bit
+
+**Q1.** Guardare i bit. Scrivete un programma con un sottoprogramma `void stampa_binario(unsigned int x, int cifre)` che stampa gli ultimi `cifre` bit di `x`, dal piu' significativo al meno significativo, e un `main` che parte da `x = 0` e, mostrando `x` in binario e in decimale a ogni passo, accende il bit $3$, accende il bit $5$, inverte il bit $3$, accende il bit $1$ e spegne il bit $5$. Poi rilegge e stampa uno per uno i bit da $0$ a $3$ del risultato, e in fondo stampa `12 & 10`, `12 | 10`, `12 ^ 10`, `~12`, `12 << 2` e `12 >> 2`.
+
+```text
+partenza:        00000000  (0)
+acceso il bit 3: 00001000  (8)
+acceso il bit 5: 00101000  (40)
+invertito bit 3: 00100000  (32)
+acceso il bit 1: 00100010  (34)
+spento il bit 5: 00000010  (2)
+bit 0 = 0
+bit 1 = 1
+bit 2 = 0
+bit 3 = 0
+
+12 & 10 = 8
+12 | 10 = 14
+12 ^ 10 = 6
+~12 = 4294967283
+12 << 2 = 48,  12 >> 2 = 3
+```
+
+1. `stampa_binario` parte da `cifre - 1` e scende: perche' non si puo' partire da $0$ e salire? Che cosa stamperebbe?
+2. Le due righe `acceso il bit 3` e `invertito bit 3` partono da situazioni diverse e il bit $3$ finisce in modo diverso. Che cosa succede se invece **accendete** un bit gia' acceso? E se lo **invertite** due volte? Aggiungete le due prove.
+3. `~12` vale $4294967283$ e non $-13$: e' perche' la variabile e' `unsigned int`. Verificate che $4294967283 + 12 + 1 = 2^{32}$, e dite quanti bit a $1$ ha `~12`.
+4. In F19 avete scritto un numero in una base qualsiasi dividendo per la base e tenendo i resti. Per la base $2$ c'e' questa scorciatoia. Riscrivete `stampa_binario` con il metodo di F19 e verificate che dia lo stesso risultato; poi dite quale delle due versioni e' piu' veloce e perche'.
+5. **Trova l'errore.** Questo sottoprogramma dovrebbe dire se `x` e' pari, e invece risponde sempre "dispari":
+
+```c
+int e_pari(unsigned int x) {
+    if (x & 1 == 0) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+Spiegate come viene letta la condizione e correggetela. Perche' per il compilatore non e' un errore? Un avviso pero' c'e': compilate con `-Wall -Wextra` e riportatelo (e' `suggest parentheses around comparison in operand of '&'`, cioe' `-Wparentheses`).
+
+**Q2.** Un intero e' un insieme. Con quattro elementi (`pane`, `latte`, `uova`, `sale`, in un array `char nomi[4][8]`) ci sono $16$ sottoinsiemi possibili, e ciascuno corrisponde a un numero da $0$ a $15$. Scrivete un programma che li elenca tutti, con un ciclo `for (s = 0; s < (1u << N); s++)`, stampando per ciascuno il numero, i quattro bit, gli elementi che contiene e la loro quantita', calcolata da `int quanti_bit(unsigned int x)`.
+
+```text
+sottoinsieme   elementi
+ 0  0000   { }   |S| = 0
+ 1  0001   { pane }   |S| = 1
+ 2  0010   { latte }   |S| = 1
+ 3  0011   { pane latte }   |S| = 2
+...
+15  1111   { pane latte uova sale }   |S| = 4
+
+unione di {pane,uova} e {latte,uova}: 7
+intersezione:                        4
+differenza simmetrica:               3
+```
+
+1. Perche' il ciclo arriva a $2^N - 1$ e non a $N$? Quanti sottoinsiemi ha un insieme di $N$ elementi, e dove avete gia' incontrato questo numero? (Rileggete J10, la Torre di Hanoi: le mosse sono $2^n - 1$.)
+2. `quanti_bit` si scrive con un `while (x)` che guarda `x & 1u` e poi fa `x >>= 1`. Quanti giri fa, al massimo, su un `unsigned int`? Scrivetelo e verificate che le quantita' stampate siano giuste.
+3. Nella stampa dei bit si cicla da `N - 1` a $0$, nella stampa degli elementi da $0$ a `N - 1`. Perche' i due versi sono opposti? Che cosa succede se li uniformate?
+4. Verificate a mano le tre righe finali: `{pane, uova}` e' il numero $5$, `{latte, uova}` e' il numero $6$. Calcolate $5 \mid 6$, $5 \mathbin{\&} 6$ e $5 \wedge 6$ in binario e controllate che corrispondano all'unione, all'intersezione e alla differenza simmetrica.
+5. In N avete usato le `enum` per dare un nome ai valori. Dichiarate `enum spesa {PANE = 1, LATTE = 2, UOVA = 4, SALE = 8};` e riscrivete le tre righe finali usando i nomi. **In piu'.** Perche' in una `enum` di maschere i valori si scrivono come potenze di due, invece di lasciare che il compilatore conti $0, 1, 2, 3$?
+6. Con `unsigned int` si arriva a insiemi di $32$ elementi. Quanti sottoinsiemi avrebbe un insieme di $32$ elementi? Se il programma ne stampasse uno al microsecondo, quanto tempo ci metterebbe?
+
+**Q3.** Aritmetica con i bit. Tre fatti elementari: `x & 1u` dice se `x` e' dispari, `x >> 1` e' la meta', `x << 1` e' il doppio. Da soli bastano a riscrivere senza ricorsione l'esponenziazione veloce di J:
+
+```c
+long potenza_bit(long base, unsigned int e) {
+    long r = 1;
+    while (e) {
+        if (e & 1u) {
+            r *= base;
+        }
+        base *= base;
+        e >>= 1;
+    }
+    return r;
+}
+```
+
+Scrivete un programma che la confronta con la versione ricorsiva di J, in una tabella per $e$ da $0$ a $10$ con base $2$, e poi su $3^{13}$.
+
+```text
+  e   2^e (bit)   2^e (ric)
+  0           1           1
+  1           2           2
+...
+ 10        1024        1024
+
+3^13 = 1594323 (bit), 1594323 (ric)
+
+7 << 1 = 14, 7 >> 1 = 3
+-7 >> 1 = -4   (e -7/2 = -3)
+5 & 1 = 1 (dispari), 8 & 1 = 0 (pari)
+```
+
+1. Seguite l'algoritmo a mano su $3^{13}$, scrivendo a ogni giro i valori di `e`, `base` e `r`. Quanti giri fa? Confrontate con $13$ in binario, che e' $1101$.
+2. Perche' il ciclo calcola `base *= base` anche all'ultimo giro, quando il risultato non servira' piu'? E' uno spreco? Quanto grande puo' diventare `base` prima di traboccare?
+3. Le due versioni fanno lo stesso numero di moltiplicazioni? Aggiungete un contatore a entrambe e verificate per $e$ da $1$ a $20$.
+4. `-7 >> 1` vale $-4$ mentre `-7 / 2` vale $-3$: lo spostamento arrotonda verso il basso, la divisione verso lo zero. Scrivete che cosa succede ai bit di $-7$ e dite perche' questo e' un motivo in piu' per usare `unsigned` quando si lavora sui bit.
+5. **In piu'.** `x & (x - 1)` spegne il bit acceso piu' a destra di `x`. Verificatelo su qualche numero, e usatelo per riscrivere `quanti_bit` di Q2 in modo che faccia tanti giri quanti sono i **bit accesi**, invece di tanti quanti sono i bit fino al piu' alto acceso. Contate i giri delle due versioni su `x = 1u`, su `x = 2147483648u` (un solo bit, ma il piu' alto) e su `x = 4294967295u`: su quali valori le due versioni pareggiano, e su quali la nuova vince?
+
+#### Le stringhe
+
+**Q4.** Il terminatore, `strlen`, e un errore da mezzo secondo. Scrivete un programma che dichiara `char s[MAX]` con `#define MAX 200001`, riempie le prime `MAX - 1` posizioni con le lettere `a`, `b`, ..., `z` ripetute, mette il terminatore in `s[MAX - 1]`, e poi conta quante volte compare la `a` in due modi: con `strlen` nella condizione del `for`, e con `strlen` calcolata una volta sola prima del ciclo.
+
+```text
+strlen(s) = 200000
+strlen nella condizione: 0.403 s   (trovate 7693 'a')
+strlen prima del ciclo:  0.000 s   (trovate 7693 'a')
+```
+
+1. Quante volte viene chiamata `strlen` nella prima versione? E quanti caratteri scorre ogni chiamata? Scrivete il numero totale di caratteri letti in funzione di `n` e dite qual e' la classe di complessita' delle due versioni.
+2. E' esattamente l'errore che avete gia' incontrato in K12, dove al posto di `strlen` c'era una funzione che contava gli elementi fino a un valore sentinella. Rileggete quell'esercizio: che cosa hanno in comune il terminatore `'\0'` e la sentinella $-1$?
+3. Sostituite il terminatore con una lettera (`s[MAX - 1] = 'x';`) ed eseguite. Che cosa stampa `strlen`? Il programma e' ancora corretto? Provate piu' volte: il risultato e' sempre lo stesso?
+4. Verificate che `7693` sia il numero giusto: con $200000$ caratteri presi ciclicamente fra $26$, quante `a` ci si aspetta? Il conto torna?
+5. **In piu'.** `strlen` restituisce un tipo senza segno. Scrivete `for (i = 0; i < strlen(s) - 1; i++)` su una stringa **vuota** e guardate che cosa succede: quanto vale `strlen(s) - 1` se `strlen(s)` vale $0$ e il tipo non ha segno?
+
+**Q5.** Confrontare e copiare. Scrivete un programma che contiene `char v[6][20] = {"pera", "mela", "banana", "fico", "uva", "Mela"};`, stampa il risultato di cinque `strcmp` scelti da voi e poi ordina l'array con il selection sort di G16, usando `strcmp` per confrontare e `strcpy` per scambiare.
+
+```text
+strcmp("mela","pera")  = -1
+strcmp("pera","mela")  = 1
+strcmp("mela","mela")  = 0
+strcmp("Mela","mela")  = -1
+strcmp("mel","mela")   = -1
+
+ordinate: Mela banana fico mela pera uva
+```
+
+Lo standard garantisce soltanto il **segno** del valore restituito da `strcmp`, non il valore: sulla vostra macchina al posto di $-1$ e $1$ potreste vedere $-3$ e $3$, o altri numeri. E' corretto lo stesso, e i confronti del tipo `strcmp(a, b) < 0` funzionano in ogni caso.
+
+1. `"Mela"` finisce **prima** di `"banana"`. Non e' un errore: `strcmp` confronta i codici dei caratteri, e le maiuscole hanno codici piu' piccoli delle minuscole. Guardate la tabella ASCII e dite qual e' il codice di `'M'`, di `'b'` e di `'m'`.
+2. Lo scambio di due stringhe richiede **tre** `strcpy` e una variabile di appoggio `char t[20]`, esattamente come lo scambio di due interi richiede tre assegnazioni. Perche' non si puo' scrivere `v[i] = v[pmin];`? Provate: gcc risponde `error: assignment to expression with array type`. Che cosa vi dice, quell'errore, su che cosa e' il nome di un array?
+3. `strcmp("mel", "mela")` e' negativo: una stringa che e' l'inizio di un'altra viene prima. Spiegate perche', guardando che cosa trova `strcmp` nella quarta posizione delle due stringhe.
+4. Per ordinare senza distinguere maiuscole e minuscole non si puo' usare `strcmp`. Scrivete `int confronta_minuscole(char a[], char b[])` che usa `tolower` di `ctype.h` carattere per carattere, e riordinate con quella. Dove finisce adesso `"Mela"`?
+5. **Con gdb.** Mettete un punto di arresto dentro il ciclo esterno e stampate `v` a ogni giro: gdb mostra tutte e sei le stringhe. Verificate che dopo `k` giri le prime `k` siano quelle giuste e definitive.
+6. **In piu'.** La dichiarazione e' `char v[6][20]`: ogni stringa occupa $20$ byte anche se ne usa $5$. Quanti byte occupa `v`? Quanti ne servirebbero davvero per queste sei parole? Perche' il C vi fa pagare lo spreco? (La risposta comoda arriva con i puntatori.)
+
+**Q6.** Leggere e analizzare una riga. Scrivete un programma che legge una riga con `fgets`, toglie l'eventuale carattere di a capo, e stampa il numero di caratteri, di parole, di lettere e di cifre, e se la riga e' palindroma **considerando solo le lettere** e senza distinguere maiuscole e minuscole (quindi spazi, cifre e punteggiatura vengono saltati).
+
+```text
+$ echo "I topi non avevano nipoti" | ./analizza
+riga: "I topi non avevano nipoti"
+caratteri 25, parole 5, lettere 21, cifre 0
+palindroma: si
+
+$ echo "Anna 2025, anna!" | ./analizza
+riga: "Anna 2025, anna!"
+caratteri 16, parole 3, lettere 8, cifre 4
+palindroma: si
+```
+
+Per contare le parole si tiene una variabile `dentro` che dice se si sta attraversando una parola: si incrementa il contatore solo quando si passa da fuori a dentro. Per il palindromo si usano due indici, uno dall'inizio e uno dalla fine, che saltano i caratteri non alfabetici e si avvicinano.
+
+1. Perche' il controllo del palindromo non puo' essere semplicemente "confronta `riga[i]` con `riga[n - 1 - i]` per ogni `i`"? Provate questa versione sui due esempi e dite dove sbaglia.
+2. Il secondo esempio risulta palindromo pur contenendo `2025`, perche' le cifre vengono saltate. Modificate il programma perche' le cifre contino come gli altri caratteri, e dite quale delle due versioni preferite e perche'. (Qui non c'e' una risposta sola: l'importante e' che il programma faccia una cosa sola e la dichiari nella documentazione.)
+3. Che cosa succede se la riga e' piu' lunga di $199$ caratteri? Provate. Dove finisce il resto? E che cosa legge la `fgets` successiva?
+4. Sostituite `fgets` con `scanf("%s", riga)` ed eseguite sui due esempi. Che cosa cambia, e perche'?
+5. `isalpha` e compagne vogliono un argomento convertito a `unsigned char`: si scrive `isalpha((unsigned char) riga[i])`. Il motivo e' che `char`, con gcc su questi computer, e' con segno: il byte di una lettera accentata diventa un numero negativo, e lo standard dice che `isalpha` accetta solo i valori da $0$ a $255$ e `EOF`. Provate senza il cast su una riga con una lettera accentata: con la libreria di Linux non vedrete nessuna differenza, perche' la sua tabella copre anche gli indici negativi. Perche' allora il cast va messo lo stesso? (Pensate a che cosa succede su una libreria che la tabella negativa non ce l'ha.)
+6. **In piu'.** Contate anche le vocali e stampate la parola piu' lunga. Per la seconda vi servono due indici e `strncpy`: attenzione al terminatore, che `strncpy` non mette se la parola e' lunga esattamente quanto il limite.
+
+#### Mettere insieme i pezzi
+
+**Q7.** Il cifrario XOR. Lo XOR ha una proprieta' che lo rende il cifrario piu' semplice che esista: applicarlo due volte con la stessa chiave riporta al punto di partenza, perche' $(a \wedge k) \wedge k = a$. Scrivete un programma con un sottoprogramma `void cifra(char s[], char chiave)` che fa `s[i] = s[i] ^ chiave` per ogni carattere, e un `main` che cifra un messaggio, lo stampa come sequenza di numeri, lo cifra di nuovo con la stessa chiave e verifica che sia tornato leggibile.
+
+```text
+in chiaro: Attacco all alba
+cifrato  : 10 63 63 42 40 40 36 107 42 39 39 107 42 39 41 42
+decifrato: Attacco all alba
+
+'A' = 65, 'A' ^ 'K' = 10, ('A' ^ 'K') ^ 'K' = 65
+```
+
+1. Dimostrate la proprieta' $(a \wedge k) \wedge k = a$ guardando un singolo bit: fate la tabella dei quattro casi.
+2. Il testo cifrato viene stampato come numeri e non con `%s`. Guardate la sequenza: c'e' un $10$. Che carattere e' il codice $10$? Che cosa succederebbe stampando il cifrato con `%s`? E se un carattere cifrato risultasse $0$?
+3. Quest'ultima e' una domanda seria: se `s[i] == chiave`, il carattere cifrato e' `'\0'`, e la stringa si accorcia. Con la chiave `'K'`, quale lettera manda a zero il proprio carattere cifrato? Nel messaggio `"Attacco all alba"` non compare, ed e' per questo che li' la cifratura funziona; provate a cifrare `"OK"` e guardate che cosa resta.
+4. Correggete il difetto cifrando un array di `unsigned char` di lunghezza nota invece di una stringa terminata. Che cosa dovete cambiare nelle firme dei sottoprogrammi?
+5. Questo cifrario e' facilissimo da rompere: con una chiave di un solo carattere ci sono $256$ possibilita'. Scrivete il programma che le prova tutte su un messaggio cifrato e stampa i $256$ risultati: quanti sono leggibili?
+6. **In piu'.** Con una chiave lunga quanto il messaggio, scelta a caso e usata una volta sola, lo stesso cifrario diventa **indecifrabile**, ed e' un risultato dimostrato. Modificate `cifra` perche' accetti una chiave che e' una stringa, usando `chiave[i % strlen(chiave)]`. Attenzione: cosi' scritto, `strlen` finisce dentro il ciclo. Rileggete Q4.
+
+**Q8.** Il bit di parita'. I caratteri ASCII usano sette bit, quindi l'ottavo e' libero: si puo' usarlo per accorgersi degli errori di trasmissione. Si mette a $1$ se il numero di bit a $1$ del carattere e' dispari, in modo che il totale sia sempre pari; chi riceve ricalcola la parita' e, se non e' zero, sa che qualcosa si e' rovinato.
+
+Scrivete un programma con `int parita(unsigned char c)`, che restituisce $0$ o $1$, e `unsigned char con_parita(unsigned char c)`, che accende il bit $7$ quando serve. Applicatelo a `"Ciao"`, mostrate la tabella, poi rovesciate un bit di un carattere e ricontrollate.
+
+```text
+car   ascii   bit      parita   con bit 7
+ C      67   01000011     1       195
+ i     105   01101001     0       105
+ a      97   01100001     1       225
+ o     111   01101111     0       111
+
+controllo in ricezione:
+  195 -> parita' totale 0  (deve essere 0)
+  ...
+dopo aver rovesciato un bit del secondo carattere:
+  195 -> parita' totale 0
+  109 -> parita' totale 1   ERRORE
+```
+
+1. Verificate a mano la prima riga: scrivete $67$ in binario, contate i bit a $1$, e controllate che $195$ sia $67$ con il bit $7$ acceso.
+2. `con_parita` usa `0x80`, cioe' $128$, cioe' `1u << 7`. Scrivete i tre modi e dite quale preferite.
+3. Il controllo funziona perche' la parita' di un carattere con il bit di parita' e' **sempre** zero. Spiegate perche', senza fare conti: che cosa fa il bit aggiunto al numero totale di bit a $1$?
+4. Questo controllo rileva un bit sbagliato, ma non due. Rovesciate **due** bit dello stesso carattere e verificate che il controllo non se ne accorga. Quanti errori simultanei servono perche' il controllo fallisca? E con quale probabilita', se ogni bit si rovina indipendentemente?
+5. Il bit di parita' dice che c'e' un errore ma non dove. Scrivete, per un messaggio di $n$ caratteri, un secondo controllo che sia lo XOR di tutti i caratteri: messo in fondo al messaggio, che cosa permette di fare in piu'? (Suggerimento: se sapete **quale** carattere e' andato perso, lo XOR di tutti gli altri ve lo restituisce.)
+6. **In piu'.** La funzione `parita` fa fino a otto giri. Scrivetela con tre XOR e nessun ciclo, usando `c ^= c >> 4; c ^= c >> 2; c ^= c >> 1;` e poi leggendo il bit $0$. Verificate che dia gli stessi risultati per tutti i $256$ valori possibili.
+
+**Q9.** La maschera dell'alfabeto. Ventisei lettere stanno comodamente nei trentadue bit di un `unsigned int`: il bit $0$ per la `a`, il bit $1$ per la `b`, e cosi' via. Con una sola variabile si risponde allora a diverse domande su un testo. Scrivete `unsigned int maschera(char s[])` che accende il bit di ogni lettera presente, ignorando maiuscole e caratteri non alfabetici, e usatela per stampare la maschera in binario, il numero di lettere diverse e se la frase e' un pangramma, cioe' contiene tutte e ventisei le lettere.
+
+```text
+Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja!
+  11111111111111111111111111  lettere diverse 26  pangramma si
+Ciao mondo
+  00000000000111000100001101  lettere diverse  7  pangramma no
+abcdefghijklmnopqrstuvwxyz
+  11111111111111111111111111  lettere diverse 26  pangramma si
+
+maschera completa = 67108863 = 2^26 - 1 = 67108863
+
+anagrammi?
+  "roma" e "amor": maschere 151553 e 151553 -> forse
+  "casa" e "caos": maschere 262149 e 278533 -> no
+  "aab"  e "abb" : maschere 3 e 3 -> forse
+```
+
+1. Il test del pangramma e' `m == (1u << 26) - 1u`. Spiegate perche' quel numero ha esattamente ventisei bit accesi, e verificate che valga $67108863$.
+2. Il numero di lettere diverse e' `quanti_bit(m)` di Q2. Quante operazioni costa, rispetto a contarle con un array di ventisei contatori? Quale delle due usereste se vi servisse anche **quante volte** compare ciascuna lettera?
+3. Le ultime tre righe mostrano che la maschera **non** basta per gli anagrammi: `"aab"` e `"abb"` hanno la stessa maschera e non sono anagrammi. Dite esattamente che cosa dimostra l'uguaglianza delle maschere e che cosa no, e scrivete il controllo completo con i ventisei contatori.
+4. La maschera e' pero' utilissima come **filtro veloce**: se le maschere sono diverse, le due parole non sono anagrammi, e la risposta costa un confronto fra due interi. Generate $2000$ parole casuali di lunghezza fra $3$ e $8$ (con `srand(1)` e `rand`, come in G2), calcolate una volta sola le $2000$ maschere e contate quante delle circa due milioni di coppie sopravvivono al filtro. Misurate il tempo con il filtro e senza, cioe' applicando a ogni coppia il controllo completo a ventisei contatori.
+5. Scrivete, usando due maschere, un programma che dice quali lettere compaiono nella prima frase e non nella seconda. Quale operatore vi serve?
+6. **In piu'.** Con un `unsigned long long`, che ha almeno sessantaquattro bit, si potrebbero distinguere maiuscole e minuscole usandone cinquantadue. Che cosa cambierebbe nella funzione `maschera`? E il pangramma, come si controllerebbe?
+
+**Q10.** **Sfida.** Impacchettare. Un testo di sole lettere maiuscole e spazi usa ventisette simboli diversi, che stanno in cinque bit; eppure ogni carattere ne occupa otto. Si possono quindi memorizzare otto caratteri in cinque byte invece che in otto: a regime si risparmia il $37.5\%$.
+
+Scrivete un programma che impacchetta una stringa di maiuscole e spazi a cinque bit per carattere, stampa i byte ottenuti in esadecimale e poi la ricostruisce, verificando con `strcmp` che sia identica all'originale.
+
+```text
+testo:     "MATEMATICA DISCRETA"  (19 caratteri, 19 byte)
+impacchettato: 12 byte  -> 63% dell'originale
+byte: 60 26 46 02 68 10 34 34 48 51 24 C0
+ricostruito: "MATEMATICA DISCRETA"  -> identico
+```
+
+L'idea e' tenere un *accumulatore* `unsigned int acc` e un contatore `bit` di quanti bit utili contiene. Per ogni carattere si fa `acc = (acc << 5) | valore; bit += 5;` e, finche' `bit >= 8`, si estrae il byte piu' alto con `(acc >> (bit - 8)) & 0xFF` e si fa `bit -= 8`. Alla fine, se avanzano bit, si completa l'ultimo byte spostando a sinistra.
+
+1. Verificate il conto: $19$ caratteri per $5$ bit fanno quanti bit? E quanti byte, arrotondando per eccesso? Il $12$ torna?
+2. Scrivete la formula generale dei byte necessari per `n` caratteri, e verificate che per `n` multiplo di $8$ il risparmio sia esattamente $\frac{3}{8}$.
+3. Controllate a mano il primo byte. `'M'` e' la tredicesima lettera, quindi vale $12$, cioe' `01100`; `'A'` vale $0$, cioe' `00000`. I primi otto bit sono allora `01100000`, cioe' `0x60` in esadecimale. Torna?
+4. Lo spazio e' codificato come $26$. Che cosa succede se il testo contiene un carattere che non e' ne' una maiuscola ne' uno spazio? Aggiungete un controllo e decidete che cosa fare: rifiutare il testo, oppure sostituire il carattere. Motivate la scelta.
+5. Il programma deve sapere `n` per ricostruire: i bit avanzati alla fine sono indistinguibili da altri caratteri. Toglietelo dalla ricostruzione e fatela andare avanti finche' ci sono bit. Con `"MATEMATICA DISCRETA"` non cambia niente, perche' $19 \cdot 5 = 95$ bit lasciano un solo bit di riempimento; con `"MATEMATICA"` invece $10 \cdot 5 = 50$ bit ne lasciano sei, e in fondo compare una `A` che non c'era. Per quali lunghezze succede? Come si risolve il problema in generale? (Due modi: memorizzare la lunghezza, oppure riservare un valore come terminatore. Quale dei due costa meno, qui?)
+6. **In piu'.** In L19 avete visto che la codifica a sequenze puo' **allungare** il testo. Questo metodo invece non puo' mai allungarlo, e sui testi lunghi lo accorcia praticamente sempre dello stesso fattore, qualunque sia il testo (a meno dell'arrotondamento dell'ultimo byte). Qual e' la differenza fra i due? Che cosa sfrutta ciascuno dei due per risparmiare, e perche' solo uno dei due puo' fallire?

@@ -5,6 +5,7 @@
 | X | FILE*, argv e make test | 20 |
 | Y | qsort e bsearch | 5 |
 | Z | Integrazione e modularita' | 5 |
+| AA | Puntatori e memoria dinamica | 5 |
 
 
 ## Pacchetto X: FILE*, argv e make test
@@ -1174,3 +1175,285 @@ Requisiti:
  Ricostruite con `-fsanitize=address`, come spiegato nel riquadro qui sopra, e il programma si ferma da solo segnalando `stack-buffer-overflow` dentro `istogramma_conta`. (Il messaggio dice `READ`, non `WRITE`: `conteggi[15]++` legge la casella prima di riscriverla, e il controllo scatta gia' sulla lettura.) Quando avete finito, **rimettete $99$ in `lettura.c`**, date `make clean` e `make`, e controllate che `make test` torni a dare $8$ su $8$.
 
 Come si potrebbe fare in modo che quel conto non possa sbagliare? Pensate a quale delle due intestazioni dovrebbe dipendere dall'altra, e a che cosa potrebbe controllare un `assert` dentro `istogramma_conta`.
+
+
+## Pacchetto AA: Puntatori e memoria dinamica
+
+I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. `char *argv[]` in X, `FILE *f` in tutti i programmi che aprono un file, `const void *` nelle funzioni di confronto di Y: in ciascuno di quei casi c'era una stella, e l'avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: **chiedere memoria mentre il programma gira**.
+
+Il motivo per cui conviene farlo lo conoscete gia' bene. In Z1 il modulo `vettore` aveva una costante `VETTORE_MAX` uguale a $1000$, e il programma rifiutava i file piu' lunghi; in X e in Y ogni programma ha un `#define` che fissa un limite deciso da chi scrive, non da chi usa. In AA3 quel limite sparisce.
+
+Il materiale di questo pacchetto sta nelle cartelle da `AA1_scambia` a `AA5_lista`. Il Makefile e' lo stesso del Pacchetto Z, e `make test` funziona allo stesso modo. Compilate sempre con `gcc -g -Wall -Wextra`; da AA3 in poi serve anche `valgrind`, che e' nuovo, mentre `-fsanitize=address` lo avete gia' usato in Z5.
+
+### Un indirizzo e' un numero
+
+Ogni variabile di un programma sta da qualche parte nella memoria, e quel "da qualche parte" e' un numero: l'**indirizzo** del primo byte che occupa. Un *puntatore* e' una variabile che contiene un indirizzo.
+
+Servono tre notazioni, e sono tutte e tre la stessa stella letta in posti diversi:
+
+```c
+int x = 42;
+int *p;        /* p e' un puntatore a int: contiene l'indirizzo di un int */
+p = &x;        /* & prende l'indirizzo di x                               */
+printf("%d\n", *p);   /* * segue il puntatore: stampa 42                  */
+*p = 7;        /* scrive 7 dentro x, passando per p                       */
+```
+
+- nella **dichiarazione**, `int *p` si legge "`*p` e' un `int`", cioe' "`p` e' l'indirizzo di un `int`";
+- `&x` si legge "l'indirizzo di `x`";
+- `*p`, in un'espressione, si legge "il valore all'indirizzo `p`".
+
+Un puntatore che non punta a niente vale `NULL`, che e' definito in `stdio.h` e in `stdlib.h`. Seguire un puntatore `NULL` e' comportamento indefinito, e in pratica fa terminare il programma con `Segmentation fault`: e' il modo in cui il sistema vi dice che avete chiesto l'indirizzo zero. Per stampare un indirizzo si usa `%p`, con il valore convertito a `void *`:
+
+```c
+printf("x sta in %p\n", (void *)&x);
+```
+
+Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e' verificabile con `make test`. Quello che **non** cambia sono le loro differenze: e' su quelle che lavora AA2.
+
+### I puntatori che avete gia' usato
+
+| Dove | Che cosa e' | Che cosa significa |
+| --- | --- | --- |
+| `scanf("%d", &n)` | `&n` | l'indirizzo di `n`, perche' `scanf` deve **scrivere** dentro `n` |
+| `char *argv[]` | array di puntatori a `char` | ogni `argv[i]` e' l'indirizzo del primo carattere di una parola |
+| `FILE *f` | puntatore a una struttura della libreria | l'indirizzo di un oggetto che non dovete guardare dentro |
+| `int confronta(const void *a, const void *b)` | due indirizzi di tipo ignoto | `qsort` non sa che cosa sta ordinando: vi passa gli indirizzi |
+| `strcpy(d, s)` | due indirizzi di `char` | i nomi degli array sono indirizzi, come si vede qui sotto |
+
+La prima riga e' quella che spiega I12. Un sottoprogramma riceve **copie** dei parametri, quindi non puo' cambiare le variabili del chiamante; `scanf` ci riesce perche' non riceve `n` ma il suo indirizzo. Quando in I avete scritto uno `scambia` che non scambiava, vi mancava esattamente questo. In AA1 lo rimettete a posto.
+
+### Puntatori e array
+
+In C il nome di un array, usato in un'espressione, **vale l'indirizzo del suo primo elemento**. Da questo discende tutto il resto:
+
+- `v[i]` e' solo un modo comodo di scrivere `*(v + i)`: le due notazioni sono intercambiabili;
+- `v + i` non somma `i` byte ma `i` **elementi**: con un array di `int`, `v + 1` e' quattro byte piu' avanti. L'aritmetica dei puntatori sa quanto e' grande cio' che viene puntato;
+- la differenza di due puntatori dentro lo stesso array e' il numero di elementi che li separa, non di byte;
+- passare un array a una funzione **non lo copia**, perche' quello che viene copiato e' l'indirizzo. E' la risposta alla domanda rimasta in sospeso in I7 e in P17: una `struct` passata per valore viene copiata tutta (tutti e novantasei i byte del `Polinomio` di P17, a ogni chiamata), un array no, e la differenza e' qui;
+- dentro la funzione, quindi, `sizeof` sul parametro **non** da' la dimensione dell'array, ma quella di un puntatore. Per questo le funzioni che ricevono un array ricevono sempre anche `n`.
+
+```c
+void f(int v[]) {
+    printf("%d\n", (int)sizeof(v));   /* 8: e' un puntatore */
+}
+
+int main(void) {
+    int v[8];
+    printf("%d\n", (int)sizeof(v));   /* 32: sono 8 int */
+    f(v);
+    return 0;
+}
+```
+
+`int v[]` e `int *v`, scritti come **parametro**, sono la stessa identica cosa; scritti come **dichiarazione di variabile** sono due cose diverse (il primo riserva lo spazio, il secondo no).
+
+### Chiedere memoria durante l'esecuzione
+
+Finora tutta la memoria dei vostri programmi era decisa prima di partire: le variabili e gli array avevano una taglia scritta nel sorgente. Le quattro funzioni di `stdlib.h` che seguono permettono invece di chiederne quando serve e quanta serve.
+
+| Funzione | Che cosa fa |
+| --- | --- |
+| `malloc(byte)` | chiede `byte` byte e restituisce l'indirizzo del primo, oppure `NULL` |
+| `calloc(quanti, byte)` | come `malloc` per `quanti * byte` byte, ma li azzera |
+| `realloc(p, byte)` | cambia la dimensione del blocco `p`, conservandone il contenuto |
+| `free(p)` | restituisce al sistema il blocco `p` |
+
+La forma da imparare a memoria e' questa:
+
+```c
+int *v = malloc((size_t)n * sizeof(int));
+if (v == NULL) {
+    fprintf(stderr, "memoria esaurita\n");
+    return 1;
+}
+/* ... usare v come un normale array di n interi: v[0], ..., v[n-1] ... */
+free(v);
+```
+
+Tre avvertenze:
+
+- **si scrive `sizeof(int)`, non $4$.** Il programma deve restare giusto su un computer in cui `int` ne occupa otto;
+- **il valore restituito va sempre controllato.** `malloc` restituisce `NULL` quando non ce la fa, e seguire quel `NULL` fa morire il programma lontano dal punto in cui e' nato l'errore;
+- **`realloc` puo' spostare il blocco**, quindi il vecchio indirizzo dopo la chiamata non vale piu'. Il risultato si raccoglie in una variabile nuova, perche' se `realloc` fallisce restituisce `NULL` e il blocco vecchio e' ancora da liberare:
+
+```c
+int *nuovo = realloc(v, (size_t)capacita * sizeof(int));
+if (nuovo == NULL) {
+    free(v);          /* v e' ancora valido: va liberato */
+    return NULL;
+}
+v = nuovo;
+```
+
+**Chi chiede, libera.** La memoria ottenuta con `malloc` resta occupata finche' qualcuno non chiama `free`: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita' passa al chiamante: e' quello che fa l'`@post` di `lettura_interi` in AA3.
+
+### I quattro errori, e i due strumenti per vederli
+
+| Errore | Che cosa succede |
+| --- | --- |
+| **perdita** (*leak*) | si chiede memoria e non si libera mai: il programma cresce finche' non finisce la memoria |
+| **doppia liberazione** | si chiama `free` due volte sullo stesso blocco: il programma muore, a volte molto dopo |
+| **uso dopo la liberazione** | si legge o si scrive un blocco gia' liberato: i valori sono casuali |
+| **scrittura oltre il limite** | si scrive in `v[n]` di un blocco di `n` elementi: si rovina la memoria accanto |
+
+Hanno tutti e quattro la stessa caratteristica sgradevole: **il programma sembra funzionare**. Nessuno dei quattro e' segnalato da `gcc` in modo affidabile, e i test di `make test` li superano tutti. Servono strumenti che controllino la memoria durante l'esecuzione, e ce ne sono due:
+
+```bash
+gcc -g -Wall -Wextra -fsanitize=address -o prova prova.c    # poi ./prova
+valgrind --leak-check=full ./prova
+```
+
+Il primo lo conoscete gia' dal Pacchetto Z, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con `malloc`, e in piu' alla fine del programma `-fsanitize=address` elenca i blocchi mai liberati. Il secondo, `valgrind`, e' nuovo: non richiede di ricompilare, trova le stesse cose piu' lentamente, e il suo riepilogo finale distingue la memoria **definitely lost** da quella **still reachable**. Usateli entrambi almeno una volta in AA4, e poi tenete l'abitudine di passare sotto `valgrind` ogni programma che chiama `malloc`.
+
+### Esercizi (AA1-AA5)
+
+**AA1.** Nella cartella `AA1_scambia` trovate il modulo `scambio.h` e `scambio.c`, il Makefile e i test; manca `main.c`, che scrivete voi. Il modulo offre quattro sottoprogrammi: `scambio_per_valore`, lasciato apposta com'era in I12 e quindi inutile; `scambio_scambia`, che funziona; `scambio_dividi`, che restituisce quoziente e resto insieme; e `scambio_ordina_tre`.
+
+Il programma `scambia` riceve tre interi sulla riga di comando e stampa esattamente questo:
+
+```text
+$ ./scambia 17 5 3
+Prima:            a = 17, b = 5
+Per valore:       a = 17, b = 5
+17 / 5 = 3 con resto 2
+Con i puntatori:  a = 5, b = 17
+Ordinati:         3 5 17
+```
+
+Con un numero di argomenti diverso da tre, stampa su `stderr` la riga `Uso: ./scambia a b c` e termina con codice $1$. La divisione va fatta **prima** dello scambio, e con il divisore uguale a zero stampa `7 / 0: divisione per zero` al posto della riga della divisione.
+
+1. Leggete `scambio.c` e confrontate i corpi di `scambio_per_valore` e di `scambio_scambia`: sono la stessa sequenza di tre assegnazioni, con tre stelle in piu'. Dite, riga per riga, su che cosa agiscono le assegnazioni nei due casi.
+2. Nel `main`, la prima chiamata si scrive `scambio_per_valore(a, b)` e la seconda `scambio_scambia(&a, &b)`. Provate a scrivere `scambio_scambia(a, b)` e riportate l'errore di gcc. E con `scambio_per_valore(&a, &b)`?
+3. **Con gdb.** Mettete un punto di arresto su `scambio_scambia` ed eseguite `print a`, `print *a`, `print &a` e, risalendo con `up`, `print &a` nel `main`. Quali due di questi quattro comandi stampano lo stesso numero? Spiegate perche'.
+4. `scambio_dividi` e' il modo in cui in C una funzione "restituisce due valori": uno con `return` e gli altri scrivendo dove le viene detto. Confrontatelo con la soluzione di P, dove una `struct` con due campi faceva lo stesso lavoro. Quali sono i vantaggi e gli svantaggi dei due modi?
+5. Il valore restituito da `scambio_dividi` e' $0$ o $1$ e dice se la divisione si poteva fare. E' la stessa convenzione di `scanf`, che restituisce quanti valori e' riuscito a leggere. Che cosa succede nel `main` se non lo controllate e `b` vale zero? Provate: `q` e `r` che valori hanno?
+6. `scambio_ordina_tre` chiama `scambio_scambia` tre volte. Dimostrate che tre scambi bastano sempre, elencando i sei ordini possibili di tre numeri diversi e seguendo l'algoritmo su ciascuno.
+7. **In piu'.** Aggiungete al modulo `void scambio_ruota(int *a, int *b, int *c)`, che sposta il valore di `*a` in `*b`, quello di `*b` in `*c` e quello di `*c` in `*a`. Quante variabili di appoggio servono? Verificate che applicandola tre volte si torni al punto di partenza.
+
+**AA2.** Nella cartella `AA2_indirizzi` trovate il modulo `indirizzi.h` e `indirizzi.c`; manca `main.c`. Il modulo somma un array in tre modi diversi (con `v[i]`, con `*(v + i)` e scorrendo con un puntatore da un indirizzo all'altro), stampa le distanze fra gli elementi, e misura `sizeof` del parametro.
+
+Il programma `indirizzi` riceve da uno a sedici interi sulla riga di comando, li mette in un array `int v[16]` dichiarato dentro `main`, e stampa:
+
+```text
+$ ./indirizzi 3 1 4 1 5 9 2 6
+sizeof(v) dentro main:        64 byte
+sizeof(v) dentro la funzione: 8 byte
+sizeof(int):                  4 byte
+caselle secondo main:         16
+numeri letti:                 8
+
+somma con v[i]:       31
+somma con *(v + i):   31
+somma scorrendo:      31
+somma della meta' destra: 22
+
+v[0] =   3   &v[0] - &v[0] = 0   in byte: 0
+v[1] =   1   &v[1] - &v[0] = 1   in byte: 4
+...
+v[7] =   6   &v[7] - &v[0] = 7   in byte: 28
+```
+
+La "meta' destra" e' `indirizzi_somma_scorrendo(v + n / 2, v + n)`. Con zero argomenti o con piu' di sedici, il programma stampa su `stderr` `Uso: ./indirizzi n1 n2 ... (da 1 a 16 numeri)` e termina con codice $1$.
+
+1. Compilando il modulo, gcc produce un avviso: `'sizeof' on array function parameter 'v' will return size of 'const int *'`. Non e' un difetto da correggere, e' l'argomento dell'esercizio. Riscrivetelo con parole vostre e dite perche' il compilatore puo' accorgersene.
+2. `sizeof(v)` vale $64$ nel `main` e $8$ nella funzione. Da dove vengono i due numeri? Quale dei due dipende da `#define MAX 16` e quale dal computer?
+3. Le tre somme danno lo stesso risultato. Guardate i tre corpi in `indirizzi.c`: `v[i]`, `*(v + i)` e `*p` con `p++`. Spiegate perche' sono la stessa cosa, e dite quale delle tre scrivereste nel vostro codice.
+4. Nella tabella finale, la terza colonna e' sempre quattro volte la seconda. Perche' `&v[i] - &v[0]` vale `i` e non `4 * i`? Che cosa dovrebbe fare il compilatore per ottenere quel numero, sapendo che gli indirizzi sono byte?
+5. Cambiate l'array in `double v[16]` (e tutto il resto di conseguenza). Quali numeri della tabella cambiano, e quali no? Prevedeteli prima di eseguire.
+6. `indirizzi_somma_scorrendo(v, v + n)` riceve un indirizzo **oltre** l'ultimo elemento. Lo standard C garantisce che calcolare quell'indirizzo sia lecito, ma non che si possa seguire. Guardate il ciclo: dove viene usato `fine`, e dove **non** viene usato?
+7. **In piu'.** Scrivete `int indirizzi_cerca(const int *inizio, const int *fine, int valore)` che restituisce la distanza dal primo elemento, oppure $-1$. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o `NULL`: e' cosi' che funziona `bsearch` di Y.
+
+**AA3.** Nella cartella `AA3_dinamico` trovate `lettura.h`, il `main.c` gia' scritto, il Makefile e i test. Manca `lettura.c`: lo scrivete voi, ed e' il primo modulo che chiede memoria.
+
+Il modulo deve leggere da un file **tutti** gli interi che contiene, senza nessun limite fissato nel sorgente: niente `VETTORE_MAX`. La strategia e' obbligatoria, perche' i test controllano anche quante volte l'array e' stato ingrandito: si parte da una capacita' di $4$ elementi e la si **raddoppia** ogni volta che si riempie.
+
+```text
+$ ./somma test/numeri.txt
+Numeri letti: 10
+Minimo: 1
+Massimo: 9
+Somma: 39
+Ingrandimenti: 2
+Primi cinque: 3 1 4 1 5
+
+$ ./somma test/grande.txt
+Numeri letti: 20000
+Minimo: -1000
+Massimo: 1000
+Somma: -75376
+Ingrandimenti: 13
+Primi cinque: -337 941 -692 -192 333
+```
+
+`lettura_interi` restituisce `NULL`, scrivendo $-1$ in `*quanti`, se il file contiene un dato non valido, se la memoria non basta, o se il file e' vuoto; in tutti e tre i casi deve liberare quello che aveva gia' chiesto.
+
+1. Verificate i due numeri della riga `Ingrandimenti`. Partendo da $4$ e raddoppiando, quali capacita' si attraversano per arrivare a contenere $10$ elementi? E $20000$? Scrivete la formula generale in funzione di `n`.
+2. Il totale degli elementi copiati dai vari `realloc` e' $4 + 8 + 16 + \dots$ fino all'ultima capacita'. Sommate la serie geometrica e dite quanto costa, in funzione di `n`, tutta la crescita. Qual e' la classe? (E' il motivo per cui si raddoppia invece di aggiungere una casella per volta.)
+3. Provate a crescere **di uno** invece che raddoppiando, su `grande.txt`. Quanti `realloc` vengono fatti, e quanti elementi vengono copiati in tutto? Misurate il tempo delle due versioni con `time`.
+4. Il modulo di Z1 rifiutava i file con piu' di $1000$ numeri; questo legge `grande.txt` che ne ha $20000$. Rileggete in `vettore.h` di Z1 il commento della costante `VETTORE_MAX` e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.
+5. **Con valgrind.** Eseguite `valgrind --leak-check=full ./somma test/numeri.txt`. Deve dire `All heap blocks were freed`. Poi togliete la chiamata a `lettura_libera` nel `main` e rieseguite: quanti byte risultano persi, e corrispondono a quelli che avevate chiesto?
+6. Il `main` controlla `if (v == NULL)`. Togliete il controllo e provate con `test/vuoto.txt`: che cosa succede, e a quale riga? Confrontate con il caso in cui il controllo c'e'.
+7. **In piu'.** Il blocco finale ha una capacita' che e' una potenza di due, quindi quasi sempre piu' grande del necessario: con $20000$ elementi ne occupa $32768$. Aggiungete alla fine di `lettura_interi` un `realloc` che la riduce esattamente a `n`, e dite quanti byte si risparmiano nel caso peggiore. Perche' quel `realloc` non puo' fallire in modo pericoloso?
+
+**AA4.** Nella cartella `AA4_memoria` ci sono quattro programmi indipendenti, `uno.c`, `due.c`, `tre.c` e `quattro.c`. Tutti e quattro **calcolano la cosa giusta** e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu' sopra, uno per programma. Il Makefile offre `make`, `make asan` e `make valgrind`.
+
+Per ciascuno: eseguitelo, osservate che l'output e' corretto, trovate l'errore con gli strumenti, correggetelo, e verificate che `valgrind` non dica piu' niente.
+
+```text
+$ ./uno
+Somma dei quadrati fino a 100: 338350
+
+$ ./due 4 8 15 16 23 42
+Media: 18.00
+free(): double free detected in tcache 2
+Aborted
+
+$ ./tre 5
+Diagonale: 1606917908 4 9 16 25
+Somma: 225
+
+$ ./quattro 10
+Somma dei primi 10 dispari: 100
+```
+
+1. Associate ciascun programma a uno dei quattro errori, **prima** di usare gli strumenti. Due si riconoscono gia' dall'output riportato qui sopra: quali, e da che cosa?
+2. Eseguite `make valgrind ARG=10` e leggete i quattro rapporti. Per `uno`, valgrind dice `definitely lost: 39,999,600 bytes in 99,999 blocks` e, una riga piu' sotto, `still reachable: 400 bytes in 1 blocks`: da dove vengono questi numeri? (Il programma chiama la funzione $100000$ volte, su array di $100$ interi.) Sommate i blocchi persi e quello ancora raggiungibile: quante chiamate sono?
+3. Eseguite `make asan` e rieseguite i quattro. I messaggi sono `leaked in ... allocation(s)`, `attempting double-free`, `heap-use-after-free` e `heap-buffer-overflow`. Confrontateli con le vostre risposte al punto 1.
+4. Uno dei quattro errori viene segnalato **anche da gcc**, in compilazione, con l'avviso `pointer 't' may be used after 'free'`. Quale? Perche' il compilatore riesce a vedere quello e non gli altri tre? (Guardate quanto distano, nel sorgente, la `free` e l'uso sbagliato.)
+5. In `due.c` l'errore non e' in una riga ma in una **decisione di progetto**: `media` libera l'array che ha ricevuto. Spiegate perche' e' una pessima idea e correggete senza spostare la `free` di posto nel `main`. Che cosa andrebbe scritto nella documentazione di `media` se si volesse davvero tenere quel comportamento?
+6. In `tre.c` la prima stampa della diagonale e' un numero diverso a ogni esecuzione, ma gli altri quattro sono giusti. Spiegate perche' il blocco liberato contiene ancora i valori di prima, tranne che all'inizio. (Suggerimento: chi gestisce la memoria libera usa i primi byte del blocco per i propri appunti.)
+7. In `quattro.c` la scrittura e' una sola casella oltre il limite, e il programma termina regolarmente. Provate con `n` molto piu' grande e ripetete qualche volta: termina sempre? **In piu'.** Questo e' l'errore piu' pericoloso dei quattro: spiegate perche', confrontandolo con una perdita di memoria.
+
+**AA5.** **Sfida.** Nella cartella `AA5_lista` ci sono `lista.h`, il `main.c` gia' scritto, il Makefile e i test; manca `lista.c`, che scrivete voi. E' la prima struttura dati che non e' un array: una **lista concatenata**, cioe' una catena di nodi in cui ciascuno contiene un valore e l'indirizzo del successivo.
+
+```c
+typedef struct nodo {
+    int valore;
+    struct nodo *successivo;
+} Nodo;
+```
+
+Una lista vuota e' `NULL`, l'ultimo nodo ha `successivo` uguale a `NULL`. Ogni sottoprogramma che puo' cambiare la testa della lista la restituisce, e chi chiama riassegna: `l = lista_togli(l, 5);`.
+
+```text
+$ ./lista 5 3 9 1 3 7
+In testa:   7 3 1 9 3 5
+Lunghezza:  6
+Rovesciata: 5 3 9 1 3 7
+Contiene 5: 1
+Contiene 999: 0
+Senza 5:   3 9 1 3 7
+Senza 999:  3 9 1 3 7
+Ordinata:   1 3 3 5 7 9
+Lunghezza:  6
+```
+
+1. La dichiarazione contiene `struct nodo *successivo;` **dentro** la definizione di `struct nodo`: una struttura che contiene se stessa. Spiegate perche' questo e' lecito mentre `Nodo successivo;` non lo sarebbe. (Pensate a quanto dovrebbe valere `sizeof(Nodo)` nei due casi.)
+2. Dentro la struttura si scrive `struct nodo *` e non `Nodo *`. Perche'? Provate a scrivere `Nodo *successivo;` e riportate l'errore.
+3. `lista_inserisci_in_testa` costa sempre lo stesso, qualunque sia la lunghezza della lista; `lista_inserisci_ordinato` no. Scrivete le due classi di complessita' e dite che cosa costa invece l'inserimento in testa in un **array**.
+4. Scrivete `lista_rovescia` senza chiamare `malloc`: servono tre puntatori, `precedente`, `corrente` e `dopo`. Seguitela a mano sulla lista `7 3 1`, disegnando le frecce dopo ogni giro. Perche' serve `dopo`?
+5. `lista_togli` ha due casi: il valore e' in testa, oppure no. Perche' il primo va trattato a parte? Che cosa va liberato, e in quale ordine rispetto all'aggiornamento di `successivo`? (Invertite i due e guardate che cosa dice `-fsanitize=address`.)
+6. **Con valgrind.** `valgrind --leak-check=full ./lista 5 3 9 1 3 7` deve dire `All heap blocks were freed`. Se non lo dice, i byte persi sono un multiplo di `sizeof(Nodo)`: quanti nodi avete dimenticato, e dove?
+7. Confrontate la lista con l'array dinamico di AA3 su quattro operazioni: inserire in testa, inserire in coda, leggere l'elemento di posto `i`, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un `Nodo` rispetto a un `int`?
+8. **In piu'.** Scrivete `Nodo *lista_fondi(Nodo *a, Nodo *b)` che, date due liste **ordinate**, ne costruisce una sola ordinata riusando i nodi che gia' esistono, senza nessun `malloc` e senza nessuna `free`. E' la fusione di G6, fatta con le frecce invece che con gli indici: qui, a differenza di G6, non serve un terzo contenitore. Perche'?

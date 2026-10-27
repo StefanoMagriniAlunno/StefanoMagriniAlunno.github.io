@@ -12,6 +12,8 @@
 | H | Matrici e gprof | 20 |
 | I | Le funzioni e la documentazione | 20 |
 | J | Ricorsione e classi di memorizzazione | 20 |
+| K | Contare le operazioni | 20 |
+| L | Tempo, memoria e compromessi | 20 |
 
 
 ## Pacchetto A: Pseudocodice
@@ -5704,3 +5706,1003 @@ E i comandi nuovi di questi due pacchetti:
 | `break f if n == 0` | ferma la funzione solo quando la condizione e' vera | J1 |
 | `ulimit -s` | dice quanto e' grande la pila, in KB | J9 |
 | `gcc -Wshadow` | segnala le variabili locali che nascondono una globale | J8 |
+
+
+
+
+## Pacchetto K: Contare le operazioni
+
+Nei Pacchetti G e H avete misurato dei programmi con `time` e con gprof, e avete visto che due programmi corretti possono impiegare uno un millesimo di secondo e l'altro dieci. Avete anche contato, in diversi esercizi, i confronti di un ordinamento o le chiamate di una funzione ricorsiva. Quello che non avete ancora fatto e' **dare un nome a quei numeri**, e metterli in una formula che vale per ogni `n`.
+
+E' quello che facciamo qui. Il cronometro dipende dal computer, dal compilatore e da che cos'altro sta girando in quel momento; il conteggio delle operazioni no, e si puo' prevedere con carta e penna *prima* di scrivere il programma. Alla fine di questo pacchetto dovreste saper guardare un ciclo annidato e dire "questo e' quadratico" senza eseguirlo, e poi verificare di averci azzeccato.
+
+Compilate sempre con `gcc -g -Wall -Wextra`; `time` torna spesso, e le domande che lo usano iniziano con **Con time.**
+
+### Contare le operazioni
+
+Contare *tutte* le istruzioni di un programma non ha senso: sono troppe e dipendono dal compilatore. Si sceglie invece un'**operazione dominante**, cioe' quella che si ripete piu' spesso e che cresce con i dati, e si conta solo quella. Per un ordinamento e' il confronto tra due elementi; per una ricerca, il confronto con il valore cercato; per il prodotto di due matrici, la moltiplicazione.
+
+Il modo di contarla lo conoscete gia': una variabile `long` aumentata di uno nel punto giusto, come avete fatto per gli scambi in G7 e per le chiamate in J3.
+
+### La notazione O-grande
+
+Quando `n` diventa grande, in una formula come $\frac{n^2}{2} - \frac{n}{2}$ conta solo il pezzo che cresce piu' in fretta: con $n = 1000$ il primo addendo vale $500000$ e il secondo $500$, cioe' un millesimo. E conta poco anche il coefficiente $\frac{1}{2}$, perche' dipende da che cosa si e' scelto di contare. Si tiene quindi solo la *forma* della crescita, e si scrive
+
+$$\frac{n^2}{2} - \frac{n}{2} = O(n^2)$$
+
+che si legge "e' O-grande di $n$ al quadrato". La definizione precisa: $f(n) = O(g(n))$ se esistono una costante $C$ e un indice $n_0$ tali che $f(n) \le C \cdot g(n)$ per ogni $n \ge n_0$. In pratica: *da un certo punto in poi, $f$ non cresce piu' in fretta di $g$, a meno di un fattore costante*.
+
+Le classi che incontrerete sono poche:
+
+| Classe | Nome | Esempio | Se `n` raddoppia... |
+| --- | --- | --- | --- |
+| $O(1)$ | costante | leggere `v[i]` | non cambia |
+| $O(\log n)$ | logaritmica | la ricerca binaria di F20 | aumenta di una costante |
+| $O(n)$ | lineare | sommare un array | raddoppia |
+| $O(n \log n)$ | lineare-logaritmica | l'ordinamento per fusione, che scriverete in K20 | poco piu' che raddoppia |
+| $O(n^2)$ | quadratica | il bubble sort di F18 | quadruplica |
+| $O(2^n)$ | esponenziale | i cammini di J20 senza memoria | diventa il suo quadrato |
+
+L'ultima colonna e' la piu' utile di tutte, ed e' il collegamento fra teoria e misura: e' quello che userete in K6 per riconoscere la classe di un programma **senza guardarne il codice**.
+
+### Caso migliore, caso peggiore, caso medio
+
+Lo stesso algoritmo puo' costare in modo diverso a seconda dei dati. L'insertion sort su un array gia' ordinato non sposta niente, su un array rovesciato sposta il massimo possibile. Si distinguono allora tre misure: il **caso migliore**, il **caso peggiore** e il **caso medio**, cioe' la media su tutti i dati possibili. Quando si dice "la complessita' di un algoritmo" senza altre precisazioni si intende quasi sempre il caso peggiore, perche' e' l'unica garanzia.
+
+### Esercizi (K1-K10)
+
+#### Dalla misura alla formula
+
+**K1.** Il bubble sort di F18 conta i confronti. Scrivete `confronti.c` che lo esegue su array casuali di quattro taglie diverse e stampa, accanto al numero di confronti contati, il valore della formula $\frac{n(n-1)}{2}$.
+
+```text
+     n    confronti     n(n-1)/2       scambi
+    10           45           45           27
+   100         4950         4950         2353
+  1000       499500       499500       256368
+  4000      7998000      7998000      4033819
+```
+
+Riempite l'array con `srand(1)` e `rand() % 10000`, e dichiarate l'array prima di `main` (H6).
+
+1. Le due colonne centrali coincidono in tutte e quattro le righe, e non e' un caso: ricavate la formula contando a mano. Il ciclo esterno fa $n-1$ giri; al giro `i` quanti giri fa il ciclo interno? Sommate.
+2. La colonna dei confronti non dipende dai dati, quella degli scambi si'. Perche'? Qual e' il numero massimo possibile di scambi, e con quale array si ottiene?
+3. Passando da $n = 1000$ a $n = 4000$ i confronti crescono di quante volte? E $4000 / 1000$ quanto fa? Che relazione c'e' fra i due numeri?
+4. Scrivete la formula in notazione O-grande e giustificate perche' il $-\frac{n}{2}$ si puo' buttare via.
+
+**K2.** L'insertion sort di G17 e i suoi tre casi. Scrivete `tre_casi.c` che lo esegue su un array di $20000$ elementi riempito in tre modi (ordinato con `v[i] = i`, rovesciato con `v[i] = N - i`, e casuale con `srand(1)` e `rand()`) e conta gli spostamenti.
+
+```text
+ordinato:   0 spostamenti
+rovesciato: 199990000 spostamenti
+casuale:    100491769 spostamenti
+n(n-1)/2 =  199990000
+n(n-1)/4 =  99995000
+```
+
+1. Il caso rovesciato coincide esattamente con $\frac{n(n-1)}{2}$: perche' e' il massimo possibile? Quanti spostamenti fa, al giro `i`, la chiave che deve arrivare in fondo a sinistra?
+2. Il caso casuale e' vicinissimo a $\frac{n(n-1)}{4}$, cioe' alla meta' del peggiore. Spiegatelo cosi': prese due posizioni a caso, con che probabilita' sono fuori ordine?
+3. Scrivete le tre complessita' in notazione O-grande. Quale delle tre si intende quando si dice "l'insertion sort e' $O(n^2)$"?
+4. Il caso migliore e' $O(n)$ anche se gli spostamenti sono $0$: che cosa viene fatto comunque $n-1$ volte, e che non abbiamo contato?
+
+**K3.** Il selection sort di G16 ha una proprieta' che gli altri due non hanno. Aggiungete al programma due contatori, uno per i confronti e uno per gli scambi, e provatelo sui tre array di K2.
+
+1. Completate la tabella. Quale delle due righe e' identica nelle tre colonne? (Il selection sort di G16 esegue lo scambio solo quando `_k` e' diverso da `_j`: contate gli scambi cosi'.)
+
+| | ordinato | rovesciato | casuale |
+| --- | --- | --- | --- |
+| Confronti |  |  |  |
+| Scambi |  |  |  |
+
+2. Il selection sort fa sempre lo stesso numero di confronti, qualunque siano i dati: ha quindi caso migliore e caso peggiore uguali, entrambi $O(n^2)$. In compenso gli scambi sono al massimo $n-1$. Se uno scambio costasse mille volte un confronto, quale dei tre ordinamenti sceglereste?
+3. Su un array gia' ordinato, insertion sort e selection sort si comportano in modo opposto. Spiegate la differenza in una riga guardando i due algoritmi.
+
+**K4.** Ricerca lineare e ricerca binaria, con i passi contati. Riprendete G10 e stampate anche la media dei passi per ricerca.
+
+```text
+ricerche: 10000, trovate: 5087
+passi ricerca lineare: 745236093  (media 74523.6)
+passi ricerca binaria: 161738  (media 16.17)
+```
+
+1. La media della ricerca binaria e' $16.17$, e $\log_2 100000 \approx 16.6$: tornano. Quanti passi fa al massimo la ricerca binaria su $100000$ elementi? Verificate che sia $\lfloor \log_2 n \rfloor + 1$.
+2. La media della ricerca lineare e' $74523$, non $50000$ come forse vi aspettavate. Il motivo e' nella prima riga dell'output: su $10000$ ricerche solo $5087$ hanno successo. Quanto costa una ricerca che fallisce? E una che ha successo, in media? Mettete insieme i due numeri con le rispettive probabilita' e confrontate con $74523$.
+3. **Con time.** Misurate i tempi delle due versioni. Il rapporto tra i tempi assomiglia al rapporto tra i passi? Se non ci assomiglia del tutto, pensate a quanto costa *un* passo nei due casi: la ricerca binaria calcola una divisione a ogni giro, la lineare no.
+4. Per quale valore di $n$ la ricerca binaria comincia a convenire? Risolvete $\log_2 n < \frac{n}{2}$ a mano per $n = 2, 3, 4, \dots$: qual e' il piu' piccolo $n$ da cui in poi la disuguaglianza vale sempre?
+
+**K5.** Le somme prefisse di G5, riviste con gli occhi della complessita'. Riprendete `richieste.c` e contate le addizioni delle due versioni.
+
+1. Con $N = 100000$ e $Q = 20000$: quante addizioni fa, al massimo, la versione con il ciclo? E quante operazioni (addizioni per il precalcolo, sottrazioni per le richieste) fa quella con le somme prefisse?
+2. Scrivete le due complessita' in funzione di $N$ e $Q$: una e' $O(N \cdot Q)$, l'altra $O(N + Q)$. Per quali valori di $Q$ conviene precalcolare? E se le richieste fossero una sola?
+3. Il precalcolo occupa un array `long s[N]` in piu'. E' il primo esempio di una cosa che vedrete per bene nel Pacchetto L: si paga memoria per guadagnare tempo.
+
+#### Riconoscere la classe
+
+**K6.** Il test piu' utile di tutto il pacchetto: **raddoppiare `n` e guardare il rapporto**. Scrivete `raddoppio.c` che, per `n` che va da $1000$ a $64000$ raddoppiando, esegue tre algoritmi su un array di `n` elementi (il bubble sort, una somma di tutti gli elementi e una ricerca binaria di un valore **che non c'e'**, cioe' il caso peggiore) contando per ciascuno l'operazione dominante, e stampa accanto a ogni conteggio il rapporto con il conteggio della riga precedente.
+
+```text
+       n         bubble      rapp.          somma      rapp.    binaria
+    1000         499500          -           1000          -         10
+    2000        1999000       4.00           2000       2.00         11
+    4000        7998000       4.00           4000       2.00         12
+    8000       31996000       4.00           8000       2.00         13
+   16000      127992000       4.00          16000       2.00         14
+   32000      511984000       4.00          32000       2.00         15
+   64000     2047968000       4.00          64000       2.00         16
+```
+
+1. Tre colonne, tre comportamenti: il rapporto vale $4$, vale $2$, e la terza colonna non ha nemmeno bisogno di un rapporto perche' aumenta di $1$ (ed e' il $\lfloor \log_2 n \rfloor + 1$ di K4). Associate ciascuna alla sua classe e spiegate perche' il rapporto e' proprio quello. (Per la quadratica: se $f(n) = cn^2$, quanto vale $\frac{f(2n)}{f(n)}$?)
+2. L'ultima colonna aumenta di $1$ a ogni raddoppio. Che funzione aumenta di una costante quando il suo argomento raddoppia?
+3. **Con time.** Rifate la stessa tabella con i tempi invece dei conteggi, misurando con `time` e riportando `user`. I rapporti sono ancora $4$, $2$ e quasi nulla? Dove i tempi sono piccolissimi il rapporto e' instabile: perche', e da quale taglia in poi diventa affidabile?
+4. **In piu'.** Questo test funziona anche su un programma di cui non avete il codice: basta poterlo eseguire su taglie diverse. Provate a far indovinare a un compagno la classe di un vostro programma dandogli solo i tempi.
+
+**K7.** Due programmi possono essere entrambi $O(n)$ e uno essere dieci volte piu' lento dell'altro: la costante che la notazione O-grande butta via esiste eccome. Scrivete due programmi che sommano i primi `n` interi, uno con un ciclo semplice e uno che dentro il ciclo esegue dieci volte la stessa addizione inutile, e misurate entrambi con `time` per `n` da $10^7$ a $10^8$.
+
+1. I due tempi stanno in un rapporto circa costante al variare di `n`? E i due rapporti di raddoppio?
+2. Concludete: che cosa vi dice la notazione O-grande e che cosa **non** vi dice. Quando la costante conta e quando no?
+3. La terza versione: $\frac{n(n+1)}{2}$ con una formula sola, cioe' $O(1)$. Misuratela: quanto ci mette con $n = 10^8$? Attenzione: con quel valore il risultato e' circa $5 \cdot 10^{15}$, quindi `n` e il risultato vanno dichiarati `long`. Provate poi $n = 10^9$: il tempo cambia?
+
+**K8.** La successione di Fibonacci, gia' incontrata in J3, con i tre modi di calcolarla.
+
+```text
+   n       fib(n)  ric: chiamate      rapp. iter: giri
+  20         6765          21891          -         20
+  25        75025         242785      11.09         25
+  30       832040        2692537      11.09         30
+  35      9227465       29860703      11.09         35
+memoizzato, n=35: 9227465, chiamate 69
+```
+
+1. La colonna dei rapporti vale sempre $11.09$: ma qui `n` non raddoppia, aumenta di $5$. Se il costo fosse $c \cdot a^n$, quanto varrebbe il rapporto fra due righe? Ricavate $a$ da $11.09 = a^5$ e confrontate con la sezione aurea $\varphi = \frac{1+\sqrt 5}{2} \approx 1.618$.
+2. La versione iterativa fa `n` giri: e' $O(n)$. Quella ricorsiva e' $O(\varphi^n)$. Con $n = 35$ il rapporto fra i due conteggi e' circa un milione: verificatelo.
+3. La versione **memoizzata**, cioe' quella che tiene in un array i valori gia' calcolati (la stessa tecnica che in J20 avevate applicato ai cammini su una griglia), fa $69$ chiamate per $n = 35$ e $99$ per $n = 50$. Che formula riconoscete? Perche' e' $O(n)$ e non $O(\varphi^n)$, visto che il codice e' quasi identico a quello ricorsivo?
+4. **Con time.** Provate `fib(45)` con la versione ricorsiva: quanto ci mette? Stimate prima il tempo partendo da quello di `fib(35)` e dal fattore $\varphi$, poi misurate.
+
+**K9.** I cammini in una griglia di J20, riletti. Il programma senza memoria fa $2 \binom{r+c}{r} - 1$ chiamate.
+
+1. Verificate la formula con la tabella di J20: griglia $8 \times 8$, $12870$ cammini e $25739$ chiamate.
+2. $\binom{2n}{n}$ cresce come $\frac{4^n}{\sqrt{\pi n}}$. Con `r = c = n`, in che classe mettereste l'algoritmo senza memoria? E quello con la memoria, che riempie una tabella $n \times n$ facendo un conto per casella?
+3. **Con time.** Con la griglia $15 \times 15$ il programma senza memoria impiega qualche secondo e quello con la memoria e' istantaneo. Provate $16 \times 16$ e $17 \times 17$ solo con la versione senza memoria: di quanto cresce il tempo a ogni passo? Il fattore assomiglia a $4$?
+
+**K10.** Il prodotto di matrici di H5 ha tre cicli annidati. Contate le moltiplicazioni per matrici quadrate di ordine `n` e misurate i tempi per `n` uguale a $100$, $200$, $400$ e $800$.
+
+1. Quante moltiplicazioni fa, esattamente, in funzione di `n`? Qual e' la classe?
+2. Nel test del raddoppio, di quanto deve crescere il tempo? Verificate con le misure.
+3. Una matrice $800 \times 800$ di `int` occupa quanti byte? E perche' queste matrici vanno dichiarate prima di `main` (H6)?
+4. **In piu'.** Esistono algoritmi per il prodotto di matrici piu' veloci di $O(n^3)$: il primo, trovato da Strassen nel 1969, e' circa $O(n^{2.81})$. Con $n = 800$, quanto varrebbe $n^{2.81}$ rispetto a $n^3$? Il guadagno giustifica un algoritmo molto piu' complicato?
+
+### Trova il collo di bottiglia (K11-K15)
+
+Questi cinque programmi sono **corretti**: stampano la risposta giusta, gcc non segnala niente e nessun test li boccerebbe. Sono solo molto piu' lenti del necessario, perche' fanno un lavoro quadratico dove ne basterebbe uno lineare. Per ciascuno: misurate il tempo con `time`, individuate l'operazione che viene ripetuta inutilmente, dite qual e' la classe del programma e quale potrebbe essere, correggetelo e rimisurate. L'output deve restare identico.
+
+E' un genere di errore che non si impara a vedere dai messaggi del compilatore, perche' il compilatore non sa che cosa state cercando di fare: si impara contando.
+
+**K11.** Il programma conta quanti elementi stanno sopra la media, e stampa `Sopra la media: 24977`. Ci mette circa sette secondi e mezzo; corretto ne impiega tre millesimi.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#define N 50000
+
+int v[N];
+
+double media(int v[], int n) {
+    int i;
+    double s = 0;
+    for (i = 0; i < n; i++) {
+        s += v[i];
+    }
+    return s / n;
+}
+
+int main(void) {
+    int i, sopra = 0;
+    srand(1);
+    for (i = 0; i < N; i++) {
+        v[i] = rand() % 1000;
+    }
+    for (i = 0; i < N; i++) {
+        if (v[i] > media(v, N)) {
+            sopra++;
+        }
+    }
+    printf("Sopra la media: %d\n", sopra);
+    return 0;
+}
+```
+
+1. Quante volte viene eseguita la riga `s += v[i];` dentro `media`? Scrivete il conto in funzione di `N`.
+2. La media dell'array cambia durante il ciclo? Allora perche' viene ricalcolata a ogni giro?
+3. Correggete e rimisurate. Il rapporto fra i **conteggi** e' $\frac{N}{2} = 25000$; quello fra i tempi e' circa $2500$, cioe' dieci volte meno. Spiegate la differenza guardando che cosa sono i tre millesimi della versione corretta: quanta parte di quel tempo e' il calcolo, e quanta il riempimento dell'array?
+4. In I10 avevate scritto lo stesso programma con `conta_sopra(v, N, m)`, dove `m` era calcolata **una volta sola** nel `main`. Rileggete il punto 2 di quell'esercizio: la scelta di passare la soglia come parametro, che allora sembrava solo questione di eleganza, vi stava gia' risparmiando questo errore.
+
+**K12.** Il programma somma i valori di un array che finisce con il valore sentinella $-1$, e stampa `somma: 4952446`. Ci mette **ventidue secondi**; corretto, cinque millesimi.
+
+```c
+#define MAX 200000
+
+int v[MAX];
+
+int quanti(const int v[]) {
+    int i = 0;
+    while (i < MAX && v[i] != -1) {
+        i++;
+    }
+    return i;
+}
+
+/* nel main: */
+srand(1);
+for (i = 0; i < 100000; i++) {
+    v[i] = rand() % 100;
+}
+v[100000] = -1;
+somma = 0;
+for (i = 0; i < quanti(v); i++) {
+    somma += v[i];
+}
+printf("somma: %ld\n", somma);
+```
+
+1. La condizione di un `for` viene controllata **prima di ogni giro**, non una volta sola. Quante volte viene chiamata `quanti`? E quanti giri fa `quanti` a ogni chiamata?
+2. Scrivete il numero totale di confronti in funzione di `n`, il numero di elementi. Qual e' la classe?
+3. Correggete salvando il risultato in una variabile prima del ciclo. Perche' in questo caso e' lecito, e in quale situazione invece **non** lo sarebbe?
+4. **In piu'.** E' l'errore piu' comune del mondo quando si lavora con i testi, dove al posto di `quanti` c'e' una funzione che misura la lunghezza di una stringa. Lo incontrerete di nuovo negli eserciziari successivi.
+
+**K13.** Il programma cerca $20000$ valori in un array **ordinato** di $100000$ elementi e stampa `trovati: 6684`. Ci mette quattro secondi; corretto, sette millesimi.
+
+```c
+for (i = 0; i < N; i++) {
+    v[i] = 3 * i;
+}
+srand(1);
+for (r = 0; r < Q; r++) {
+    x = rand() % (3 * N);
+    for (i = 0; i < N; i++) {
+        if (v[i] == x) {
+            trovati++;
+            break;
+        }
+    }
+}
+```
+
+1. Qual e' la classe del programma in funzione di `N` e `Q`? E quella della versione corretta?
+2. L'array e' ordinato per costruzione, ma la ricerca non ne approfitta. Sostituite la ricerca lineare con la ricerca binaria di F20 e rimisurate.
+3. Il guadagno misurato e' di circa $570$ volte, mentre il rapporto fra i conteggi e' molto piu' grande: $\frac{N}{2 \log_2 N} \approx 3000$. Spiegate perche' il guadagno in tempo e' cinque volte minore di quello in operazioni, tenendo conto di due cose: un passo di ricerca binaria costa piu' di un passo di ricerca lineare (L5), e nei sette millesimi della versione corretta c'e' anche il riempimento dell'array.
+4. **In piu'.** Se l'array **non** fosse ordinato, converrebbe ordinarlo prima e poi fare $Q$ ricerche binarie? Scrivete le due complessita' e trovate per quali valori di `Q` conviene.
+
+**K14.** Il programma calcola tutte le somme parziali $s_i = v_0 + \dots + v_i$ e stampa `ultima somma parziale: 2481297`. Ci mette quasi tre secondi; corretto, tre millesimi.
+
+```c
+#define N 50000
+
+int v[N];
+long s[N];
+
+/* nel main, dopo srand(1) e v[i] = rand() % 100: */
+for (i = 0; i < N; i++) {
+    s[i] = 0;
+    for (j = 0; j <= i; j++) {
+        s[i] += v[j];
+    }
+}
+printf("ultima somma parziale: %ld\n", s[N - 1]);
+```
+
+1. Quante addizioni fa in tutto? (E' la somma $1 + 2 + \dots + N$.) Qual e' la classe?
+2. Ogni somma parziale differisce dalla precedente per un solo addendo. Riscrivete il ciclo sfruttandolo: e' esattamente l'idea di G5.
+3. Correggete e verificate che l'ultima somma parziale sia la stessa.
+
+**K15.** Il programma ordina con il bubble sort un array di $50000$ elementi **gia' ordinati**, e fa $1249975000$ confronti.
+
+1. Il bubble sort ottimizzato di G18 si ferma quando una passata non produce scambi. Quanti confronti farebbe su questo array? Qual e' la sua classe nel caso migliore?
+2. Il programma qui non e' sbagliato: e' il caso migliore di un algoritmo che non sa riconoscerlo. Che cosa gli manca, esattamente?
+3. Correggetelo e rimisurate. Il guadagno e' di circa $25000$ volte: da dove viene questo numero?
+4. L'ottimizzazione migliora il caso migliore ma non il caso peggiore. Verificatelo misurando la versione ottimizzata su un array rovesciato.
+
+### Dallo pseudocodice al C (K16-K20)
+
+Come sempre: prima eseguite l'algoritmo a mano sull'esempio, poi scrivete il codice. Qui pero' c'e' un passo in piu', e viene **prima** di tutto: guardate i cicli dello pseudocodice e **scrivete la classe che vi aspettate**, poi verificate contando. Nei primi quattro esercizi il programma legge `_n` (da $2$ a `MAX`, che vale $20$) e poi gli `_n` numeri, come in F18. Quando pero' un punto chiede migliaia di elementi, alzate `MAX`, dichiarate l'array prima di `main` (H6) e riempitelo con `srand(1)` e `rand()` invece di leggerlo da tastiera.
+
+**K16.** Il massimo e il secondo massimo, in un solo passaggio.
+
+```text
+SOTTOPROGRAMMA _secondo_massimo(_v, _n)
+    SE _v[0] > _v[1] ALLORA
+        ASSEGNA a _primo il valore _v[0]
+        ASSEGNA a _secondo il valore _v[1]
+    ALTRIMENTI
+        ASSEGNA a _primo il valore _v[1]
+        ASSEGNA a _secondo il valore _v[0]
+    FINE
+    PER _i DA 2 A _n - 1
+        SE _v[_i] > _primo ALLORA
+            ASSEGNA a _secondo il valore _primo
+            ASSEGNA a _primo il valore _v[_i]
+        ALTRIMENTI SE _v[_i] > _secondo ALLORA
+            ASSEGNA a _secondo il valore _v[_i]
+        FINE
+    FINE
+    RESTITUISCI _secondo
+FINE
+```
+
+Il sottoprogramma restituisce il **secondo** massimo; il `main` stampa solo quello.
+
+```text
+Quanti numeri (da 2 a 20)? 6
+5 1 4 2 8 0
+Secondo massimo: 5
+```
+
+1. Quanti confronti fa, al massimo, in funzione di `_n`? E al minimo? Contateli con una variabile e verificate su array ordinati, rovesciati e casuali.
+2. Un'alternativa: ordinare l'array e prendere gli ultimi due elementi. Scrivete le due complessita' e dite quale preferite e perche'.
+3. Un'altra alternativa: scorrere due volte l'array, la prima per trovare il massimo e la seconda per il massimo fra i rimanenti. Quanti confronti fa? E' nella stessa classe di quella dello pseudocodice? Che cosa distingue allora le due soluzioni?
+4. **In piu'.** Perche' il sottoprogramma tratta a parte i primi due elementi, invece di partire da `_primo` e `_secondo` uguali a zero? Provate con un array di numeri tutti negativi.
+
+**K17.** Contare le coppie di elementi la cui somma vale `_k`.
+
+```text
+SOTTOPROGRAMMA _coppie(_v, _n, _k)
+    ASSEGNA a _c il valore 0
+    PER _i DA 0 A _n - 2
+        PER _j DA _i + 1 A _n - 1
+            SE _v[_i] + _v[_j] = _k ALLORA
+                ASSEGNA a _c il valore _c + 1
+            FINE
+        FINE
+    FINE
+    RESTITUISCI _c
+FINE
+```
+
+1. Quante coppie vengono esaminate in tutto? Ricavate la formula e la classe.
+2. **Con time.** Portate il programma a $20000$ numeri casuali da $0$ a $999$ con `srand(1)`, e cercate le coppie di somma $1000$: ne trova $200404$ con $199990000$ confronti. Misurate il tempo.
+3. Se l'array fosse **ordinato** si potrebbe fare molto meglio: due indici `_s` e `_d`, uno all'inizio e uno alla fine, che si avvicinano. Se `_v[_s] + _v[_d]` e' troppo piccola si avanza con `_s`, se e' troppo grande si arretra con `_d`, e se vale esattamente `_k` si contano le coppie formate dal blocco dei valori uguali a `_v[_s]` e dal blocco dei valori uguali a `_v[_d]` (il prodotto delle due molteplicita', oppure $\frac{m(m-1)}{2}$ se i due blocchi coincidono) e si spostano **entrambi** gli indici oltre i rispettivi blocchi. Scrivete lo pseudocodice di questa versione e dite quanti passi fa al massimo: ogni passo consuma almeno un elemento, quindi...
+4. **Sfida.** Implementatela e verificate che trovi le stesse $200404$ coppie. Con questi dati i passi diventano $522$ invece di $199990000$, piu' il costo dell'ordinamento. Che cosa conviene, allora, se le somme da cercare sono molte e l'array e' sempre lo stesso?
+
+**K18.** L'elemento maggioritario: un valore che compare **piu' di** $\frac{n}{2}$ volte. Puo' non esistere, ma se esiste e' unico.
+
+```text
+SOTTOPROGRAMMA _maggioritario(_v, _n)
+    ASSEGNA a _cand il valore _v[0]
+    ASSEGNA a _conta il valore 1
+    PER _i DA 1 A _n - 1
+        SE _v[_i] = _cand ALLORA
+            ASSEGNA a _conta il valore _conta + 1
+        ALTRIMENTI
+            ASSEGNA a _conta il valore _conta - 1
+            SE _conta = 0 ALLORA
+                ASSEGNA a _cand il valore _v[_i]
+                ASSEGNA a _conta il valore 1
+            FINE
+        FINE
+    FINE
+    RESTITUISCI _cand
+FINE
+```
+
+E' l'algoritmo di Boyer e Moore, e funziona come un torneo in cui ogni elemento diverso dal candidato lo "annulla": se un valore e' in maggioranza assoluta non puo' essere annullato del tutto.
+
+1. Il sottoprogramma restituisce un candidato **anche quando il maggioritario non esiste**. Serve quindi un secondo passaggio che conti davvero le occorrenze del candidato. Quanti passaggi fa in tutto l'algoritmo completo, e qual e' la classe?
+2. L'alternativa ingenua conta, per ogni elemento, quante volte compare: due cicli annidati. Qual e' la sua classe nel caso peggiore? E nel caso migliore? (Pensate a che cosa succede se il maggioritario e' proprio `_v[0]`.)
+3. Provate su un array di $100000$ elementi in cui il $60\%$ dei valori vale $7$ e il resto e' casuale: la versione ingenua, con questo array, se la cava con $100000$ confronti, mentre Boyer-Moore ne fa $199999$. Il piu' lento ha vinto: come mai? E che cosa succede alla versione ingenua se mettete il $7$ in fondo invece che all'inizio?
+4. Eseguite l'algoritmo a mano su `5 1 5 5 2 5 3`: scrivete `_cand` e `_conta` a ogni giro.
+
+**K19.** La sottosequenza contigua di somma massima: dato un array di numeri anche negativi, trovare il valore massimo di $v_i + v_{i+1} + \dots + v_j$. E' lo stesso problema che si pone chi guarda una serie di guadagni e perdite e si chiede qual e' stato il periodo migliore.
+
+Ci sono tre algoritmi, ed e' un esempio quasi perfetto di che cosa significhi "pensarci meglio".
+
+```text
+SOTTOPROGRAMMA _lineare(_v, _n)
+    ASSEGNA a _best il valore _v[0]
+    ASSEGNA a _cur il valore _v[0]
+    PER _i DA 1 A _n - 1
+        SE _v[_i] > _cur + _v[_i] ALLORA
+            ASSEGNA a _cur il valore _v[_i]
+        ALTRIMENTI
+            ASSEGNA a _cur il valore _cur + _v[_i]
+        FINE
+        SE _cur > _best ALLORA
+            ASSEGNA a _best il valore _cur
+        FINE
+    FINE
+    RESTITUISCI _best
+FINE
+```
+
+1. Prima di guardare lo pseudocodice: scrivete l'algoritmo ovvio, quello che prova tutte le coppie `_i`, `_j` e per ciascuna somma gli elementi in mezzo. Tre cicli annidati: qual e' la classe?
+2. Il secondo algoritmo osserva che la somma da `_i` a `_j` si ottiene da quella da `_i` a `_j - 1` con una sola addizione. Toglie quindi il ciclo piu' interno: qual e' la classe adesso?
+3. Il terzo e' quello dello pseudocodice, e si chiama algoritmo di Kadane. L'idea in una riga: `_cur` e' la somma massima fra tutte le sottosequenze **che finiscono in `_i`**, e per calcolarla basta decidere se conviene allungare quella precedente o ricominciare da capo. Qual e' la classe?
+4. Scrivete tutti e tre, contate le operazioni di ciascuno e verificate su un array di $2000$ numeri casuali fra $-100$ e $100$ con `srand(1)`: danno tutti e tre $4673$, con $1335334000$, $2001000$ e $1999$ operazioni rispettivamente. **Con time**, misurate i tre tempi.
+5. **In piu'.** Che cosa restituisce Kadane se tutti i numeri sono negativi? E' la risposta giusta? Dipende da come si e' definito il problema: la sottosequenza vuota, di somma $0$, vale come risposta?
+
+**K20.** **Sfida.** Un'*inversione* di un array e' una coppia di posizioni $i < j$ con $v_i > v_j$: e' una coppia "fuori ordine". Il numero di inversioni misura quanto un array e' lontano dall'essere ordinato: vale $0$ se e' ordinato e $\frac{n(n-1)}{2}$ se e' rovesciato.
+
+1. Scrivete il sottoprogramma ovvio che le conta con due cicli annidati, e verificate sui casi estremi.
+2. Adesso la parte sorprendente: **l'insertion sort le conta gratis**. Rileggete K2 e confrontate il numero di spostamenti con il numero di inversioni sullo stesso array. Coincidono. Spiegate perche', guardando che cosa fa un singolo spostamento alle coppie fuori ordine.
+3. Da qui segue una cosa che avevate misurato in G17 senza poterla dimostrare: il costo dell'insertion sort **e'** il numero di inversioni, piu' $n-1$. Riscrivete in questi termini il caso migliore e il caso peggiore.
+4. Contarle in $O(n^2)$ e' facile, ma si puo' fare in $O(n \log n)$: durante la fusione ordinata di G6, ogni volta che si preleva un elemento dalla meta' destra, quell'elemento forma un'inversione con **tutti** quelli rimasti nella meta' sinistra. Scrivete un programma che ordina per fusione contando le inversioni in questo modo, e verificate che su array di $20000$ elementi casuali dia lo stesso numero dell'insertion sort.
+
+
+## Pacchetto L: Tempo, memoria e compromessi
+
+Nel Pacchetto K avete imparato a contare le operazioni e a dare un nome alla loro crescita. Contare pero' e' solo uno dei tre modi di misurare quanto costa un algoritmo. Gli altri due sono il **tempo** che il programma impiega davvero e la **memoria** che occupa mentre gira.
+
+I tre numeri non dicono sempre la stessa cosa, ed e' proprio nelle differenze che si impara qualcosa. Due programmi che fanno esattamente lo stesso numero di operazioni possono metterci tempi molto diversi; un programma puo' diventare mille volte piu' veloce in cambio di qualche megabyte; e a volte l'unico modo di stare dentro la memoria disponibile e' accettare di essere piu' lenti. Questo pacchetto e' dedicato a queste tre cose: misurare il tempo, misurare la memoria, e scegliere fra le due.
+
+Compilate sempre con `gcc -g -Wall -Wextra`. Tutti i tempi scritti qui sono quelli di un computer particolare in un momento particolare: i vostri saranno diversi, e va benissimo. Quello che deve tornare non sono i secondi, ma i **rapporti** fra i secondi.
+
+### Novita': cronometrare un pezzo di programma
+
+`time` misura il programma intero, dall'inizio alla fine. Quando volete sapere quanto costa *una parte sola*, serve un cronometro interno. Lo fornisce `<time.h>` con la funzione `clock`, che restituisce quanto tempo di processore e' stato consumato da quando il programma e' partito. Il valore e' espresso in unita' interne; per convertirlo in secondi si divide per la costante `CLOCKS_PER_SEC`, definita nella stessa intestazione.
+
+```c
+#include <time.h>
+
+clock_t inizio = clock();
+/* ... il pezzo da misurare ... */
+double secondi = (double)(clock() - inizio) / CLOCKS_PER_SEC;
+printf("ordinamento: %.3f s\n", secondi);
+```
+
+Tre avvertenze, tutte importanti:
+
+- il tipo `clock_t` e' un tipo intero: la sottrazione `clock() - inizio` e' una sottrazione fra interi, e il cast a `double` va fatto **dopo**, altrimenti la divisione e' intera e stampate quasi sempre `0.000`;
+- `clock` misura il tempo di processore, non il tempo dell'orologio da parete: se il programma resta fermo ad aspettare che qualcuno digiti un numero, quel tempo non viene contato (e' la stessa differenza fra `real` e `user` che avete visto con `time`);
+- la risoluzione e' limitata. Misurare un pezzo che dura meno di un millesimo di secondo non ha senso: si ripete il pezzo molte volte e si divide.
+
+### Contare i byte
+
+La memoria di un programma si misura, come il tempo, a mano o con uno strumento. A mano si usa `sizeof`, che restituisce la dimensione in byte di un tipo o di una variabile e che gia' conoscete. Per un array dichiarato con una taglia fissa, `sizeof` ne da' la dimensione totale:
+
+```c
+int v[100000];
+printf("%d byte\n", (int)sizeof(v));   /* 400000 */
+```
+
+Conviene tenere a mente gli ordini di grandezza, perche' quasi tutte le risposte si ottengono con una moltiplicazione:
+
+| Quanti `int` | Byte | In pratica |
+| --- | --- | --- |
+| $1000$ | $4$ KB | niente |
+| $1000000$ | $4$ MB | si nota |
+| $1000000000$ | $4$ GB | il programma potrebbe non partire |
+
+Quando si confrontano due algoritmi, pero', il numero che conta non e' la memoria totale ma la **memoria aggiuntiva**: quella che serve *oltre* ai dati di partenza. Un algoritmo che lavora dentro l'array che gli avete dato usa memoria aggiuntiva $O(1)$ e si dice che lavora *sul posto*; uno che si costruisce un secondo array della stessa taglia usa memoria aggiuntiva $O(n)$. Entrambi sono corretti, ma su un array da $4$ GB il secondo semplicemente non parte.
+
+### Il compromesso fra tempo e memoria
+
+L'idea che tiene insieme tutto il pacchetto e' questa: **quasi sempre si puo' comprare tempo pagando in memoria, e viceversa**. Lo avete gia' incontrato due volte senza chiamarlo per nome: in K5, dove un array di somme prefisse ha trasformato $O(NQ)$ in $O(N+Q)$, e in K8, dove una tabella di risultati gia' calcolati ha trasformato un algoritmo esponenziale in uno lineare. Quelle tabelle sono memoria comprata per risparmiare tempo.
+
+La domanda giusta quindi non e' "qual e' l'algoritmo migliore", ma "quanta memoria ho a disposizione, e quanto tempo sono disposto ad aspettare".
+
+### Esercizi (L1-L10)
+
+#### Il tempo
+
+**L1.** Il test del raddoppio, questa volta sui tempi. In K6 avevate raddoppiato `n` e guardato crescere i **conteggi**; adesso raddoppiate `n` e guardate crescere i **secondi**. Scrivete `raddoppio_tempi.c` che, per $n = 4000, 8000, 16000, 32000$, riempie un array (dichiarato prima di `main`, H6) con `srand(1)` e `rand() % 10000` e misura con `clock`:
+
+- il tempo del bubble sort di F18 su quell'array;
+- il tempo di una somma lineare dell'array, ripetuta $10000$ volte (una sola somma e' troppo veloce per essere misurata).
+
+Stampate, accanto a ogni tempo, il rapporto con il tempo della riga precedente, e alla fine la somma totale accumulata.
+
+```text
+        n   bubble (s)   rapp.   somma (s)   rapp.
+     4000       0.0242       -      0.0868       -
+     8000       0.0963    3.98      0.1775    2.05
+    16000       0.4723    4.91      0.3268    1.84
+    32000       2.4677    5.20      0.6537    2.00
+(controllo: 2997973860000)
+```
+
+1. Le due colonne dei rapporti si avvicinano a $4$ e a $2$. Quali classi di complessita' corrispondono a questi due numeri? Rileggete l'ultima colonna della tabella delle classi in K.
+2. In K6 i rapporti dei conteggi erano **esattamente** $4.00$ e $2.00$; qui la colonna del bubble sort da' $3.98$, $4.91$, $5.20$, e per di piu' cresce. Quale dei due esperimenti e' piu' affidabile per riconoscere la classe di un algoritmo, e perche'? (Del perche' cresce si occupa L2.)
+3. Eseguite il programma tre volte di seguito senza cambiare niente. I secondi sono identici? E i rapporti? E i conteggi di K6, lo erano?
+4. I tempi sono stampati con quattro decimali, non con tre. Provate a stamparli con tre e a ricalcolare a mano i rapporti: quanti ve ne tornano? E' il motivo per cui si stampano le cifre in piu'.
+5. La riga `(controllo: ...)` stampa la somma totale calcolata. Serve all'esperimento? Lasciatela comunque: in L3 scoprirete perche'.
+6. **In piu'.** Che cosa succede ai rapporti se usate taglie non raddoppiate, per esempio $2000, 3000, 4000, 5000$? Il test funziona ancora? Qual e' il rapporto da aspettarsi per un algoritmo quadratico quando `n` viene moltiplicato per $1.5$?
+
+**L2.** Stesso numero di operazioni, tempi diversi. Riprendete il programma di H6, quello che somma una matrice $4000 \times 4000$ dieci volte, una volta scorrendola per righe e una volta per colonne.
+
+```text
+$ echo 1 | ./matrice      # per righe
+Somma: 720000000
+real 0m0.449s   user 0m0.385s
+
+$ echo 2 | ./matrice      # per colonne
+Somma: 720000000
+real 0m1.659s   user 0m1.532s
+```
+
+1. Contate le operazioni dominanti (le addizioni `somma += m[i][j]`) nei due casi. Quante sono? Il numero dipende dall'ordine dei cicli?
+2. I due programmi hanno quindi la **stessa** classe di complessita' e lo **stesso** numero di operazioni, ma uno impiega quasi quattro volte il tempo dell'altro. La notazione O-grande sta mentendo?
+3. La spiegazione e' che in memoria la matrice e' disposta per righe: `m[i][0]`, `m[i][1]`, ... sono contigui, mentre `m[0][j]` e `m[1][j]` distano $16000$ byte. Il processore, quando legge un valore dalla memoria, si porta dietro anche quelli vicini: leggere per righe sfrutta questo lavoro gia' fatto, leggere per colonne lo butta via. Scrivete in due righe perche' il *conteggio* delle operazioni non puo' accorgersi di questa differenza.
+4. In K10 avevate applicato il test del raddoppio al prodotto di matrici. Se l'ultimo rapporto vi e' venuto piu' grande di $8$, e' lo stesso fenomeno: alla luce di questo esercizio, quale dei tre indici del prodotto scorre una matrice nel verso sbagliato?
+5. Quale delle due misure, conteggio o cronometro, usereste per **scegliere** fra due algoritmi di classe diversa? E quale per scegliere fra due programmi della stessa classe?
+
+**L3.** L'ottimizzatore cambia la costante, non la classe. Prendete il programma di L1 e compilatelo due volte, una con `gcc -O0` (che e' quello che fa `gcc` senza opzioni) e una con `gcc -O2`.
+
+```text
+=== -O0 ===
+        n   bubble (s)   rapp.   somma (s)   rapp.
+     4000       0.0242       -      0.0868       -
+     8000       0.0963    3.98      0.1775    2.05
+    16000       0.4723    4.91      0.3268    1.84
+    32000       2.4677    5.20      0.6537    2.00
+
+=== -O2 ===
+        n   bubble (s)   rapp.   somma (s)   rapp.
+     4000       0.0296       -      0.0179       -
+     8000       0.1204    4.07      0.0356    1.99
+    16000       0.5976    4.96      0.0716    2.01
+    32000       2.6795    4.48      0.1452    2.03
+```
+
+1. La colonna `somma` e' diventata circa $4.5$ volte piu' veloce. I rapporti pero' sono rimasti vicini a $2$. Che cosa ha cambiato l'ottimizzatore: la classe o la costante davanti alla classe?
+2. La colonna `bubble` invece non e' migliorata affatto: su questo computer e' perfino un po' peggiorata. Guardate che cosa fa il bubble sort a ogni giro: c'e' un `if` il cui esito dipende dai dati e uno scambio che tocca la memoria. Perche' un ciclo del genere si lascia ottimizzare meno di una somma? (Sul vostro computer il risultato puo' essere diverso: riportate il vostro, ripetendo la misura tre volte per essere sicuri che non sia rumore.)
+3. La riga di controllo stampa lo stesso numero in entrambi i casi, ed e' questo che rende l'esperimento onesto. Provate a **togliere** quella riga e a ricompilare con `-O2`: la colonna `somma` crolla a `0.000`. Che cosa ha capito il compilatore, e perche' quel risultato non misura piu' niente?
+4. In entrambe le tabelle i rapporti restano vicini a $4$ e a $2$. Scrivete in una riga che cosa l'ottimizzatore puo' cambiare e che cosa no.
+5. Morale: quando confrontate due algoritmi, con quale livello di ottimizzazione li compilate, e che cosa dovete sempre far stampare al programma?
+
+**L4.** Dove va il tempo. Un programma che impiega un secondo non lo impiega distribuito uniformemente: quasi sempre c'e' un pezzo che si prende quasi tutto. Scrivete `tre_fasi.c` che fa tre cose e cronometra ciascuna con `clock`. L'array va dichiarato prima di `main` (H6, J9): dentro `main` non ci starebbe.
+
+- riempie un array di $5000000$ interi con `rand() % 10000`;
+- ordina con il bubble sort i **primi $20000$** elementi;
+- somma tutti i $5000000$ elementi.
+
+```text
+riempimento: 0.110 s
+ordinamento: 1.080 s
+somma:       0.011 s
+totale:      1.200 s   (somma 24999369228)
+```
+
+1. La fase che tocca $5000000$ elementi costa $0.110$ s; quella che ne tocca $20000$, duecentocinquanta volte meno, ne costa dieci volte tanto. Spiegate la contraddizione apparente scrivendo il numero di operazioni di ciascuna fase.
+2. Se voleste rendere il programma due volte piu' veloce, su quale fase lavorereste? E se riusciste a rendere **istantanee** le altre due, quanto ci metterebbe il programma?
+3. **Con gprof.** Ricompilate con `-pg`, eseguite e guardate il profilo. Le percentuali corrispondono ai tre tempi che avete stampato? Che cosa vi dice `gprof` che `clock` non vi dice, e viceversa?
+4. **In piu'.** Sommate i tre tempi e confrontate la somma con `real` di `time`. Sono uguali? Dove e' finita la differenza?
+
+**L5.** Non tutte le operazioni costano uguale. Contare le operazioni presuppone che un'operazione costi quanto un'altra, il che e' falso: in particolare **chiamare un sottoprogramma non e' gratis**. Scrivete `costo_chiamate.c` che calcola $200000000$ volte il quadrato di un numero in tre modi diversi e cronometra ciascuno:
+
+- scrivendo direttamente `i * i`;
+- chiamando una funzione `double quadrato(double x)` che restituisce `x * x`;
+- chiamando `double potenza(double base, int esp)`, scritta come la `potenza` ricorsiva di J4 ma con i `double` (se `esp` e' $0$ restituisce $1$, altrimenti `base * potenza(base, esp - 1)`), con `esp` uguale a $2$.
+
+```text
+i * i         :  0.56 s   (totale 2666666686667120286105600)
+quadrato(i)   :  0.55 s   (totale 2666666686667120286105600)
+potenza(i, 2) :  1.69 s   (totale 2666666686667120286105600)
+```
+
+1. Le tre righe calcolano la stessa cosa (il totale coincide) facendo lo stesso numero di moltiplicazioni, e la terza impiega tre volte il tempo della prima. Quante chiamate esegue `potenza(x, 2)` prima di restituire il risultato? Il fattore $3$ e' un caso?
+2. La seconda riga invece costa quanto la prima. Provate a spiegarlo: una chiamata in piu' c'e' anche li'. (Suggerimento: provate con `potenza(i, 10)` e guardate come cresce il tempo.)
+3. Ricompilate tutto con `-O2` e rimisurate: i tre tempi diventano **identici**, $0.25$ s. Che cosa ha fatto il compilatore alle chiamate? Che rapporto c'e' fra questa osservazione e il punto 1 di L3?
+4. Questo esercizio sembra smentire tutto il Pacchetto K. Non e' cosi': rileggete la definizione di $O$ e dite dove finisce, in quella definizione, la differenza fra $0.56$ e $1.69$.
+5. **In piu'.** Qual e' la morale pratica? Scegliete fra "non scrivete mai funzioni, sono lente" e "scrivete funzioni e poi, se il programma e' lento, misurate dove": e motivate con quello che avete visto in L4.
+
+#### La memoria
+
+**L6.** Fare il conto della memoria. Scrivete `quanta_memoria.c` che dichiara, **prima di `main`**, un array di $100000$ `int`, uno di $100000$ `double`, una matrice `int voti[200][30]` e una matrice `char nomi[200][32]`, e stampa per ciascuno i byte occupati (con `sizeof`) e gli stessi byte in megabyte.
+
+```text
+sizeof(int)    = 4 byte
+sizeof(double) = 8 byte
+sizeof(char)   = 1 byte
+
+grande[100000] =  400000 byte = 0.38 MB
+reale[100000]  =  800000 byte = 0.76 MB
+voti[200][30]  =   24000 byte = 0.02 MB
+nomi[200][32]  =    6400 byte = 0.01 MB
+```
+
+1. Verificate a mano ciascuno dei quattro numeri: sono tutti il prodotto di due o tre fattori. Scrivete i prodotti.
+2. Prevedete, senza eseguire, quanti byte occuperebbe `voti` se i candidati fossero $100000$ invece di $200$. E se oltre ai voti servisse anche la media di ciascuno, in un array di `double`?
+3. Cambiate `int grande[100000]` in `int grande[3000000000]` e provate a compilare. Che cosa succede, e in quale momento: compilazione, collegamento o esecuzione? Provate anche con $300000000$, che e' dieci volte meno.
+4. Il tipo piu' piccolo e' `char`, che occupa un byte. Se dovete memorizzare per ognuno di un miliardo di numeri una sola informazione vero/falso, quanti byte vi servono con un array di `char`? E con un array di `int`? (Il crivello di F16 e i primi gemelli di H7 usano un array di `int` per tenere proprio uno $0$ o un $1$: quanto si sprecava?)
+5. **In piu'.** La stessa dichiarazione messa **dentro** `main` invece che prima si comporta in modo diverso: provate con $100000000$ e confrontate. E' l'argomento di L7.
+
+**L7.** La pila delle chiamate e' memoria. Un sottoprogramma ricorsivo, prima di chiamarsi, mette da parte le proprie variabili per ritrovarle al ritorno: ogni chiamata in attesa occupa quindi qualche decina di byte, e tutte insieme occupano una zona chiamata *pila*. La pila ha una dimensione fissa, e non e' grande.
+
+Riprendete la somma ricorsiva di un array scritta in J e provatela a profondita' crescenti.
+
+```text
+n = 100000: somma = 100000
+n = 150000: somma = 150000
+n = 174000: somma = 174000
+n = 176000: Segmentation fault
+```
+
+1. Trovate, sul vostro computer, il valore di `n` oltre il quale il programma non arriva in fondo. Procedete dimezzando l'intervallo: e' una ricerca binaria come quella di F20.
+2. Il comando `ulimit -s` stampa la dimensione della pila in kilobyte (qui $8192$, cioe' $8$ MB). Dividete quei byte per il vostro `n` critico: quanti byte occupa una singola chiamata? Vi sembra un numero ragionevole per una funzione con due parametri e nessuna variabile locale?
+3. La versione iterativa della stessa somma arriva a $n = 10000000$ senza battere ciglio. Quale memoria usa, e quanta?
+4. La complessita' **in tempo** delle due versioni e' la stessa, $O(n)$. Qual e' invece la complessita' **in memoria aggiuntiva** di ciascuna? Questa e' la risposta al punto 3 di L10: tenetela da parte.
+5. **In piu'.** La ricerca binaria di F20, scritta in forma ricorsiva, su un array di un miliardo di elementi: quanto diventa profonda la pila? Perche' li' la ricorsione non e' un problema?
+
+**L8.** Comprare tempo con la memoria: il crivello. In F16 avete scritto il crivello di Eratostene fino a $100$: si parte supponendo tutti i numeri primi e, per ogni primo trovato, si cancellano i suoi multipli. L'alternativa e' non tenere niente e provare a dividere ogni numero per tutti i candidati fino alla sua radice, come in H7.
+
+Scrivete i due programmi per $N = 2000000$, contate le operazioni dominanti (le divisioni nel primo caso, le cancellazioni nel secondo), misurate con `time` e dichiarate la memoria aggiuntiva.
+
+```text
+uno per uno: 148933 primi, 179492732 divisioni,     0 byte extra    user 1.553 s
+crivello:    148933 primi,   4347778 cancellazioni, 2000001 byte    user 0.009 s
+```
+
+1. Il crivello e' circa $170$ volte piu' veloce e fa circa $40$ volte meno operazioni. I due rapporti non coincidono: alla luce di L5, perche'? Che cosa costa una divisione rispetto a un azzeramento?
+2. L'array del crivello e' dichiarato `char` e non `int`. Quanti byte risparmia questa scelta, e perche' `char` basta?
+3. Scrivete per ciascuno dei due algoritmi la classe in tempo e la classe in memoria aggiuntiva. (Per il crivello, il numero di cancellazioni e' circa $N \ln \ln N$: a voi basta sapere che e' poco piu' che lineare.)
+4. Fino a che $N$ riuscite a spingere il crivello sul vostro computer? Moltiplicate `N` per dieci finche' il programma non si rifiuta di partire, e dite quale delle due risorse si esaurisce per prima.
+5. **In piu'.** Se vi servisse sapere se **un solo** numero da dieci cifre e' primo, quale dei due algoritmi usereste? Il piu' veloce dei due non e' sempre il piu' adatto.
+
+**L9.** Lavorare sul posto. Rovesciare un array si puo' fare in due modi: scambiando il primo con l'ultimo, il secondo con il penultimo e cosi' via, oppure copiando gli elementi all'indietro in un secondo array. Le due versioni fanno lo stesso numero di operazioni e hanno la stessa classe, $O(n)$; la differenza e' tutta nella memoria.
+
+Scrivete le due versioni con `#define N 300000000` (un array di `int` da circa $1.1$ GB), dichiarando gli array prima di `main`, e cronometrate solo il rovesciamento.
+
+```text
+sul posto: 0.445 s   memoria 1144 MB
+con copia: 1.646 s   memoria 2289 MB
+```
+
+1. Contate le operazioni delle due versioni: quanti giri fa ciascun ciclo, e quante assegnazioni per giro? Qual e' il totale?
+2. La versione sul posto fa **piu'** assegnazioni di quella con copia, e ci mette poco piu' di un quarto del tempo. Spiegatelo guardando quanti byte di memoria vengono toccati in tutto dalle due versioni.
+3. Adesso portate `N` a $1200000000$ e ricompilate entrambe. Una delle due non arriva nemmeno all'esecuzione:
+
+```text
+relocation truncated to fit: R_X86_64_PC32 against symbol `w' defined in .bss section
+collect2: error: ld returned 1 exit status
+```
+
+Quale delle due, e perche'? In quale fase si ferma (compilazione, collegamento o esecuzione)? Confrontate con il punto 3 di L6.
+
+4. Scrivete la memoria aggiuntiva delle due versioni in notazione O-grande. Degli ordinamenti che conoscete (F18, G16, G17, G18, G19), quali lavorano sul posto e quali no?
+5. **In piu'.** La fusione di G6 non si puo' fare sul posto con quell'algoritmo: serve per forza un terzo array. Spiegate perche', guardando che cosa succederebbe scrivendo il risultato dentro `a`. In G20 invece avete rovesciato tre volte un array per ruotarlo sul posto: e' un esempio di come a volte si trovi il modo di evitare la copia.
+
+**L10.** **Sintesi.** Raccogliete in un'unica tabella gli algoritmi che avete misurato in K e in L, con tre colonne: classe in tempo (caso peggiore), memoria aggiuntiva, e il numero misurato che vi ha convinti della prima colonna.
+
+| Algoritmo | Tempo | Memoria aggiuntiva | Misura |
+| --- | --- | --- | --- |
+| ricerca lineare (K4) | | | |
+| ricerca binaria (K4) | | | |
+| bubble sort (K1) | | | |
+| insertion sort (K2) | | | |
+| selection sort (K3) | | | |
+| counting sort (G19) | | | |
+| Fibonacci ricorsivo (K8) | | | |
+| Fibonacci con tabella (K8) | | | |
+| somme prefisse (K5) | | | |
+| somma ricorsiva (L7) | | | |
+| crivello (L8) | | | |
+
+1. Riempite la tabella. Per la memoria aggiuntiva, tre sole risposte compaiono: $O(1)$, $O(n)$ e $O(k)$ dove `k` e' l'ampiezza dell'intervallo dei valori. Quali righe hanno $O(1)$?
+2. Tre coppie di righe risolvono lo stesso problema in due modi. Individuatele e dite, per ciascuna, che cosa si e' comprato e con che cosa si e' pagato.
+3. Ci sono due righe in cui la memoria aggiuntiva e' $O(n)$ **senza che il programmatore l'abbia chiesta**: non c'e' nessun array in piu' nel codice. Quali, che cosa hanno in comune, e dove finisce quella memoria?
+4. Un vostro collega dice: "visto che la memoria costa poco, conviene sempre comprare tempo con la memoria". Trovate, fra le righe della tabella, un caso in cui ha ragione e uno in cui ha torto, e spiegate che cosa distingue i due casi.
+5. **In piu'.** Una riga della tabella ha memoria aggiuntiva $O(k)$ **indipendente da `n`**: puo' quindi occupare piu' memoria dell'array da ordinare, oppure molta meno. Date un esempio di dati per cui quell'algoritmo e' la scelta migliore e uno per cui e' la peggiore.
+### Trova lo spreco (L11-L15)
+
+Come in K11-K15, questi cinque programmi sono **corretti**: stampano la risposta giusta e il compilatore non ha niente da ridire. Questa volta pero' il difetto non e' il tempo ma la **memoria**: ciascuno ne occupa molta piu' di quanta ne serva, e in due casi lo spreco e' tale che il programma si ferma. Per ciascuno: calcolate con `sizeof` quanti byte occupa, dite quanti ne basterebbero, riscrivetelo e verificate che l'output non cambi.
+
+Lo spreco di memoria e' piu' insidioso di quello di tempo, perche' finche' il programma gira nessuno se ne accorge. Se ne accorgono tutti il giorno in cui i dati diventano dieci volte piu' grandi.
+
+**L11.** Il programma legge da tastiera una sequenza di numeri con virgola, fino alla fine dell'ingresso, e ne stampa la somma e il massimo.
+
+```c
+#include <stdio.h>
+#define N 5000000
+
+double v[N];
+
+int main(void) {
+    int i, n = 0;
+    double x, s = 0, max;
+    while (n < N && scanf("%lf", &x) == 1) {
+        v[n] = x;
+        n++;
+    }
+    max = v[0];
+    for (i = 0; i < n; i++) {
+        s += v[i];
+        if (v[i] > max) {
+            max = v[i];
+        }
+    }
+    printf("letti %d numeri, somma %.2f, massimo %.2f\n", n, s, max);
+    return 0;
+}
+```
+
+1. Quanti byte occupa `v`? Scrivete il conto e convertitelo in megabyte.
+2. L'array viene riempito e poi letto una volta sola, dall'inizio alla fine. Serve davvero tenerlo? Riscrivete il programma senza array e dite di quante variabili avete bisogno in tutto.
+3. La versione senza array ha un problema in piu': l'inizializzazione di `max`. Non potete piu' scrivere `max = v[0]`, perche' `v[0]` non esiste. Come fate? (Attenzione: `max = 0` e' sbagliato. Perche'?)
+4. Dite qual e' la complessita' in memoria delle due versioni, in funzione del numero `n` di valori letti. E quella in tempo?
+5. **In piu'.** Esiste una domanda che **non** si puo' rispondere senza tenere i numeri: per esempio "qual e' la mediana". Trovatene un'altra, e spiegate che cosa distingue le domande a cui si puo' rispondere in una passata sola da quelle a cui non si puo'.
+
+**L12.** Il crivello di F16, portato a $N = 20000000$. Il programma e' corretto e stampa il numero giusto di primi.
+
+```c
+#define N 20000000
+
+double primo[N + 1];
+
+/* ... */
+for (i = 0; i <= N; i++) {
+    primo[i] = 1.0;
+}
+primo[0] = 0.0;
+primo[1] = 0.0;
+for (i = 2; i * i <= N; i++) {
+    if (primo[i] != 0.0) {
+        for (j = i * i; j <= N; j += i) {
+            primo[j] = 0.0;
+        }
+    }
+}
+```
+
+```text
+con double: 1270607 primi, 0.998 s, memoria 153 MB
+con char:   1270607 primi, 0.510 s, memoria  19 MB
+```
+
+1. In ogni casella dell'array viene scritto soltanto $0$ oppure $1$. Quale tipo basterebbe? Quanti byte occupa una casella `double`, e quanti ne occuperebbe quella giusta?
+2. Riscrivetelo e verificate che il numero di primi non cambi. Il rapporto fra le due memorie e' esattamente $8$: perche' il rapporto fra i $153$ MB e i $19$ MB non viene esattamente $8$?
+3. Il numero di operazioni e' **identico** nelle due versioni, eppure quella con `double` impiega il doppio del tempo. Rileggete il punto 3 di L2 e spiegate: che cosa deve fare il processore in piu' quando l'array e' otto volte piu' grande?
+4. Questo e' uno spreco di memoria che si paga **anche** in tempo. Trovate, fra i cinque esercizi di questa sezione, quello in cui invece lo spreco non costa niente in tempo.
+5. **In piu'.** Portate entrambe le versioni a $N = 200000000$. Una delle due non parte: quale, e con che messaggio? Era prevedibile dal conto del punto 1?
+
+**L13.** Il programma deve rispondere a molte domande "quanto vale la somma degli elementi da `i` a `j`", e per farlo si prepara una tabella con la risposta di **ogni** coppia.
+
+```c
+#define N 2000
+
+int v[N];
+long tab[N][N];
+
+/* ... */
+for (i = 0; i < N; i++) {
+    s = 0;
+    for (j = i; j < N; j++) {
+        s += v[j];
+        tab[i][j] = s;
+    }
+}
+```
+
+```text
+tabella delle coppie: 0.023 s   32000000 byte = 30.5 MB   (tab[3][7] = 321)
+somme prefisse:       0.000 s      16008 byte = 15.6 KB   (pre[8] - pre[3] = 321)
+```
+
+1. Quante caselle ha la tabella? Quante ne vengono riempite davvero, visto che il ciclo interno parte da `i`? Le altre che valore contengono, e perche' non e' un errore?
+2. In G5 e in K5 avete risolto lo stesso problema con un array di somme prefisse. Qui ne usiamo una variante con `N+1` caselle e `pre[0] = 0`, in modo che la somma da `i` a `j` sia sempre `pre[j+1] - pre[i]`: confrontatela con la convenzione di G5, dove le caselle erano `N` e il caso $a = 0$ andava trattato a parte. Poi scrivete le due occupazioni di memoria in notazione O-grande e il rapporto fra i due numeri misurati.
+3. Con $N = 2000$ il programma gira. Fino a che `N` potete spingerlo? Calcolate prima a mano quale `N` porta la tabella a $1$ GB, poi verificate.
+4. Il tempo di preparazione e' praticamente uguale: lo spreco quindi non e' in tempo. Scrivete in una riga perche' e' comunque un errore grave.
+5. **In piu'.** Esiste un caso in cui la tabella di tutte le coppie e' la scelta giusta? Pensate a `N` piccolo e a una domanda che **non** si sa scomporre come la somma: per esempio "qual e' il massimo fra `i` e `j`". Perche' le somme prefisse funzionano per la somma e non per il massimo?
+
+**L14.** Il programma calcola l'ennesimo numero di Fibonacci con il metodo iterativo di K8.
+
+```c
+#define N 90
+
+long f[N + 1];
+
+int main(void) {
+    int i;
+    f[0] = 0;
+    f[1] = 1;
+    for (i = 2; i <= N; i++) {
+        f[i] = f[i - 1] + f[i - 2];
+    }
+    printf("F(%d) = %ld\n", N, f[N]);
+    return 0;
+}
+```
+
+```text
+con l'array:     F(90) = 2880067194370816120   memoria 728 byte
+con 3 variabili: F(90) = 2880067194370816120   memoria  24 byte
+```
+
+1. Il programma usa `f[i - 1]` e `f[i - 2]`. Quante caselle servono contemporaneamente in un dato momento? E quante ne vengono conservate?
+2. Riscrivetelo con tre variabili `a`, `b`, `c` e nessun array. Verificate che stampi lo stesso numero.
+3. Attenzione a non esagerare con la morale: la tabella della versione memoizzata di K8 serviva a **non ricalcolare**, e li' era indispensabile. Qual e' la differenza fra quella tabella e questo array? Perche' qui si puo' buttare e li' no?
+4. `F(90)` vale circa $2.9 \cdot 10^{18}$, contro un `long` che arriva a circa $9.2 \cdot 10^{18}$: il margine e' di due soli termini. Trovate il piu' grande `n` per cui `F(n)` e' ancora corretto, e dite come ve ne accorgete che non lo e' piu'. (Con gcc, quando un `long` trabocca i bit in eccesso vengono persi e il risultato diventa negativo: lo standard C non lo garantisce, ma in pratica e' il segnale che vedrete.)
+5. **In piu'.** Se vi servisse `F(n)` per **tutti** gli `n` da $0$ a $90$, e non solo l'ultimo, l'array tornerebbe giustificato? E se vi servisse solo `F(n)` modulo $1000$, quanto piccolo potrebbe diventare il tipo di `a`, `b` e `c`?
+
+**L15.** Questo programma non spreca memoria dichiarata prima di `main`: ne spreca sulla pila, ed e' il tipo di spreco che fa smettere di funzionare un programma che fino al giorno prima andava.
+
+```c
+long somma(int v[], int n) {
+    int appoggio[10000];
+    int i;
+    for (i = 0; i < 10000; i++) {
+        appoggio[i] = 0;
+    }
+    if (n == 0) {
+        return appoggio[0];
+    }
+    return v[n - 1] + somma(v, n - 1);
+}
+```
+
+```text
+n = 200: somma = 200
+n = 210: Segmentation fault
+```
+
+1. In L7 la stessa somma ricorsiva arrivava a `n = 174000`. Qui si ferma a poco piu' di $200$: di quante volte e' peggiorata la profondita' massima? Confrontate il rapporto con $40000 / 48$, cioe' con il rapporto fra le due dimensioni di una chiamata.
+2. `appoggio` e' dichiarato dentro la funzione, quindi **ogni chiamata in attesa ne ha una copia sua**. Quanti byte occupa la pila quando ci sono $200$ chiamate aperte? Confrontate con `ulimit -s`.
+3. L'array `appoggio` qui non serve a niente (`appoggio[0]` vale sempre $0$). Toglietelo e verificate che si torni a $174000$.
+4. Supponete invece che servisse davvero. Ci sono due modi di non pagarlo a ogni chiamata: dichiararlo `static`, oppure dichiararlo prima di `main`. Provate il primo e rimisurate la profondita' massima. Perche' funziona? Che cosa cambia, per `appoggio`, fra `auto` e `static`?
+5. **In piu'.** Con `static` l'array diventa **unico e condiviso fra tutte le chiamate**. Per questa funzione va bene; scrivete un esempio di funzione ricorsiva per cui invece sarebbe un disastro.
+
+### Dallo pseudocodice al C (L16-L20)
+
+Come in K16-K20: prima di scrivere il codice, **prevedete la classe in tempo e quella in memoria aggiuntiva**, poi scrivete il programma, poi misurate e confrontate con la previsione. Se non coincidono, l'interessante e' capire quale delle due era sbagliata.
+
+**L16.** Il valore piu' frequente. Dato un array di `n` interi compresi fra $0$ e `k - 1`, trovare il valore che compare piu' volte.
+
+```text
+SOTTOPROGRAMMA _moda(_v, _n, _k)
+    PER _i DA 0 A _k - 1
+        ASSEGNA a _conta[_i] il valore 0
+    FINE
+    PER _i DA 0 A _n - 1
+        ASSEGNA a _conta[_v[_i]] il valore _conta[_v[_i]] + 1
+    FINE
+    ASSEGNA a _migliore il valore 0
+    PER _i DA 1 A _k - 1
+        SE _conta[_i] > _conta[_migliore] ALLORA
+            ASSEGNA a _migliore il valore _i
+        FINE
+    FINE
+    RESTITUISCI _migliore
+FINE
+```
+
+1. Prevedete, **prima** di scrivere il programma: quanti passi fa in funzione di `n` e di `k`? Quanta memoria aggiuntiva usa? Scrivete entrambe in notazione O-grande.
+2. L'alternativa senza memoria aggiuntiva e' quella ovvia: per ogni elemento, contare quante volte compare scorrendo tutto l'array. Qual e' la sua classe in tempo? E in memoria?
+3. Scrivete entrambe e misuratele su $50000$ valori casuali in $[0, 1000)$, contando i passi e verificando che diano lo stesso risultato.
+
+```text
+n = 50000, valori in [0, 1000)
+a coppie:        valore 492, 71 volte   6.191 s   2500000000 passi   memoria extra 0 byte
+con i contatori: valore 492, 71 volte   0.000 s        51000 passi   memoria extra 4000 byte
+```
+
+4. I contatori sono gia' comparsi in G2 e in G19: li' erano un modo naturale di risolvere il problema, qui si vede che cosa costano e che cosa fanno risparmiare. Il rapporto fra i passi e' circa $49000$: confrontatelo con `n`, e spiegate perche' $\frac{n^2}{n+k}$ vale circa `n` quando `k` e' molto piu' piccolo di `n`.
+5. Che cosa succede se i valori arrivano fino a $k = 1000000000$ e gli elementi sono solo $10$? Scrivete la condizione, in funzione di `n` e `k`, sotto la quale conviene la versione con i contatori.
+6. **In piu'.** Come adattereste la versione con i contatori a valori in $[-500, 500)$? E a valori `double`? (La seconda domanda non ha una risposta semplice: dite perche'.)
+
+**L17.** Il $k$-esimo elemento piu' piccolo, senza ordinare tutto. Per sapere qual e' il decimo valore piu' piccolo di un array non serve ordinarlo: bastano i primi dieci giri del selection sort di G16.
+
+```text
+SOTTOPROGRAMMA _kesimo(_v, _n, _k)
+    PER _p DA 0 A _k - 1
+        ASSEGNA a _posmin il valore _p
+        PER _i DA _p + 1 A _n - 1
+            SE _v[_i] < _v[_posmin] ALLORA
+                ASSEGNA a _posmin il valore _i
+            FINE
+        FINE
+        scambia _v[_p] e _v[_posmin]
+    FINE
+    RESTITUISCI _v[_k - 1]
+FINE
+```
+
+1. Prevedete il numero di confronti in funzione di `n` e `k`, e la classe. Quanta memoria aggiuntiva?
+2. Scrivetelo, contate i confronti e confrontate con il selection sort completo seguito da `w[k - 1]`, su una copia dell'array, con $n = 20000$ e $k = 10$.
+
+```text
+n = 20000, k = 10
+k passate:            1121937   0.001 s      199945 confronti
+ordinamento completo: 1121937   0.491 s   199990000 confronti
+```
+
+3. Il numero di confronti misurato, $199945$, e' vicinissimo a $kn$. Ricavate la formula esatta sommando i giri del ciclo interno per `p` da $0$ a `k - 1`, e verificate che dia proprio quel numero con $n = 20000$ e $k = 10$.
+4. Il caso $k = n$ e' l'ordinamento completo. Sostituite `k = n` nella formula del punto 3: ritrovate la formula del selection sort di K3?
+5. Il caso $k = \frac{n}{2}$ e' la **mediana**. Che classe ha questo algoritmo per la mediana? Conviene ancora rispetto a ordinare tutto?
+6. **Sfida.** Il sottoprogramma **modifica** l'array che riceve, perche' scambia. Chi lo chiama potrebbe non aspettarselo, e in I avete visto perche' questo e' un difetto di progetto. Scrivete la versione che non lo modifica: quanta memoria aggiuntiva costa, e quale delle due scegliereste?
+
+**L18.** L'unione di due insiemi ordinati. Due array ordinati e senza ripetizioni rappresentano due insiemi; si vuole l'array ordinato e senza ripetizioni dei valori che stanno in almeno uno dei due. E' la fusione di G6 con in piu' l'eliminazione dei doppioni.
+
+```text
+SOTTOPROGRAMMA _unione(_a, _na, _b, _nb, _u)
+    ASSEGNA a _i il valore 0
+    ASSEGNA a _j il valore 0
+    ASSEGNA a _m il valore 0
+    FINCHE' _i < _na OPPURE _j < _nb
+        SE _j >= _nb OPPURE (_i < _na E _a[_i] <= _b[_j]) ALLORA
+            ASSEGNA a _t il valore _a[_i]
+            ASSEGNA a _i il valore _i + 1
+        ALTRIMENTI
+            ASSEGNA a _t il valore _b[_j]
+            ASSEGNA a _j il valore _j + 1
+        FINE
+        SE _m = 0 OPPURE _t <> _u[_m - 1] ALLORA
+            ASSEGNA a _u[_m] il valore _t
+            ASSEGNA a _m il valore _m + 1
+        FINE
+    FINE
+    RESTITUISCI _m
+FINE
+```
+
+1. Prevedete: quanti giri fa il `FINCHE'` in funzione di `na` e `nb`? Qual e' la classe? E la memoria aggiuntiva, contando l'array `_u`?
+2. L'alternativa ingenua copia `_a` in `_u` e poi, per ogni elemento di `_b`, scorre `_u` per vedere se c'e' gia'; se non c'e', lo aggiunge in fondo. Qual e' la sua classe? Ha bisogno che gli array siano ordinati? Attenzione: cosi' facendo `_u` contiene gli stessi valori ma **non e' ordinato**, quindi le due versioni non producono lo stesso array. Che cosa bisognerebbe aggiungere alla versione ingenua perche' lo sia, e quanto costerebbe?
+3. Scrivete entrambe e misuratele con $na = nb = 50000$, `a[i] = 2 * i` e `b[i] = 3 * i`, confrontando il **numero di elementi distinti** trovato dalle due (l'ordine, come avete visto al punto 2, e' diverso). Gli array vanno dichiarati prima di `main` (H6).
+
+```text
+fusione ordinata:   83333 elementi distinti, 0.001 s,       100000 passi
+confronto a coppie:                          4.808 s,   1944438889 passi
+primi dieci: 0 2 3 4 6 8 9 10 12 14
+```
+
+4. Verificate a mano il numero $83333$: quanti multipli di $2$ ci sono in `a`, quanti multipli di $3$ in `b`, e quanti valori compaiono in entrambi? (Principio di inclusione-esclusione.)
+5. La condizione `_a[_i] <= _b[_j]` usa `<=` e non `<`. Provate a scrivere `<` ed eseguite su `a = 0 2 4` e `b = 0 3 6`: l'output non cambia. Dite che cosa cambia **dentro** l'algoritmo (quale dei due zeri viene preso per primo) e quale riga dello pseudocodice rende indifferente la scelta. Poi togliete il controllo dei doppioni e riprovate: adesso la scelta conta?
+6. **In piu'.** Modificate l'algoritmo per ottenere l'**intersezione** invece dell'unione, e poi la **differenza** `a` meno `b`. Quante righe dovete cambiare in ciascun caso?
+
+**L19.** La codifica a sequenze. Un testo in cui lo stesso carattere si ripete spesso si puo' accorciare sostituendo ogni sequenza di caratteri uguali con la coppia (carattere, lunghezza): `AAAABBB` diventa `A4B3`. E' il primo algoritmo che incontrate in cui la memoria non e' un costo accessorio ma **il risultato**.
+
+```text
+SOTTOPROGRAMMA _comprimi(_t, _n, _s, _q)
+    ASSEGNA a _m il valore 0
+    ASSEGNA a _i il valore 0
+    FINCHE' _i < _n
+        ASSEGNA a _j il valore _i
+        FINCHE' _j < _n E _t[_j] = _t[_i]
+            ASSEGNA a _j il valore _j + 1
+        FINE
+        ASSEGNA a _s[_m] il valore _t[_i]
+        ASSEGNA a _q[_m] il valore _j - _i
+        ASSEGNA a _m il valore _m + 1
+        ASSEGNA a _i il valore _j
+    FINE
+    RESTITUISCI _m
+FINE
+```
+
+1. Il ciclo esterno e quello interno sono annidati, quindi verrebbe da dire $O(n^2)$. E' sbagliato: guardate che valore prende `_i` dopo il ciclo interno e contate quante volte in tutto viene eseguita la riga `_j = _j + 1`. Qual e' la classe vera?
+2. Il risultato occupa, per ogni sequenza, un `char` piu' un `int`. Scrivete i byte occupati in funzione di `_m`, e poi in funzione di `n` nel caso migliore (tutti i caratteri uguali) e nel caso peggiore (nessuna ripetizione).
+3. Scrivetelo e provatelo su un testo di $1000000$ caratteri riempito in tre modi: blocchi di $100$ caratteri uguali, lettere casuali fra quattro, e `ABABAB...`. I tre array (il testo, `_s` e `_q`) vanno dichiarati prima di `main` (H6).
+
+```text
+blocchi da 100:   10000 sequenze,   50000 byte contro 1000000  -> 0.05 volte
+lettere casuali: 749151 sequenze, 3745755 byte contro 1000000  -> 3.75 volte
+ABABAB...:      1000000 sequenze, 5000000 byte contro 1000000  -> 5.00 volte
+```
+
+4. Nel terzo caso il "compresso" occupa **cinque volte** l'originale. Spiegate perche' nessun metodo di compressione puo' accorciare *tutti* i testi possibili: contate quanti testi di `n` caratteri esistono e quanti testi piu' corti di `n` caratteri esistono.
+5. Scrivete il sottoprogramma inverso, che da `_s` e `_q` ricostruisce il testo, e verificate su tutti e tre i casi che si riottenga esattamente l'originale. Qual e' la sua classe?
+6. **In piu'.** Se le sequenze non superano mai $255$, il conteggio ci sta in un `unsigned char` (un `char` semplice, con gcc su questi computer, ha segno e arriva solo a $127$). Quanto cambierebbero i tre numeri della tabella? E che cosa dovrebbe fare il programma con una sequenza di $1000$ caratteri uguali?
+
+**L20.** **Sfida.** Il numero mancante. Un array contiene $n - 1$ interi distinti presi fra $1$ e `n`, in ordine qualsiasi: ne manca esattamente uno. Trovatelo.
+
+Ci sono tre soluzioni ragionevoli, ed e' il riassunto di tutto il pacchetto, perche' le tre pagano in tre valute diverse.
+
+```text
+SOTTOPROGRAMMA _mancante_somma(_v, _n)
+    ASSEGNA a _s il valore _n * (_n + 1) / 2
+    PER _i DA 0 A _n - 2
+        ASSEGNA a _s il valore _s - _v[_i]
+    FINE
+    RESTITUISCI _s
+FINE
+```
+
+1. Le tre soluzioni sono: (a) quella dello pseudocodice; (b) tenere un array di `n + 1` caselle e segnare quali valori si sono visti; (c) ordinare l'array con uno dei metodi di F18, G16 o G17 e cercare il primo salto. Prevedete per ciascuna la classe in tempo e quella in memoria aggiuntiva, e compilate una tabella a tre righe.
+2. Scrivete (a) e (b) e misuratele con $n = 10000000$, dichiarando i due array prima di `main` (H6): dentro `main` non ci starebbero. (La (c) con questi metodi di ordinamento non finirebbe in tempo utile: dite quante operazioni richiederebbe.)
+
+```text
+n = 10000000
+con la somma:   manca 4242   0.022 s   memoria extra 8 byte
+con le caselle: manca 4242   0.293 s   memoria extra 10000001 byte = 9.5 MB
+```
+
+3. La soluzione (a) fa meno operazioni **e** usa meno memoria: sembra quindi migliore sotto ogni punto di vista. Ha pero' un difetto che le altre due non hanno, e con $n = 10000000$ ci siete andati vicino: $\frac{n(n+1)}{2}$ vale $50000005000000$, mentre il piu' grande `int` e' $2147483647$. Che cosa succede se dichiarate `_s` come `int`? Provate, e spiegate il risultato.
+4. Quanto puo' valere `n` al massimo perche' la soluzione (a) resti corretta con `_s` dichiarato `long` (il piu' grande `long` vale circa $9.2 \cdot 10^{18}$)? Confrontate con il limite che ha invece la soluzione (b), che non e' aritmetico ma di memoria.
+5. Verificate tutte e tre a mano su `v = 3 1 5 2` con `n = 5`.
+6. **Sfida nella sfida.** Adesso mancano **due** numeri. La somma da sola non basta: da' una sola equazione in due incognite. Trovate una seconda quantita' calcolabile in una passata che permetta di ricavarli entrambi (per esempio la somma dei quadrati, oppure il prodotto). Scrivete il programma, e dite quale delle due seconde equazioni vi crea prima problemi di traboccamento.

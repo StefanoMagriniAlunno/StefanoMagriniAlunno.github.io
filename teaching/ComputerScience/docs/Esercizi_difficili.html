@@ -377,6 +377,7 @@ window.Quarto = {
   <li><a href="#pacchetto-x-file-argv-e-make-test" id="toc-pacchetto-x-file-argv-e-make-test" class="nav-link" data-scroll-target="#pacchetto-x-file-argv-e-make-test">Pacchetto X: FILE*, argv e make test</a></li>
   <li><a href="#pacchetto-y-qsort-e-bsearch" id="toc-pacchetto-y-qsort-e-bsearch" class="nav-link" data-scroll-target="#pacchetto-y-qsort-e-bsearch">Pacchetto Y: qsort e bsearch</a></li>
   <li><a href="#pacchetto-z-integrazione-e-modularita" id="toc-pacchetto-z-integrazione-e-modularita" class="nav-link" data-scroll-target="#pacchetto-z-integrazione-e-modularita">Pacchetto Z: Integrazione e modularita’</a></li>
+  <li><a href="#pacchetto-aa-puntatori-e-memoria-dinamica" id="toc-pacchetto-aa-puntatori-e-memoria-dinamica" class="nav-link" data-scroll-target="#pacchetto-aa-puntatori-e-memoria-dinamica">Pacchetto AA: Puntatori e memoria dinamica</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -416,6 +417,11 @@ window.Quarto = {
 <tr class="odd">
 <td>Z</td>
 <td>Integrazione e modularita’</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>AA</td>
+<td>Puntatori e memoria dinamica</td>
 <td>5</td>
 </tr>
 </tbody>
@@ -1649,6 +1655,316 @@ window.Quarto = {
 <li><strong>In piu’.</strong> <code>lettura_da_file</code> accetta solo valori tra <span class="math inline">\(0\)</span> e <span class="math inline">\(99\)</span>, e l’istogramma ha dieci classi da dieci: <span class="math inline">\(10 \times 10 = 100\)</span>, e il conto torna. Ma le due intestazioni non si parlano, e nessuna delle due dice che quel conto deve tornare. Provate ad allargare l’intervallo in <code>lettura.c</code>, ammettendo i valori fino a <span class="math inline">\(999\)</span>, e date in pasto al programma un file che contiene <span class="math inline">\(150\)</span>: <code>istogramma_conta</code> calcola la classe <span class="math inline">\(15\)</span> e scrive in <code>conteggi[15]</code>, cioe’ fuori da un array di dieci elementi. Il programma non protesta e il risultato e’ imprevedibile. Ricostruite con <code>-fsanitize=address</code>, come spiegato nel riquadro qui sopra, e il programma si ferma da solo segnalando <code>stack-buffer-overflow</code> dentro <code>istogramma_conta</code>. (Il messaggio dice <code>READ</code>, non <code>WRITE</code>: <code>conteggi[15]++</code> legge la casella prima di riscriverla, e il controllo scatta gia’ sulla lettura.) Quando avete finito, <strong>rimettete <span class="math inline">\(99\)</span> in <code>lettura.c</code></strong>, date <code>make clean</code> e <code>make</code>, e controllate che <code>make test</code> torni a dare <span class="math inline">\(8\)</span> su <span class="math inline">\(8\)</span>.</li>
 </ol>
 <p>Come si potrebbe fare in modo che quel conto non possa sbagliare? Pensate a quale delle due intestazioni dovrebbe dipendere dall’altra, e a che cosa potrebbe controllare un <code>assert</code> dentro <code>istogramma_conta</code>.</p>
+</section>
+</section>
+<section id="pacchetto-aa-puntatori-e-memoria-dinamica" class="level2">
+<h2 data-anchor-id="pacchetto-aa-puntatori-e-memoria-dinamica">Pacchetto AA: Puntatori e memoria dinamica</h2>
+<p>I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. <code>char *argv[]</code> in X, <code>FILE *f</code> in tutti i programmi che aprono un file, <code>const void *</code> nelle funzioni di confronto di Y: in ciascuno di quei casi c’era una stella, e l’avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: <strong>chiedere memoria mentre il programma gira</strong>.</p>
+<p>Il motivo per cui conviene farlo lo conoscete gia’ bene. In Z1 il modulo <code>vettore</code> aveva una costante <code>VETTORE_MAX</code> uguale a <span class="math inline">\(1000\)</span>, e il programma rifiutava i file piu’ lunghi; in X e in Y ogni programma ha un <code>#define</code> che fissa un limite deciso da chi scrive, non da chi usa. In AA3 quel limite sparisce.</p>
+<p>Il materiale di questo pacchetto sta nelle cartelle da <code>AA1_scambia</code> a <code>AA5_lista</code>. Il Makefile e’ lo stesso del Pacchetto Z, e <code>make test</code> funziona allo stesso modo. Compilate sempre con <code>gcc -g -Wall -Wextra</code>; da AA3 in poi serve anche <code>valgrind</code>, che e’ nuovo, mentre <code>-fsanitize=address</code> lo avete gia’ usato in Z5.</p>
+<section id="un-indirizzo-e-un-numero" class="level3">
+<h3 data-anchor-id="un-indirizzo-e-un-numero">Un indirizzo e’ un numero</h3>
+<p>Ogni variabile di un programma sta da qualche parte nella memoria, e quel “da qualche parte” e’ un numero: l’<strong>indirizzo</strong> del primo byte che occupa. Un <em>puntatore</em> e’ una variabile che contiene un indirizzo.</p>
+<p>Servono tre notazioni, e sono tutte e tre la stessa stella letta in posti diversi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb46-1"><a href="#cb46-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">42</span><span class="op">;</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span>        <span class="co">/* p e' un puntatore a int: contiene l'indirizzo di un int */</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>p <span class="op">=</span> <span class="op">&amp;</span>x<span class="op">;</span>        <span class="co">/* &amp; prende l'indirizzo di x                               */</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="op">*</span>p<span class="op">);</span>   <span class="co">/* * segue il puntatore: stampa 42                  */</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="op">*</span>p <span class="op">=</span> <span class="dv">7</span><span class="op">;</span>        <span class="co">/* scrive 7 dentro x, passando per p                       */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>nella <strong>dichiarazione</strong>, <code>int *p</code> si legge “<code>*p</code> e’ un <code>int</code>”, cioe’ “<code>p</code> e’ l’indirizzo di un <code>int</code>”;</li>
+<li><code>&amp;x</code> si legge “l’indirizzo di <code>x</code>”;</li>
+<li><code>*p</code>, in un’espressione, si legge “il valore all’indirizzo <code>p</code>”.</li>
+</ul>
+<p>Un puntatore che non punta a niente vale <code>NULL</code>, che e’ definito in <code>stdio.h</code> e in <code>stdlib.h</code>. Seguire un puntatore <code>NULL</code> e’ comportamento indefinito, e in pratica fa terminare il programma con <code>Segmentation fault</code>: e’ il modo in cui il sistema vi dice che avete chiesto l’indirizzo zero. Per stampare un indirizzo si usa <code>%p</code>, con il valore convertito a <code>void *</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a href="#cb47-1"></a>printf<span class="op">(</span><span class="st">"x sta in </span><span class="sc">%p\n</span><span class="st">"</span><span class="op">,</span> <span class="op">(</span><span class="dt">void</span> <span class="op">*)&amp;</span>x<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e’ verificabile con <code>make test</code>. Quello che <strong>non</strong> cambia sono le loro differenze: e’ su quelle che lavora AA2.</p>
+</section>
+<section id="i-puntatori-che-avete-gia-usato" class="level3">
+<h3 data-anchor-id="i-puntatori-che-avete-gia-usato">I puntatori che avete gia’ usato</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dove</th>
+<th>Che cosa e’</th>
+<th>Che cosa significa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>scanf("%d", &amp;n)</code></td>
+<td><code>&amp;n</code></td>
+<td>l’indirizzo di <code>n</code>, perche’ <code>scanf</code> deve <strong>scrivere</strong> dentro <code>n</code></td>
+</tr>
+<tr class="even">
+<td><code>char *argv[]</code></td>
+<td>array di puntatori a <code>char</code></td>
+<td>ogni <code>argv[i]</code> e’ l’indirizzo del primo carattere di una parola</td>
+</tr>
+<tr class="odd">
+<td><code>FILE *f</code></td>
+<td>puntatore a una struttura della libreria</td>
+<td>l’indirizzo di un oggetto che non dovete guardare dentro</td>
+</tr>
+<tr class="even">
+<td><code>int confronta(const void *a, const void *b)</code></td>
+<td>due indirizzi di tipo ignoto</td>
+<td><code>qsort</code> non sa che cosa sta ordinando: vi passa gli indirizzi</td>
+</tr>
+<tr class="odd">
+<td><code>strcpy(d, s)</code></td>
+<td>due indirizzi di <code>char</code></td>
+<td>i nomi degli array sono indirizzi, come si vede qui sotto</td>
+</tr>
+</tbody>
+</table>
+<p>La prima riga e’ quella che spiega I12. Un sottoprogramma riceve <strong>copie</strong> dei parametri, quindi non puo’ cambiare le variabili del chiamante; <code>scanf</code> ci riesce perche’ non riceve <code>n</code> ma il suo indirizzo. Quando in I avete scritto uno <code>scambia</code> che non scambiava, vi mancava esattamente questo. In AA1 lo rimettete a posto.</p>
+</section>
+<section id="puntatori-e-array" class="level3">
+<h3 data-anchor-id="puntatori-e-array">Puntatori e array</h3>
+<p>In C il nome di un array, usato in un’espressione, <strong>vale l’indirizzo del suo primo elemento</strong>. Da questo discende tutto il resto:</p>
+<ul>
+<li><code>v[i]</code> e’ solo un modo comodo di scrivere <code>*(v + i)</code>: le due notazioni sono intercambiabili;</li>
+<li><code>v + i</code> non somma <code>i</code> byte ma <code>i</code> <strong>elementi</strong>: con un array di <code>int</code>, <code>v + 1</code> e’ quattro byte piu’ avanti. L’aritmetica dei puntatori sa quanto e’ grande cio’ che viene puntato;</li>
+<li>la differenza di due puntatori dentro lo stesso array e’ il numero di elementi che li separa, non di byte;</li>
+<li>passare un array a una funzione <strong>non lo copia</strong>, perche’ quello che viene copiato e’ l’indirizzo. E’ la risposta alla domanda rimasta in sospeso in I7 e in P17: una <code>struct</code> passata per valore viene copiata tutta (tutti e novantasei i byte del <code>Polinomio</code> di P17, a ogni chiamata), un array no, e la differenza e’ qui;</li>
+<li>dentro la funzione, quindi, <code>sizeof</code> sul parametro <strong>non</strong> da’ la dimensione dell’array, ma quella di un puntatore. Per questo le funzioni che ricevono un array ricevono sempre anche <code>n</code>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb48-1"><a href="#cb48-1"></a><span class="dt">void</span> f<span class="op">(</span><span class="dt">int</span> v<span class="op">[])</span> <span class="op">{</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span><span class="kw">sizeof</span><span class="op">(</span>v<span class="op">));</span>   <span class="co">/* 8: e' un puntatore */</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="op">}</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a></span>
+<span id="cb48-5"><a href="#cb48-5"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb48-6"><a href="#cb48-6"></a>    <span class="dt">int</span> v<span class="op">[</span><span class="dv">8</span><span class="op">];</span></span>
+<span id="cb48-7"><a href="#cb48-7"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span><span class="kw">sizeof</span><span class="op">(</span>v<span class="op">));</span>   <span class="co">/* 32: sono 8 int */</span></span>
+<span id="cb48-8"><a href="#cb48-8"></a>    f<span class="op">(</span>v<span class="op">);</span></span>
+<span id="cb48-9"><a href="#cb48-9"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb48-10"><a href="#cb48-10"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>int v[]</code> e <code>int *v</code>, scritti come <strong>parametro</strong>, sono la stessa identica cosa; scritti come <strong>dichiarazione di variabile</strong> sono due cose diverse (il primo riserva lo spazio, il secondo no).</p>
+</section>
+<section id="chiedere-memoria-durante-lesecuzione" class="level3">
+<h3 data-anchor-id="chiedere-memoria-durante-lesecuzione">Chiedere memoria durante l’esecuzione</h3>
+<p>Finora tutta la memoria dei vostri programmi era decisa prima di partire: le variabili e gli array avevano una taglia scritta nel sorgente. Le quattro funzioni di <code>stdlib.h</code> che seguono permettono invece di chiederne quando serve e quanta serve.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Funzione</th>
+<th>Che cosa fa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>malloc(byte)</code></td>
+<td>chiede <code>byte</code> byte e restituisce l’indirizzo del primo, oppure <code>NULL</code></td>
+</tr>
+<tr class="even">
+<td><code>calloc(quanti, byte)</code></td>
+<td>come <code>malloc</code> per <code>quanti * byte</code> byte, ma li azzera</td>
+</tr>
+<tr class="odd">
+<td><code>realloc(p, byte)</code></td>
+<td>cambia la dimensione del blocco <code>p</code>, conservandone il contenuto</td>
+</tr>
+<tr class="even">
+<td><code>free(p)</code></td>
+<td>restituisce al sistema il blocco <code>p</code></td>
+</tr>
+</tbody>
+</table>
+<p>La forma da imparare a memoria e’ questa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb49-1"><a href="#cb49-1"></a><span class="dt">int</span> <span class="op">*</span>v <span class="op">=</span> malloc<span class="op">((</span><span class="dt">size_t</span><span class="op">)</span>n <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="cf">if</span> <span class="op">(</span>v <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"memoria esaurita</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="op">}</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a><span class="co">/* ... usare v come un normale array di n interi: v[0], ..., v[n-1] ... */</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>free<span class="op">(</span>v<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tre avvertenze:</p>
+<ul>
+<li><strong>si scrive <code>sizeof(int)</code>, non <span class="math inline">\(4\)</span>.</strong> Il programma deve restare giusto su un computer in cui <code>int</code> ne occupa otto;</li>
+<li><strong>il valore restituito va sempre controllato.</strong> <code>malloc</code> restituisce <code>NULL</code> quando non ce la fa, e seguire quel <code>NULL</code> fa morire il programma lontano dal punto in cui e’ nato l’errore;</li>
+<li><strong><code>realloc</code> puo’ spostare il blocco</strong>, quindi il vecchio indirizzo dopo la chiamata non vale piu’. Il risultato si raccoglie in una variabile nuova, perche’ se <code>realloc</code> fallisce restituisce <code>NULL</code> e il blocco vecchio e’ ancora da liberare:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb50-1"><a href="#cb50-1"></a><span class="dt">int</span> <span class="op">*</span>nuovo <span class="op">=</span> realloc<span class="op">(</span>v<span class="op">,</span> <span class="op">(</span><span class="dt">size_t</span><span class="op">)</span>capacita <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="cf">if</span> <span class="op">(</span>nuovo <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>    free<span class="op">(</span>v<span class="op">);</span>          <span class="co">/* v e' ancora valido: va liberato */</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>    <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a><span class="op">}</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a>v <span class="op">=</span> nuovo<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Chi chiede, libera.</strong> La memoria ottenuta con <code>malloc</code> resta occupata finche’ qualcuno non chiama <code>free</code>: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita’ passa al chiamante: e’ quello che fa l’<code>@post</code> di <code>lettura_interi</code> in AA3.</p>
+</section>
+<section id="i-quattro-errori-e-i-due-strumenti-per-vederli" class="level3">
+<h3 data-anchor-id="i-quattro-errori-e-i-due-strumenti-per-vederli">I quattro errori, e i due strumenti per vederli</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Errore</th>
+<th>Che cosa succede</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>perdita</strong> (<em>leak</em>)</td>
+<td>si chiede memoria e non si libera mai: il programma cresce finche’ non finisce la memoria</td>
+</tr>
+<tr class="even">
+<td><strong>doppia liberazione</strong></td>
+<td>si chiama <code>free</code> due volte sullo stesso blocco: il programma muore, a volte molto dopo</td>
+</tr>
+<tr class="odd">
+<td><strong>uso dopo la liberazione</strong></td>
+<td>si legge o si scrive un blocco gia’ liberato: i valori sono casuali</td>
+</tr>
+<tr class="even">
+<td><strong>scrittura oltre il limite</strong></td>
+<td>si scrive in <code>v[n]</code> di un blocco di <code>n</code> elementi: si rovina la memoria accanto</td>
+</tr>
+</tbody>
+</table>
+<p>Hanno tutti e quattro la stessa caratteristica sgradevole: <strong>il programma sembra funzionare</strong>. Nessuno dei quattro e’ segnalato da <code>gcc</code> in modo affidabile, e i test di <code>make test</code> li superano tutti. Servono strumenti che controllino la memoria durante l’esecuzione, e ce ne sono due:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-fsanitize</span><span class="op">=</span>address <span class="at">-o</span> prova prova.c    <span class="co"># poi ./prova</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">valgrind</span> <span class="at">--leak-check</span><span class="op">=</span>full ./prova</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il primo lo conoscete gia’ dal Pacchetto Z, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con <code>malloc</code>, e in piu’ alla fine del programma <code>-fsanitize=address</code> elenca i blocchi mai liberati. Il secondo, <code>valgrind</code>, e’ nuovo: non richiede di ricompilare, trova le stesse cose piu’ lentamente, e il suo riepilogo finale distingue la memoria <strong>definitely lost</strong> da quella <strong>still reachable</strong>. Usateli entrambi almeno una volta in AA4, e poi tenete l’abitudine di passare sotto <code>valgrind</code> ogni programma che chiama <code>malloc</code>.</p>
+</section>
+<section id="esercizi-aa1-aa5" class="level3">
+<h3 data-anchor-id="esercizi-aa1-aa5">Esercizi (AA1-AA5)</h3>
+<p><strong>AA1.</strong> Nella cartella <code>AA1_scambia</code> trovate il modulo <code>scambio.h</code> e <code>scambio.c</code>, il Makefile e i test; manca <code>main.c</code>, che scrivete voi. Il modulo offre quattro sottoprogrammi: <code>scambio_per_valore</code>, lasciato apposta com’era in I12 e quindi inutile; <code>scambio_scambia</code>, che funziona; <code>scambio_dividi</code>, che restituisce quoziente e resto insieme; e <code>scambio_ordina_tre</code>.</p>
+<p>Il programma <code>scambia</code> riceve tre interi sulla riga di comando e stampa esattamente questo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb52-1"><a href="#cb52-1"></a>$ ./scambia 17 5 3</span>
+<span id="cb52-2"><a href="#cb52-2"></a>Prima:            a = 17, b = 5</span>
+<span id="cb52-3"><a href="#cb52-3"></a>Per valore:       a = 17, b = 5</span>
+<span id="cb52-4"><a href="#cb52-4"></a>17 / 5 = 3 con resto 2</span>
+<span id="cb52-5"><a href="#cb52-5"></a>Con i puntatori:  a = 5, b = 17</span>
+<span id="cb52-6"><a href="#cb52-6"></a>Ordinati:         3 5 17</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con un numero di argomenti diverso da tre, stampa su <code>stderr</code> la riga <code>Uso: ./scambia a b c</code> e termina con codice <span class="math inline">\(1\)</span>. La divisione va fatta <strong>prima</strong> dello scambio, e con il divisore uguale a zero stampa <code>7 / 0: divisione per zero</code> al posto della riga della divisione.</p>
+<ol type="1">
+<li>Leggete <code>scambio.c</code> e confrontate i corpi di <code>scambio_per_valore</code> e di <code>scambio_scambia</code>: sono la stessa sequenza di tre assegnazioni, con tre stelle in piu’. Dite, riga per riga, su che cosa agiscono le assegnazioni nei due casi.</li>
+<li>Nel <code>main</code>, la prima chiamata si scrive <code>scambio_per_valore(a, b)</code> e la seconda <code>scambio_scambia(&amp;a, &amp;b)</code>. Provate a scrivere <code>scambio_scambia(a, b)</code> e riportate l’errore di gcc. E con <code>scambio_per_valore(&amp;a, &amp;b)</code>?</li>
+<li><strong>Con gdb.</strong> Mettete un punto di arresto su <code>scambio_scambia</code> ed eseguite <code>print a</code>, <code>print *a</code>, <code>print &amp;a</code> e, risalendo con <code>up</code>, <code>print &amp;a</code> nel <code>main</code>. Quali due di questi quattro comandi stampano lo stesso numero? Spiegate perche’.</li>
+<li><code>scambio_dividi</code> e’ il modo in cui in C una funzione “restituisce due valori”: uno con <code>return</code> e gli altri scrivendo dove le viene detto. Confrontatelo con la soluzione di P, dove una <code>struct</code> con due campi faceva lo stesso lavoro. Quali sono i vantaggi e gli svantaggi dei due modi?</li>
+<li>Il valore restituito da <code>scambio_dividi</code> e’ <span class="math inline">\(0\)</span> o <span class="math inline">\(1\)</span> e dice se la divisione si poteva fare. E’ la stessa convenzione di <code>scanf</code>, che restituisce quanti valori e’ riuscito a leggere. Che cosa succede nel <code>main</code> se non lo controllate e <code>b</code> vale zero? Provate: <code>q</code> e <code>r</code> che valori hanno?</li>
+<li><code>scambio_ordina_tre</code> chiama <code>scambio_scambia</code> tre volte. Dimostrate che tre scambi bastano sempre, elencando i sei ordini possibili di tre numeri diversi e seguendo l’algoritmo su ciascuno.</li>
+<li><strong>In piu’.</strong> Aggiungete al modulo <code>void scambio_ruota(int *a, int *b, int *c)</code>, che sposta il valore di <code>*a</code> in <code>*b</code>, quello di <code>*b</code> in <code>*c</code> e quello di <code>*c</code> in <code>*a</code>. Quante variabili di appoggio servono? Verificate che applicandola tre volte si torni al punto di partenza.</li>
+</ol>
+<p><strong>AA2.</strong> Nella cartella <code>AA2_indirizzi</code> trovate il modulo <code>indirizzi.h</code> e <code>indirizzi.c</code>; manca <code>main.c</code>. Il modulo somma un array in tre modi diversi (con <code>v[i]</code>, con <code>*(v + i)</code> e scorrendo con un puntatore da un indirizzo all’altro), stampa le distanze fra gli elementi, e misura <code>sizeof</code> del parametro.</p>
+<p>Il programma <code>indirizzi</code> riceve da uno a sedici interi sulla riga di comando, li mette in un array <code>int v[16]</code> dichiarato dentro <code>main</code>, e stampa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb53-1"><a href="#cb53-1"></a>$ ./indirizzi 3 1 4 1 5 9 2 6</span>
+<span id="cb53-2"><a href="#cb53-2"></a>sizeof(v) dentro main:        64 byte</span>
+<span id="cb53-3"><a href="#cb53-3"></a>sizeof(v) dentro la funzione: 8 byte</span>
+<span id="cb53-4"><a href="#cb53-4"></a>sizeof(int):                  4 byte</span>
+<span id="cb53-5"><a href="#cb53-5"></a>caselle secondo main:         16</span>
+<span id="cb53-6"><a href="#cb53-6"></a>numeri letti:                 8</span>
+<span id="cb53-7"><a href="#cb53-7"></a></span>
+<span id="cb53-8"><a href="#cb53-8"></a>somma con v[i]:       31</span>
+<span id="cb53-9"><a href="#cb53-9"></a>somma con *(v + i):   31</span>
+<span id="cb53-10"><a href="#cb53-10"></a>somma scorrendo:      31</span>
+<span id="cb53-11"><a href="#cb53-11"></a>somma della meta' destra: 22</span>
+<span id="cb53-12"><a href="#cb53-12"></a></span>
+<span id="cb53-13"><a href="#cb53-13"></a>v[0] =   3   &amp;v[0] - &amp;v[0] = 0   in byte: 0</span>
+<span id="cb53-14"><a href="#cb53-14"></a>v[1] =   1   &amp;v[1] - &amp;v[0] = 1   in byte: 4</span>
+<span id="cb53-15"><a href="#cb53-15"></a>...</span>
+<span id="cb53-16"><a href="#cb53-16"></a>v[7] =   6   &amp;v[7] - &amp;v[0] = 7   in byte: 28</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La “meta’ destra” e’ <code>indirizzi_somma_scorrendo(v + n / 2, v + n)</code>. Con zero argomenti o con piu’ di sedici, il programma stampa su <code>stderr</code> <code>Uso: ./indirizzi n1 n2 ... (da 1 a 16 numeri)</code> e termina con codice <span class="math inline">\(1\)</span>.</p>
+<ol type="1">
+<li>Compilando il modulo, gcc produce un avviso: <code>'sizeof' on array function parameter 'v' will return size of 'const int *'</code>. Non e’ un difetto da correggere, e’ l’argomento dell’esercizio. Riscrivetelo con parole vostre e dite perche’ il compilatore puo’ accorgersene.</li>
+<li><code>sizeof(v)</code> vale <span class="math inline">\(64\)</span> nel <code>main</code> e <span class="math inline">\(8\)</span> nella funzione. Da dove vengono i due numeri? Quale dei due dipende da <code>#define MAX 16</code> e quale dal computer?</li>
+<li>Le tre somme danno lo stesso risultato. Guardate i tre corpi in <code>indirizzi.c</code>: <code>v[i]</code>, <code>*(v + i)</code> e <code>*p</code> con <code>p++</code>. Spiegate perche’ sono la stessa cosa, e dite quale delle tre scrivereste nel vostro codice.</li>
+<li>Nella tabella finale, la terza colonna e’ sempre quattro volte la seconda. Perche’ <code>&amp;v[i] - &amp;v[0]</code> vale <code>i</code> e non <code>4 * i</code>? Che cosa dovrebbe fare il compilatore per ottenere quel numero, sapendo che gli indirizzi sono byte?</li>
+<li>Cambiate l’array in <code>double v[16]</code> (e tutto il resto di conseguenza). Quali numeri della tabella cambiano, e quali no? Prevedeteli prima di eseguire.</li>
+<li><code>indirizzi_somma_scorrendo(v, v + n)</code> riceve un indirizzo <strong>oltre</strong> l’ultimo elemento. Lo standard C garantisce che calcolare quell’indirizzo sia lecito, ma non che si possa seguire. Guardate il ciclo: dove viene usato <code>fine</code>, e dove <strong>non</strong> viene usato?</li>
+<li><strong>In piu’.</strong> Scrivete <code>int indirizzi_cerca(const int *inizio, const int *fine, int valore)</code> che restituisce la distanza dal primo elemento, oppure <span class="math inline">\(-1\)</span>. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o <code>NULL</code>: e’ cosi’ che funziona <code>bsearch</code> di Y.</li>
+</ol>
+<p><strong>AA3.</strong> Nella cartella <code>AA3_dinamico</code> trovate <code>lettura.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test. Manca <code>lettura.c</code>: lo scrivete voi, ed e’ il primo modulo che chiede memoria.</p>
+<p>Il modulo deve leggere da un file <strong>tutti</strong> gli interi che contiene, senza nessun limite fissato nel sorgente: niente <code>VETTORE_MAX</code>. La strategia e’ obbligatoria, perche’ i test controllano anche quante volte l’array e’ stato ingrandito: si parte da una capacita’ di <span class="math inline">\(4\)</span> elementi e la si <strong>raddoppia</strong> ogni volta che si riempie.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb54-1"><a href="#cb54-1"></a>$ ./somma test/numeri.txt</span>
+<span id="cb54-2"><a href="#cb54-2"></a>Numeri letti: 10</span>
+<span id="cb54-3"><a href="#cb54-3"></a>Minimo: 1</span>
+<span id="cb54-4"><a href="#cb54-4"></a>Massimo: 9</span>
+<span id="cb54-5"><a href="#cb54-5"></a>Somma: 39</span>
+<span id="cb54-6"><a href="#cb54-6"></a>Ingrandimenti: 2</span>
+<span id="cb54-7"><a href="#cb54-7"></a>Primi cinque: 3 1 4 1 5</span>
+<span id="cb54-8"><a href="#cb54-8"></a></span>
+<span id="cb54-9"><a href="#cb54-9"></a>$ ./somma test/grande.txt</span>
+<span id="cb54-10"><a href="#cb54-10"></a>Numeri letti: 20000</span>
+<span id="cb54-11"><a href="#cb54-11"></a>Minimo: -1000</span>
+<span id="cb54-12"><a href="#cb54-12"></a>Massimo: 1000</span>
+<span id="cb54-13"><a href="#cb54-13"></a>Somma: -75376</span>
+<span id="cb54-14"><a href="#cb54-14"></a>Ingrandimenti: 13</span>
+<span id="cb54-15"><a href="#cb54-15"></a>Primi cinque: -337 941 -692 -192 333</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>lettura_interi</code> restituisce <code>NULL</code>, scrivendo <span class="math inline">\(-1\)</span> in <code>*quanti</code>, se il file contiene un dato non valido, se la memoria non basta, o se il file e’ vuoto; in tutti e tre i casi deve liberare quello che aveva gia’ chiesto.</p>
+<ol type="1">
+<li>Verificate i due numeri della riga <code>Ingrandimenti</code>. Partendo da <span class="math inline">\(4\)</span> e raddoppiando, quali capacita’ si attraversano per arrivare a contenere <span class="math inline">\(10\)</span> elementi? E <span class="math inline">\(20000\)</span>? Scrivete la formula generale in funzione di <code>n</code>.</li>
+<li>Il totale degli elementi copiati dai vari <code>realloc</code> e’ <span class="math inline">\(4 + 8 + 16 + \dots\)</span> fino all’ultima capacita’. Sommate la serie geometrica e dite quanto costa, in funzione di <code>n</code>, tutta la crescita. Qual e’ la classe? (E’ il motivo per cui si raddoppia invece di aggiungere una casella per volta.)</li>
+<li>Provate a crescere <strong>di uno</strong> invece che raddoppiando, su <code>grande.txt</code>. Quanti <code>realloc</code> vengono fatti, e quanti elementi vengono copiati in tutto? Misurate il tempo delle due versioni con <code>time</code>.</li>
+<li>Il modulo di Z1 rifiutava i file con piu’ di <span class="math inline">\(1000\)</span> numeri; questo legge <code>grande.txt</code> che ne ha <span class="math inline">\(20000\)</span>. Rileggete in <code>vettore.h</code> di Z1 il commento della costante <code>VETTORE_MAX</code> e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.</li>
+<li><strong>Con valgrind.</strong> Eseguite <code>valgrind --leak-check=full ./somma test/numeri.txt</code>. Deve dire <code>All heap blocks were freed</code>. Poi togliete la chiamata a <code>lettura_libera</code> nel <code>main</code> e rieseguite: quanti byte risultano persi, e corrispondono a quelli che avevate chiesto?</li>
+<li>Il <code>main</code> controlla <code>if (v == NULL)</code>. Togliete il controllo e provate con <code>test/vuoto.txt</code>: che cosa succede, e a quale riga? Confrontate con il caso in cui il controllo c’e’.</li>
+<li><strong>In piu’.</strong> Il blocco finale ha una capacita’ che e’ una potenza di due, quindi quasi sempre piu’ grande del necessario: con <span class="math inline">\(20000\)</span> elementi ne occupa <span class="math inline">\(32768\)</span>. Aggiungete alla fine di <code>lettura_interi</code> un <code>realloc</code> che la riduce esattamente a <code>n</code>, e dite quanti byte si risparmiano nel caso peggiore. Perche’ quel <code>realloc</code> non puo’ fallire in modo pericoloso?</li>
+</ol>
+<p><strong>AA4.</strong> Nella cartella <code>AA4_memoria</code> ci sono quattro programmi indipendenti, <code>uno.c</code>, <code>due.c</code>, <code>tre.c</code> e <code>quattro.c</code>. Tutti e quattro <strong>calcolano la cosa giusta</strong> e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu’ sopra, uno per programma. Il Makefile offre <code>make</code>, <code>make asan</code> e <code>make valgrind</code>.</p>
+<p>Per ciascuno: eseguitelo, osservate che l’output e’ corretto, trovate l’errore con gli strumenti, correggetelo, e verificate che <code>valgrind</code> non dica piu’ niente.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb55-1"><a href="#cb55-1"></a>$ ./uno</span>
+<span id="cb55-2"><a href="#cb55-2"></a>Somma dei quadrati fino a 100: 338350</span>
+<span id="cb55-3"><a href="#cb55-3"></a></span>
+<span id="cb55-4"><a href="#cb55-4"></a>$ ./due 4 8 15 16 23 42</span>
+<span id="cb55-5"><a href="#cb55-5"></a>Media: 18.00</span>
+<span id="cb55-6"><a href="#cb55-6"></a>free(): double free detected in tcache 2</span>
+<span id="cb55-7"><a href="#cb55-7"></a>Aborted</span>
+<span id="cb55-8"><a href="#cb55-8"></a></span>
+<span id="cb55-9"><a href="#cb55-9"></a>$ ./tre 5</span>
+<span id="cb55-10"><a href="#cb55-10"></a>Diagonale: 1606917908 4 9 16 25</span>
+<span id="cb55-11"><a href="#cb55-11"></a>Somma: 225</span>
+<span id="cb55-12"><a href="#cb55-12"></a></span>
+<span id="cb55-13"><a href="#cb55-13"></a>$ ./quattro 10</span>
+<span id="cb55-14"><a href="#cb55-14"></a>Somma dei primi 10 dispari: 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Associate ciascun programma a uno dei quattro errori, <strong>prima</strong> di usare gli strumenti. Due si riconoscono gia’ dall’output riportato qui sopra: quali, e da che cosa?</li>
+<li>Eseguite <code>make valgrind ARG=10</code> e leggete i quattro rapporti. Per <code>uno</code>, valgrind dice <code>definitely lost: 39,999,600 bytes in 99,999 blocks</code> e, una riga piu’ sotto, <code>still reachable: 400 bytes in 1 blocks</code>: da dove vengono questi numeri? (Il programma chiama la funzione <span class="math inline">\(100000\)</span> volte, su array di <span class="math inline">\(100\)</span> interi.) Sommate i blocchi persi e quello ancora raggiungibile: quante chiamate sono?</li>
+<li>Eseguite <code>make asan</code> e rieseguite i quattro. I messaggi sono <code>leaked in ... allocation(s)</code>, <code>attempting double-free</code>, <code>heap-use-after-free</code> e <code>heap-buffer-overflow</code>. Confrontateli con le vostre risposte al punto 1.</li>
+<li>Uno dei quattro errori viene segnalato <strong>anche da gcc</strong>, in compilazione, con l’avviso <code>pointer 't' may be used after 'free'</code>. Quale? Perche’ il compilatore riesce a vedere quello e non gli altri tre? (Guardate quanto distano, nel sorgente, la <code>free</code> e l’uso sbagliato.)</li>
+<li>In <code>due.c</code> l’errore non e’ in una riga ma in una <strong>decisione di progetto</strong>: <code>media</code> libera l’array che ha ricevuto. Spiegate perche’ e’ una pessima idea e correggete senza spostare la <code>free</code> di posto nel <code>main</code>. Che cosa andrebbe scritto nella documentazione di <code>media</code> se si volesse davvero tenere quel comportamento?</li>
+<li>In <code>tre.c</code> la prima stampa della diagonale e’ un numero diverso a ogni esecuzione, ma gli altri quattro sono giusti. Spiegate perche’ il blocco liberato contiene ancora i valori di prima, tranne che all’inizio. (Suggerimento: chi gestisce la memoria libera usa i primi byte del blocco per i propri appunti.)</li>
+<li>In <code>quattro.c</code> la scrittura e’ una sola casella oltre il limite, e il programma termina regolarmente. Provate con <code>n</code> molto piu’ grande e ripetete qualche volta: termina sempre? <strong>In piu’.</strong> Questo e’ l’errore piu’ pericoloso dei quattro: spiegate perche’, confrontandolo con una perdita di memoria.</li>
+</ol>
+<p><strong>AA5.</strong> <strong>Sfida.</strong> Nella cartella <code>AA5_lista</code> ci sono <code>lista.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test; manca <code>lista.c</code>, che scrivete voi. E’ la prima struttura dati che non e’ un array: una <strong>lista concatenata</strong>, cioe’ una catena di nodi in cui ciascuno contiene un valore e l’indirizzo del successivo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb56-1"><a href="#cb56-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> nodo <span class="op">{</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>    <span class="dt">int</span> valore<span class="op">;</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>    <span class="kw">struct</span> nodo <span class="op">*</span>successivo<span class="op">;</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="op">}</span> Nodo<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Una lista vuota e’ <code>NULL</code>, l’ultimo nodo ha <code>successivo</code> uguale a <code>NULL</code>. Ogni sottoprogramma che puo’ cambiare la testa della lista la restituisce, e chi chiama riassegna: <code>l = lista_togli(l, 5);</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb57-1"><a href="#cb57-1"></a>$ ./lista 5 3 9 1 3 7</span>
+<span id="cb57-2"><a href="#cb57-2"></a>In testa:   7 3 1 9 3 5</span>
+<span id="cb57-3"><a href="#cb57-3"></a>Lunghezza:  6</span>
+<span id="cb57-4"><a href="#cb57-4"></a>Rovesciata: 5 3 9 1 3 7</span>
+<span id="cb57-5"><a href="#cb57-5"></a>Contiene 5: 1</span>
+<span id="cb57-6"><a href="#cb57-6"></a>Contiene 999: 0</span>
+<span id="cb57-7"><a href="#cb57-7"></a>Senza 5:   3 9 1 3 7</span>
+<span id="cb57-8"><a href="#cb57-8"></a>Senza 999:  3 9 1 3 7</span>
+<span id="cb57-9"><a href="#cb57-9"></a>Ordinata:   1 3 3 5 7 9</span>
+<span id="cb57-10"><a href="#cb57-10"></a>Lunghezza:  6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>La dichiarazione contiene <code>struct nodo *successivo;</code> <strong>dentro</strong> la definizione di <code>struct nodo</code>: una struttura che contiene se stessa. Spiegate perche’ questo e’ lecito mentre <code>Nodo successivo;</code> non lo sarebbe. (Pensate a quanto dovrebbe valere <code>sizeof(Nodo)</code> nei due casi.)</li>
+<li>Dentro la struttura si scrive <code>struct nodo *</code> e non <code>Nodo *</code>. Perche’? Provate a scrivere <code>Nodo *successivo;</code> e riportate l’errore.</li>
+<li><code>lista_inserisci_in_testa</code> costa sempre lo stesso, qualunque sia la lunghezza della lista; <code>lista_inserisci_ordinato</code> no. Scrivete le due classi di complessita’ e dite che cosa costa invece l’inserimento in testa in un <strong>array</strong>.</li>
+<li>Scrivete <code>lista_rovescia</code> senza chiamare <code>malloc</code>: servono tre puntatori, <code>precedente</code>, <code>corrente</code> e <code>dopo</code>. Seguitela a mano sulla lista <code>7 3 1</code>, disegnando le frecce dopo ogni giro. Perche’ serve <code>dopo</code>?</li>
+<li><code>lista_togli</code> ha due casi: il valore e’ in testa, oppure no. Perche’ il primo va trattato a parte? Che cosa va liberato, e in quale ordine rispetto all’aggiornamento di <code>successivo</code>? (Invertite i due e guardate che cosa dice <code>-fsanitize=address</code>.)</li>
+<li><strong>Con valgrind.</strong> <code>valgrind --leak-check=full ./lista 5 3 9 1 3 7</code> deve dire <code>All heap blocks were freed</code>. Se non lo dice, i byte persi sono un multiplo di <code>sizeof(Nodo)</code>: quanti nodi avete dimenticato, e dove?</li>
+<li>Confrontate la lista con l’array dinamico di AA3 su quattro operazioni: inserire in testa, inserire in coda, leggere l’elemento di posto <code>i</code>, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un <code>Nodo</code> rispetto a un <code>int</code>?</li>
+<li><strong>In piu’.</strong> Scrivete <code>Nodo *lista_fondi(Nodo *a, Nodo *b)</code> che, date due liste <strong>ordinate</strong>, ne costruisce una sola ordinata riusando i nodi che gia’ esistono, senza nessun <code>malloc</code> e senza nessuna <code>free</code>. E’ la fusione di G6, fatta con le frecce invece che con gli indici: qui, a differenza di G6, non serve un terzo contenitore. Perche’?</li>
+</ol>
 
 
 </section>
