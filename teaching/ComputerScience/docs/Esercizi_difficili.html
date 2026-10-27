@@ -374,10 +374,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#esercizi-programmazione-iii" id="toc-esercizi-programmazione-iii" class="nav-link active" data-scroll-target="#esercizi-programmazione-iii">Esercizi Programmazione III</a>
   <ul class="collapse">
-  <li><a href="#pacchetto-x-file-argv-e-make-test" id="toc-pacchetto-x-file-argv-e-make-test" class="nav-link" data-scroll-target="#pacchetto-x-file-argv-e-make-test">Pacchetto X: FILE*, argv e make test</a></li>
-  <li><a href="#pacchetto-y-qsort-e-bsearch" id="toc-pacchetto-y-qsort-e-bsearch" class="nav-link" data-scroll-target="#pacchetto-y-qsort-e-bsearch">Pacchetto Y: qsort e bsearch</a></li>
-  <li><a href="#pacchetto-z-integrazione-e-modularita" id="toc-pacchetto-z-integrazione-e-modularita" class="nav-link" data-scroll-target="#pacchetto-z-integrazione-e-modularita">Pacchetto Z: Integrazione e modularita’</a></li>
-  <li><a href="#pacchetto-aa-puntatori-e-memoria-dinamica" id="toc-pacchetto-aa-puntatori-e-memoria-dinamica" class="nav-link" data-scroll-target="#pacchetto-aa-puntatori-e-memoria-dinamica">Pacchetto AA: Puntatori e memoria dinamica</a></li>
+  <li><a href="#pacchetto-r-file-argv-e-make-test" id="toc-pacchetto-r-file-argv-e-make-test" class="nav-link" data-scroll-target="#pacchetto-r-file-argv-e-make-test">Pacchetto R: FILE*, argv e make test</a></li>
+  <li><a href="#pacchetto-s-qsort-e-bsearch" id="toc-pacchetto-s-qsort-e-bsearch" class="nav-link" data-scroll-target="#pacchetto-s-qsort-e-bsearch">Pacchetto S: qsort e bsearch</a></li>
+  <li><a href="#pacchetto-t-integrazione-e-modularita" id="toc-pacchetto-t-integrazione-e-modularita" class="nav-link" data-scroll-target="#pacchetto-t-integrazione-e-modularita">Pacchetto T: Integrazione e modularita’</a></li>
+  <li><a href="#pacchetto-u-puntatori-e-memoria-dinamica" id="toc-pacchetto-u-puntatori-e-memoria-dinamica" class="nav-link" data-scroll-target="#pacchetto-u-puntatori-e-memoria-dinamica">Pacchetto U: Puntatori e memoria dinamica</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -405,30 +405,30 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>X</td>
+<td>R</td>
 <td>FILE*, argv e make test</td>
 <td>20</td>
 </tr>
 <tr class="even">
-<td>Y</td>
+<td>S</td>
 <td>qsort e bsearch</td>
 <td>5</td>
 </tr>
 <tr class="odd">
-<td>Z</td>
+<td>T</td>
 <td>Integrazione e modularita’</td>
 <td>5</td>
 </tr>
 <tr class="even">
-<td>AA</td>
+<td>U</td>
 <td>Puntatori e memoria dinamica</td>
 <td>5</td>
 </tr>
 </tbody>
 </table>
-<section id="pacchetto-x-file-argv-e-make-test" class="level2">
-<h2 data-anchor-id="pacchetto-x-file-argv-e-make-test">Pacchetto X: FILE*, argv e make test</h2>
-<p>Finora i nostri programmi hanno letto i dati dalla tastiera e scritto i risultati sullo schermo. I programmi “veri” lavorano spesso in un altro modo: ricevono le indicazioni direttamente sulla riga di comando, come fa gcc quando scrivete <code>gcc -o somma somma.c</code>, e leggono e scrivono file. In questo pacchetto imparate a fare lo stesso. La prima parte (X1-X10) introduce gli argomenti della riga di comando (<code>argc</code> e <code>argv</code>) e i file (<code>FILE*</code>); nella seconda (X11-X20) i programmi vengono controllati automaticamente con un Makefile e il comando <code>make test</code>.</p>
+<section id="pacchetto-r-file-argv-e-make-test" class="level2">
+<h2 data-anchor-id="pacchetto-r-file-argv-e-make-test">Pacchetto R: FILE*, argv e make test</h2>
+<p>Finora i nostri programmi hanno letto i dati dalla tastiera e scritto i risultati sullo schermo. I programmi “veri” lavorano spesso in un altro modo: ricevono le indicazioni direttamente sulla riga di comando, come fa gcc quando scrivete <code>gcc -o somma somma.c</code>, e leggono e scrivono file. In questo pacchetto imparate a fare lo stesso. La prima parte (R1-R10) introduce gli argomenti della riga di comando (<code>argc</code> e <code>argv</code>) e i file (<code>FILE*</code>); nella seconda (R11-R20) i programmi vengono controllati automaticamente con un Makefile e il comando <code>make test</code>.</p>
 <p>Il materiale che accompagna il pacchetto (la cartella <code>materiale_difficili</code>) contiene i file di dati della prima parte (nella cartella <code>parte1_dati</code>, in cui spostarsi con <code>cd</code> per provare gli esempi) e, per ogni esercizio della seconda, una cartella con il Makefile e i test.</p>
 <section id="prima-parte-file-e-argv" class="level3">
 <h3 data-anchor-id="prima-parte-file-e-argv">Prima parte: FILE* e argv</h3>
@@ -555,9 +555,9 @@ window.Quarto = {
 <h4 data-anchor-id="gdb-con-gli-argomenti">gdb con gli argomenti</h4>
 <p>Gli argomenti si scrivono dopo <code>run</code>, esattamente come sulla riga di comando: <code>run dati.txt 3</code>, oppure <code>run dati.txt &lt; tastiera.txt</code>. Quando il programma si ferma, gdb mostra anche gli argomenti di <code>main</code>, per esempio <code>main (argc=3, argv=0x7fffffffea48)</code>. Il numero che compare in <code>print argv[1]</code>, per esempio <code>0x7fffffffecbf "alfa"</code>, e’ l’indirizzo in memoria della stringa e si puo’ ignorare; quello che conta e’ il testo tra virgolette. Allo stesso modo <code>print f</code> mostra l’indirizzo di un <code>FILE *</code>, oppure <code>0x0</code> se vale <code>NULL</code>. Come nei pacchetti precedenti, le domande che usano gdb iniziano con <strong>Con gdb.</strong></p>
 </section>
-<section id="esercizi-x1-x10" class="level4">
-<h4 data-anchor-id="esercizi-x1-x10">Esercizi (X1-X10)</h4>
-<p><strong>X1.</strong> Il programma stampa tutti i suoi argomenti.</p>
+<section id="esercizi-r1-r10" class="level4">
+<h4 data-anchor-id="esercizi-r1-r10">Esercizi (R1-R10)</h4>
+<p><strong>R1.</strong> Il programma stampa tutti i suoi argomenti.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>argv<span class="op">[])</span> <span class="op">{</span></span>
@@ -578,7 +578,7 @@ window.Quarto = {
 <li>Prevedete l’output, poi eseguite: <code>./argomenti</code>, <code>./argomenti 1 2 3</code>, <code>./argomenti "1 2" 3</code>, <code>./argomenti '*'</code> e <code>./argomenti *.c</code>. Perche’ l’ultimo comando stampa i nomi dei vostri file? Chi ha trasformato <code>*.c</code> in quei nomi?</li>
 <li><strong>Con gdb.</strong> Mettete un breakpoint sulla prima <code>printf</code>, lanciate <code>run alfa "beta gamma"</code> e provate <code>print argv[1]</code>, <code>print argv[1][0]</code> e <code>print *argv@argc</code>, che mostra in un colpo solo tutto l’array. Che cosa c’e’ in <code>argv[argc]</code>, subito dopo l’ultimo argomento?</li>
 </ol>
-<p><strong>X2.</strong> Scrivete un programma <code>binomiale</code> che riceve <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> sulla riga di comando e stampa il coefficiente binomiale <span class="math inline">\(\binom{n}{k}\)</span>, calcolato in una variabile <code>long r</code> con la formula <span class="math inline">\(\binom{n}{i} = \binom{n}{i-1} \cdot \frac{n - i + 1}{i}\)</span>, per <code>i</code> da <span class="math inline">\(1\)</span> a <span class="math inline">\(k\)</span>, cioe’ con la riga <code>r = r * (n - i + 1) / i;</code>. Requisiti:</p>
+<p><strong>R2.</strong> Scrivete un programma <code>binomiale</code> che riceve <span class="math inline">\(n\)</span> e <span class="math inline">\(k\)</span> sulla riga di comando e stampa il coefficiente binomiale <span class="math inline">\(\binom{n}{k}\)</span>, calcolato in una variabile <code>long r</code> con la formula <span class="math inline">\(\binom{n}{i} = \binom{n}{i-1} \cdot \frac{n - i + 1}{i}\)</span>, per <code>i</code> da <span class="math inline">\(1\)</span> a <span class="math inline">\(k\)</span>, cioe’ con la riga <code>r = r * (n - i + 1) / i;</code>. Requisiti:</p>
 <ul>
 <li>se gli argomenti non sono esattamente due, il programma scrive su <code>stderr</code> come si usa (<code>Uso: ./binomiale n k</code>) e termina con codice <span class="math inline">\(1\)</span>;</li>
 <li>se un argomento non e’ un intero, errore e codice <span class="math inline">\(1\)</span>. Con <code>sscanf(argv[1], "%d", &amp;n)</code> il testo <code>"10x"</code> verrebbe accettato come <span class="math inline">\(10\)</span>; il trucco e’ chiedere anche un carattere in piu’: <code>sscanf(argv[1], "%d%c", &amp;n, &amp;extra)</code> restituisce <span class="math inline">\(1\)</span> solo se dopo il numero non c’e’ nulla;</li>
@@ -598,7 +598,7 @@ window.Quarto = {
 <li>Portate <code>N_MAX</code> a <span class="math inline">\(70\)</span> e provate <code>./binomiale 62 31</code>: il risultato e’ negativo. Perche’?</li>
 <li><strong>Con gdb.</strong> Sempre con <code>N_MAX</code> a <span class="math inline">\(70\)</span>, trovate il primo passo in cui <code>r * (n - i + 1)</code> supera il massimo di un <code>long</code> (<span class="math inline">\(2^{63} - 1 = 9223372036854775807\)</span>): mettete sulla riga che aggiorna <code>r</code> un breakpoint con la condizione <code>if r &gt; 9223372036854775807 / (n - i + 1)</code> e lanciate <code>run 62 31</code>. Quanto vale <code>i</code> alla prima fermata? Rivedete M18: perche’ la condizione si scrive con una divisione?</li>
 </ol>
-<p><strong>X3.</strong> Scrivete un programma <code>tartaglia</code> che riceve un numero di righe e il nome di un file, e scrive in quel file le prime righe del triangolo di Tartaglia, calcolate con un solo array come in F10. Requisiti:</p>
+<p><strong>R3.</strong> Scrivete un programma <code>tartaglia</code> che riceve un numero di righe e il nome di un file, e scrive in quel file le prime righe del triangolo di Tartaglia, calcolate con un solo array come in F10. Requisiti:</p>
 <ul>
 <li>se gli argomenti non sono esattamente due, o se il numero di righe non e’ un intero da <span class="math inline">\(1\)</span> a <span class="math inline">\(30\)</span>, errore;</li>
 <li>il file si apre in scrittura con <code>f = fopen(argv[2], "w");</code>, dove <code>f</code> e’ una variabile <code>FILE *</code>; se l’apertura non riesce, errore;</li>
@@ -618,7 +618,7 @@ window.Quarto = {
 <li>Provate a scrivere in una cartella che non esiste, per esempio <code>./tartaglia 3 /cartella_inesistente/t.txt</code>: il vostro programma se ne accorge? Che codice di uscita restituisce?</li>
 <li><strong>Con gdb.</strong> Mettete un breakpoint sulla riga della <code>fopen</code> e stampate <code>f</code> prima e dopo l’apertura (con <code>next</code>). Ripetete con la cartella inesistente: che cosa vale <code>f</code> dopo la <code>fopen</code>?</li>
 </ol>
-<p><strong>X4.</strong> Scrivete un programma <code>statistiche</code> che legge da un file una sequenza di interi, separati da spazi o a capo, e ne stampa quantita’, minimo, massimo, media e varianza (la media dei quadrati meno il quadrato della media), queste ultime due con tre decimali. Requisiti:</p>
+<p><strong>R4.</strong> Scrivete un programma <code>statistiche</code> che legge da un file una sequenza di interi, separati da spazi o a capo, e ne stampa quantita’, minimo, massimo, media e varianza (la media dei quadrati meno il quadrato della media), queste ultime due con tre decimali. Requisiti:</p>
 <ul>
 <li>il nome del file e’ l’unico argomento; argomenti sbagliati o un file che non si apre sono errori;</li>
 <li>il programma distingue i due modi in cui puo’ finire la lettura: se <code>fscanf</code> restituisce <code>EOF</code> il file e’ finito regolarmente; se restituisce <span class="math inline">\(0\)</span> c’e’ un dato non valido, e il programma lo segnala e termina con errore;</li>
@@ -639,7 +639,7 @@ window.Quarto = {
 <li>Il minimo e il massimo partono dal primo numero letto: perche’ sarebbe sbagliato farli partire da <span class="math inline">\(0\)</span> (rivedete F15)? Come fate, se il primo numero viene letto dentro il ciclo?</li>
 <li>Provate con un file che contiene un numero solo (scrivetelo voi) e con il file vuoto <code>vuoto.txt</code>: che cosa stampa il vostro programma? Che codice di uscita restituisce?</li>
 </ol>
-<p><strong>X5.</strong> Scrivete un programma <code>conta</code> che legge un file carattere per carattere con <code>fgetc</code>, mettendo ogni carattere letto nella variabile <code>c</code>, e stampa il numero di righe, di parole e di caratteri, seguiti dal nome del file. Requisiti:</p>
+<p><strong>R5.</strong> Scrivete un programma <code>conta</code> che legge un file carattere per carattere con <code>fgetc</code>, mettendo ogni carattere letto nella variabile <code>c</code>, e stampa il numero di righe, di parole e di caratteri, seguiti dal nome del file. Requisiti:</p>
 <ul>
 <li>il nome del file e’ l’unico argomento; argomenti sbagliati o un file che non si apre sono errori;</li>
 <li>le righe sono gli a capo (<code>'\n'</code>) contenuti nel file, come le conta <code>wc</code>; i caratteri sono tutti quelli letti, a capo compresi;</li>
@@ -655,7 +655,7 @@ window.Quarto = {
 <li>Che valore ha <code>c</code> quando il ciclo termina? Perche’ <code>c</code> deve essere un <code>int</code> e non un <code>char</code>?</li>
 <li><strong>In piu’.</strong> Create un file che contiene un carattere “strano” con <code>printf 'ab\377cd\n' &gt; strano.txt</code> e confrontate il vostro programma con <code>wc -c strano.txt</code>. Poi dichiarate <code>c</code> come <code>char</code> e ripetete: quanti caratteri conta ora, e perche’? (Il carattere <code>\377</code> ha codice <span class="math inline">\(255\)</span>; in un <code>char</code>, che sul vostro computer ha segno, diventa <span class="math inline">\(-1\)</span>.)</li>
 </ol>
-<p><strong>X6.</strong> Scrivete un programma <code>cesare</code> che cifra un intero file di testo con il cifrario di Cesare (F8): <code>./cesare spostamento ingresso uscita</code>. Requisiti:</p>
+<p><strong>R6.</strong> Scrivete un programma <code>cesare</code> che cifra un intero file di testo con il cifrario di Cesare (F8): <code>./cesare spostamento ingresso uscita</code>. Requisiti:</p>
 <ul>
 <li>le lettere minuscole e maiuscole si spostano restando tali; tutti gli altri caratteri (spazi, punteggiatura, cifre, a capo) si copiano invariati;</li>
 <li>lo spostamento puo’ essere qualsiasi intero, anche negativo o maggiore di <span class="math inline">\(26\)</span>;</li>
@@ -674,7 +674,7 @@ window.Quarto = {
 <li>Verificate che cifrare con <span class="math inline">\(3\)</span> e poi con <span class="math inline">\(-3\)</span> restituisca il testo originale: <code>./cesare -3 cifrato.txt di_nuovo.txt</code> seguito da <code>diff chiaro.txt di_nuovo.txt</code>. Che cosa dovrebbe stampare <code>diff</code>?</li>
 <li>Su una <em>copia</em> di un file, provate <code>./cesare 3 copia.txt copia.txt</code>: che cosa resta nel file, e perche’? Impedite questo caso confrontando i due nomi con <code>strcmp</code>, prima di aprire qualsiasi file.</li>
 </ol>
-<p><strong>X7.</strong> Scrivete un programma <code>istogramma</code> che legge voti d’esame e ne disegna l’istogramma. Requisiti:</p>
+<p><strong>R7.</strong> Scrivete un programma <code>istogramma</code> che legge voti d’esame e ne disegna l’istogramma. Requisiti:</p>
 <ul>
 <li>se riceve il nome di un file lo legge da li’, altrimenti legge da <code>stdin</code>: basta partire da <code>FILE *f = stdin;</code> e sostituirlo con il file aperto, se c’e’ l’argomento (e chiudere <code>f</code> alla fine solo se non e’ <code>stdin</code>); piu’ di un argomento, un file che non si apre o un dato non numerico sono errori;</li>
 <li>i voti fuori dall’intervallo da <span class="math inline">\(18\)</span> a <span class="math inline">\(30\)</span> vengono segnalati su <code>stderr</code>, con la loro posizione nella sequenza, e non vengono contati;</li>
@@ -703,7 +703,7 @@ window.Quarto = {
 <li>Provate <code>./istogramma voti.txt</code>, <code>./istogramma &lt; voti.txt</code> e <code>./istogramma voti.txt &gt; grafico.txt 2&gt; errori.txt</code>. Che cosa contengono i due file? Perche’ e’ utile che i messaggi di errore vadano su <code>stderr</code>?</li>
 <li>Senza argomenti e senza <code>&lt;</code>, il programma aspetta i voti dalla tastiera: per dirgli che sono finiti si preme Ctrl+D a inizio riga. Provate.</li>
 </ol>
-<p><strong>X8.</strong> Scrivete un programma <code>serie</code> che calcola le somme parziali di alcune serie viste nei pacchetti precedenti: <code>./serie nome n [passo]</code> (le parentesi quadre indicano un argomento facoltativo). Requisiti:</p>
+<p><strong>R8.</strong> Scrivete un programma <code>serie</code> che calcola le somme parziali di alcune serie viste nei pacchetti precedenti: <code>./serie nome n [passo]</code> (le parentesi quadre indicano un argomento facoltativo). Requisiti:</p>
 <ul>
 <li>il nome puo’ essere <code>armonica</code> (<span class="math inline">\(\sum 1/k\)</span>), <code>basilea</code> (<span class="math inline">\(\sum 1/k^2\)</span>), <code>leibniz</code> (<span class="math inline">\(4 \sum (-1)^{k+1}/(2k-1)\)</span>, che tende a <span class="math inline">\(\pi\)</span>) o <code>geometrica</code> (<span class="math inline">\(\sum 1/2^k\)</span>); in tutte le serie <span class="math inline">\(k\)</span> parte da <span class="math inline">\(1\)</span>;</li>
 <li>riconoscete il nome con <code>strcmp</code> e salvatelo in una variabile <code>s</code> di tipo <code>enum serie {ARMONICA, BASILEA, LEIBNIZ, GEOMETRICA, SCONOSCIUTA};</code>, poi calcolate i termini con uno <code>switch</code>;</li>
@@ -724,7 +724,7 @@ window.Quarto = {
 <li>Con il passo, osservate come si avvicinano ai loro limiti le serie di Basilea e di Leibniz. Quante cifre giuste guadagna Leibniz ogni volta che <span class="math inline">\(n\)</span> viene moltiplicato per <span class="math inline">\(10\)</span>?</li>
 <li><strong>Con gdb.</strong> Lanciate <code>run basilea 1000</code> e fermatevi dopo il riconoscimento del nome: cosa rispondono <code>print s</code> e <code>print/d s</code>?</li>
 </ol>
-<p><strong>X9.</strong> Il gioco della vita di Conway si gioca su una griglia di celle vive (<code>#</code>) o morte (<code>.</code>). A ogni generazione una cella viva sopravvive se ha <span class="math inline">\(2\)</span> o <span class="math inline">\(3\)</span> vicine vive (tra le <span class="math inline">\(8\)</span> che la circondano), altrimenti muore; una cella morta nasce se ha esattamente <span class="math inline">\(3\)</span> vicine vive. Le celle fuori dalla griglia sono considerate morte. Scrivete un programma <code>vita</code> che legge una griglia da un file, calcola un certo numero di generazioni e scrive la griglia finale in un altro file: <code>./vita ingresso uscita generazioni</code>. Requisiti:</p>
+<p><strong>R9.</strong> Il gioco della vita di Conway si gioca su una griglia di celle vive (<code>#</code>) o morte (<code>.</code>). A ogni generazione una cella viva sopravvive se ha <span class="math inline">\(2\)</span> o <span class="math inline">\(3\)</span> vicine vive (tra le <span class="math inline">\(8\)</span> che la circondano), altrimenti muore; una cella morta nasce se ha esattamente <span class="math inline">\(3\)</span> vicine vive. Le celle fuori dalla griglia sono considerate morte. Scrivete un programma <code>vita</code> che legge una griglia da un file, calcola un certo numero di generazioni e scrive la griglia finale in un altro file: <code>./vita ingresso uscita generazioni</code>. Requisiti:</p>
 <ul>
 <li>il file contiene sulla prima riga il numero di righe <span class="math inline">\(R\)</span> e di colonne <span class="math inline">\(C\)</span> (da <span class="math inline">\(1\)</span> a <span class="math inline">\(50\)</span>), poi la griglia; il file di uscita ha lo stesso formato;</li>
 <li>tenete il numero di colonne nella variabile <code>C</code> e le celle nell’array <code>griglia</code>. Non avete ancora visto gli array a due dimensioni, ma non servono: la cella di riga <span class="math inline">\(r\)</span> e colonna <span class="math inline">\(c\)</span> si mette nell’elemento <code>griglia[r * C + c]</code> di un array lungo <span class="math inline">\(R \cdot C\)</span>;</li>
@@ -755,7 +755,7 @@ window.Quarto = {
 <li>Il <em>lampeggiatore</em> (tre celle vive in fila, al centro di una griglia <span class="math inline">\(5 \times 5\)</span>) torna uguale ogni due generazioni. Verificatelo con <code>diff</code> tra il file di partenza e quello ottenuto dopo <span class="math inline">\(2\)</span> generazioni.</li>
 <li>Dopo <span class="math inline">\(4\)</span> generazioni l’aliante e’ uguale a se stesso, ma spostato di una riga e di una colonna. Dove si trova dopo <span class="math inline">\(12\)</span> generazioni? E che cosa succede quando arriva al bordo?</li>
 </ol>
-<p><strong>X10.</strong> Scrivete un programma <code>fondi</code> che riceve i nomi di due file, ciascuno con una sequenza di interi gia’ ordinata in modo crescente, e scrive in un terzo file la sequenza ordinata di tutti i numeri, uno per riga: <code>./fondi primo secondo uscita</code>. Requisiti:</p>
+<p><strong>R10.</strong> Scrivete un programma <code>fondi</code> che riceve i nomi di due file, ciascuno con una sequenza di interi gia’ ordinata in modo crescente, e scrive in un terzo file la sequenza ordinata di tutti i numeri, uno per riga: <code>./fondi primo secondo uscita</code>. Requisiti:</p>
 <ul>
 <li>non si possono caricare i numeri in un array: il programma legge i due file contemporaneamente, tenendo sempre a disposizione il prossimo numero di ciascuno e scrivendo il piu’ piccolo dei due;</li>
 <li>un file di ingresso vuoto e’ valido: contiene la sequenza vuota;</li>
@@ -782,7 +782,7 @@ window.Quarto = {
 <ol type="1">
 <li><strong>Con gdb.</strong> Per ciascun file servono due variabili: il prossimo numero e un indicatore che dica se un numero c’e’ ancora (cioe’ se l’ultima <code>fscanf</code> ha restituito <span class="math inline">\(1\)</span>). Con un breakpoint dentro il ciclo, seguitele con <code>display</code>.</li>
 <li>Provate con <code>vuoto.txt</code> come primo o come secondo file: il risultato e’ quello che vi aspettate? Poi provate <code>./fondi quadrati.txt disordinato.txt tutti.txt</code>, dove <code>disordinato.txt</code> contiene <code>2 3 5 4 11</code>: quanti numeri ha gia’ scritto il vostro programma quando si accorge dell’errore?</li>
-<li>Che cosa succede se il file di uscita coincide con uno dei due di ingresso? Impedite questo caso come in X6, prima di aprire qualsiasi file.</li>
+<li>Che cosa succede se il file di uscita coincide con uno dei due di ingresso? Impedite questo caso come in R6, prima di aprire qualsiasi file.</li>
 </ol>
 </section>
 </section>
@@ -843,9 +843,9 @@ window.Quarto = {
 <p>La riga <code>FALLITO</code> riporta il comando eseguito: potete ripeterlo dal terminale. Sotto c’e’ il resoconto di <code>diff</code>: le righe che iniziano con <code>&lt;</code> sono quelle attese, quelle con <code>&gt;</code> quelle ottenute. Le righe come <code>1c1</code> dicono dove stanno le differenze: a sinistra della lettera ci sono i numeri di riga del file atteso, a destra quelli del file ottenuto; <code>c</code> vuol dire righe cambiate, <code>d</code> righe che mancano nell’ottenuto, <code>a</code> righe in piu’. Per esempio <code>1c1,2</code> significa che al posto della riga 1 attesa sono comparse le righe 1 e 2 ottenute. Il file <code>NOME.ottenuto</code> resta nella cartella <code>test</code> e potete aprirlo. Il codice di uscita da’ altri indizi: <span class="math inline">\(124\)</span> significa che il programma e’ stato fermato dopo 5 secondi (quasi sempre un ciclo infinito), mentre un numero maggiore di <span class="math inline">\(128\)</span> significa che il programma e’ andato in crash (<span class="math inline">\(136\)</span> per una divisione per zero, <span class="math inline">\(139\)</span> o <span class="math inline">\(135\)</span> per un accesso alla memoria non valido, <span class="math inline">\(134\)</span> per un <code>assert</code> fallito o per una scrittura fuori da un array scoperta dal programma stesso).</p>
 <p>Per capire <em>perche’</em> un test fallisce, ripetete il comando dal terminale; se non basta, usate gdb con gli stessi argomenti (per esempio <code>run 2 test/decimali.txt</code>) oppure aggiungete qualche <code>printf</code> di controllo.</p>
 </section>
-<section id="esercizi-x11-x20" class="level4">
-<h4 data-anchor-id="esercizi-x11-x20">Esercizi (X11-X20)</h4>
-<p><strong>X11.</strong> Primo incontro con <code>make</code>. Nella cartella <code>X11_mcd</code> trovate il Makefile, i test e un programma gia’ completo e corretto, <code>mcd.c</code>, che calcola il massimo comun divisore e il minimo comune multiplo di tutti i numeri positivi contenuti in un file.</p>
+<section id="esercizi-r11-r20" class="level4">
+<h4 data-anchor-id="esercizi-r11-r20">Esercizi (R11-R20)</h4>
+<p><strong>R11.</strong> Primo incontro con <code>make</code>. Nella cartella <code>R11_mcd</code> trovate il Makefile, i test e un programma gia’ completo e corretto, <code>mcd.c</code>, che calcola il massimo comun divisore e il minimo comune multiplo di tutti i numeri positivi contenuti in un file.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>$ ./mcd test/esempio.txt</span>
 <span id="cb16-2"><a href="#cb16-2"></a>MCD = 6</span>
 <span id="cb16-3"><a href="#cb16-3"></a>mcm = 180</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -859,7 +859,7 @@ window.Quarto = {
 </ul></li>
 <li>Date <code>make clean</code> e guardate che cosa e’ rimasto nella cartella.</li>
 </ol>
-<p><strong>X12.</strong> Trova gli errori con <code>make test</code>. Nella cartella <code>X12_media_mobile</code> c’e’ il programma <code>media_mobile.c</code>, che contiene tre errori. Il programma dovrebbe funzionare cosi’. Si lancia con <code>./media_mobile k file</code>, dove <span class="math inline">\(k\)</span> e’ un intero tra <span class="math inline">\(1\)</span> e <span class="math inline">\(100\)</span>. Legge gli interi del file e, a partire dal <span class="math inline">\(k\)</span>-esimo, stampa con due decimali la media degli ultimi <span class="math inline">\(k\)</span> numeri letti (la <em>media mobile</em>), una per riga; i <span class="math inline">\(k\)</span> numeri vengono tenuti in un array usato in modo circolare. Alla fine stampa la media mobile piu’ alta, indicando le posizioni del primo e dell’ultimo numero di quella finestra (a parita’ vale la prima). Se i numeri sono meno di <span class="math inline">\(k\)</span>, se un dato non e’ valido o se gli argomenti sono sbagliati, il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<p><strong>R12.</strong> Trova gli errori con <code>make test</code>. Nella cartella <code>R12_media_mobile</code> c’e’ il programma <code>media_mobile.c</code>, che contiene tre errori. Il programma dovrebbe funzionare cosi’. Si lancia con <code>./media_mobile k file</code>, dove <span class="math inline">\(k\)</span> e’ un intero tra <span class="math inline">\(1\)</span> e <span class="math inline">\(100\)</span>. Legge gli interi del file e, a partire dal <span class="math inline">\(k\)</span>-esimo, stampa con due decimali la media degli ultimi <span class="math inline">\(k\)</span> numeri letti (la <em>media mobile</em>), una per riga; i <span class="math inline">\(k\)</span> numeri vengono tenuti in un array usato in modo circolare. Alla fine stampa la media mobile piu’ alta, indicando le posizioni del primo e dell’ultimo numero di quella finestra (a parita’ vale la prima). Se i numeri sono meno di <span class="math inline">\(k\)</span>, se un dato non e’ valido o se gli argomenti sono sbagliati, il programma termina con codice <span class="math inline">\(1\)</span>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>$ ./media_mobile 2 test/decimali.txt</span>
 <span id="cb17-2"><a href="#cb17-2"></a>1.50</span>
 <span id="cb17-3"><a href="#cb17-3"></a>3.00</span>
@@ -871,7 +871,7 @@ window.Quarto = {
 <li>Il test <code>01_interi</code> viene superato anche dal programma sbagliato. Perche’? Che cosa insegna questo sui test?</li>
 <li>Spiegate perche’ l’indice <code>pos</code> dell’array circolare si aggiorna con <code>pos = (pos + 1) % k</code>.</li>
 </ol>
-<p><strong>X13.</strong> Scrivete il programma <code>romani.c</code> nella cartella <code>X13_romani</code>, in modo che superi tutti i test. Il programma riceve il nome di un file che contiene interi e, per ciascuno, stampa la sua scrittura in numeri romani. Requisiti:</p>
+<p><strong>R13.</strong> Scrivete il programma <code>romani.c</code> nella cartella <code>R13_romani</code>, in modo che superi tutti i test. Il programma riceve il nome di un file che contiene interi e, per ciascuno, stampa la sua scrittura in numeri romani. Requisiti:</p>
 <ul>
 <li>i numeri da <span class="math inline">\(1\)</span> a <span class="math inline">\(3999\)</span> si stampano come <code>12 = XII</code>; quelli fuori da questo intervallo non si possono scrivere e si segnalano su <code>stdout</code>, come <code>0: fuori intervallo</code>; non e’ un errore, e il codice di uscita resta <span class="math inline">\(0\)</span>;</li>
 <li>se incontra un dato non valido, il programma si ferma con errore, dopo aver stampato le righe dei numeri precedenti;</li>
@@ -898,7 +898,7 @@ window.Quarto = {
 <span id="cb18-18"><a href="#cb18-18"></a>2026 = MMXXVI</span>
 <span id="cb18-19"><a href="#cb18-19"></a>3999 = MMMCMXCIX</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Suggerimento: preparate due array paralleli, uno con i valori <span class="math inline">\(1000, 900, 500, 400, \dots, 4, 1\)</span> e uno con i simboli corrispondenti. Per i simboli potete usare un array di stringhe, come <code>argv</code>: <code>char *simboli[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};</code>.</p>
-<p><strong>X14.</strong> Riprendete il programma di X5 e trasformatelo nel programma <code>conta.c</code> della cartella <code>X14_conta</code>, che accetta opzioni e piu’ file, come il vero <code>wc</code>: <code>./conta [-r] [-p] [-c] file...</code>. Requisiti:</p>
+<p><strong>R14.</strong> Riprendete il programma di R5 e trasformatelo nel programma <code>conta.c</code> della cartella <code>R14_conta</code>, che accetta opzioni e piu’ file, come il vero <code>wc</code>: <code>./conta [-r] [-p] [-c] file...</code>. Requisiti:</p>
 <ul>
 <li>le opzioni <code>-r</code>, <code>-p</code> e <code>-c</code> scelgono che cosa stampare (righe, parole, caratteri) e possono comparire in qualsiasi ordine e in qualsiasi posizione, anche dopo i nomi dei file; senza opzioni si stampano tutti e tre i numeri;</li>
 <li>i numeri si stampano sempre nell’ordine righe, parole, caratteri, ciascuno seguito da uno spazio, e poi il nome del file;</li>
@@ -913,7 +913,7 @@ window.Quarto = {
 <span id="cb19-5"><a href="#cb19-5"></a>$ ./conta -c -r test/dante.txt</span>
 <span id="cb19-6"><a href="#cb19-6"></a>3 104 test/dante.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Il programma deve scorrere gli argomenti due volte: la prima per raccogliere le opzioni, la seconda per elaborare i file.</p>
-<p><strong>X15.</strong> Questa volta i test li scrivete voi. Nella cartella <code>X15_ordina</code> c’e’ il programma <code>ordina.c</code>, che dovrebbe rispettare questi requisiti:</p>
+<p><strong>R15.</strong> Questa volta i test li scrivete voi. Nella cartella <code>R15_ordina</code> c’e’ il programma <code>ordina.c</code>, che dovrebbe rispettare questi requisiti:</p>
 <ul>
 <li>legge gli interi di un file (al massimo <span class="math inline">\(100\)</span>) e li stampa in ordine crescente, uno per riga: <code>./ordina [-r] [-u] file</code>;</li>
 <li>con l’opzione <code>-r</code> li stampa in ordine decrescente; con <code>-u</code> ogni numero compare una sola volta, anche se nel file e’ ripetuto (<code>3 1 3 2</code> diventa <code>1 2 3</code>); le due opzioni si possono combinare e possono stare in qualsiasi posizione;</li>
@@ -925,11 +925,11 @@ window.Quarto = {
 <li>Scrivete almeno sei nuovi test, ciascuno con il suo file di dati, il file <code>.arg</code> e il file <code>.atteso</code> calcolato a mano, pensando ai casi difficili: file vuoto, un solo numero, numeri negativi, numeri ripetuti con e senza <code>-u</code>, <code>-r</code> e <code>-u</code> insieme, un file con piu’ di <span class="math inline">\(100\)</span> numeri. Chiamateli <code>03_...</code>, <code>04_...</code> e cosi’ via, perche’ vengano eseguiti in ordine. Ricordate che ogni <code>.atteso</code> termina con la riga del codice di uscita e un a capo. Per creare il file di <span class="math inline">\(101\)</span> numeri potete usare il terminale: <code>seq 101 &gt; test/troppi.txt</code> scrive i numeri da <span class="math inline">\(1\)</span> a <span class="math inline">\(101\)</span>, uno per riga.</li>
 <li>Lanciate <code>make test</code>. I vostri test trovano degli errori? Prima di correggere il programma, controllate che non sia sbagliato il test.</li>
 <li>Trovate gli errori e correggeteli. Uno dei due puo’ far scrivere il programma fuori dall’array (F11): quale?</li>
-<li>Che cosa rende un insieme di test “buono”? Il vostro avrebbe trovato gli errori di X12?</li>
+<li>Che cosa rende un insieme di test “buono”? Il vostro avrebbe trovato gli errori di R12?</li>
 </ol>
-<p><strong>X16.</strong> Il cifrario di Vigenere generalizza quello di Cesare: invece di uno spostamento fisso usa una parola chiave, e ogni lettera del testo si sposta della quantita’ indicata dalla lettera corrispondente della chiave (<code>a</code> o <code>A</code> vale <span class="math inline">\(0\)</span>, <code>b</code> vale <span class="math inline">\(1\)</span>, e cosi’ via), ricominciando dall’inizio della chiave quando e’ finita. Con la chiave <code>lemon</code>, <code>ATTACKATDAWN</code> diventa <code>LXFOPVEFRNHR</code>. Scrivete il programma <code>vigenere.c</code> nella cartella <code>X16_vigenere</code>: <code>./vigenere -c|-d chiave ingresso uscita</code>, dove <code>-c</code> cifra e <code>-d</code> decifra. Requisiti:</p>
+<p><strong>R16.</strong> Il cifrario di Vigenere generalizza quello di Cesare: invece di uno spostamento fisso usa una parola chiave, e ogni lettera del testo si sposta della quantita’ indicata dalla lettera corrispondente della chiave (<code>a</code> o <code>A</code> vale <span class="math inline">\(0\)</span>, <code>b</code> vale <span class="math inline">\(1\)</span>, e cosi’ via), ricominciando dall’inizio della chiave quando e’ finita. Con la chiave <code>lemon</code>, <code>ATTACKATDAWN</code> diventa <code>LXFOPVEFRNHR</code>. Scrivete il programma <code>vigenere.c</code> nella cartella <code>R16_vigenere</code>: <code>./vigenere -c|-d chiave ingresso uscita</code>, dove <code>-c</code> cifra e <code>-d</code> decifra. Requisiti:</p>
 <ul>
-<li>come in X6, le lettere restano minuscole o maiuscole e gli altri caratteri si copiano invariati; la chiave avanza di una posizione solo quando si cifra una lettera;</li>
+<li>come in R6, le lettere restano minuscole o maiuscole e gli altri caratteri si copiano invariati; la chiave avanza di una posizione solo quando si cifra una lettera;</li>
 <li>la chiave puo’ contenere solo lettere, maiuscole o minuscole, con lo stesso significato; altrimenti errore e codice <span class="math inline">\(1\)</span>;</li>
 <li>se il nome del file di uscita e’ <code>-</code>, il programma scrive su <code>stdout</code> (e alla fine non lo chiude): e’ una convenzione diffusa nei comandi del terminale, ed e’ cosi’ che i test controllano il risultato;</li>
 <li>un’opzione diversa da <code>-c</code> e <code>-d</code>, un numero sbagliato di argomenti, un file che non si apre o un file di uscita uguale a quello di ingresso sono errori, con codice <span class="math inline">\(1\)</span>. L’ultimo controllo va fatto prima di aprire i file: il test <code>08_stesso_file</code> usa una copia, <code>test/copia.txt</code>, che un programma sbagliato svuoterebbe.</li>
@@ -939,7 +939,7 @@ window.Quarto = {
 <span id="cb20-3"><a href="#cb20-3"></a>$ ./vigenere -c Roma test/frase.txt -</span>
 <span id="cb20-4"><a href="#cb20-4"></a>Zz pauc q' tioftf, rusjs Oejode.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Per scorrere la chiave vi servono la sua lunghezza (<code>strlen</code>) e un contatore delle lettere cifrate: la lettera della chiave da usare e’ quella di posto <code>contatore % lunghezza</code>.</p>
-<p><strong>X17.</strong> Scrivete il programma <code>sudoku.c</code> nella cartella <code>X17_sudoku</code>, che controlla una griglia di sudoku. Requisiti:</p>
+<p><strong>R17.</strong> Scrivete il programma <code>sudoku.c</code> nella cartella <code>R17_sudoku</code>, che controlla una griglia di sudoku. Requisiti:</p>
 <ul>
 <li>il file contiene <span class="math inline">\(81\)</span> cifre da <code>0</code> a <code>9</code>, disposte in <span class="math inline">\(9\)</span> righe; <code>0</code> indica una casella vuota e non conta come ripetizione; le cifre di una riga possono essere separate da spazi;</li>
 <li>il programma controlla, in quest’ordine, le righe dalla prima all’ultima, poi le colonne da sinistra a destra, poi i riquadri <span class="math inline">\(3 \times 3\)</span>, numerati da <span class="math inline">\(1\)</span> a <span class="math inline">\(9\)</span> da sinistra a destra e dall’alto in basso; anche righe e colonne si numerano da <span class="math inline">\(1\)</span>;</li>
@@ -955,8 +955,8 @@ window.Quarto = {
 <span id="cb21-6"><a href="#cb21-6"></a>Riga 4: il 2 compare due volte</span>
 <span id="cb21-7"><a href="#cb21-7"></a>$ ./sudoku test/riquadro.txt</span>
 <span id="cb21-8"><a href="#cb21-8"></a>Riquadro 1: il 3 compare due volte</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Mettete la griglia in un array di <span class="math inline">\(81\)</span> elementi, con la casella di riga <span class="math inline">\(r\)</span> e colonna <span class="math inline">\(c\)</span> in posizione <code>r * 9 + c</code> (come in X9). La parte piu’ delicata sono i riquadri: per il riquadro <span class="math inline">\(b\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>) e la sua casella <span class="math inline">\(k\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>), scrivete su carta le formule della riga e della colonna, poi controllatele, per esempio con gdb (<code>display</code> su <code>r</code> e <code>c</code>) mentre il programma scorre un riquadro. Per sapere se una cifra e’ gia’ comparsa, usate un array <code>visto[10]</code> da azzerare all’inizio di ogni riga, colonna o riquadro.</p>
-<p><strong>X18.</strong> Scrivete il programma <code>polinomi.c</code> nella cartella <code>X18_polinomi</code>, che fa calcoli su polinomi a coefficienti interi letti da file. Ogni file contiene il grado <span class="math inline">\(n\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(20\)</span>) e poi gli <span class="math inline">\(n + 1\)</span> coefficienti, dal termine noto <span class="math inline">\(a_0\)</span> fino ad <span class="math inline">\(a_n\)</span>. Requisiti:</p>
+<p>Mettete la griglia in un array di <span class="math inline">\(81\)</span> elementi, con la casella di riga <span class="math inline">\(r\)</span> e colonna <span class="math inline">\(c\)</span> in posizione <code>r * 9 + c</code> (come in R9). La parte piu’ delicata sono i riquadri: per il riquadro <span class="math inline">\(b\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>) e la sua casella <span class="math inline">\(k\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(8\)</span>), scrivete su carta le formule della riga e della colonna, poi controllatele, per esempio con gdb (<code>display</code> su <code>r</code> e <code>c</code>) mentre il programma scorre un riquadro. Per sapere se una cifra e’ gia’ comparsa, usate un array <code>visto[10]</code> da azzerare all’inizio di ogni riga, colonna o riquadro.</p>
+<p><strong>R18.</strong> Scrivete il programma <code>polinomi.c</code> nella cartella <code>R18_polinomi</code>, che fa calcoli su polinomi a coefficienti interi letti da file. Ogni file contiene il grado <span class="math inline">\(n\)</span> (da <span class="math inline">\(0\)</span> a <span class="math inline">\(20\)</span>) e poi gli <span class="math inline">\(n + 1\)</span> coefficienti, dal termine noto <span class="math inline">\(a_0\)</span> fino ad <span class="math inline">\(a_n\)</span>. Requisiti:</p>
 <ul>
 <li><p><code>./polinomi valuta file x</code> stampa il valore del polinomio in <span class="math inline">\(x\)</span> intero (schema di Horner, F17), con il formato <code>p(3) = 5</code>;</p></li>
 <li><p><code>./polinomi derivata file</code> stampa la derivata;</p></li>
@@ -974,7 +974,7 @@ window.Quarto = {
 <span id="cb22-8"><a href="#cb22-8"></a>$ ./polinomi somma test/x.txt test/q.txt</span>
 <span id="cb22-9"><a href="#cb22-9"></a>-x^2 + x + 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Riconoscete l’operazione con <code>strcmp</code> e un <code>enum</code>. Attenzione al grado del risultato: nella somma i coefficienti piu’ alti possono annullarsi (il test <code>06_somma_nulla</code> somma un polinomio e il suo opposto). La stampa dei polinomi ha molti casi particolari: quando un test fallisce, in gdb mettete un breakpoint condizionato sul ciclo di stampa per fermarvi proprio sul termine che esce sbagliato.</p>
-<p><strong>X19.</strong> Scrivete il programma <code>labirinto.c</code> nella cartella <code>X19_labirinto</code>, che trova il percorso piu’ breve in un labirinto. Requisiti:</p>
+<p><strong>R19.</strong> Scrivete il programma <code>labirinto.c</code> nella cartella <code>R19_labirinto</code>, che trova il percorso piu’ breve in un labirinto. Requisiti:</p>
 <ul>
 <li>il file contiene sulla prima riga il numero di righe e di colonne (da <span class="math inline">\(1\)</span> a <span class="math inline">\(40\)</span>), poi il labirinto: <code>#</code> e’ un muro, <code>.</code> una casella libera, <code>S</code> la partenza ed <code>E</code> l’uscita; ci si muove in orizzontale e in verticale;</li>
 <li>il programma stampa la lunghezza del percorso minimo, come <code>Percorso minimo: 11 passi</code> (al singolare, <code>Percorso minimo: 1 passo</code>), e poi il labirinto con il percorso segnato da <code>*</code> (esclusi <code>S</code> ed <code>E</code>);</li>
@@ -989,7 +989,7 @@ window.Quarto = {
 <span id="cb23-6"><a href="#cb23-6"></a>.#***#E</span>
 <span id="cb23-7"><a href="#cb23-7"></a>...#...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Il metodo da usare e’ la <em>visita in ampiezza</em>. Si parte da <code>S</code> a distanza <span class="math inline">\(0\)</span>; poi si esaminano le caselle in ordine di distanza: ogni casella libera, non ancora raggiunta, vicina di una casella a distanza <span class="math inline">\(d\)</span> si trova a distanza <span class="math inline">\(d + 1\)</span>. Le caselle in attesa di essere esaminate stanno in una <em>coda</em>: un array con due indici, <code>testa</code> (la prossima da esaminare) e <code>fondo</code> (dove aggiungere le nuove). Servono altri due array lunghi quanto il labirinto: <code>dist</code>, con la distanza di ogni casella (<span class="math inline">\(-1\)</span> se non ancora raggiunta), e <code>prec</code>, con la casella da cui ciascuna e’ stata raggiunta, che permette di ripercorrere il cammino all’indietro da <code>E</code> a <code>S</code>. Perche’ il percorso stampato sia unico, i vicini di una casella si esaminano sempre nell’ordine: su, giu’, sinistra, destra.</p>
-<p><strong>X20.</strong> <strong>Sfida.</strong> La compressione. La codifica <em>run-length</em> (RLE) sostituisce ogni sequenza di caratteri uguali con la sua lunghezza seguita dal carattere: <code>aaab</code> diventa <code>3a1b</code>, e anche gli a capo e gli spazi si codificano allo stesso modo. Scrivete il programma <code>rle.c</code> nella cartella <code>X20_rle</code>: <code>./rle -c ingresso uscita</code> comprime, <code>./rle -d ingresso uscita</code> decomprime, e <code>-</code> come uscita vuol dire <code>stdout</code> (X16). Requisiti:</p>
+<p><strong>R20.</strong> <strong>Sfida.</strong> La compressione. La codifica <em>run-length</em> (RLE) sostituisce ogni sequenza di caratteri uguali con la sua lunghezza seguita dal carattere: <code>aaab</code> diventa <code>3a1b</code>, e anche gli a capo e gli spazi si codificano allo stesso modo. Scrivete il programma <code>rle.c</code> nella cartella <code>R20_rle</code>: <code>./rle -c ingresso uscita</code> comprime, <code>./rle -d ingresso uscita</code> decomprime, e <code>-</code> come uscita vuol dire <code>stdout</code> (R16). Requisiti:</p>
 <ul>
 <li>un testo da comprimere non puo’ contenere cifre, perche’ renderebbero ambigua la decompressione;</li>
 <li>un testo da decomprimere deve essere una sequenza di coppie numero positivo e carattere; un carattere senza numero davanti, un numero <span class="math inline">\(0\)</span> o un numero alla fine del file sono errori;</li>
@@ -1013,10 +1013,10 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="pacchetto-y-qsort-e-bsearch" class="level2">
-<h2 data-anchor-id="pacchetto-y-qsort-e-bsearch">Pacchetto Y: qsort e bsearch</h2>
+<section id="pacchetto-s-qsort-e-bsearch" class="level2">
+<h2 data-anchor-id="pacchetto-s-qsort-e-bsearch">Pacchetto S: qsort e bsearch</h2>
 <p>Nei Pacchetti G e H avete scritto a mano ordinamenti e ricerche, e con <code>time</code> e gprof avete visto quanto possono costare. La libreria standard (Pacchetto O) ne offre due versioni pronte, in <code>stdlib.h</code>: <code>qsort</code> ordina un array e <code>bsearch</code> ci cerca un valore con la ricerca binaria. Sono veloci: <code>qsort</code> usa algoritmi molto piu’ furbi dei tre dei Pacchetti G e H, e quando il numero di elementi raddoppia il suo tempo cresce di poco piu’ del doppio, non di quattro volte. Funzionano con array di qualsiasi tipo, e proprio per questo chiedono un piccolo sforzo: bisogna scrivere una <em>funzione</em> che dica come confrontare due elementi. Cominciamo da li’.</p>
-<p>Gli esercizi di questo pacchetto sono pochi e lunghi, e riprendono tutto: gli argomenti della riga di comando, i file e <code>make test</code> del Pacchetto X, <code>time</code>, <code>-O2</code> e gprof dei Pacchetti G e H, la libreria standard del Pacchetto O. Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio: quelle di Y1, Y2 e Y5 contengono il Makefile e i test, come in X11-X20; quelle di Y3 e Y4 i file di dati. Valgono le regole di X: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<p>Gli esercizi di questo pacchetto sono pochi e lunghi, e riprendono tutto: gli argomenti della riga di comando, i file e <code>make test</code> del Pacchetto R, <code>time</code>, <code>-O2</code> e gprof dei Pacchetti G e H, la libreria standard del Pacchetto O. Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio: quelle di S1, S2 e S5 contengono il Makefile e i test, come in R11-R20; quelle di S3 e S4 i file di dati. Valgono le regole di R: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
 <section id="le-funzioni-in-breve" class="level3">
 <h3 data-anchor-id="le-funzioni-in-breve">Le funzioni, in breve</h3>
 <p>Una funzione e’ un pezzo di programma con un nome, che riceve dei valori e ne restituisce uno. Anche <code>main</code> e’ una funzione.</p>
@@ -1059,11 +1059,11 @@ window.Quarto = {
 <span id="cb26-14"><a href="#cb26-14"></a></span>
 <span id="cb26-15"><a href="#cb26-15"></a><span class="co">/* in main, per ordinare i primi n elementi dell'array v: */</span></span>
 <span id="cb26-16"><a href="#cb26-16"></a>qsort<span class="op">(</span>v<span class="op">,</span> n<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>v<span class="op">[</span><span class="dv">0</span><span class="op">]),</span> confronta<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>qsort</code> riceve l’array, il numero di elementi da ordinare, la dimensione in byte di un elemento (con <code>sizeof</code>, come in F1 e N14) e il nome del comparatore, che chiamera’ tutte le volte che gli serve confrontare due elementi. Le due righe che definiscono <code>x</code> e <code>y</code> sono la parte misteriosa: <code>a</code> e <code>b</code> non sono gli elementi, ma i loro <em>indirizzi</em> in memoria, e <code>*(const int *) a</code> vuol dire “l’<code>int</code> che si trova all’indirizzo <code>a</code>”. Per ora leggetele come una formula da copiare, come <code>char *argv[]</code> in X; i puntatori sono un argomento che incontrerete piu’ avanti. Per un array di <code>double</code> basta scrivere <code>double</code> al posto di <code>int</code> nelle due righe (e come tipo di <code>x</code> e <code>y</code>). Per l’ordine decrescente basta scambiare <code>-1</code> e <code>1</code>.</p>
+<p><code>qsort</code> riceve l’array, il numero di elementi da ordinare, la dimensione in byte di un elemento (con <code>sizeof</code>, come in F1 e N14) e il nome del comparatore, che chiamera’ tutte le volte che gli serve confrontare due elementi. Le due righe che definiscono <code>x</code> e <code>y</code> sono la parte misteriosa: <code>a</code> e <code>b</code> non sono gli elementi, ma i loro <em>indirizzi</em> in memoria, e <code>*(const int *) a</code> vuol dire “l’<code>int</code> che si trova all’indirizzo <code>a</code>”. Per ora leggetele come una formula da copiare, come <code>char *argv[]</code> in R; i puntatori sono un argomento che incontrerete piu’ avanti. Per un array di <code>double</code> basta scrivere <code>double</code> al posto di <code>int</code> nelle due righe (e come tipo di <code>x</code> e <code>y</code>). Per l’ordine decrescente basta scambiare <code>-1</code> e <code>1</code>.</p>
 </section>
 <section id="cercare-con-bsearch" class="level3">
 <h3 data-anchor-id="cercare-con-bsearch">Cercare con bsearch</h3>
-<p><code>bsearch</code> esegue la ricerca binaria di F20 in un array <em>gia’ ordinato</em> con lo stesso comparatore. Riceve l’indirizzo del valore da cercare (<code>&amp;x</code>, come in <code>scanf</code>), poi gli stessi argomenti di <code>qsort</code>. Restituisce l’indirizzo dell’elemento trovato, oppure <code>NULL</code> (come <code>fopen</code> in X) se il valore non c’e’. Anche qui c’e’ una piccola ricetta: se l’elemento e’ stato trovato, la sua posizione nell’array e’ <code>p - v</code>.</p>
+<p><code>bsearch</code> esegue la ricerca binaria di F20 in un array <em>gia’ ordinato</em> con lo stesso comparatore. Riceve l’indirizzo del valore da cercare (<code>&amp;x</code>, come in <code>scanf</code>), poi gli stessi argomenti di <code>qsort</code>. Restituisce l’indirizzo dell’elemento trovato, oppure <code>NULL</code> (come <code>fopen</code> in R) se il valore non c’e’. Anche qui c’e’ una piccola ricetta: se l’elemento e’ stato trovato, la sua posizione nell’array e’ <code>p - v</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">42</span><span class="op">;</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a>p <span class="op">=</span> bsearch<span class="op">(&amp;</span>x<span class="op">,</span> v<span class="op">,</span> n<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>v<span class="op">[</span><span class="dv">0</span><span class="op">]),</span> confronta<span class="op">);</span></span>
@@ -1082,9 +1082,9 @@ window.Quarto = {
 <li>gprof senza <code>-l</code> mostra il tempo per funzione, ma solo per le funzioni compilate con <code>-pg</code>, cioe’ le vostre: il tempo passato dentro <code>qsort</code> e <code>bsearch</code>, che fanno parte della libreria, non lo vede, e nemmeno conta le volte che <code>qsort</code> chiama il vostro comparatore. Per sapere quante volte viene chiamato, usate un contatore: una variabile <code>long</code> dichiarata prima delle funzioni, che il comparatore aumenta di uno a ogni chiamata. Il resoconto per righe (<code>-l</code>) resta invece utile per i cicli scritti da voi.</li>
 </ul>
 </section>
-<section id="esercizi-y1-y5" class="level3">
-<h3 data-anchor-id="esercizi-y1-y5">Esercizi (Y1-Y5)</h3>
-<p><strong>Y1.</strong> Scrivete il programma <code>ordina.c</code> nella cartella <code>Y1_ordina</code>, che legge gli interi di un file e li stampa ordinati con <code>qsort</code>, uno per riga: <code>./ordina [-r] [-a | -c] file</code>. Requisiti:</p>
+<section id="esercizi-s1-s5" class="level3">
+<h3 data-anchor-id="esercizi-s1-s5">Esercizi (S1-S5)</h3>
+<p><strong>S1.</strong> Scrivete il programma <code>ordina.c</code> nella cartella <code>S1_ordina</code>, che legge gli interi di un file e li stampa ordinati con <code>qsort</code>, uno per riga: <code>./ordina [-r] [-a | -c] file</code>. Requisiti:</p>
 <ul>
 <li>senza opzioni, l’ordine e’ crescente;</li>
 <li>con <code>-a</code> i numeri si ordinano per valore assoluto crescente; a parita’ di valore assoluto, viene prima il negativo (<span class="math inline">\(-3\)</span> prima di <span class="math inline">\(3\)</span>);</li>
@@ -1147,7 +1147,7 @@ window.Quarto = {
 <ol start="5" type="1">
 <li><strong>Con time.</strong> Quanto impiega <code>./ordina milione.txt &gt; ordinati.txt</code>? Confrontate con l’insertion sort di G17 su <span class="math inline">\(40000\)</span> numeri. Misurate anche il tempo con <span class="math inline">\(500000\)</span> numeri: per quanto si moltiplica il tempo quando <span class="math inline">\(N\)</span> raddoppia?</li>
 </ol>
-<p><strong>Y2.</strong> Nella cartella <code>Y2_comuni</code> c’e’ il programma <code>comuni.c</code>, corretto ma lento: <code>./comuni [-l] primo secondo</code> legge gli interi di due file (al massimo <span class="math inline">\(1000000\)</span> ciascuno) e stampa quanti numeri del primo file compaiono anche nel secondo; i numeri ripetuti nel primo file si contano ogni volta. Con <code>-l</code>, che puo’ stare in qualsiasi posizione, stampa prima anche questi numeri, uno per riga, nell’ordine del primo file. Un numero di file diverso da due, un’opzione sconosciuta, un file che non si apre, un dato non valido o troppi numeri sono errori.</p>
+<p><strong>S2.</strong> Nella cartella <code>S2_comuni</code> c’e’ il programma <code>comuni.c</code>, corretto ma lento: <code>./comuni [-l] primo secondo</code> legge gli interi di due file (al massimo <span class="math inline">\(1000000\)</span> ciascuno) e stampa quanti numeri del primo file compaiono anche nel secondo; i numeri ripetuti nel primo file si contano ogni volta. Con <code>-l</code>, che puo’ stare in qualsiasi posizione, stampa prima anche questi numeri, uno per riga, nell’ordine del primo file. Un numero di file diverso da due, un’opzione sconosciuta, un file che non si apre, un dato non valido o troppi numeri sono errori.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>$ cat test/a.txt</span>
 <span id="cb29-2"><a href="#cb29-2"></a>7 3 12 7 5 20 1 8</span>
 <span id="cb29-3"><a href="#cb29-3"></a>$ cat test/b.txt</span>
@@ -1159,21 +1159,21 @@ window.Quarto = {
 <span id="cb29-9"><a href="#cb29-9"></a>8</span>
 <span id="cb29-10"><a href="#cb29-10"></a>Presenti nel secondo file: 4 su 8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol type="1">
-<li>Lanciate <code>make test</code>: quale test fallisce, e con quale codice di uscita? Rivedete la seconda parte del Pacchetto X: che cosa significa? Lanciate a mano quel test con <code>time</code> (ci vuole pazienza): quanto impiega il programma?</li>
+<li>Lanciate <code>make test</code>: quale test fallisce, e con quale codice di uscita? Rivedete la seconda parte del Pacchetto R: che cosa significa? Lanciate a mano quel test con <code>time</code> (ci vuole pazienza): quanto impiega il programma?</li>
 <li><strong>Con gprof.</strong> Con il resoconto per righe, sui file del test grande: quale riga occupa quasi tutto il tempo? Circa quante volte viene eseguita?</li>
 <li>Riscrivete la parte di ricerca usando <code>qsort</code> e <code>bsearch</code>: ordinate una volta sola l’array del secondo file, poi cercate con <code>bsearch</code> ogni numero del primo. Tutti i <span class="math inline">\(10\)</span> test devono passare. Perche’ si puo’ ordinare il secondo file e non il primo?</li>
-<li>Contate, come in Y1, le chiamate al comparatore nel test grande e confrontatele con una stima: quanti confronti servono, circa, per ordinare il secondo file (<span class="math inline">\(N_2 \log_2 N_2\)</span>), e quanti per le <span class="math inline">\(N_1\)</span> ricerche binarie?</li>
+<li>Contate, come in S1, le chiamate al comparatore nel test grande e confrontatele con una stima: quanti confronti servono, circa, per ordinare il secondo file (<span class="math inline">\(N_2 \log_2 N_2\)</span>), e quanti per le <span class="math inline">\(N_1\)</span> ricerche binarie?</li>
 <li><strong>Con time.</strong> Quanto impiega ora il programma sul test grande?</li>
 <li><strong>In piu’.</strong> Se si potessero ordinare entrambi i file, non servirebbe nemmeno <code>bsearch</code>: basterebbero due indici che avanzano insieme, come nella fusione di G6. Scrivete questa versione, che con <code>-l</code> stampa i numeri comuni in ordine crescente. Quanti confronti fa, dopo gli ordinamenti?</li>
 </ol>
-<p><strong>Y3.</strong> La media e’ molto sensibile ai valori sbagliati: basta un errore di battitura per spostarla di molto. Per questo in statistica si usano spesso i <em>quartili</em>, che si calcolano sui dati ordinati. Scrivete un programma <code>quantili.c</code> (che usa <code>math.h</code>: compilatelo con <code>-lm</code>, O1) che riceve il nome di un file di numeri reali e stampa: quanti sono, minimo, primo quartile, mediana, terzo quartile, massimo, media e deviazione standard (come in O8), tutti con due decimali, e infine i <em>valori anomali</em>. Requisiti:</p>
+<p><strong>S3.</strong> La media e’ molto sensibile ai valori sbagliati: basta un errore di battitura per spostarla di molto. Per questo in statistica si usano spesso i <em>quartili</em>, che si calcolano sui dati ordinati. Scrivete un programma <code>quantili.c</code> (che usa <code>math.h</code>: compilatelo con <code>-lm</code>, O1) che riceve il nome di un file di numeri reali e stampa: quanti sono, minimo, primo quartile, mediana, terzo quartile, massimo, media e deviazione standard (come in O8), tutti con due decimali, e infine i <em>valori anomali</em>. Requisiti:</p>
 <ul>
 <li>i numeri, al massimo <span class="math inline">\(1000000\)</span>, si leggono in un array <code>double</code> e si ordinano con <code>qsort</code>;</li>
 <li>il quantile di livello <span class="math inline">\(p\)</span> (con <span class="math inline">\(p\)</span> uguale a <span class="math inline">\(0\)</span>, <span class="math inline">\(0.25\)</span>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.75\)</span> e <span class="math inline">\(1\)</span> per minimo, quartili, mediana e massimo) si calcola cosi’, con l’array ordinato <code>v</code> di <code>n</code> elementi: <span class="math inline">\(h = (n - 1) \cdot p\)</span>, <span class="math inline">\(k\)</span> e’ la parte intera di <span class="math inline">\(h\)</span> (<code>floor</code>), e il quantile vale <code>v[k] + (h - k) * (v[k + 1] - v[k])</code>, oppure semplicemente <code>v[k]</code> se <span class="math inline">\(k = n - 1\)</span>;</li>
 <li>detta <span class="math inline">\(IQR\)</span> la differenza tra terzo e primo quartile, un valore e’ anomalo se e’ minore di <span class="math inline">\(Q_1 - 1.5 \cdot IQR\)</span> o maggiore di <span class="math inline">\(Q_3 + 1.5 \cdot IQR\)</span>; i valori anomali si stampano in ordine crescente, dopo gli estremi dell’intervallo, oppure si stampa <code>nessuno</code>;</li>
 <li>un numero di argomenti diverso da uno, un file che non si apre, un dato non valido, un file senza numeri o troppi numeri sono errori.</li>
 </ul>
-<p>Il file <code>tempi.txt</code> della cartella <code>Y3_quantili</code> contiene i tempi di reazione, in millisecondi, di <span class="math inline">\(25\)</span> persone a un segnale luminoso; due misure sono state registrate male.</p>
+<p>Il file <code>tempi.txt</code> della cartella <code>S3_quantili</code> contiene i tempi di reazione, in millisecondi, di <span class="math inline">\(25\)</span> persone a un segnale luminoso; due misure sono state registrate male.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a href="#cb30-1"></a>$ ./quantili tempi.txt</span>
 <span id="cb30-2"><a href="#cb30-2"></a>Valori letti: 25</span>
 <span id="cb30-3"><a href="#cb30-3"></a>Minimo: 268.00</span>
@@ -1191,7 +1191,7 @@ window.Quarto = {
 <li>Modificate il programma di O10 perche’ stampi i suoi <span class="math inline">\(100000\)</span> numeri, uno per riga con <code>%f</code>, invece delle statistiche, e salvateli con <code>./campana &gt; normali.txt</code>. Per la curva a campana con media <span class="math inline">\(0\)</span> e deviazione standard <span class="math inline">\(1\)</span>, i quartili valgono circa <span class="math inline">\(-0.674\)</span> e <span class="math inline">\(0.674\)</span>, e i valori anomali sono circa lo <span class="math inline">\(0.7\%\)</span>: e’ quello che trovate?</li>
 <li><strong>Con time.</strong> Con un milione di numeri (portate <code>N</code> a <span class="math inline">\(1000000\)</span> in O10), quanto impiega il programma? Usando i tempi di G17, stimate quanto impiegherebbe se ordinasse con l’insertion sort.</li>
 </ol>
-<p><strong>Y4.</strong> Riprendiamo i giudici e i candidati di H2, questa volta con una classifica completa. Scrivete un programma <code>classifica.c</code> che riceve il nome di un file e stampa la classifica dei candidati. Requisiti:</p>
+<p><strong>S4.</strong> Riprendiamo i giudici e i candidati di H2, questa volta con una classifica completa. Scrivete un programma <code>classifica.c</code> che riceve il nome di un file e stampa la classifica dei candidati. Requisiti:</p>
 <ul>
 <li>il file contiene sulla prima riga il numero di giudici (da <span class="math inline">\(1\)</span> a <span class="math inline">\(20\)</span>) e il numero di candidati (da <span class="math inline">\(1\)</span> a <span class="math inline">\(100\)</span>), poi una riga per giudice con i voti, da <span class="math inline">\(0\)</span> a <span class="math inline">\(5\)</span>, che ha dato ai candidati, nell’ordine;</li>
 <li>i candidati si ordinano per punteggio totale decrescente; a parita’ di totale, per numero di voti <span class="math inline">\(5\)</span> ricevuti, decrescente; a parita’ anche di questo, per numero di candidato crescente (i candidati si numerano da <span class="math inline">\(1\)</span>);</li>
@@ -1220,7 +1220,7 @@ window.Quarto = {
 <li>Lo standard del C non garantisce che <code>qsort</code> lasci nell’ordine di partenza gli elementi che il comparatore considera equivalenti (si dice che non e’ <em>stabile</em>), anche se sul vostro computer puo’ sembrare che lo faccia. Che cosa potrebbe succedere alla classifica senza il terzo criterio, quello sul numero di candidato?</li>
 <li>Aggiungete, dopo quella dei candidati, la classifica dei giudici, dal piu’ severo (meno punti assegnati in tutto) al piu’ generoso, a parita’ per numero di giudice crescente, con un secondo comparatore.</li>
 </ol>
-<p><strong>Y5.</strong> <strong>Sfida.</strong> Il problema delle <em>tre somme</em>: dato un insieme di numeri interi tutti diversi, trovare tutte le terne di numeri che hanno somma <span class="math inline">\(0\)</span>. Scrivete il programma <code>tresomme.c</code> nella cartella <code>Y5_tresomme</code>: <code>./tresomme [-1 | -2 | -3] file</code>. Requisiti:</p>
+<p><strong>S5.</strong> <strong>Sfida.</strong> Il problema delle <em>tre somme</em>: dato un insieme di numeri interi tutti diversi, trovare tutte le terne di numeri che hanno somma <span class="math inline">\(0\)</span>. Scrivete il programma <code>tresomme.c</code> nella cartella <code>S5_tresomme</code>: <code>./tresomme [-1 | -2 | -3] file</code>. Requisiti:</p>
 <ul>
 <li>i numeri del file, al massimo <span class="math inline">\(100000\)</span>, sono compresi tra <span class="math inline">\(-100000000\)</span> e <span class="math inline">\(100000000\)</span> (cosi’ la somma di tre numeri sta in un <code>int</code>) e devono essere tutti diversi; altrimenti e’ un errore;</li>
 <li>il programma ordina i numeri con <code>qsort</code> e stampa le terne <span class="math inline">\(a &lt; b &lt; c\)</span> con <span class="math inline">\(a + b + c = 0\)</span>, una per riga (<code>-6 -1 7</code>), in ordine crescente di <span class="math inline">\(a\)</span> e, a parita’ di <span class="math inline">\(a\)</span>, di <span class="math inline">\(b\)</span>; alla fine stampa <code>Terne:</code> seguito dal numero di terne;</li>
@@ -1297,13 +1297,13 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="pacchetto-z-integrazione-e-modularita" class="level2">
-<h2 data-anchor-id="pacchetto-z-integrazione-e-modularita">Pacchetto Z: Integrazione e modularita’</h2>
+<section id="pacchetto-t-integrazione-e-modularita" class="level2">
+<h2 data-anchor-id="pacchetto-t-integrazione-e-modularita">Pacchetto T: Integrazione e modularita’</h2>
 <p>Tutti i programmi che avete scritto finora stavano in un file solo. I programmi veri no: sono fatti di decine, a volte migliaia di file, e nessuno li guarda tutti insieme. In questo pacchetto si vede perche’, e soprattutto <strong>come</strong> quei pezzi diventano un programma unico.</p>
 <p>Non vi chiederemo di inventare la divisione in moduli, che e’ un mestiere a se’: i moduli ve li diamo noi, gia’ scritti e documentati. Quello che dovete portare a casa e’ un’altra cosa: che cosa sta in un file <code>.h</code> e che cosa in un <code>.c</code>, che cosa fa ciascuna delle fasi che costruiscono il programma, e come si legge un messaggio di errore per capire <em>quale</em> fase si e’ lamentata. E’ la differenza tra un errore che vi blocca per un pomeriggio e uno che risolvete in trenta secondi.</p>
-<p>Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio, con i moduli gia’ pronti e il Makefile. I test ci sono solo in <code>Z1_vettore</code> e in <code>Z5_rapporto</code>, che sono gli esercizi in cui scrivete del codice; nelle altre tre cartelle i comandi utili sono soltanto <code>make</code> e <code>make clean</code>. Valgono le regole di X: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
+<p>Nel materiale (la cartella <code>materiale_difficili</code>) c’e’ una cartella per ogni esercizio, con i moduli gia’ pronti e il Makefile. I test ci sono solo in <code>T1_vettore</code> e in <code>T5_rapporto</code>, che sono gli esercizi in cui scrivete del codice; nelle altre tre cartelle i comandi utili sono soltanto <code>make</code> e <code>make clean</code>. Valgono le regole di R: compilate con <code>gcc -g -Wall -Wextra</code>, i messaggi di errore vanno su <code>stderr</code> e in caso di errore il programma termina con codice <span class="math inline">\(1\)</span>.</p>
 <p><strong>Due avvertenze prima di cominciare, da leggere adesso e non dopo.</strong></p>
-<p><em>Se il vostro gcc e’ la versione 14 o piu’ recente</em> (lo dice <code>gcc --version</code>), una chiamata a una funzione mai dichiarata non e’ piu’ un avviso ma un errore, e due esercizi di questo pacchetto si reggono proprio su quell’avviso. In Z2 e in Z3, dove il testo ve lo dira’, aggiungete al comando il flag <code>-Wno-error=implicit-function-declaration</code>, che riporta il comportamento a quello delle versioni precedenti. Il flag e’ accettato da tutte le versioni, quindi potete metterlo sempre senza pensarci.</p>
+<p><em>Se il vostro gcc e’ la versione 14 o piu’ recente</em> (lo dice <code>gcc --version</code>), una chiamata a una funzione mai dichiarata non e’ piu’ un avviso ma un errore, e due esercizi di questo pacchetto si reggono proprio su quell’avviso. In T2 e in T3, dove il testo ve lo dira’, aggiungete al comando il flag <code>-Wno-error=implicit-function-declaration</code>, che riporta il comportamento a quello delle versioni precedenti. Il flag e’ accettato da tutte le versioni, quindi potete metterlo sempre senza pensarci.</p>
 <p><em>Se lavorate su macOS</em>, i messaggi del collegatore sono diversi da quelli riportati qui, che sono quelli di Linux e di WSL: al posto di <code>undefined reference to 'x'</code> leggerete <code>Undefined symbols for architecture ...</code>, al posto di <code>multiple definition of 'x'</code> leggerete <code>duplicate symbol '_x'</code>, e il collegatore si chiama <code>ld</code> ma senza il percorso <code>/usr/bin/</code>. Anche <code>nm</code> si comporta un po’ diversamente: antepone un <code>_</code> a ogni nome, quindi vedrete <code>_main</code> al posto di <code>main</code>. Le lettere, che sono la cosa che conta, sono le stesse.</p>
 <section id="perche-spezzare-un-programma-in-piu-file" class="level3">
 <h3 data-anchor-id="perche-spezzare-un-programma-in-piu-file">Perche’ spezzare un programma in piu’ file</h3>
@@ -1348,7 +1348,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>Nell’intestazione, quindi, <strong>non</strong> si scrivono corpi di funzioni ne’ variabili: finirebbero duplicati in ogni file che la include, e il collegamento fallirebbe. In Z2 e Z3 vedrete succedere esattamente questo.</p>
+<p>Nell’intestazione, quindi, <strong>non</strong> si scrivono corpi di funzioni ne’ variabili: finirebbero duplicati in ogni file che la include, e il collegamento fallirebbe. In T2 e T3 vedrete succedere esattamente questo.</p>
 </section>
 <section id="le-quattro-fasi-finalmente-per-esteso" class="level3">
 <h3 data-anchor-id="le-quattro-fasi-finalmente-per-esteso">Le quattro fasi, finalmente per esteso</h3>
@@ -1414,7 +1414,7 @@ window.Quarto = {
 <li><code>D</code> e’ una variabile definita qui, con un valore iniziale, visibile dagli altri;</li>
 <li><code>B</code> e’ una variabile definita qui senza valore iniziale, visibile dagli altri;</li>
 <li><code>U</code> (<em>undefined</em>) e’ un nome <strong>usato</strong> qui ma definito altrove: e’ uno dei buchi che il collegamento deve riempire;</li>
-<li>le stesse lettere <strong>minuscole</strong> (<code>t</code>, <code>d</code>, <code>b</code>) indicano qualcosa che e’ definito qui ma <strong>non</strong> e’ visibile dagli altri file: ci si arriva con <code>static</code>, come vedrete in Z3;</li>
+<li>le stesse lettere <strong>minuscole</strong> (<code>t</code>, <code>d</code>, <code>b</code>) indicano qualcosa che e’ definito qui ma <strong>non</strong> e’ visibile dagli altri file: ci si arriva con <code>static</code>, come vedrete in T3;</li>
 <li>i nomi che iniziano con due trattini bassi, come <code>__assert_fail</code>, non li avete scritti voi: li aggiungono le macro e il compilatore, e si possono ignorare. Per toglierli di mezzo: <code>nm main.o | grep -v __</code>.</li>
 </ul>
 <p>Se <code>nm</code> non e’ installato lo si ottiene con <code>sudo apt install binutils</code>; non e’ indispensabile per svolgere gli esercizi, ma e’ il modo piu’ diretto per capire che cosa sta succedendo.</p>
@@ -1446,7 +1446,7 @@ window.Quarto = {
 </section>
 <section id="il-makefile-a-piu-oggetti" class="level3">
 <h3 data-anchor-id="il-makefile-a-piu-oggetti">Il Makefile a piu’ oggetti</h3>
-<p>Il Makefile di questo pacchetto e’ diverso da quello di X e Y, perche’ qui il programma nasce da piu’ sorgenti. Le righe che contano sono tre:</p>
+<p>Il Makefile di questo pacchetto e’ diverso da quello di R e S, perche’ qui il programma nasce da piu’ sorgenti. Le righe che contano sono tre:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>PROG = statistiche</span>
 <span id="cb35-2"><a href="#cb35-2"></a>OGGETTI = main.o vettore.o</span>
 <span id="cb35-3"><a href="#cb35-3"></a>INTESTAZIONI = vettore.h</span>
@@ -1457,7 +1457,7 @@ window.Quarto = {
 <span id="cb35-8"><a href="#cb35-8"></a>%.o: %.c $(INTESTAZIONI)</span>
 <span id="cb35-9"><a href="#cb35-9"></a>    $(CC) $(CFLAGS) -c $&lt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>La prima regola e’ il collegamento: l’eseguibile dipende dai <code>.o</code>, quindi va rifatto se uno di loro e’ piu’ recente. La seconda e’ la compilazione, scritta una volta per tutti i file: <code>%.o: %.c</code> si legge “un qualsiasi <code>.o</code> si ottiene dal <code>.c</code> che ha lo stesso nome”, e <code>$&lt;</code> significa “il primo file da cui dipende”, cioe’ quel <code>.c</code>.</p>
-<p>Notate <code>$(INTESTAZIONI)</code> nella seconda regola: dice che un <code>.o</code> va rifatto <strong>anche</strong> quando cambia un’intestazione. Make non legge i sorgenti e non sa che cosa includono: se non glielo dite, non se ne accorge. In Z4 vedrete che cosa succede quando ce lo si dimentica.</p>
+<p>Notate <code>$(INTESTAZIONI)</code> nella seconda regola: dice che un <code>.o</code> va rifatto <strong>anche</strong> quando cambia un’intestazione. Make non legge i sorgenti e non sa che cosa includono: se non glielo dite, non se ne accorge. In T4 vedrete che cosa succede quando ce lo si dimentica.</p>
 </section>
 <section id="controlli-sugli-array-durante-lesecuzione" class="level3">
 <h3 data-anchor-id="controlli-sugli-array-durante-lesecuzione">Controlli sugli array durante l’esecuzione</h3>
@@ -1465,9 +1465,9 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-fsanitize</span><span class="op">=</span>address <span class="at">-o</span> prog main.c vettore.c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Se il programma esce da un array si ferma da solo con un messaggio che inizia con <code>ERROR: AddressSanitizer: stack-buffer-overflow</code> e dice in quale funzione e a quale riga. Rallenta parecchio l’esecuzione, quindi si usa mentre si sviluppa e non nella versione finale. Provatelo anche sui programmi dei pacchetti precedenti: e’ il modo piu’ rapido per scoprire un indice sbagliato.</p>
 </section>
-<section id="esercizi-z1-z5" class="level3">
-<h3 data-anchor-id="esercizi-z1-z5">Esercizi (Z1-Z5)</h3>
-<p><strong>Z1.</strong> Nella cartella <code>Z1_vettore</code> trovate un modulo gia’ pronto, <code>vettore.h</code> e <code>vettore.c</code>, il Makefile e i test. Manca il <code>main.c</code>, e lo scrivete voi.</p>
+<section id="esercizi-t1-t5" class="level3">
+<h3 data-anchor-id="esercizi-t1-t5">Esercizi (T1-T5)</h3>
+<p><strong>T1.</strong> Nella cartella <code>T1_vettore</code> trovate un modulo gia’ pronto, <code>vettore.h</code> e <code>vettore.c</code>, il Makefile e i test. Manca il <code>main.c</code>, e lo scrivete voi.</p>
 <p>Il programma si chiama <code>statistiche</code>, riceve sulla riga di comando il nome di un file di interi e stampa cinque righe:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a>$ cat test/numeri.txt</span>
 <span id="cb37-2"><a href="#cb37-2"></a>3 1 4 1 5</span>
@@ -1501,7 +1501,7 @@ window.Quarto = {
 <li><code>gcc -g -Wall -Wextra -o statistiche main.c vettore.c</code> costruisce il programma in un comando solo, senza lasciare nessun <code>.o</code>. Funziona, ed e’ comodo con due file. Perche’ non si fa con duecento? (La risposta e’ il primo dei tre motivi del riquadro iniziale.)</li>
 <li><code>make test</code> deve dare <span class="math inline">\(7\)</span> test superati su <span class="math inline">\(7\)</span>. Se qualcuno fallisce, leggete il <code>.arg</code> e il <code>.atteso</code> del caso che non passa: completano i requisiti qui sopra.</li>
 </ol>
-<p><strong>Z2.</strong> Nella cartella <code>Z2_fasi</code> c’e’ lo stesso modulo di Z1 e un <code>main.c</code> gia’ scritto e funzionante. Qui non si scrive codice: si guarda che cosa fanno le prime tre fasi, rompendole una per volta, e poi a che cosa servono le guardie di inclusione.</p>
+<p><strong>T2.</strong> Nella cartella <code>T2_fasi</code> c’e’ lo stesso modulo di T1 e un <code>main.c</code> gia’ scritto e funzionante. Qui non si scrive codice: si guarda che cosa fanno le prime tre fasi, rompendole una per volta, e poi a che cosa servono le guardie di inclusione.</p>
 <p><strong>Prima fase.</strong> Lanciate <code>gcc -E main.c -o main.i</code> e aprite <code>main.i</code>.</p>
 <ol type="1">
 <li><code>main.c</code> ha <span class="math inline">\(21\)</span> righe, <code>main.i</code> ne ha circa <span class="math inline">\(850\)</span>. Da dove arrivano tutte le altre? Cercate dentro <code>main.i</code> il prototipo di <code>vettore_media</code>: lo trovate verso il fondo, perche’ il contenuto di <code>stdio.h</code> viene prima. Le righe che iniziano con <code>#</code> sono annotazioni per il compilatore e si possono ignorare, come in N.</li>
@@ -1525,7 +1525,7 @@ window.Quarto = {
 <li>Aggiungete le guardie a <code>punto.h</code> (in <code>punto_con_guardia.h</code> trovate la versione gia’ fatta, ma scrivetele voi) e ricostruite: il programma stampa <code>lunghezza al quadrato: 25</code>. Qui la guardia su <code>punto.h</code> e’ bastata, perche’ nessuno include <code>segmento.h</code> due volte. Immaginate pero’ di aggiungere un terzo file, <code>figura.h</code>, che include anche lui <code>segmento.h</code>, e un <code>main.c</code> che include <code>segmento.h</code> e <code>figura.h</code>: che cosa succederebbe? Mettete la guardia anche a <code>segmento.h</code> e spiegate in una riga perche’ si scrivono <strong>sempre</strong>, anche quando sembrano inutili.</li>
 <li><strong>In piu’.</strong> I comandi dei punti precedenti non lasciano nessun <code>.o</code>: per averli date <code>gcc -g -Wall -Wextra -c punto.c segmento.c</code>. Poi <code>nm punto.o</code> e <code>nm segmento.o</code>: quali nomi sono <code>T</code> e quali <code>U</code> in ciascuno dei due? Quale dei due file oggetto ha un buco che l’altro riempie?</li>
 </ol>
-<p><strong>Z3.</strong> Nella cartella <code>Z3_contatore</code> c’e’ un modulo che tiene un contatore: <code>contatore.h</code>, <code>contatore.c</code> e un <code>main.c</code> che lo usa. Aprite tutti e tre.</p>
+<p><strong>T3.</strong> Nella cartella <code>T3_contatore</code> c’e’ un modulo che tiene un contatore: <code>contatore.h</code>, <code>contatore.c</code> e un <code>main.c</code> che lo usa. Aprite tutti e tre.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb40-1"><a href="#cb40-1"></a>$ make</span>
 <span id="cb40-2"><a href="#cb40-2"></a>$ ./contatore_prova</span>
 <span id="cb40-3"><a href="#cb40-3"></a>Con passo 1, dopo 5 aumenti: 5</span>
@@ -1534,8 +1534,8 @@ window.Quarto = {
 <ol type="1">
 <li>Perche’ <code>quante</code> e’ <code>static</code> e <code>contatore_passo</code> no? Guardate l’intestazione e rispondete in termini di “che cosa offre il modulo a chi lo usa”.</li>
 <li><code>contatore.h</code> contiene <code>extern int contatore_passo;</code> e <code>contatore.c</code> contiene <code>int contatore_passo = 1;</code>. Quale delle due righe e’ la dichiarazione e quale la definizione? Che cosa succederebbe se togliessimo <code>extern</code> dall’intestazione? (Lo vedrete tra poco, al punto 6.)</li>
-<li>Costruite <code>rotto_static.c</code>, che e’ fatto apposta per non funzionare, con <code>gcc -g -Wall -Wextra -o rotto rotto_static.c contatore.c</code>. Escono due messaggi: prima <code>warning: implicit declaration of function 'valido'</code>, che e’ il fenomeno di Z2.3, e poi <code>undefined reference to 'valido'</code>, che viene dal collegamento. Ma <code>valido</code> esiste, ed e’ dentro <code>contatore.c</code> che avete appena compilato: perche’ il collegatore non la trova? (Anche qui, con gcc 14 o piu’ recente serve <code>-Wno-error=implicit-function-declaration</code>: altrimenti ci si ferma al primo messaggio e il collegamento non parte nemmeno.)</li>
-<li>Adesso, in <code>rotto_static.c</code>, sostituite la riga di <code>valido</code> con <code>printf("quante: %ld\n", quante);</code> e ricompilate. Questa volta l’errore e’ <code>error: 'quante' undeclared</code>, e arriva <strong>prima</strong>, dalla compilazione. Perche’ i due casi si comportano diversamente? (Pensate a che cosa il compilatore e’ disposto a fare con un nome di funzione che non conosce, e che cosa invece non puo’ fare con un nome di variabile. Ripensate al punto 3 di Z2.)</li>
+<li>Costruite <code>rotto_static.c</code>, che e’ fatto apposta per non funzionare, con <code>gcc -g -Wall -Wextra -o rotto rotto_static.c contatore.c</code>. Escono due messaggi: prima <code>warning: implicit declaration of function 'valido'</code>, che e’ il fenomeno di T2.3, e poi <code>undefined reference to 'valido'</code>, che viene dal collegamento. Ma <code>valido</code> esiste, ed e’ dentro <code>contatore.c</code> che avete appena compilato: perche’ il collegatore non la trova? (Anche qui, con gcc 14 o piu’ recente serve <code>-Wno-error=implicit-function-declaration</code>: altrimenti ci si ferma al primo messaggio e il collegamento non parte nemmeno.)</li>
+<li>Adesso, in <code>rotto_static.c</code>, sostituite la riga di <code>valido</code> con <code>printf("quante: %ld\n", quante);</code> e ricompilate. Questa volta l’errore e’ <code>error: 'quante' undeclared</code>, e arriva <strong>prima</strong>, dalla compilazione. Perche’ i due casi si comportano diversamente? (Pensate a che cosa il compilatore e’ disposto a fare con un nome di funzione che non conosce, e che cosa invece non puo’ fare con un nome di variabile. Ripensate al punto 3 di T2.)</li>
 <li>Date <code>nm contatore.o</code> e confrontate le lettere:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a href="#cb41-1"></a>0000000000000030 r __PRETTY_FUNCTION__.0</span>
@@ -1551,7 +1551,7 @@ window.Quarto = {
 <li>Nella sottocartella <code>doppia</code> c’e’ l’errore classico di chi comincia: in <code>comune.h</code> sta scritto <code>int totale;</code> invece di <code>extern int totale;</code>. Costruite con <code>gcc -g -Wall -Wextra -o prova prova.c a.c b.c</code>: compaiono due <code>multiple definition of 'totale'</code>. Quante copie di <code>totale</code> sono state create, e da chi? Correggete, aggiungendo <code>extern</code> nell’intestazione e la definizione in <strong>uno solo</strong> dei file <code>.c</code>, e verificate che il programma stampi <code>totale: 11</code>.</li>
 <li><strong>In piu’.</strong> Nel modulo <code>contatore</code> manca un controllo: niente impedisce a chi lo usa di scrivere <code>contatore_passo = -5;</code>, e l’<code>assert</code> dentro <code>contatore_aumenta</code> fa morire il programma. Provate. Come si potrebbe togliere a chi usa il modulo la possibilita’ di sbagliare? Basta rispondere a parole, senza scrivere il codice: e’ la stessa idea delle funzioni costruttrici di P13, e la strada e’ rendere <code>static</code> anche <code>contatore_passo</code> e offrire al suo posto due funzioni nell’intestazione.</li>
 </ol>
-<p><strong>Z4.</strong> Nella cartella <code>Z4_make</code> c’e’ un programma su tre sorgenti, <code>main.c</code>, <code>etichette.c</code> e <code>somma.c</code>, con due intestazioni. Ci sono anche due Makefile: quello buono, <code>Makefile</code>, e uno fatto apposta per sbagliare, <code>Makefile_incompleto</code>, che si usa scrivendo <code>make -f Makefile_incompleto</code>. L’unica differenza tra i due e’ la riga delle dipendenze dei <code>.o</code>.</p>
+<p><strong>T4.</strong> Nella cartella <code>T4_make</code> c’e’ un programma su tre sorgenti, <code>main.c</code>, <code>etichette.c</code> e <code>somma.c</code>, con due intestazioni. Ci sono anche due Makefile: quello buono, <code>Makefile</code>, e uno fatto apposta per sbagliare, <code>Makefile_incompleto</code>, che si usa scrivendo <code>make -f Makefile_incompleto</code>. L’unica differenza tra i due e’ la riga delle dipendenze dei <code>.o</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb42-1"><a href="#cb42-1"></a>$ make</span>
 <span id="cb42-2"><a href="#cb42-2"></a>gcc -g -Wall -Wextra -c main.c</span>
 <span id="cb42-3"><a href="#cb42-3"></a>gcc -g -Wall -Wextra -c etichette.c</span>
@@ -1589,7 +1589,7 @@ window.Quarto = {
 <li>Correggete <code>Makefile_incompleto</code> aggiungendo la dipendenza mancante, poi rifate la prova del punto 4: ora funziona. Confrontate la vostra correzione con il <code>Makefile</code> buono.</li>
 <li><strong>In piu’.</strong> La regola <code>%.o: %.c $(INTESTAZIONI)</code> dice che <strong>ogni</strong> <code>.o</code> dipende da <strong>tutte</strong> le intestazioni, anche da quelle che non include: e’ il motivo per cui al punto 3 e’ stato ricompilato anche <code>somma.o</code>. E’ una semplificazione grossolana ma prudente: ricompila qualcosa in piu’, e non dimentica mai niente. Che cosa succederebbe, invece, con una regola che si dimentica qualcosa? Nei progetti veri le dipendenze non si scrivono a mano: gcc sa calcolarle da solo, perche’ lui i sorgenti li legge. Provate <code>gcc -MMD -c main.c</code> e aprite il file <code>main.d</code> che compare: contiene una riga sola, <code>main.o: main.c etichette.h somma.h</code>, cioe’ esattamente la dipendenza che a make serviva. Poi date <code>make clean</code>, perche’ quel comando ha ricompilato <code>main.o</code> senza i vostri flag abituali.</li>
 </ol>
-<p><strong>Z5.</strong> <strong>Sfida.</strong> La cartella <code>Z5_rapporto</code> contiene tre moduli gia’ pronti, un’intestazione senza il suo <code>.c</code>, il Makefile e i test. Il programma, <code>rapporto</code>, legge da un file dei valori interi tra <span class="math inline">\(0\)</span> e <span class="math inline">\(99\)</span> e ne stampa un resoconto con l’istogramma.</p>
+<p><strong>T5.</strong> <strong>Sfida.</strong> La cartella <code>T5_rapporto</code> contiene tre moduli gia’ pronti, un’intestazione senza il suo <code>.c</code>, il Makefile e i test. Il programma, <code>rapporto</code>, legge da un file dei valori interi tra <span class="math inline">\(0\)</span> e <span class="math inline">\(99\)</span> e ne stampa un resoconto con l’istogramma.</p>
 <p>I moduli forniti sono:</p>
 <table class="caption-top table">
 <colgroup>
@@ -1609,7 +1609,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td><code>ordina.h</code> / <code>ordina.c</code></td>
-<td><code>ordina_crescente</code>, che ordina un array di interi usando <code>qsort</code> (Y)</td>
+<td><code>ordina_crescente</code>, che ordina un array di interi usando <code>qsort</code> (S)</td>
 </tr>
 <tr class="odd">
 <td><code>statistiche.h</code> / <code>statistiche.c</code></td>
@@ -1657,11 +1657,11 @@ window.Quarto = {
 <p>Come si potrebbe fare in modo che quel conto non possa sbagliare? Pensate a quale delle due intestazioni dovrebbe dipendere dall’altra, e a che cosa potrebbe controllare un <code>assert</code> dentro <code>istogramma_conta</code>.</p>
 </section>
 </section>
-<section id="pacchetto-aa-puntatori-e-memoria-dinamica" class="level2">
-<h2 data-anchor-id="pacchetto-aa-puntatori-e-memoria-dinamica">Pacchetto AA: Puntatori e memoria dinamica</h2>
-<p>I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. <code>char *argv[]</code> in X, <code>FILE *f</code> in tutti i programmi che aprono un file, <code>const void *</code> nelle funzioni di confronto di Y: in ciascuno di quei casi c’era una stella, e l’avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: <strong>chiedere memoria mentre il programma gira</strong>.</p>
-<p>Il motivo per cui conviene farlo lo conoscete gia’ bene. In Z1 il modulo <code>vettore</code> aveva una costante <code>VETTORE_MAX</code> uguale a <span class="math inline">\(1000\)</span>, e il programma rifiutava i file piu’ lunghi; in X e in Y ogni programma ha un <code>#define</code> che fissa un limite deciso da chi scrive, non da chi usa. In AA3 quel limite sparisce.</p>
-<p>Il materiale di questo pacchetto sta nelle cartelle da <code>AA1_scambia</code> a <code>AA5_lista</code>. Il Makefile e’ lo stesso del Pacchetto Z, e <code>make test</code> funziona allo stesso modo. Compilate sempre con <code>gcc -g -Wall -Wextra</code>; da AA3 in poi serve anche <code>valgrind</code>, che e’ nuovo, mentre <code>-fsanitize=address</code> lo avete gia’ usato in Z5.</p>
+<section id="pacchetto-u-puntatori-e-memoria-dinamica" class="level2">
+<h2 data-anchor-id="pacchetto-u-puntatori-e-memoria-dinamica">Pacchetto U: Puntatori e memoria dinamica</h2>
+<p>I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. <code>char *argv[]</code> in R, <code>FILE *f</code> in tutti i programmi che aprono un file, <code>const void *</code> nelle funzioni di confronto di S: in ciascuno di quei casi c’era una stella, e l’avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: <strong>chiedere memoria mentre il programma gira</strong>.</p>
+<p>Il motivo per cui conviene farlo lo conoscete gia’ bene. In T1 il modulo <code>vettore</code> aveva una costante <code>VETTORE_MAX</code> uguale a <span class="math inline">\(1000\)</span>, e il programma rifiutava i file piu’ lunghi; in R e in S ogni programma ha un <code>#define</code> che fissa un limite deciso da chi scrive, non da chi usa. In U3 quel limite sparisce.</p>
+<p>Il materiale di questo pacchetto sta nelle cartelle da <code>U1_scambia</code> a <code>U5_lista</code>. Il Makefile e’ lo stesso del Pacchetto T, e <code>make test</code> funziona allo stesso modo. Compilate sempre con <code>gcc -g -Wall -Wextra</code>; da U3 in poi serve anche <code>valgrind</code>, che e’ nuovo, mentre <code>-fsanitize=address</code> lo avete gia’ usato in T5.</p>
 <section id="un-indirizzo-e-un-numero" class="level3">
 <h3 data-anchor-id="un-indirizzo-e-un-numero">Un indirizzo e’ un numero</h3>
 <p>Ogni variabile di un programma sta da qualche parte nella memoria, e quel “da qualche parte” e’ un numero: l’<strong>indirizzo</strong> del primo byte che occupa. Un <em>puntatore</em> e’ una variabile che contiene un indirizzo.</p>
@@ -1678,7 +1678,7 @@ window.Quarto = {
 </ul>
 <p>Un puntatore che non punta a niente vale <code>NULL</code>, che e’ definito in <code>stdio.h</code> e in <code>stdlib.h</code>. Seguire un puntatore <code>NULL</code> e’ comportamento indefinito, e in pratica fa terminare il programma con <code>Segmentation fault</code>: e’ il modo in cui il sistema vi dice che avete chiesto l’indirizzo zero. Per stampare un indirizzo si usa <code>%p</code>, con il valore convertito a <code>void *</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a href="#cb47-1"></a>printf<span class="op">(</span><span class="st">"x sta in </span><span class="sc">%p\n</span><span class="st">"</span><span class="op">,</span> <span class="op">(</span><span class="dt">void</span> <span class="op">*)&amp;</span>x<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e’ verificabile con <code>make test</code>. Quello che <strong>non</strong> cambia sono le loro differenze: e’ su quelle che lavora AA2.</p>
+<p>Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e’ verificabile con <code>make test</code>. Quello che <strong>non</strong> cambia sono le loro differenze: e’ su quelle che lavora U2.</p>
 </section>
 <section id="i-puntatori-che-avete-gia-usato" class="level3">
 <h3 data-anchor-id="i-puntatori-che-avete-gia-usato">I puntatori che avete gia’ usato</h3>
@@ -1723,7 +1723,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>La prima riga e’ quella che spiega I12. Un sottoprogramma riceve <strong>copie</strong> dei parametri, quindi non puo’ cambiare le variabili del chiamante; <code>scanf</code> ci riesce perche’ non riceve <code>n</code> ma il suo indirizzo. Quando in I avete scritto uno <code>scambia</code> che non scambiava, vi mancava esattamente questo. In AA1 lo rimettete a posto.</p>
+<p>La prima riga e’ quella che spiega I12. Un sottoprogramma riceve <strong>copie</strong> dei parametri, quindi non puo’ cambiare le variabili del chiamante; <code>scanf</code> ci riesce perche’ non riceve <code>n</code> ma il suo indirizzo. Quando in I avete scritto uno <code>scambia</code> che non scambiava, vi mancava esattamente questo. In U1 lo rimettete a posto.</p>
 </section>
 <section id="puntatori-e-array" class="level3">
 <h3 data-anchor-id="puntatori-e-array">Puntatori e array</h3>
@@ -1800,7 +1800,7 @@ window.Quarto = {
 <span id="cb50-4"><a href="#cb50-4"></a>    <span class="cf">return</span> NULL<span class="op">;</span></span>
 <span id="cb50-5"><a href="#cb50-5"></a><span class="op">}</span></span>
 <span id="cb50-6"><a href="#cb50-6"></a>v <span class="op">=</span> nuovo<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Chi chiede, libera.</strong> La memoria ottenuta con <code>malloc</code> resta occupata finche’ qualcuno non chiama <code>free</code>: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita’ passa al chiamante: e’ quello che fa l’<code>@post</code> di <code>lettura_interi</code> in AA3.</p>
+<p><strong>Chi chiede, libera.</strong> La memoria ottenuta con <code>malloc</code> resta occupata finche’ qualcuno non chiama <code>free</code>: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita’ passa al chiamante: e’ quello che fa l’<code>@post</code> di <code>lettura_interi</code> in U3.</p>
 </section>
 <section id="i-quattro-errori-e-i-due-strumenti-per-vederli" class="level3">
 <h3 data-anchor-id="i-quattro-errori-e-i-due-strumenti-per-vederli">I quattro errori, e i due strumenti per vederli</h3>
@@ -1837,11 +1837,11 @@ window.Quarto = {
 <p>Hanno tutti e quattro la stessa caratteristica sgradevole: <strong>il programma sembra funzionare</strong>. Nessuno dei quattro e’ segnalato da <code>gcc</code> in modo affidabile, e i test di <code>make test</code> li superano tutti. Servono strumenti che controllino la memoria durante l’esecuzione, e ce ne sono due:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">gcc</span> <span class="at">-g</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-fsanitize</span><span class="op">=</span>address <span class="at">-o</span> prova prova.c    <span class="co"># poi ./prova</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="fu">valgrind</span> <span class="at">--leak-check</span><span class="op">=</span>full ./prova</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Il primo lo conoscete gia’ dal Pacchetto Z, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con <code>malloc</code>, e in piu’ alla fine del programma <code>-fsanitize=address</code> elenca i blocchi mai liberati. Il secondo, <code>valgrind</code>, e’ nuovo: non richiede di ricompilare, trova le stesse cose piu’ lentamente, e il suo riepilogo finale distingue la memoria <strong>definitely lost</strong> da quella <strong>still reachable</strong>. Usateli entrambi almeno una volta in AA4, e poi tenete l’abitudine di passare sotto <code>valgrind</code> ogni programma che chiama <code>malloc</code>.</p>
+<p>Il primo lo conoscete gia’ dal Pacchetto T, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con <code>malloc</code>, e in piu’ alla fine del programma <code>-fsanitize=address</code> elenca i blocchi mai liberati. Il secondo, <code>valgrind</code>, e’ nuovo: non richiede di ricompilare, trova le stesse cose piu’ lentamente, e il suo riepilogo finale distingue la memoria <strong>definitely lost</strong> da quella <strong>still reachable</strong>. Usateli entrambi almeno una volta in U4, e poi tenete l’abitudine di passare sotto <code>valgrind</code> ogni programma che chiama <code>malloc</code>.</p>
 </section>
-<section id="esercizi-aa1-aa5" class="level3">
-<h3 data-anchor-id="esercizi-aa1-aa5">Esercizi (AA1-AA5)</h3>
-<p><strong>AA1.</strong> Nella cartella <code>AA1_scambia</code> trovate il modulo <code>scambio.h</code> e <code>scambio.c</code>, il Makefile e i test; manca <code>main.c</code>, che scrivete voi. Il modulo offre quattro sottoprogrammi: <code>scambio_per_valore</code>, lasciato apposta com’era in I12 e quindi inutile; <code>scambio_scambia</code>, che funziona; <code>scambio_dividi</code>, che restituisce quoziente e resto insieme; e <code>scambio_ordina_tre</code>.</p>
+<section id="esercizi-u1-u5" class="level3">
+<h3 data-anchor-id="esercizi-u1-u5">Esercizi (U1-U5)</h3>
+<p><strong>U1.</strong> Nella cartella <code>U1_scambia</code> trovate il modulo <code>scambio.h</code> e <code>scambio.c</code>, il Makefile e i test; manca <code>main.c</code>, che scrivete voi. Il modulo offre quattro sottoprogrammi: <code>scambio_per_valore</code>, lasciato apposta com’era in I12 e quindi inutile; <code>scambio_scambia</code>, che funziona; <code>scambio_dividi</code>, che restituisce quoziente e resto insieme; e <code>scambio_ordina_tre</code>.</p>
 <p>Il programma <code>scambia</code> riceve tre interi sulla riga di comando e stampa esattamente questo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb52-1"><a href="#cb52-1"></a>$ ./scambia 17 5 3</span>
 <span id="cb52-2"><a href="#cb52-2"></a>Prima:            a = 17, b = 5</span>
@@ -1859,7 +1859,7 @@ window.Quarto = {
 <li><code>scambio_ordina_tre</code> chiama <code>scambio_scambia</code> tre volte. Dimostrate che tre scambi bastano sempre, elencando i sei ordini possibili di tre numeri diversi e seguendo l’algoritmo su ciascuno.</li>
 <li><strong>In piu’.</strong> Aggiungete al modulo <code>void scambio_ruota(int *a, int *b, int *c)</code>, che sposta il valore di <code>*a</code> in <code>*b</code>, quello di <code>*b</code> in <code>*c</code> e quello di <code>*c</code> in <code>*a</code>. Quante variabili di appoggio servono? Verificate che applicandola tre volte si torni al punto di partenza.</li>
 </ol>
-<p><strong>AA2.</strong> Nella cartella <code>AA2_indirizzi</code> trovate il modulo <code>indirizzi.h</code> e <code>indirizzi.c</code>; manca <code>main.c</code>. Il modulo somma un array in tre modi diversi (con <code>v[i]</code>, con <code>*(v + i)</code> e scorrendo con un puntatore da un indirizzo all’altro), stampa le distanze fra gli elementi, e misura <code>sizeof</code> del parametro.</p>
+<p><strong>U2.</strong> Nella cartella <code>U2_indirizzi</code> trovate il modulo <code>indirizzi.h</code> e <code>indirizzi.c</code>; manca <code>main.c</code>. Il modulo somma un array in tre modi diversi (con <code>v[i]</code>, con <code>*(v + i)</code> e scorrendo con un puntatore da un indirizzo all’altro), stampa le distanze fra gli elementi, e misura <code>sizeof</code> del parametro.</p>
 <p>Il programma <code>indirizzi</code> riceve da uno a sedici interi sulla riga di comando, li mette in un array <code>int v[16]</code> dichiarato dentro <code>main</code>, e stampa:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb53-1"><a href="#cb53-1"></a>$ ./indirizzi 3 1 4 1 5 9 2 6</span>
 <span id="cb53-2"><a href="#cb53-2"></a>sizeof(v) dentro main:        64 byte</span>
@@ -1885,9 +1885,9 @@ window.Quarto = {
 <li>Nella tabella finale, la terza colonna e’ sempre quattro volte la seconda. Perche’ <code>&amp;v[i] - &amp;v[0]</code> vale <code>i</code> e non <code>4 * i</code>? Che cosa dovrebbe fare il compilatore per ottenere quel numero, sapendo che gli indirizzi sono byte?</li>
 <li>Cambiate l’array in <code>double v[16]</code> (e tutto il resto di conseguenza). Quali numeri della tabella cambiano, e quali no? Prevedeteli prima di eseguire.</li>
 <li><code>indirizzi_somma_scorrendo(v, v + n)</code> riceve un indirizzo <strong>oltre</strong> l’ultimo elemento. Lo standard C garantisce che calcolare quell’indirizzo sia lecito, ma non che si possa seguire. Guardate il ciclo: dove viene usato <code>fine</code>, e dove <strong>non</strong> viene usato?</li>
-<li><strong>In piu’.</strong> Scrivete <code>int indirizzi_cerca(const int *inizio, const int *fine, int valore)</code> che restituisce la distanza dal primo elemento, oppure <span class="math inline">\(-1\)</span>. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o <code>NULL</code>: e’ cosi’ che funziona <code>bsearch</code> di Y.</li>
+<li><strong>In piu’.</strong> Scrivete <code>int indirizzi_cerca(const int *inizio, const int *fine, int valore)</code> che restituisce la distanza dal primo elemento, oppure <span class="math inline">\(-1\)</span>. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o <code>NULL</code>: e’ cosi’ che funziona <code>bsearch</code> di S.</li>
 </ol>
-<p><strong>AA3.</strong> Nella cartella <code>AA3_dinamico</code> trovate <code>lettura.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test. Manca <code>lettura.c</code>: lo scrivete voi, ed e’ il primo modulo che chiede memoria.</p>
+<p><strong>U3.</strong> Nella cartella <code>U3_dinamico</code> trovate <code>lettura.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test. Manca <code>lettura.c</code>: lo scrivete voi, ed e’ il primo modulo che chiede memoria.</p>
 <p>Il modulo deve leggere da un file <strong>tutti</strong> gli interi che contiene, senza nessun limite fissato nel sorgente: niente <code>VETTORE_MAX</code>. La strategia e’ obbligatoria, perche’ i test controllano anche quante volte l’array e’ stato ingrandito: si parte da una capacita’ di <span class="math inline">\(4\)</span> elementi e la si <strong>raddoppia</strong> ogni volta che si riempie.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb54-1"><a href="#cb54-1"></a>$ ./somma test/numeri.txt</span>
 <span id="cb54-2"><a href="#cb54-2"></a>Numeri letti: 10</span>
@@ -1909,12 +1909,12 @@ window.Quarto = {
 <li>Verificate i due numeri della riga <code>Ingrandimenti</code>. Partendo da <span class="math inline">\(4\)</span> e raddoppiando, quali capacita’ si attraversano per arrivare a contenere <span class="math inline">\(10\)</span> elementi? E <span class="math inline">\(20000\)</span>? Scrivete la formula generale in funzione di <code>n</code>.</li>
 <li>Il totale degli elementi copiati dai vari <code>realloc</code> e’ <span class="math inline">\(4 + 8 + 16 + \dots\)</span> fino all’ultima capacita’. Sommate la serie geometrica e dite quanto costa, in funzione di <code>n</code>, tutta la crescita. Qual e’ la classe? (E’ il motivo per cui si raddoppia invece di aggiungere una casella per volta.)</li>
 <li>Provate a crescere <strong>di uno</strong> invece che raddoppiando, su <code>grande.txt</code>. Quanti <code>realloc</code> vengono fatti, e quanti elementi vengono copiati in tutto? Misurate il tempo delle due versioni con <code>time</code>.</li>
-<li>Il modulo di Z1 rifiutava i file con piu’ di <span class="math inline">\(1000\)</span> numeri; questo legge <code>grande.txt</code> che ne ha <span class="math inline">\(20000\)</span>. Rileggete in <code>vettore.h</code> di Z1 il commento della costante <code>VETTORE_MAX</code> e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.</li>
+<li>Il modulo di T1 rifiutava i file con piu’ di <span class="math inline">\(1000\)</span> numeri; questo legge <code>grande.txt</code> che ne ha <span class="math inline">\(20000\)</span>. Rileggete in <code>vettore.h</code> di T1 il commento della costante <code>VETTORE_MAX</code> e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.</li>
 <li><strong>Con valgrind.</strong> Eseguite <code>valgrind --leak-check=full ./somma test/numeri.txt</code>. Deve dire <code>All heap blocks were freed</code>. Poi togliete la chiamata a <code>lettura_libera</code> nel <code>main</code> e rieseguite: quanti byte risultano persi, e corrispondono a quelli che avevate chiesto?</li>
 <li>Il <code>main</code> controlla <code>if (v == NULL)</code>. Togliete il controllo e provate con <code>test/vuoto.txt</code>: che cosa succede, e a quale riga? Confrontate con il caso in cui il controllo c’e’.</li>
 <li><strong>In piu’.</strong> Il blocco finale ha una capacita’ che e’ una potenza di due, quindi quasi sempre piu’ grande del necessario: con <span class="math inline">\(20000\)</span> elementi ne occupa <span class="math inline">\(32768\)</span>. Aggiungete alla fine di <code>lettura_interi</code> un <code>realloc</code> che la riduce esattamente a <code>n</code>, e dite quanti byte si risparmiano nel caso peggiore. Perche’ quel <code>realloc</code> non puo’ fallire in modo pericoloso?</li>
 </ol>
-<p><strong>AA4.</strong> Nella cartella <code>AA4_memoria</code> ci sono quattro programmi indipendenti, <code>uno.c</code>, <code>due.c</code>, <code>tre.c</code> e <code>quattro.c</code>. Tutti e quattro <strong>calcolano la cosa giusta</strong> e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu’ sopra, uno per programma. Il Makefile offre <code>make</code>, <code>make asan</code> e <code>make valgrind</code>.</p>
+<p><strong>U4.</strong> Nella cartella <code>U4_memoria</code> ci sono quattro programmi indipendenti, <code>uno.c</code>, <code>due.c</code>, <code>tre.c</code> e <code>quattro.c</code>. Tutti e quattro <strong>calcolano la cosa giusta</strong> e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu’ sopra, uno per programma. Il Makefile offre <code>make</code>, <code>make asan</code> e <code>make valgrind</code>.</p>
 <p>Per ciascuno: eseguitelo, osservate che l’output e’ corretto, trovate l’errore con gli strumenti, correggetelo, e verificate che <code>valgrind</code> non dica piu’ niente.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb55-1"><a href="#cb55-1"></a>$ ./uno</span>
 <span id="cb55-2"><a href="#cb55-2"></a>Somma dei quadrati fino a 100: 338350</span>
@@ -1939,7 +1939,7 @@ window.Quarto = {
 <li>In <code>tre.c</code> la prima stampa della diagonale e’ un numero diverso a ogni esecuzione, ma gli altri quattro sono giusti. Spiegate perche’ il blocco liberato contiene ancora i valori di prima, tranne che all’inizio. (Suggerimento: chi gestisce la memoria libera usa i primi byte del blocco per i propri appunti.)</li>
 <li>In <code>quattro.c</code> la scrittura e’ una sola casella oltre il limite, e il programma termina regolarmente. Provate con <code>n</code> molto piu’ grande e ripetete qualche volta: termina sempre? <strong>In piu’.</strong> Questo e’ l’errore piu’ pericoloso dei quattro: spiegate perche’, confrontandolo con una perdita di memoria.</li>
 </ol>
-<p><strong>AA5.</strong> <strong>Sfida.</strong> Nella cartella <code>AA5_lista</code> ci sono <code>lista.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test; manca <code>lista.c</code>, che scrivete voi. E’ la prima struttura dati che non e’ un array: una <strong>lista concatenata</strong>, cioe’ una catena di nodi in cui ciascuno contiene un valore e l’indirizzo del successivo.</p>
+<p><strong>U5.</strong> <strong>Sfida.</strong> Nella cartella <code>U5_lista</code> ci sono <code>lista.h</code>, il <code>main.c</code> gia’ scritto, il Makefile e i test; manca <code>lista.c</code>, che scrivete voi. E’ la prima struttura dati che non e’ un array: una <strong>lista concatenata</strong>, cioe’ una catena di nodi in cui ciascuno contiene un valore e l’indirizzo del successivo.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb56-1"><a href="#cb56-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> nodo <span class="op">{</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>    <span class="dt">int</span> valore<span class="op">;</span></span>
 <span id="cb56-3"><a href="#cb56-3"></a>    <span class="kw">struct</span> nodo <span class="op">*</span>successivo<span class="op">;</span></span>
@@ -1962,7 +1962,7 @@ window.Quarto = {
 <li>Scrivete <code>lista_rovescia</code> senza chiamare <code>malloc</code>: servono tre puntatori, <code>precedente</code>, <code>corrente</code> e <code>dopo</code>. Seguitela a mano sulla lista <code>7 3 1</code>, disegnando le frecce dopo ogni giro. Perche’ serve <code>dopo</code>?</li>
 <li><code>lista_togli</code> ha due casi: il valore e’ in testa, oppure no. Perche’ il primo va trattato a parte? Che cosa va liberato, e in quale ordine rispetto all’aggiornamento di <code>successivo</code>? (Invertite i due e guardate che cosa dice <code>-fsanitize=address</code>.)</li>
 <li><strong>Con valgrind.</strong> <code>valgrind --leak-check=full ./lista 5 3 9 1 3 7</code> deve dire <code>All heap blocks were freed</code>. Se non lo dice, i byte persi sono un multiplo di <code>sizeof(Nodo)</code>: quanti nodi avete dimenticato, e dove?</li>
-<li>Confrontate la lista con l’array dinamico di AA3 su quattro operazioni: inserire in testa, inserire in coda, leggere l’elemento di posto <code>i</code>, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un <code>Nodo</code> rispetto a un <code>int</code>?</li>
+<li>Confrontate la lista con l’array dinamico di U3 su quattro operazioni: inserire in testa, inserire in coda, leggere l’elemento di posto <code>i</code>, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un <code>Nodo</code> rispetto a un <code>int</code>?</li>
 <li><strong>In piu’.</strong> Scrivete <code>Nodo *lista_fondi(Nodo *a, Nodo *b)</code> che, date due liste <strong>ordinate</strong>, ne costruisce una sola ordinata riusando i nodi che gia’ esistono, senza nessun <code>malloc</code> e senza nessuna <code>free</code>. E’ la fusione di G6, fatta con le frecce invece che con gli indici: qui, a differenza di G6, non serve un terzo contenitore. Perche’?</li>
 </ol>
 

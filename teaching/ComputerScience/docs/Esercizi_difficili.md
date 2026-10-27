@@ -2,15 +2,15 @@
 
 | Blocco | Argomento | Esercizi |
 | --- | --- | --- |
-| X | FILE*, argv e make test | 20 |
-| Y | qsort e bsearch | 5 |
-| Z | Integrazione e modularita' | 5 |
-| AA | Puntatori e memoria dinamica | 5 |
+| R | FILE*, argv e make test | 20 |
+| S | qsort e bsearch | 5 |
+| T | Integrazione e modularita' | 5 |
+| U | Puntatori e memoria dinamica | 5 |
 
 
-## Pacchetto X: FILE*, argv e make test
+## Pacchetto R: FILE*, argv e make test
 
-Finora i nostri programmi hanno letto i dati dalla tastiera e scritto i risultati sullo schermo. I programmi "veri" lavorano spesso in un altro modo: ricevono le indicazioni direttamente sulla riga di comando, come fa gcc quando scrivete `gcc -o somma somma.c`, e leggono e scrivono file. In questo pacchetto imparate a fare lo stesso. La prima parte (X1-X10) introduce gli argomenti della riga di comando (`argc` e `argv`) e i file (`FILE*`); nella seconda (X11-X20) i programmi vengono controllati automaticamente con un Makefile e il comando `make test`.
+Finora i nostri programmi hanno letto i dati dalla tastiera e scritto i risultati sullo schermo. I programmi "veri" lavorano spesso in un altro modo: ricevono le indicazioni direttamente sulla riga di comando, come fa gcc quando scrivete `gcc -o somma somma.c`, e leggono e scrivono file. In questo pacchetto imparate a fare lo stesso. La prima parte (R1-R10) introduce gli argomenti della riga di comando (`argc` e `argv`) e i file (`FILE*`); nella seconda (R11-R20) i programmi vengono controllati automaticamente con un Makefile e il comando `make test`.
 
 Il materiale che accompagna il pacchetto (la cartella `materiale_difficili`) contiene i file di dati della prima parte (nella cartella `parte1_dati`, in cui spostarsi con `cd` per provare gli esempi) e, per ogni esercizio della seconda, una cartella con il Makefile e i test.
 
@@ -96,9 +96,9 @@ Qualche comando del terminale utile in questo pacchetto:
 
 Gli argomenti si scrivono dopo `run`, esattamente come sulla riga di comando: `run dati.txt 3`, oppure `run dati.txt < tastiera.txt`. Quando il programma si ferma, gdb mostra anche gli argomenti di `main`, per esempio `main (argc=3, argv=0x7fffffffea48)`. Il numero che compare in `print argv[1]`, per esempio `0x7fffffffecbf "alfa"`, e' l'indirizzo in memoria della stringa e si puo' ignorare; quello che conta e' il testo tra virgolette. Allo stesso modo `print f` mostra l'indirizzo di un `FILE *`, oppure `0x0` se vale `NULL`. Come nei pacchetti precedenti, le domande che usano gdb iniziano con **Con gdb.**
 
-#### Esercizi (X1-X10)
+#### Esercizi (R1-R10)
 
-**X1.** Il programma stampa tutti i suoi argomenti.
+**R1.** Il programma stampa tutti i suoi argomenti.
 
 ```c
 #include <stdio.h>
@@ -125,7 +125,7 @@ argv[3] = 3+4
 1. Prevedete l'output, poi eseguite: `./argomenti`, `./argomenti 1 2 3`, `./argomenti "1 2" 3`, `./argomenti '*'` e `./argomenti *.c`. Perche' l'ultimo comando stampa i nomi dei vostri file? Chi ha trasformato `*.c` in quei nomi?
 2. **Con gdb.** Mettete un breakpoint sulla prima `printf`, lanciate `run alfa "beta gamma"` e provate `print argv[1]`, `print argv[1][0]` e `print *argv@argc`, che mostra in un colpo solo tutto l'array. Che cosa c'e' in `argv[argc]`, subito dopo l'ultimo argomento?
 
-**X2.** Scrivete un programma `binomiale` che riceve $n$ e $k$ sulla riga di comando e stampa il coefficiente binomiale $\binom{n}{k}$, calcolato in una variabile `long r` con la formula $\binom{n}{i} = \binom{n}{i-1} \cdot \frac{n - i + 1}{i}$, per `i` da $1$ a $k$, cioe' con la riga `r = r * (n - i + 1) / i;`. Requisiti:
+**R2.** Scrivete un programma `binomiale` che riceve $n$ e $k$ sulla riga di comando e stampa il coefficiente binomiale $\binom{n}{k}$, calcolato in una variabile `long r` con la formula $\binom{n}{i} = \binom{n}{i-1} \cdot \frac{n - i + 1}{i}$, per `i` da $1$ a $k$, cioe' con la riga `r = r * (n - i + 1) / i;`. Requisiti:
 
 - se gli argomenti non sono esattamente due, il programma scrive su `stderr` come si usa (`Uso: ./binomiale n k`) e termina con codice $1$;
 - se un argomento non e' un intero, errore e codice $1$. Con `sscanf(argv[1], "%d", &n)` il testo `"10x"` verrebbe accettato come $10$; il trucco e' chiedere anche un carattere in piu': `sscanf(argv[1], "%d%c", &n, &extra)` restituisce $1$ solo se dopo il numero non c'e' nulla;
@@ -147,7 +147,7 @@ $ echo $?
 2. Portate `N_MAX` a $70$ e provate `./binomiale 62 31`: il risultato e' negativo. Perche'?
 3. **Con gdb.** Sempre con `N_MAX` a $70$, trovate il primo passo in cui `r * (n - i + 1)` supera il massimo di un `long` ($2^{63} - 1 = 9223372036854775807$): mettete sulla riga che aggiorna `r` un breakpoint con la condizione `if r > 9223372036854775807 / (n - i + 1)` e lanciate `run 62 31`. Quanto vale `i` alla prima fermata? Rivedete M18: perche' la condizione si scrive con una divisione?
 
-**X3.** Scrivete un programma `tartaglia` che riceve un numero di righe e il nome di un file, e scrive in quel file le prime righe del triangolo di Tartaglia, calcolate con un solo array come in F10. Requisiti:
+**R3.** Scrivete un programma `tartaglia` che riceve un numero di righe e il nome di un file, e scrive in quel file le prime righe del triangolo di Tartaglia, calcolate con un solo array come in F10. Requisiti:
 
 - se gli argomenti non sono esattamente due, o se il numero di righe non e' un intero da $1$ a $30$, errore;
 - il file si apre in scrittura con `f = fopen(argv[2], "w");`, dove `f` e' una variabile `FILE *`; se l'apertura non riesce, errore;
@@ -169,7 +169,7 @@ $ cat triangolo.txt
 2. Provate a scrivere in una cartella che non esiste, per esempio `./tartaglia 3 /cartella_inesistente/t.txt`: il vostro programma se ne accorge? Che codice di uscita restituisce?
 3. **Con gdb.** Mettete un breakpoint sulla riga della `fopen` e stampate `f` prima e dopo l'apertura (con `next`). Ripetete con la cartella inesistente: che cosa vale `f` dopo la `fopen`?
 
-**X4.** Scrivete un programma `statistiche` che legge da un file una sequenza di interi, separati da spazi o a capo, e ne stampa quantita', minimo, massimo, media e varianza (la media dei quadrati meno il quadrato della media), queste ultime due con tre decimali. Requisiti:
+**R4.** Scrivete un programma `statistiche` che legge da un file una sequenza di interi, separati da spazi o a capo, e ne stampa quantita', minimo, massimo, media e varianza (la media dei quadrati meno il quadrato della media), queste ultime due con tre decimali. Requisiti:
 
 - il nome del file e' l'unico argomento; argomenti sbagliati o un file che non si apre sono errori;
 - il programma distingue i due modi in cui puo' finire la lettura: se `fscanf` restituisce `EOF` il file e' finito regolarmente; se restituisce $0$ c'e' un dato non valido, e il programma lo segnala e termina con errore;
@@ -192,7 +192,7 @@ Varianza: 46.938
 2. Il minimo e il massimo partono dal primo numero letto: perche' sarebbe sbagliato farli partire da $0$ (rivedete F15)? Come fate, se il primo numero viene letto dentro il ciclo?
 3. Provate con un file che contiene un numero solo (scrivetelo voi) e con il file vuoto `vuoto.txt`: che cosa stampa il vostro programma? Che codice di uscita restituisce?
 
-**X5.** Scrivete un programma `conta` che legge un file carattere per carattere con `fgetc`, mettendo ogni carattere letto nella variabile `c`, e stampa il numero di righe, di parole e di caratteri, seguiti dal nome del file. Requisiti:
+**R5.** Scrivete un programma `conta` che legge un file carattere per carattere con `fgetc`, mettendo ogni carattere letto nella variabile `c`, e stampa il numero di righe, di parole e di caratteri, seguiti dal nome del file. Requisiti:
 
 - il nome del file e' l'unico argomento; argomenti sbagliati o un file che non si apre sono errori;
 - le righe sono gli a capo (`'\n'`) contenuti nel file, come le conta `wc`; i caratteri sono tutti quelli letti, a capo compresi;
@@ -210,7 +210,7 @@ $ wc prova.txt
 2. Che valore ha `c` quando il ciclo termina? Perche' `c` deve essere un `int` e non un `char`?
 3. **In piu'.** Create un file che contiene un carattere "strano" con `printf 'ab\377cd\n' > strano.txt` e confrontate il vostro programma con `wc -c strano.txt`. Poi dichiarate `c` come `char` e ripetete: quanti caratteri conta ora, e perche'? (Il carattere `\377` ha codice $255$; in un `char`, che sul vostro computer ha segno, diventa $-1$.)
 
-**X6.** Scrivete un programma `cesare` che cifra un intero file di testo con il cifrario di Cesare (F8): `./cesare spostamento ingresso uscita`. Requisiti:
+**R6.** Scrivete un programma `cesare` che cifra un intero file di testo con il cifrario di Cesare (F8): `./cesare spostamento ingresso uscita`. Requisiti:
 
 - le lettere minuscole e maiuscole si spostano restando tali; tutti gli altri caratteri (spazi, punteggiatura, cifre, a capo) si copiano invariati;
 - lo spostamento puo' essere qualsiasi intero, anche negativo o maggiore di $26$;
@@ -231,7 +231,7 @@ Cheud!
 2. Verificate che cifrare con $3$ e poi con $-3$ restituisca il testo originale: `./cesare -3 cifrato.txt di_nuovo.txt` seguito da `diff chiaro.txt di_nuovo.txt`. Che cosa dovrebbe stampare `diff`?
 3. Su una *copia* di un file, provate `./cesare 3 copia.txt copia.txt`: che cosa resta nel file, e perche'? Impedite questo caso confrontando i due nomi con `strcmp`, prima di aprire qualsiasi file.
 
-**X7.** Scrivete un programma `istogramma` che legge voti d'esame e ne disegna l'istogramma. Requisiti:
+**R7.** Scrivete un programma `istogramma` che legge voti d'esame e ne disegna l'istogramma. Requisiti:
 
 - se riceve il nome di un file lo legge da li', altrimenti legge da `stdin`: basta partire da `FILE *f = stdin;` e sostituirlo con il file aperto, se c'e' l'argomento (e chiudere `f` alla fine solo se non e' `stdin`); piu' di un argomento, un file che non si apre o un dato non numerico sono errori;
 - i voti fuori dall'intervallo da $18$ a $30$ vengono segnalati su `stderr`, con la loro posizione nella sequenza, e non vengono contati;
@@ -262,7 +262,7 @@ Voti validi: 11, scartati: 2
 1. Provate `./istogramma voti.txt`, `./istogramma < voti.txt` e `./istogramma voti.txt > grafico.txt 2> errori.txt`. Che cosa contengono i due file? Perche' e' utile che i messaggi di errore vadano su `stderr`?
 2. Senza argomenti e senza `<`, il programma aspetta i voti dalla tastiera: per dirgli che sono finiti si preme Ctrl+D a inizio riga. Provate.
 
-**X8.** Scrivete un programma `serie` che calcola le somme parziali di alcune serie viste nei pacchetti precedenti: `./serie nome n [passo]` (le parentesi quadre indicano un argomento facoltativo). Requisiti:
+**R8.** Scrivete un programma `serie` che calcola le somme parziali di alcune serie viste nei pacchetti precedenti: `./serie nome n [passo]` (le parentesi quadre indicano un argomento facoltativo). Requisiti:
 
 - il nome puo' essere `armonica` ($\sum 1/k$), `basilea` ($\sum 1/k^2$), `leibniz` ($4 \sum (-1)^{k+1}/(2k-1)$, che tende a $\pi$) o `geometrica` ($\sum 1/2^k$); in tutte le serie $k$ parte da $1$;
 - riconoscete il nome con `strcmp` e salvatelo in una variabile `s` di tipo `enum serie {ARMONICA, BASILEA, LEIBNIZ, GEOMETRICA, SCONOSCIUTA};`, poi calcolate i termini con uno `switch`;
@@ -285,7 +285,7 @@ Serie sconosciuta: fibonacci (disponibili: armonica, basilea, leibniz, geometric
 2. Con il passo, osservate come si avvicinano ai loro limiti le serie di Basilea e di Leibniz. Quante cifre giuste guadagna Leibniz ogni volta che $n$ viene moltiplicato per $10$?
 3. **Con gdb.** Lanciate `run basilea 1000` e fermatevi dopo il riconoscimento del nome: cosa rispondono `print s` e `print/d s`?
 
-**X9.** Il gioco della vita di Conway si gioca su una griglia di celle vive (`#`) o morte (`.`). A ogni generazione una cella viva sopravvive se ha $2$ o $3$ vicine vive (tra le $8$ che la circondano), altrimenti muore; una cella morta nasce se ha esattamente $3$ vicine vive. Le celle fuori dalla griglia sono considerate morte. Scrivete un programma `vita` che legge una griglia da un file, calcola un certo numero di generazioni e scrive la griglia finale in un altro file: `./vita ingresso uscita generazioni`. Requisiti:
+**R9.** Il gioco della vita di Conway si gioca su una griglia di celle vive (`#`) o morte (`.`). A ogni generazione una cella viva sopravvive se ha $2$ o $3$ vicine vive (tra le $8$ che la circondano), altrimenti muore; una cella morta nasce se ha esattamente $3$ vicine vive. Le celle fuori dalla griglia sono considerate morte. Scrivete un programma `vita` che legge una griglia da un file, calcola un certo numero di generazioni e scrive la griglia finale in un altro file: `./vita ingresso uscita generazioni`. Requisiti:
 
 - il file contiene sulla prima riga il numero di righe $R$ e di colonne $C$ (da $1$ a $50$), poi la griglia; il file di uscita ha lo stesso formato;
 - tenete il numero di colonne nella variabile `C` e le celle nell'array `griglia`. Non avete ancora visto gli array a due dimensioni, ma non servono: la cella di riga $r$ e colonna $c$ si mette nell'elemento `griglia[r * C + c]` di un array lungo $R \cdot C$;
@@ -318,7 +318,7 @@ $ cat dopo4.txt
 3. Il *lampeggiatore* (tre celle vive in fila, al centro di una griglia $5 \times 5$) torna uguale ogni due generazioni. Verificatelo con `diff` tra il file di partenza e quello ottenuto dopo $2$ generazioni.
 4. Dopo $4$ generazioni l'aliante e' uguale a se stesso, ma spostato di una riga e di una colonna. Dove si trova dopo $12$ generazioni? E che cosa succede quando arriva al bordo?
 
-**X10.** Scrivete un programma `fondi` che riceve i nomi di due file, ciascuno con una sequenza di interi gia' ordinata in modo crescente, e scrive in un terzo file la sequenza ordinata di tutti i numeri, uno per riga: `./fondi primo secondo uscita`. Requisiti:
+**R10.** Scrivete un programma `fondi` che riceve i nomi di due file, ciascuno con una sequenza di interi gia' ordinata in modo crescente, e scrive in un terzo file la sequenza ordinata di tutti i numeri, uno per riga: `./fondi primo secondo uscita`. Requisiti:
 
 - non si possono caricare i numeri in un array: il programma legge i due file contemporaneamente, tenendo sempre a disposizione il prossimo numero di ciascuno e scrivendo il piu' piccolo dei due;
 - un file di ingresso vuoto e' valido: contiene la sequenza vuota;
@@ -347,7 +347,7 @@ $ cat tutti.txt
 
 1. **Con gdb.** Per ciascun file servono due variabili: il prossimo numero e un indicatore che dica se un numero c'e' ancora (cioe' se l'ultima `fscanf` ha restituito $1$). Con un breakpoint dentro il ciclo, seguitele con `display`.
 2. Provate con `vuoto.txt` come primo o come secondo file: il risultato e' quello che vi aspettate? Poi provate `./fondi quadrati.txt disordinato.txt tutti.txt`, dove `disordinato.txt` contiene `2 3 5 4 11`: quanti numeri ha gia' scritto il vostro programma quando si accorge dell'errore?
-3. Che cosa succede se il file di uscita coincide con uno dei due di ingresso? Impedite questo caso come in X6, prima di aprire qualsiasi file.
+3. Che cosa succede se il file di uscita coincide con uno dei due di ingresso? Impedite questo caso come in R6, prima di aprire qualsiasi file.
 
 ### Seconda parte: make test
 
@@ -390,9 +390,9 @@ La riga `FALLITO` riporta il comando eseguito: potete ripeterlo dal terminale. S
 
 Per capire *perche'* un test fallisce, ripetete il comando dal terminale; se non basta, usate gdb con gli stessi argomenti (per esempio `run 2 test/decimali.txt`) oppure aggiungete qualche `printf` di controllo.
 
-#### Esercizi (X11-X20)
+#### Esercizi (R11-R20)
 
-**X11.** Primo incontro con `make`. Nella cartella `X11_mcd` trovate il Makefile, i test e un programma gia' completo e corretto, `mcd.c`, che calcola il massimo comun divisore e il minimo comune multiplo di tutti i numeri positivi contenuti in un file.
+**R11.** Primo incontro con `make`. Nella cartella `R11_mcd` trovate il Makefile, i test e un programma gia' completo e corretto, `mcd.c`, che calcola il massimo comun divisore e il minimo comune multiplo di tutti i numeri positivi contenuti in un file.
 
 ```text
 $ ./mcd test/esempio.txt
@@ -407,7 +407,7 @@ mcm = 180
     - Togliete il controllo sul file senza numeri. Quale test fallisce, e che cosa compare nella riga del codice di uscita?
 4. Date `make clean` e guardate che cosa e' rimasto nella cartella.
 
-**X12.** Trova gli errori con `make test`. Nella cartella `X12_media_mobile` c'e' il programma `media_mobile.c`, che contiene tre errori. Il programma dovrebbe funzionare cosi'. Si lancia con `./media_mobile k file`, dove $k$ e' un intero tra $1$ e $100$. Legge gli interi del file e, a partire dal $k$-esimo, stampa con due decimali la media degli ultimi $k$ numeri letti (la *media mobile*), una per riga; i $k$ numeri vengono tenuti in un array usato in modo circolare. Alla fine stampa la media mobile piu' alta, indicando le posizioni del primo e dell'ultimo numero di quella finestra (a parita' vale la prima). Se i numeri sono meno di $k$, se un dato non e' valido o se gli argomenti sono sbagliati, il programma termina con codice $1$.
+**R12.** Trova gli errori con `make test`. Nella cartella `R12_media_mobile` c'e' il programma `media_mobile.c`, che contiene tre errori. Il programma dovrebbe funzionare cosi'. Si lancia con `./media_mobile k file`, dove $k$ e' un intero tra $1$ e $100$. Legge gli interi del file e, a partire dal $k$-esimo, stampa con due decimali la media degli ultimi $k$ numeri letti (la *media mobile*), una per riga; i $k$ numeri vengono tenuti in un array usato in modo circolare. Alla fine stampa la media mobile piu' alta, indicando le posizioni del primo e dell'ultimo numero di quella finestra (a parita' vale la prima). Se i numeri sono meno di $k$, se un dato non e' valido o se gli argomenti sono sbagliati, il programma termina con codice $1$.
 
 ```text
 $ ./media_mobile 2 test/decimali.txt
@@ -422,7 +422,7 @@ Media mobile massima: 5.50 (numeri da 3 a 4)
 3. Il test `01_interi` viene superato anche dal programma sbagliato. Perche'? Che cosa insegna questo sui test?
 4. Spiegate perche' l'indice `pos` dell'array circolare si aggiorna con `pos = (pos + 1) % k`.
 
-**X13.** Scrivete il programma `romani.c` nella cartella `X13_romani`, in modo che superi tutti i test. Il programma riceve il nome di un file che contiene interi e, per ciascuno, stampa la sua scrittura in numeri romani. Requisiti:
+**R13.** Scrivete il programma `romani.c` nella cartella `R13_romani`, in modo che superi tutti i test. Il programma riceve il nome di un file che contiene interi e, per ciascuno, stampa la sua scrittura in numeri romani. Requisiti:
 
 - i numeri da $1$ a $3999$ si stampano come `12 = XII`; quelli fuori da questo intervallo non si possono scrivere e si segnalano su `stdout`, come `0: fuori intervallo`; non e' un errore, e il codice di uscita resta $0$;
 - se incontra un dato non valido, il programma si ferma con errore, dopo aver stampato le righe dei numeri precedenti;
@@ -453,7 +453,7 @@ $ ./romani test/base.txt
 
 Suggerimento: preparate due array paralleli, uno con i valori $1000, 900, 500, 400, \dots, 4, 1$ e uno con i simboli corrispondenti. Per i simboli potete usare un array di stringhe, come `argv`: `char *simboli[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};`.
 
-**X14.** Riprendete il programma di X5 e trasformatelo nel programma `conta.c` della cartella `X14_conta`, che accetta opzioni e piu' file, come il vero `wc`: `./conta [-r] [-p] [-c] file...`. Requisiti:
+**R14.** Riprendete il programma di R5 e trasformatelo nel programma `conta.c` della cartella `R14_conta`, che accetta opzioni e piu' file, come il vero `wc`: `./conta [-r] [-p] [-c] file...`. Requisiti:
 
 - le opzioni `-r`, `-p` e `-c` scelgono che cosa stampare (righe, parole, caratteri) e possono comparire in qualsiasi ordine e in qualsiasi posizione, anche dopo i nomi dei file; senza opzioni si stampano tutti e tre i numeri;
 - i numeri si stampano sempre nell'ordine righe, parole, caratteri, ciascuno seguito da uno spazio, e poi il nome del file;
@@ -472,7 +472,7 @@ $ ./conta -c -r test/dante.txt
 
 Il programma deve scorrere gli argomenti due volte: la prima per raccogliere le opzioni, la seconda per elaborare i file.
 
-**X15.** Questa volta i test li scrivete voi. Nella cartella `X15_ordina` c'e' il programma `ordina.c`, che dovrebbe rispettare questi requisiti:
+**R15.** Questa volta i test li scrivete voi. Nella cartella `R15_ordina` c'e' il programma `ordina.c`, che dovrebbe rispettare questi requisiti:
 
 - legge gli interi di un file (al massimo $100$) e li stampa in ordine crescente, uno per riga: `./ordina [-r] [-u] file`;
 - con l'opzione `-r` li stampa in ordine decrescente; con `-u` ogni numero compare una sola volta, anche se nel file e' ripetuto (`3 1 3 2` diventa `1 2 3`); le due opzioni si possono combinare e possono stare in qualsiasi posizione;
@@ -484,11 +484,11 @@ I due test forniti vengono superati, ma il programma contiene due errori.
 1. Scrivete almeno sei nuovi test, ciascuno con il suo file di dati, il file `.arg` e il file `.atteso` calcolato a mano, pensando ai casi difficili: file vuoto, un solo numero, numeri negativi, numeri ripetuti con e senza `-u`, `-r` e `-u` insieme, un file con piu' di $100$ numeri. Chiamateli `03_...`, `04_...` e cosi' via, perche' vengano eseguiti in ordine. Ricordate che ogni `.atteso` termina con la riga del codice di uscita e un a capo. Per creare il file di $101$ numeri potete usare il terminale: `seq 101 > test/troppi.txt` scrive i numeri da $1$ a $101$, uno per riga.
 2. Lanciate `make test`. I vostri test trovano degli errori? Prima di correggere il programma, controllate che non sia sbagliato il test.
 3. Trovate gli errori e correggeteli. Uno dei due puo' far scrivere il programma fuori dall'array (F11): quale?
-4. Che cosa rende un insieme di test "buono"? Il vostro avrebbe trovato gli errori di X12?
+4. Che cosa rende un insieme di test "buono"? Il vostro avrebbe trovato gli errori di R12?
 
-**X16.** Il cifrario di Vigenere generalizza quello di Cesare: invece di uno spostamento fisso usa una parola chiave, e ogni lettera del testo si sposta della quantita' indicata dalla lettera corrispondente della chiave (`a` o `A` vale $0$, `b` vale $1$, e cosi' via), ricominciando dall'inizio della chiave quando e' finita. Con la chiave `lemon`, `ATTACKATDAWN` diventa `LXFOPVEFRNHR`. Scrivete il programma `vigenere.c` nella cartella `X16_vigenere`: `./vigenere -c|-d chiave ingresso uscita`, dove `-c` cifra e `-d` decifra. Requisiti:
+**R16.** Il cifrario di Vigenere generalizza quello di Cesare: invece di uno spostamento fisso usa una parola chiave, e ogni lettera del testo si sposta della quantita' indicata dalla lettera corrispondente della chiave (`a` o `A` vale $0$, `b` vale $1$, e cosi' via), ricominciando dall'inizio della chiave quando e' finita. Con la chiave `lemon`, `ATTACKATDAWN` diventa `LXFOPVEFRNHR`. Scrivete il programma `vigenere.c` nella cartella `R16_vigenere`: `./vigenere -c|-d chiave ingresso uscita`, dove `-c` cifra e `-d` decifra. Requisiti:
 
-- come in X6, le lettere restano minuscole o maiuscole e gli altri caratteri si copiano invariati; la chiave avanza di una posizione solo quando si cifra una lettera;
+- come in R6, le lettere restano minuscole o maiuscole e gli altri caratteri si copiano invariati; la chiave avanza di una posizione solo quando si cifra una lettera;
 - la chiave puo' contenere solo lettere, maiuscole o minuscole, con lo stesso significato; altrimenti errore e codice $1$;
 - se il nome del file di uscita e' `-`, il programma scrive su `stdout` (e alla fine non lo chiude): e' una convenzione diffusa nei comandi del terminale, ed e' cosi' che i test controllano il risultato;
 - un'opzione diversa da `-c` e `-d`, un numero sbagliato di argomenti, un file che non si apre o un file di uscita uguale a quello di ingresso sono errori, con codice $1$. L'ultimo controllo va fatto prima di aprire i file: il test `08_stesso_file` usa una copia, `test/copia.txt`, che un programma sbagliato svuoterebbe.
@@ -502,7 +502,7 @@ Zz pauc q' tioftf, rusjs Oejode.
 
 Per scorrere la chiave vi servono la sua lunghezza (`strlen`) e un contatore delle lettere cifrate: la lettera della chiave da usare e' quella di posto `contatore % lunghezza`.
 
-**X17.** Scrivete il programma `sudoku.c` nella cartella `X17_sudoku`, che controlla una griglia di sudoku. Requisiti:
+**R17.** Scrivete il programma `sudoku.c` nella cartella `R17_sudoku`, che controlla una griglia di sudoku. Requisiti:
 
 - il file contiene $81$ cifre da `0` a `9`, disposte in $9$ righe; `0` indica una casella vuota e non conta come ripetizione; le cifre di una riga possono essere separate da spazi;
 - il programma controlla, in quest'ordine, le righe dalla prima all'ultima, poi le colonne da sinistra a destra, poi i riquadri $3 \times 3$, numerati da $1$ a $9$ da sinistra a destra e dall'alto in basso; anche righe e colonne si numerano da $1$;
@@ -521,9 +521,9 @@ $ ./sudoku test/riquadro.txt
 Riquadro 1: il 3 compare due volte
 ```
 
-Mettete la griglia in un array di $81$ elementi, con la casella di riga $r$ e colonna $c$ in posizione `r * 9 + c` (come in X9). La parte piu' delicata sono i riquadri: per il riquadro $b$ (da $0$ a $8$) e la sua casella $k$ (da $0$ a $8$), scrivete su carta le formule della riga e della colonna, poi controllatele, per esempio con gdb (`display` su `r` e `c`) mentre il programma scorre un riquadro. Per sapere se una cifra e' gia' comparsa, usate un array `visto[10]` da azzerare all'inizio di ogni riga, colonna o riquadro.
+Mettete la griglia in un array di $81$ elementi, con la casella di riga $r$ e colonna $c$ in posizione `r * 9 + c` (come in R9). La parte piu' delicata sono i riquadri: per il riquadro $b$ (da $0$ a $8$) e la sua casella $k$ (da $0$ a $8$), scrivete su carta le formule della riga e della colonna, poi controllatele, per esempio con gdb (`display` su `r` e `c`) mentre il programma scorre un riquadro. Per sapere se una cifra e' gia' comparsa, usate un array `visto[10]` da azzerare all'inizio di ogni riga, colonna o riquadro.
 
-**X18.** Scrivete il programma `polinomi.c` nella cartella `X18_polinomi`, che fa calcoli su polinomi a coefficienti interi letti da file. Ogni file contiene il grado $n$ (da $0$ a $20$) e poi gli $n + 1$ coefficienti, dal termine noto $a_0$ fino ad $a_n$. Requisiti:
+**R18.** Scrivete il programma `polinomi.c` nella cartella `R18_polinomi`, che fa calcoli su polinomi a coefficienti interi letti da file. Ogni file contiene il grado $n$ (da $0$ a $20$) e poi gli $n + 1$ coefficienti, dal termine noto $a_0$ fino ad $a_n$. Requisiti:
 
 - `./polinomi valuta file x` stampa il valore del polinomio in $x$ intero (schema di Horner, F17), con il formato `p(3) = 5`;
 - `./polinomi derivata file` stampa la derivata;
@@ -546,7 +546,7 @@ $ ./polinomi somma test/x.txt test/q.txt
 
 Riconoscete l'operazione con `strcmp` e un `enum`. Attenzione al grado del risultato: nella somma i coefficienti piu' alti possono annullarsi (il test `06_somma_nulla` somma un polinomio e il suo opposto). La stampa dei polinomi ha molti casi particolari: quando un test fallisce, in gdb mettete un breakpoint condizionato sul ciclo di stampa per fermarvi proprio sul termine che esce sbagliato.
 
-**X19.** Scrivete il programma `labirinto.c` nella cartella `X19_labirinto`, che trova il percorso piu' breve in un labirinto. Requisiti:
+**R19.** Scrivete il programma `labirinto.c` nella cartella `R19_labirinto`, che trova il percorso piu' breve in un labirinto. Requisiti:
 
 - il file contiene sulla prima riga il numero di righe e di colonne (da $1$ a $40$), poi il labirinto: `#` e' un muro, `.` una casella libera, `S` la partenza ed `E` l'uscita; ci si muove in orizzontale e in verticale;
 - il programma stampa la lunghezza del percorso minimo, come `Percorso minimo: 11 passi` (al singolare, `Percorso minimo: 1 passo`), e poi il labirinto con il percorso segnato da `*` (esclusi `S` ed `E`);
@@ -565,7 +565,7 @@ S.#....
 
 Il metodo da usare e' la *visita in ampiezza*. Si parte da `S` a distanza $0$; poi si esaminano le caselle in ordine di distanza: ogni casella libera, non ancora raggiunta, vicina di una casella a distanza $d$ si trova a distanza $d + 1$. Le caselle in attesa di essere esaminate stanno in una *coda*: un array con due indici, `testa` (la prossima da esaminare) e `fondo` (dove aggiungere le nuove). Servono altri due array lunghi quanto il labirinto: `dist`, con la distanza di ogni casella ($-1$ se non ancora raggiunta), e `prec`, con la casella da cui ciascuna e' stata raggiunta, che permette di ripercorrere il cammino all'indietro da `E` a `S`. Perche' il percorso stampato sia unico, i vicini di una casella si esaminano sempre nell'ordine: su, giu', sinistra, destra.
 
-**X20.** **Sfida.** La compressione. La codifica *run-length* (RLE) sostituisce ogni sequenza di caratteri uguali con la sua lunghezza seguita dal carattere: `aaab` diventa `3a1b`, e anche gli a capo e gli spazi si codificano allo stesso modo. Scrivete il programma `rle.c` nella cartella `X20_rle`: `./rle -c ingresso uscita` comprime, `./rle -d ingresso uscita` decomprime, e `-` come uscita vuol dire `stdout` (X16). Requisiti:
+**R20.** **Sfida.** La compressione. La codifica *run-length* (RLE) sostituisce ogni sequenza di caratteri uguali con la sua lunghezza seguita dal carattere: `aaab` diventa `3a1b`, e anche gli a capo e gli spazi si codificano allo stesso modo. Scrivete il programma `rle.c` nella cartella `R20_rle`: `./rle -c ingresso uscita` comprime, `./rle -d ingresso uscita` decomprime, e `-` come uscita vuol dire `stdout` (R16). Requisiti:
 
 - un testo da comprimere non puo' contenere cifre, perche' renderebbero ambigua la decompressione;
 - un testo da decomprimere deve essere una sequenza di coppie numero positivo e carattere; un carattere senza numero davanti, un numero $0$ o un numero alla fine del file sono errori;
@@ -590,11 +590,11 @@ $ ./rle -c test/testo_1.txt -
 4. Su quali testi la compressione RLE allunga il file invece di accorciarlo? Usate `wc -c` per confrontare le lunghezze.
 
 
-## Pacchetto Y: qsort e bsearch
+## Pacchetto S: qsort e bsearch
 
 Nei Pacchetti G e H avete scritto a mano ordinamenti e ricerche, e con `time` e gprof avete visto quanto possono costare. La libreria standard (Pacchetto O) ne offre due versioni pronte, in `stdlib.h`: `qsort` ordina un array e `bsearch` ci cerca un valore con la ricerca binaria. Sono veloci: `qsort` usa algoritmi molto piu' furbi dei tre dei Pacchetti G e H, e quando il numero di elementi raddoppia il suo tempo cresce di poco piu' del doppio, non di quattro volte. Funzionano con array di qualsiasi tipo, e proprio per questo chiedono un piccolo sforzo: bisogna scrivere una *funzione* che dica come confrontare due elementi. Cominciamo da li'.
 
-Gli esercizi di questo pacchetto sono pochi e lunghi, e riprendono tutto: gli argomenti della riga di comando, i file e `make test` del Pacchetto X, `time`, `-O2` e gprof dei Pacchetti G e H, la libreria standard del Pacchetto O. Nel materiale (la cartella `materiale_difficili`) c'e' una cartella per ogni esercizio: quelle di Y1, Y2 e Y5 contengono il Makefile e i test, come in X11-X20; quelle di Y3 e Y4 i file di dati. Valgono le regole di X: compilate con `gcc -g -Wall -Wextra`, i messaggi di errore vanno su `stderr` e in caso di errore il programma termina con codice $1$.
+Gli esercizi di questo pacchetto sono pochi e lunghi, e riprendono tutto: gli argomenti della riga di comando, i file e `make test` del Pacchetto R, `time`, `-O2` e gprof dei Pacchetti G e H, la libreria standard del Pacchetto O. Nel materiale (la cartella `materiale_difficili`) c'e' una cartella per ogni esercizio: quelle di S1, S2 e S5 contengono il Makefile e i test, come in R11-R20; quelle di S3 e S4 i file di dati. Valgono le regole di R: compilate con `gcc -g -Wall -Wextra`, i messaggi di errore vanno su `stderr` e in caso di errore il programma termina con codice $1$.
 
 ### Le funzioni, in breve
 
@@ -645,11 +645,11 @@ int confronta(const void *a, const void *b) {
 qsort(v, n, sizeof(v[0]), confronta);
 ```
 
-`qsort` riceve l'array, il numero di elementi da ordinare, la dimensione in byte di un elemento (con `sizeof`, come in F1 e N14) e il nome del comparatore, che chiamera' tutte le volte che gli serve confrontare due elementi. Le due righe che definiscono `x` e `y` sono la parte misteriosa: `a` e `b` non sono gli elementi, ma i loro *indirizzi* in memoria, e `*(const int *) a` vuol dire "l'`int` che si trova all'indirizzo `a`". Per ora leggetele come una formula da copiare, come `char *argv[]` in X; i puntatori sono un argomento che incontrerete piu' avanti. Per un array di `double` basta scrivere `double` al posto di `int` nelle due righe (e come tipo di `x` e `y`). Per l'ordine decrescente basta scambiare `-1` e `1`.
+`qsort` riceve l'array, il numero di elementi da ordinare, la dimensione in byte di un elemento (con `sizeof`, come in F1 e N14) e il nome del comparatore, che chiamera' tutte le volte che gli serve confrontare due elementi. Le due righe che definiscono `x` e `y` sono la parte misteriosa: `a` e `b` non sono gli elementi, ma i loro *indirizzi* in memoria, e `*(const int *) a` vuol dire "l'`int` che si trova all'indirizzo `a`". Per ora leggetele come una formula da copiare, come `char *argv[]` in R; i puntatori sono un argomento che incontrerete piu' avanti. Per un array di `double` basta scrivere `double` al posto di `int` nelle due righe (e come tipo di `x` e `y`). Per l'ordine decrescente basta scambiare `-1` e `1`.
 
 ### Cercare con bsearch
 
-`bsearch` esegue la ricerca binaria di F20 in un array *gia' ordinato* con lo stesso comparatore. Riceve l'indirizzo del valore da cercare (`&x`, come in `scanf`), poi gli stessi argomenti di `qsort`. Restituisce l'indirizzo dell'elemento trovato, oppure `NULL` (come `fopen` in X) se il valore non c'e'. Anche qui c'e' una piccola ricetta: se l'elemento e' stato trovato, la sua posizione nell'array e' `p - v`.
+`bsearch` esegue la ricerca binaria di F20 in un array *gia' ordinato* con lo stesso comparatore. Riceve l'indirizzo del valore da cercare (`&x`, come in `scanf`), poi gli stessi argomenti di `qsort`. Restituisce l'indirizzo dell'elemento trovato, oppure `NULL` (come `fopen` in R) se il valore non c'e'. Anche qui c'e' una piccola ricetta: se l'elemento e' stato trovato, la sua posizione nell'array e' `p - v`.
 
 ```c
 int *p;
@@ -670,9 +670,9 @@ Se il valore compare piu' volte, `bsearch` puo' restituire uno qualsiasi degli e
 - **Comando nuovo: `bt`** (*backtrace*). Quando il programma e' fermo dentro una funzione, `bt` mostra la catena delle chiamate che l'hanno portato li': in cima la funzione in cui si trova, sotto quella che l'ha chiamata, e cosi' via fino a `main`.
 - gprof senza `-l` mostra il tempo per funzione, ma solo per le funzioni compilate con `-pg`, cioe' le vostre: il tempo passato dentro `qsort` e `bsearch`, che fanno parte della libreria, non lo vede, e nemmeno conta le volte che `qsort` chiama il vostro comparatore. Per sapere quante volte viene chiamato, usate un contatore: una variabile `long` dichiarata prima delle funzioni, che il comparatore aumenta di uno a ogni chiamata. Il resoconto per righe (`-l`) resta invece utile per i cicli scritti da voi.
 
-### Esercizi (Y1-Y5)
+### Esercizi (S1-S5)
 
-**Y1.** Scrivete il programma `ordina.c` nella cartella `Y1_ordina`, che legge gli interi di un file e li stampa ordinati con `qsort`, uno per riga: `./ordina [-r] [-a | -c] file`. Requisiti:
+**S1.** Scrivete il programma `ordina.c` nella cartella `S1_ordina`, che legge gli interi di un file e li stampa ordinati con `qsort`, uno per riga: `./ordina [-r] [-a | -c] file`. Requisiti:
 
 - senza opzioni, l'ordine e' crescente;
 - con `-a` i numeri si ordinano per valore assoluto crescente; a parita' di valore assoluto, viene prima il negativo ($-3$ prima di $3$);
@@ -713,7 +713,7 @@ $ ./ordina -a test/numeri.txt
 
 5. **Con time.** Quanto impiega `./ordina milione.txt > ordinati.txt`? Confrontate con l'insertion sort di G17 su $40000$ numeri. Misurate anche il tempo con $500000$ numeri: per quanto si moltiplica il tempo quando $N$ raddoppia?
 
-**Y2.** Nella cartella `Y2_comuni` c'e' il programma `comuni.c`, corretto ma lento: `./comuni [-l] primo secondo` legge gli interi di due file (al massimo $1000000$ ciascuno) e stampa quanti numeri del primo file compaiono anche nel secondo; i numeri ripetuti nel primo file si contano ogni volta. Con `-l`, che puo' stare in qualsiasi posizione, stampa prima anche questi numeri, uno per riga, nell'ordine del primo file. Un numero di file diverso da due, un'opzione sconosciuta, un file che non si apre, un dato non valido o troppi numeri sono errori.
+**S2.** Nella cartella `S2_comuni` c'e' il programma `comuni.c`, corretto ma lento: `./comuni [-l] primo secondo` legge gli interi di due file (al massimo $1000000$ ciascuno) e stampa quanti numeri del primo file compaiono anche nel secondo; i numeri ripetuti nel primo file si contano ogni volta. Con `-l`, che puo' stare in qualsiasi posizione, stampa prima anche questi numeri, uno per riga, nell'ordine del primo file. Un numero di file diverso da due, un'opzione sconosciuta, un file che non si apre, un dato non valido o troppi numeri sono errori.
 
 ```text
 $ cat test/a.txt
@@ -728,21 +728,21 @@ $ ./comuni -l test/a.txt test/b.txt
 Presenti nel secondo file: 4 su 8
 ```
 
-1. Lanciate `make test`: quale test fallisce, e con quale codice di uscita? Rivedete la seconda parte del Pacchetto X: che cosa significa? Lanciate a mano quel test con `time` (ci vuole pazienza): quanto impiega il programma?
+1. Lanciate `make test`: quale test fallisce, e con quale codice di uscita? Rivedete la seconda parte del Pacchetto R: che cosa significa? Lanciate a mano quel test con `time` (ci vuole pazienza): quanto impiega il programma?
 2. **Con gprof.** Con il resoconto per righe, sui file del test grande: quale riga occupa quasi tutto il tempo? Circa quante volte viene eseguita?
 3. Riscrivete la parte di ricerca usando `qsort` e `bsearch`: ordinate una volta sola l'array del secondo file, poi cercate con `bsearch` ogni numero del primo. Tutti i $10$ test devono passare. Perche' si puo' ordinare il secondo file e non il primo?
-4. Contate, come in Y1, le chiamate al comparatore nel test grande e confrontatele con una stima: quanti confronti servono, circa, per ordinare il secondo file ($N_2 \log_2 N_2$), e quanti per le $N_1$ ricerche binarie?
+4. Contate, come in S1, le chiamate al comparatore nel test grande e confrontatele con una stima: quanti confronti servono, circa, per ordinare il secondo file ($N_2 \log_2 N_2$), e quanti per le $N_1$ ricerche binarie?
 5. **Con time.** Quanto impiega ora il programma sul test grande?
 6. **In piu'.** Se si potessero ordinare entrambi i file, non servirebbe nemmeno `bsearch`: basterebbero due indici che avanzano insieme, come nella fusione di G6. Scrivete questa versione, che con `-l` stampa i numeri comuni in ordine crescente. Quanti confronti fa, dopo gli ordinamenti?
 
-**Y3.** La media e' molto sensibile ai valori sbagliati: basta un errore di battitura per spostarla di molto. Per questo in statistica si usano spesso i *quartili*, che si calcolano sui dati ordinati. Scrivete un programma `quantili.c` (che usa `math.h`: compilatelo con `-lm`, O1) che riceve il nome di un file di numeri reali e stampa: quanti sono, minimo, primo quartile, mediana, terzo quartile, massimo, media e deviazione standard (come in O8), tutti con due decimali, e infine i *valori anomali*. Requisiti:
+**S3.** La media e' molto sensibile ai valori sbagliati: basta un errore di battitura per spostarla di molto. Per questo in statistica si usano spesso i *quartili*, che si calcolano sui dati ordinati. Scrivete un programma `quantili.c` (che usa `math.h`: compilatelo con `-lm`, O1) che riceve il nome di un file di numeri reali e stampa: quanti sono, minimo, primo quartile, mediana, terzo quartile, massimo, media e deviazione standard (come in O8), tutti con due decimali, e infine i *valori anomali*. Requisiti:
 
 - i numeri, al massimo $1000000$, si leggono in un array `double` e si ordinano con `qsort`;
 - il quantile di livello $p$ (con $p$ uguale a $0$, $0.25$, $0.5$, $0.75$ e $1$ per minimo, quartili, mediana e massimo) si calcola cosi', con l'array ordinato `v` di `n` elementi: $h = (n - 1) \cdot p$, $k$ e' la parte intera di $h$ (`floor`), e il quantile vale `v[k] + (h - k) * (v[k + 1] - v[k])`, oppure semplicemente `v[k]` se $k = n - 1$;
 - detta $IQR$ la differenza tra terzo e primo quartile, un valore e' anomalo se e' minore di $Q_1 - 1.5 \cdot IQR$ o maggiore di $Q_3 + 1.5 \cdot IQR$; i valori anomali si stampano in ordine crescente, dopo gli estremi dell'intervallo, oppure si stampa `nessuno`;
 - un numero di argomenti diverso da uno, un file che non si apre, un dato non valido, un file senza numeri o troppi numeri sono errori.
 
-Il file `tempi.txt` della cartella `Y3_quantili` contiene i tempi di reazione, in millisecondi, di $25$ persone a un segnale luminoso; due misure sono state registrate male.
+Il file `tempi.txt` della cartella `S3_quantili` contiene i tempi di reazione, in millisecondi, di $25$ persone a un segnale luminoso; due misure sono state registrate male.
 
 ```text
 $ ./quantili tempi.txt
@@ -763,7 +763,7 @@ Valori anomali (fuori da [247.50, 355.50]): 1020.00 1450.00
 4. Modificate il programma di O10 perche' stampi i suoi $100000$ numeri, uno per riga con `%f`, invece delle statistiche, e salvateli con `./campana > normali.txt`. Per la curva a campana con media $0$ e deviazione standard $1$, i quartili valgono circa $-0.674$ e $0.674$, e i valori anomali sono circa lo $0.7\%$: e' quello che trovate?
 5. **Con time.** Con un milione di numeri (portate `N` a $1000000$ in O10), quanto impiega il programma? Usando i tempi di G17, stimate quanto impiegherebbe se ordinasse con l'insertion sort.
 
-**Y4.** Riprendiamo i giudici e i candidati di H2, questa volta con una classifica completa. Scrivete un programma `classifica.c` che riceve il nome di un file e stampa la classifica dei candidati. Requisiti:
+**S4.** Riprendiamo i giudici e i candidati di H2, questa volta con una classifica completa. Scrivete un programma `classifica.c` che riceve il nome di un file e stampa la classifica dei candidati. Requisiti:
 
 - il file contiene sulla prima riga il numero di giudici (da $1$ a $20$) e il numero di candidati (da $1$ a $100$), poi una riga per giudice con i voti, da $0$ a $5$, che ha dato ai candidati, nell'ordine;
 - i candidati si ordinano per punteggio totale decrescente; a parita' di totale, per numero di voti $5$ ricevuti, decrescente; a parita' anche di questo, per numero di candidato crescente (i candidati si numerano da $1$);
@@ -795,7 +795,7 @@ Pos. Candidato Totale Voti 5
 3. Lo standard del C non garantisce che `qsort` lasci nell'ordine di partenza gli elementi che il comparatore considera equivalenti (si dice che non e' *stabile*), anche se sul vostro computer puo' sembrare che lo faccia. Che cosa potrebbe succedere alla classifica senza il terzo criterio, quello sul numero di candidato?
 4. Aggiungete, dopo quella dei candidati, la classifica dei giudici, dal piu' severo (meno punti assegnati in tutto) al piu' generoso, a parita' per numero di giudice crescente, con un secondo comparatore.
 
-**Y5.** **Sfida.** Il problema delle *tre somme*: dato un insieme di numeri interi tutti diversi, trovare tutte le terne di numeri che hanno somma $0$. Scrivete il programma `tresomme.c` nella cartella `Y5_tresomme`: `./tresomme [-1 | -2 | -3] file`. Requisiti:
+**S5.** **Sfida.** Il problema delle *tre somme*: dato un insieme di numeri interi tutti diversi, trovare tutte le terne di numeri che hanno somma $0$. Scrivete il programma `tresomme.c` nella cartella `S5_tresomme`: `./tresomme [-1 | -2 | -3] file`. Requisiti:
 
 - i numeri del file, al massimo $100000$, sono compresi tra $-100000000$ e $100000000$ (cosi' la somma di tre numeri sta in un `int`) e devono essere tutti diversi; altrimenti e' un errore;
 - il programma ordina i numeri con `qsort` e stampa le terne $a < b < c$ con $a + b + c = 0$, una per riga (`-6 -1 7`), in ordine crescente di $a$ e, a parita' di $a$, di $b$; alla fine stampa `Terne: ` seguito dal numero di terne;
@@ -834,17 +834,17 @@ Terne: 7
 6. **Con gprof.** Con il metodo `-1` e il file di $2000$ numeri, il resoconto per righe mostra dove passa il tempo. Con il metodo `-2`, invece, gran parte del tempo e' dentro `bsearch`: che cosa mostra gprof, e perche' (rivedete l'introduzione del pacchetto)?
 
 
-## Pacchetto Z: Integrazione e modularita'
+## Pacchetto T: Integrazione e modularita'
 
 Tutti i programmi che avete scritto finora stavano in un file solo. I programmi veri no: sono fatti di decine, a volte migliaia di file, e nessuno li guarda tutti insieme. In questo pacchetto si vede perche', e soprattutto **come** quei pezzi diventano un programma unico.
 
 Non vi chiederemo di inventare la divisione in moduli, che e' un mestiere a se': i moduli ve li diamo noi, gia' scritti e documentati. Quello che dovete portare a casa e' un'altra cosa: che cosa sta in un file `.h` e che cosa in un `.c`, che cosa fa ciascuna delle fasi che costruiscono il programma, e come si legge un messaggio di errore per capire *quale* fase si e' lamentata. E' la differenza tra un errore che vi blocca per un pomeriggio e uno che risolvete in trenta secondi.
 
-Nel materiale (la cartella `materiale_difficili`) c'e' una cartella per ogni esercizio, con i moduli gia' pronti e il Makefile. I test ci sono solo in `Z1_vettore` e in `Z5_rapporto`, che sono gli esercizi in cui scrivete del codice; nelle altre tre cartelle i comandi utili sono soltanto `make` e `make clean`. Valgono le regole di X: compilate con `gcc -g -Wall -Wextra`, i messaggi di errore vanno su `stderr` e in caso di errore il programma termina con codice $1$.
+Nel materiale (la cartella `materiale_difficili`) c'e' una cartella per ogni esercizio, con i moduli gia' pronti e il Makefile. I test ci sono solo in `T1_vettore` e in `T5_rapporto`, che sono gli esercizi in cui scrivete del codice; nelle altre tre cartelle i comandi utili sono soltanto `make` e `make clean`. Valgono le regole di R: compilate con `gcc -g -Wall -Wextra`, i messaggi di errore vanno su `stderr` e in caso di errore il programma termina con codice $1$.
 
 **Due avvertenze prima di cominciare, da leggere adesso e non dopo.**
 
-*Se il vostro gcc e' la versione 14 o piu' recente* (lo dice `gcc --version`), una chiamata a una funzione mai dichiarata non e' piu' un avviso ma un errore, e due esercizi di questo pacchetto si reggono proprio su quell'avviso. In Z2 e in Z3, dove il testo ve lo dira', aggiungete al comando il flag `-Wno-error=implicit-function-declaration`, che riporta il comportamento a quello delle versioni precedenti. Il flag e' accettato da tutte le versioni, quindi potete metterlo sempre senza pensarci.
+*Se il vostro gcc e' la versione 14 o piu' recente* (lo dice `gcc --version`), una chiamata a una funzione mai dichiarata non e' piu' un avviso ma un errore, e due esercizi di questo pacchetto si reggono proprio su quell'avviso. In T2 e in T3, dove il testo ve lo dira', aggiungete al comando il flag `-Wno-error=implicit-function-declaration`, che riporta il comportamento a quello delle versioni precedenti. Il flag e' accettato da tutte le versioni, quindi potete metterlo sempre senza pensarci.
 
 *Se lavorate su macOS*, i messaggi del collegatore sono diversi da quelli riportati qui, che sono quelli di Linux e di WSL: al posto di `undefined reference to 'x'` leggerete `Undefined symbols for architecture ...`, al posto di `multiple definition of 'x'` leggerete `duplicate symbol '_x'`, e il collegatore si chiama `ld` ma senza il percorso `/usr/bin/`. Anche `nm` si comporta un po' diversamente: antepone un `_` a ogni nome, quindi vedrete `_main` al posto di `main`. Le lettere, che sono la cosa che conta, sono le stesse.
 
@@ -870,7 +870,7 @@ Di una stessa funzione ci possono essere **tante dichiarazioni** (una in ogni fi
 | `vettore.h` (intestazione, o *header*) | le dichiarazioni: prototipi, `#define`, `typedef` e `struct` che compaiono nei prototipi, con la documentazione Doxygen | il compilatore, ogni volta che qualcuno scrive `#include "vettore.h"`; e voi, per sapere come si usa il modulo |
 | `vettore.c` | le definizioni: i corpi delle funzioni | il compilatore, una volta sola |
 
-Nell'intestazione, quindi, **non** si scrivono corpi di funzioni ne' variabili: finirebbero duplicati in ogni file che la include, e il collegamento fallirebbe. In Z2 e Z3 vedrete succedere esattamente questo.
+Nell'intestazione, quindi, **non** si scrivono corpi di funzioni ne' variabili: finirebbero duplicati in ogni file che la include, e il collegamento fallirebbe. In T2 e T3 vedrete succedere esattamente questo.
 
 ### Le quattro fasi, finalmente per esteso
 
@@ -905,7 +905,7 @@ $ nm main.o
 - `D` e' una variabile definita qui, con un valore iniziale, visibile dagli altri;
 - `B` e' una variabile definita qui senza valore iniziale, visibile dagli altri;
 - `U` (*undefined*) e' un nome **usato** qui ma definito altrove: e' uno dei buchi che il collegamento deve riempire;
-- le stesse lettere **minuscole** (`t`, `d`, `b`) indicano qualcosa che e' definito qui ma **non** e' visibile dagli altri file: ci si arriva con `static`, come vedrete in Z3;
+- le stesse lettere **minuscole** (`t`, `d`, `b`) indicano qualcosa che e' definito qui ma **non** e' visibile dagli altri file: ci si arriva con `static`, come vedrete in T3;
 - i nomi che iniziano con due trattini bassi, come `__assert_fail`, non li avete scritti voi: li aggiungono le macro e il compilatore, e si possono ignorare. Per toglierli di mezzo: `nm main.o | grep -v __`.
 
 Se `nm` non e' installato lo si ottiene con `sudo apt install binutils`; non e' indispensabile per svolgere gli esercizi, ma e' il modo piu' diretto per capire che cosa sta succedendo.
@@ -942,7 +942,7 @@ Per le funzioni `extern` non serve: un prototipo e' gia' una dichiarazione, e in
 
 ### Il Makefile a piu' oggetti
 
-Il Makefile di questo pacchetto e' diverso da quello di X e Y, perche' qui il programma nasce da piu' sorgenti. Le righe che contano sono tre:
+Il Makefile di questo pacchetto e' diverso da quello di R e S, perche' qui il programma nasce da piu' sorgenti. Le righe che contano sono tre:
 
 ```make
 PROG = statistiche
@@ -958,7 +958,7 @@ $(PROG): $(OGGETTI)
 
 La prima regola e' il collegamento: l'eseguibile dipende dai `.o`, quindi va rifatto se uno di loro e' piu' recente. La seconda e' la compilazione, scritta una volta per tutti i file: `%.o: %.c` si legge "un qualsiasi `.o` si ottiene dal `.c` che ha lo stesso nome", e `$<` significa "il primo file da cui dipende", cioe' quel `.c`.
 
-Notate `$(INTESTAZIONI)` nella seconda regola: dice che un `.o` va rifatto **anche** quando cambia un'intestazione. Make non legge i sorgenti e non sa che cosa includono: se non glielo dite, non se ne accorge. In Z4 vedrete che cosa succede quando ce lo si dimentica.
+Notate `$(INTESTAZIONI)` nella seconda regola: dice che un `.o` va rifatto **anche** quando cambia un'intestazione. Make non legge i sorgenti e non sa che cosa includono: se non glielo dite, non se ne accorge. In T4 vedrete che cosa succede quando ce lo si dimentica.
 
 ### Controlli sugli array durante l'esecuzione
 
@@ -970,9 +970,9 @@ gcc -g -Wall -Wextra -fsanitize=address -o prog main.c vettore.c
 
 Se il programma esce da un array si ferma da solo con un messaggio che inizia con `ERROR: AddressSanitizer: stack-buffer-overflow` e dice in quale funzione e a quale riga. Rallenta parecchio l'esecuzione, quindi si usa mentre si sviluppa e non nella versione finale. Provatelo anche sui programmi dei pacchetti precedenti: e' il modo piu' rapido per scoprire un indice sbagliato.
 
-### Esercizi (Z1-Z5)
+### Esercizi (T1-T5)
 
-**Z1.** Nella cartella `Z1_vettore` trovate un modulo gia' pronto, `vettore.h` e `vettore.c`, il Makefile e i test. Manca il `main.c`, e lo scrivete voi.
+**T1.** Nella cartella `T1_vettore` trovate un modulo gia' pronto, `vettore.h` e `vettore.c`, il Makefile e i test. Manca il `main.c`, e lo scrivete voi.
 
 Il programma si chiama `statistiche`, riceve sulla riga di comando il nome di un file di interi e stampa cinque righe:
 
@@ -1014,7 +1014,7 @@ Poi fate `make clean` e `make`: esegue gli stessi tre comandi. Confrontateli uno
 4. `gcc -g -Wall -Wextra -o statistiche main.c vettore.c` costruisce il programma in un comando solo, senza lasciare nessun `.o`. Funziona, ed e' comodo con due file. Perche' non si fa con duecento? (La risposta e' il primo dei tre motivi del riquadro iniziale.)
 5. `make test` deve dare $7$ test superati su $7$. Se qualcuno fallisce, leggete il `.arg` e il `.atteso` del caso che non passa: completano i requisiti qui sopra.
 
-**Z2.** Nella cartella `Z2_fasi` c'e' lo stesso modulo di Z1 e un `main.c` gia' scritto e funzionante. Qui non si scrive codice: si guarda che cosa fanno le prime tre fasi, rompendole una per volta, e poi a che cosa servono le guardie di inclusione.
+**T2.** Nella cartella `T2_fasi` c'e' lo stesso modulo di T1 e un `main.c` gia' scritto e funzionante. Qui non si scrive codice: si guarda che cosa fanno le prime tre fasi, rompendole una per volta, e poi a che cosa servono le guardie di inclusione.
 
 **Prima fase.** Lanciate `gcc -E main.c -o main.i` e aprite `main.i`.
 
@@ -1043,7 +1043,7 @@ gcc -g -Wall -Wextra -o rotto include_del_c.o vettore.o
 7. Aggiungete le guardie a `punto.h` (in `punto_con_guardia.h` trovate la versione gia' fatta, ma scrivetele voi) e ricostruite: il programma stampa `lunghezza al quadrato: 25`. Qui la guardia su `punto.h` e' bastata, perche' nessuno include `segmento.h` due volte. Immaginate pero' di aggiungere un terzo file, `figura.h`, che include anche lui `segmento.h`, e un `main.c` che include `segmento.h` e `figura.h`: che cosa succederebbe? Mettete la guardia anche a `segmento.h` e spiegate in una riga perche' si scrivono **sempre**, anche quando sembrano inutili.
 8. **In piu'.** I comandi dei punti precedenti non lasciano nessun `.o`: per averli date `gcc -g -Wall -Wextra -c punto.c segmento.c`. Poi `nm punto.o` e `nm segmento.o`: quali nomi sono `T` e quali `U` in ciascuno dei due? Quale dei due file oggetto ha un buco che l'altro riempie?
 
-**Z3.** Nella cartella `Z3_contatore` c'e' un modulo che tiene un contatore: `contatore.h`, `contatore.c` e un `main.c` che lo usa. Aprite tutti e tre.
+**T3.** Nella cartella `T3_contatore` c'e' un modulo che tiene un contatore: `contatore.h`, `contatore.c` e un `main.c` che lo usa. Aprite tutti e tre.
 
 ```text
 $ make
@@ -1056,8 +1056,8 @@ Dentro `contatore.c` sono definiti sei nomi, e due non compaiono nell'intestazio
 
 1. Perche' `quante` e' `static` e `contatore_passo` no? Guardate l'intestazione e rispondete in termini di "che cosa offre il modulo a chi lo usa".
 2. `contatore.h` contiene `extern int contatore_passo;` e `contatore.c` contiene `int contatore_passo = 1;`. Quale delle due righe e' la dichiarazione e quale la definizione? Che cosa succederebbe se togliessimo `extern` dall'intestazione? (Lo vedrete tra poco, al punto 6.)
-3. Costruite `rotto_static.c`, che e' fatto apposta per non funzionare, con `gcc -g -Wall -Wextra -o rotto rotto_static.c contatore.c`. Escono due messaggi: prima `warning: implicit declaration of function 'valido'`, che e' il fenomeno di Z2.3, e poi `undefined reference to 'valido'`, che viene dal collegamento. Ma `valido` esiste, ed e' dentro `contatore.c` che avete appena compilato: perche' il collegatore non la trova? (Anche qui, con gcc 14 o piu' recente serve `-Wno-error=implicit-function-declaration`: altrimenti ci si ferma al primo messaggio e il collegamento non parte nemmeno.)
-4. Adesso, in `rotto_static.c`, sostituite la riga di `valido` con `printf("quante: %ld\n", quante);` e ricompilate. Questa volta l'errore e' `error: 'quante' undeclared`, e arriva **prima**, dalla compilazione. Perche' i due casi si comportano diversamente? (Pensate a che cosa il compilatore e' disposto a fare con un nome di funzione che non conosce, e che cosa invece non puo' fare con un nome di variabile. Ripensate al punto 3 di Z2.)
+3. Costruite `rotto_static.c`, che e' fatto apposta per non funzionare, con `gcc -g -Wall -Wextra -o rotto rotto_static.c contatore.c`. Escono due messaggi: prima `warning: implicit declaration of function 'valido'`, che e' il fenomeno di T2.3, e poi `undefined reference to 'valido'`, che viene dal collegamento. Ma `valido` esiste, ed e' dentro `contatore.c` che avete appena compilato: perche' il collegatore non la trova? (Anche qui, con gcc 14 o piu' recente serve `-Wno-error=implicit-function-declaration`: altrimenti ci si ferma al primo messaggio e il collegamento non parte nemmeno.)
+4. Adesso, in `rotto_static.c`, sostituite la riga di `valido` con `printf("quante: %ld\n", quante);` e ricompilate. Questa volta l'errore e' `error: 'quante' undeclared`, e arriva **prima**, dalla compilazione. Perche' i due casi si comportano diversamente? (Pensate a che cosa il compilatore e' disposto a fare con un nome di funzione che non conosce, e che cosa invece non puo' fare con un nome di variabile. Ripensate al punto 3 di T2.)
 5. Date `nm contatore.o` e confrontate le lettere:
 
 ```text
@@ -1076,7 +1076,7 @@ Le prime due righe non le avete scritte voi: le aggiunge la macro `assert`, e si
 6. Nella sottocartella `doppia` c'e' l'errore classico di chi comincia: in `comune.h` sta scritto `int totale;` invece di `extern int totale;`. Costruite con `gcc -g -Wall -Wextra -o prova prova.c a.c b.c`: compaiono due `multiple definition of 'totale'`. Quante copie di `totale` sono state create, e da chi? Correggete, aggiungendo `extern` nell'intestazione e la definizione in **uno solo** dei file `.c`, e verificate che il programma stampi `totale: 11`.
 7. **In piu'.** Nel modulo `contatore` manca un controllo: niente impedisce a chi lo usa di scrivere `contatore_passo = -5;`, e l'`assert` dentro `contatore_aumenta` fa morire il programma. Provate. Come si potrebbe togliere a chi usa il modulo la possibilita' di sbagliare? Basta rispondere a parole, senza scrivere il codice: e' la stessa idea delle funzioni costruttrici di P13, e la strada e' rendere `static` anche `contatore_passo` e offrire al suo posto due funzioni nell'intestazione.
 
-**Z4.** Nella cartella `Z4_make` c'e' un programma su tre sorgenti, `main.c`, `etichette.c` e `somma.c`, con due intestazioni. Ci sono anche due Makefile: quello buono, `Makefile`, e uno fatto apposta per sbagliare, `Makefile_incompleto`, che si usa scrivendo `make -f Makefile_incompleto`. L'unica differenza tra i due e' la riga delle dipendenze dei `.o`.
+**T4.** Nella cartella `T4_make` c'e' un programma su tre sorgenti, `main.c`, `etichette.c` e `somma.c`, con due intestazioni. Ci sono anche due Makefile: quello buono, `Makefile`, e uno fatto apposta per sbagliare, `Makefile_incompleto`, che si usa scrivendo `make -f Makefile_incompleto`. L'unica differenza tra i due e' la riga delle dipendenze dei `.o`.
 
 ```text
 $ make
@@ -1123,14 +1123,14 @@ L'intestazione della tabella dice $10$, le righe vanno di $25$ in $25$ e la somm
 6. Correggete `Makefile_incompleto` aggiungendo la dipendenza mancante, poi rifate la prova del punto 4: ora funziona. Confrontate la vostra correzione con il `Makefile` buono.
 7. **In piu'.** La regola `%.o: %.c $(INTESTAZIONI)` dice che **ogni** `.o` dipende da **tutte** le intestazioni, anche da quelle che non include: e' il motivo per cui al punto 3 e' stato ricompilato anche `somma.o`. E' una semplificazione grossolana ma prudente: ricompila qualcosa in piu', e non dimentica mai niente. Che cosa succederebbe, invece, con una regola che si dimentica qualcosa? Nei progetti veri le dipendenze non si scrivono a mano: gcc sa calcolarle da solo, perche' lui i sorgenti li legge. Provate `gcc -MMD -c main.c` e aprite il file `main.d` che compare: contiene una riga sola, `main.o: main.c etichette.h somma.h`, cioe' esattamente la dipendenza che a make serviva. Poi date `make clean`, perche' quel comando ha ricompilato `main.o` senza i vostri flag abituali.
 
-**Z5.** **Sfida.** La cartella `Z5_rapporto` contiene tre moduli gia' pronti, un'intestazione senza il suo `.c`, il Makefile e i test. Il programma, `rapporto`, legge da un file dei valori interi tra $0$ e $99$ e ne stampa un resoconto con l'istogramma.
+**T5.** **Sfida.** La cartella `T5_rapporto` contiene tre moduli gia' pronti, un'intestazione senza il suo `.c`, il Makefile e i test. Il programma, `rapporto`, legge da un file dei valori interi tra $0$ e $99$ e ne stampa un resoconto con l'istogramma.
 
 I moduli forniti sono:
 
 | Modulo | Che cosa offre |
 | --- | --- |
 | `lettura.h` / `lettura.c` | `lettura_da_file`, che apre un file, ne legge gli interi in un array e restituisce quanti ne ha letti, oppure $-1$ in caso di errore (e il messaggio su `stderr` lo scrive lui) |
-| `ordina.h` / `ordina.c` | `ordina_crescente`, che ordina un array di interi usando `qsort` (Y) |
+| `ordina.h` / `ordina.c` | `ordina_crescente`, che ordina un array di interi usando `qsort` (S) |
 | `statistiche.h` / `statistiche.c` | il tipo `Statistiche` e `statistiche_calcola`, che restituisce media, mediana, minimo e massimo di un array **gia' ordinato** |
 
 Manca `istogramma.c`: l'intestazione `istogramma.h` c'e' ed e' documentata, e dovete scrivere voi le due funzioni che dichiara. Poi scrivete il `main.c` che mette insieme i quattro moduli.
@@ -1177,13 +1177,13 @@ Requisiti:
 Come si potrebbe fare in modo che quel conto non possa sbagliare? Pensate a quale delle due intestazioni dovrebbe dipendere dall'altra, e a che cosa potrebbe controllare un `assert` dentro `istogramma_conta`.
 
 
-## Pacchetto AA: Puntatori e memoria dinamica
+## Pacchetto U: Puntatori e memoria dinamica
 
-I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. `char *argv[]` in X, `FILE *f` in tutti i programmi che aprono un file, `const void *` nelle funzioni di confronto di Y: in ciascuno di quei casi c'era una stella, e l'avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: **chiedere memoria mentre il programma gira**.
+I puntatori li state usando da due pacchetti senza che nessuno ve li abbia presentati. `char *argv[]` in R, `FILE *f` in tutti i programmi che aprono un file, `const void *` nelle funzioni di confronto di S: in ciascuno di quei casi c'era una stella, e l'avete scritta fidandovi. Questo pacchetto spiega che cosa significa, e poi mostra la cosa che i puntatori rendono possibile e che finora avete sempre aggirato: **chiedere memoria mentre il programma gira**.
 
-Il motivo per cui conviene farlo lo conoscete gia' bene. In Z1 il modulo `vettore` aveva una costante `VETTORE_MAX` uguale a $1000$, e il programma rifiutava i file piu' lunghi; in X e in Y ogni programma ha un `#define` che fissa un limite deciso da chi scrive, non da chi usa. In AA3 quel limite sparisce.
+Il motivo per cui conviene farlo lo conoscete gia' bene. In T1 il modulo `vettore` aveva una costante `VETTORE_MAX` uguale a $1000$, e il programma rifiutava i file piu' lunghi; in R e in S ogni programma ha un `#define` che fissa un limite deciso da chi scrive, non da chi usa. In U3 quel limite sparisce.
 
-Il materiale di questo pacchetto sta nelle cartelle da `AA1_scambia` a `AA5_lista`. Il Makefile e' lo stesso del Pacchetto Z, e `make test` funziona allo stesso modo. Compilate sempre con `gcc -g -Wall -Wextra`; da AA3 in poi serve anche `valgrind`, che e' nuovo, mentre `-fsanitize=address` lo avete gia' usato in Z5.
+Il materiale di questo pacchetto sta nelle cartelle da `U1_scambia` a `U5_lista`. Il Makefile e' lo stesso del Pacchetto T, e `make test` funziona allo stesso modo. Compilate sempre con `gcc -g -Wall -Wextra`; da U3 in poi serve anche `valgrind`, che e' nuovo, mentre `-fsanitize=address` lo avete gia' usato in T5.
 
 ### Un indirizzo e' un numero
 
@@ -1209,7 +1209,7 @@ Un puntatore che non punta a niente vale `NULL`, che e' definito in `stdio.h` e 
 printf("x sta in %p\n", (void *)&x);
 ```
 
-Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e' verificabile con `make test`. Quello che **non** cambia sono le loro differenze: e' su quelle che lavora AA2.
+Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non e' verificabile con `make test`. Quello che **non** cambia sono le loro differenze: e' su quelle che lavora U2.
 
 ### I puntatori che avete gia' usato
 
@@ -1221,7 +1221,7 @@ Gli indirizzi cambiano a ogni esecuzione, quindi un programma che li stampa non 
 | `int confronta(const void *a, const void *b)` | due indirizzi di tipo ignoto | `qsort` non sa che cosa sta ordinando: vi passa gli indirizzi |
 | `strcpy(d, s)` | due indirizzi di `char` | i nomi degli array sono indirizzi, come si vede qui sotto |
 
-La prima riga e' quella che spiega I12. Un sottoprogramma riceve **copie** dei parametri, quindi non puo' cambiare le variabili del chiamante; `scanf` ci riesce perche' non riceve `n` ma il suo indirizzo. Quando in I avete scritto uno `scambia` che non scambiava, vi mancava esattamente questo. In AA1 lo rimettete a posto.
+La prima riga e' quella che spiega I12. Un sottoprogramma riceve **copie** dei parametri, quindi non puo' cambiare le variabili del chiamante; `scanf` ci riesce perche' non riceve `n` ma il suo indirizzo. Quando in I avete scritto uno `scambia` che non scambiava, vi mancava esattamente questo. In U1 lo rimettete a posto.
 
 ### Puntatori e array
 
@@ -1286,7 +1286,7 @@ if (nuovo == NULL) {
 v = nuovo;
 ```
 
-**Chi chiede, libera.** La memoria ottenuta con `malloc` resta occupata finche' qualcuno non chiama `free`: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita' passa al chiamante: e' quello che fa l'`@post` di `lettura_interi` in AA3.
+**Chi chiede, libera.** La memoria ottenuta con `malloc` resta occupata finche' qualcuno non chiama `free`: non sparisce alla fine della funzione, come fanno invece le variabili locali. Quando una funzione restituisce un blocco appena ottenuto, deve dire nella documentazione che la responsabilita' passa al chiamante: e' quello che fa l'`@post` di `lettura_interi` in U3.
 
 ### I quattro errori, e i due strumenti per vederli
 
@@ -1304,11 +1304,11 @@ gcc -g -Wall -Wextra -fsanitize=address -o prova prova.c    # poi ./prova
 valgrind --leak-check=full ./prova
 ```
 
-Il primo lo conoscete gia' dal Pacchetto Z, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con `malloc`, e in piu' alla fine del programma `-fsanitize=address` elenca i blocchi mai liberati. Il secondo, `valgrind`, e' nuovo: non richiede di ricompilare, trova le stesse cose piu' lentamente, e il suo riepilogo finale distingue la memoria **definitely lost** da quella **still reachable**. Usateli entrambi almeno una volta in AA4, e poi tenete l'abitudine di passare sotto `valgrind` ogni programma che chiama `malloc`.
+Il primo lo conoscete gia' dal Pacchetto T, dove serviva a scoprire gli accessi fuori da un array: gli stessi controlli valgono per la memoria chiesta con `malloc`, e in piu' alla fine del programma `-fsanitize=address` elenca i blocchi mai liberati. Il secondo, `valgrind`, e' nuovo: non richiede di ricompilare, trova le stesse cose piu' lentamente, e il suo riepilogo finale distingue la memoria **definitely lost** da quella **still reachable**. Usateli entrambi almeno una volta in U4, e poi tenete l'abitudine di passare sotto `valgrind` ogni programma che chiama `malloc`.
 
-### Esercizi (AA1-AA5)
+### Esercizi (U1-U5)
 
-**AA1.** Nella cartella `AA1_scambia` trovate il modulo `scambio.h` e `scambio.c`, il Makefile e i test; manca `main.c`, che scrivete voi. Il modulo offre quattro sottoprogrammi: `scambio_per_valore`, lasciato apposta com'era in I12 e quindi inutile; `scambio_scambia`, che funziona; `scambio_dividi`, che restituisce quoziente e resto insieme; e `scambio_ordina_tre`.
+**U1.** Nella cartella `U1_scambia` trovate il modulo `scambio.h` e `scambio.c`, il Makefile e i test; manca `main.c`, che scrivete voi. Il modulo offre quattro sottoprogrammi: `scambio_per_valore`, lasciato apposta com'era in I12 e quindi inutile; `scambio_scambia`, che funziona; `scambio_dividi`, che restituisce quoziente e resto insieme; e `scambio_ordina_tre`.
 
 Il programma `scambia` riceve tre interi sulla riga di comando e stampa esattamente questo:
 
@@ -1331,7 +1331,7 @@ Con un numero di argomenti diverso da tre, stampa su `stderr` la riga `Uso: ./sc
 6. `scambio_ordina_tre` chiama `scambio_scambia` tre volte. Dimostrate che tre scambi bastano sempre, elencando i sei ordini possibili di tre numeri diversi e seguendo l'algoritmo su ciascuno.
 7. **In piu'.** Aggiungete al modulo `void scambio_ruota(int *a, int *b, int *c)`, che sposta il valore di `*a` in `*b`, quello di `*b` in `*c` e quello di `*c` in `*a`. Quante variabili di appoggio servono? Verificate che applicandola tre volte si torni al punto di partenza.
 
-**AA2.** Nella cartella `AA2_indirizzi` trovate il modulo `indirizzi.h` e `indirizzi.c`; manca `main.c`. Il modulo somma un array in tre modi diversi (con `v[i]`, con `*(v + i)` e scorrendo con un puntatore da un indirizzo all'altro), stampa le distanze fra gli elementi, e misura `sizeof` del parametro.
+**U2.** Nella cartella `U2_indirizzi` trovate il modulo `indirizzi.h` e `indirizzi.c`; manca `main.c`. Il modulo somma un array in tre modi diversi (con `v[i]`, con `*(v + i)` e scorrendo con un puntatore da un indirizzo all'altro), stampa le distanze fra gli elementi, e misura `sizeof` del parametro.
 
 Il programma `indirizzi` riceve da uno a sedici interi sulla riga di comando, li mette in un array `int v[16]` dichiarato dentro `main`, e stampa:
 
@@ -1362,9 +1362,9 @@ La "meta' destra" e' `indirizzi_somma_scorrendo(v + n / 2, v + n)`. Con zero arg
 4. Nella tabella finale, la terza colonna e' sempre quattro volte la seconda. Perche' `&v[i] - &v[0]` vale `i` e non `4 * i`? Che cosa dovrebbe fare il compilatore per ottenere quel numero, sapendo che gli indirizzi sono byte?
 5. Cambiate l'array in `double v[16]` (e tutto il resto di conseguenza). Quali numeri della tabella cambiano, e quali no? Prevedeteli prima di eseguire.
 6. `indirizzi_somma_scorrendo(v, v + n)` riceve un indirizzo **oltre** l'ultimo elemento. Lo standard C garantisce che calcolare quell'indirizzo sia lecito, ma non che si possa seguire. Guardate il ciclo: dove viene usato `fine`, e dove **non** viene usato?
-7. **In piu'.** Scrivete `int indirizzi_cerca(const int *inizio, const int *fine, int valore)` che restituisce la distanza dal primo elemento, oppure $-1$. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o `NULL`: e' cosi' che funziona `bsearch` di Y.
+7. **In piu'.** Scrivete `int indirizzi_cerca(const int *inizio, const int *fine, int valore)` che restituisce la distanza dal primo elemento, oppure $-1$. Poi provate a scriverne una versione che restituisce direttamente un puntatore al valore trovato, o `NULL`: e' cosi' che funziona `bsearch` di S.
 
-**AA3.** Nella cartella `AA3_dinamico` trovate `lettura.h`, il `main.c` gia' scritto, il Makefile e i test. Manca `lettura.c`: lo scrivete voi, ed e' il primo modulo che chiede memoria.
+**U3.** Nella cartella `U3_dinamico` trovate `lettura.h`, il `main.c` gia' scritto, il Makefile e i test. Manca `lettura.c`: lo scrivete voi, ed e' il primo modulo che chiede memoria.
 
 Il modulo deve leggere da un file **tutti** gli interi che contiene, senza nessun limite fissato nel sorgente: niente `VETTORE_MAX`. La strategia e' obbligatoria, perche' i test controllano anche quante volte l'array e' stato ingrandito: si parte da una capacita' di $4$ elementi e la si **raddoppia** ogni volta che si riempie.
 
@@ -1391,12 +1391,12 @@ Primi cinque: -337 941 -692 -192 333
 1. Verificate i due numeri della riga `Ingrandimenti`. Partendo da $4$ e raddoppiando, quali capacita' si attraversano per arrivare a contenere $10$ elementi? E $20000$? Scrivete la formula generale in funzione di `n`.
 2. Il totale degli elementi copiati dai vari `realloc` e' $4 + 8 + 16 + \dots$ fino all'ultima capacita'. Sommate la serie geometrica e dite quanto costa, in funzione di `n`, tutta la crescita. Qual e' la classe? (E' il motivo per cui si raddoppia invece di aggiungere una casella per volta.)
 3. Provate a crescere **di uno** invece che raddoppiando, su `grande.txt`. Quanti `realloc` vengono fatti, e quanti elementi vengono copiati in tutto? Misurate il tempo delle due versioni con `time`.
-4. Il modulo di Z1 rifiutava i file con piu' di $1000$ numeri; questo legge `grande.txt` che ne ha $20000$. Rileggete in `vettore.h` di Z1 il commento della costante `VETTORE_MAX` e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.
+4. Il modulo di T1 rifiutava i file con piu' di $1000$ numeri; questo legge `grande.txt` che ne ha $20000$. Rileggete in `vettore.h` di T1 il commento della costante `VETTORE_MAX` e dite quale riga della documentazione sparisce qui, e quale compare al suo posto.
 5. **Con valgrind.** Eseguite `valgrind --leak-check=full ./somma test/numeri.txt`. Deve dire `All heap blocks were freed`. Poi togliete la chiamata a `lettura_libera` nel `main` e rieseguite: quanti byte risultano persi, e corrispondono a quelli che avevate chiesto?
 6. Il `main` controlla `if (v == NULL)`. Togliete il controllo e provate con `test/vuoto.txt`: che cosa succede, e a quale riga? Confrontate con il caso in cui il controllo c'e'.
 7. **In piu'.** Il blocco finale ha una capacita' che e' una potenza di due, quindi quasi sempre piu' grande del necessario: con $20000$ elementi ne occupa $32768$. Aggiungete alla fine di `lettura_interi` un `realloc` che la riduce esattamente a `n`, e dite quanti byte si risparmiano nel caso peggiore. Perche' quel `realloc` non puo' fallire in modo pericoloso?
 
-**AA4.** Nella cartella `AA4_memoria` ci sono quattro programmi indipendenti, `uno.c`, `due.c`, `tre.c` e `quattro.c`. Tutti e quattro **calcolano la cosa giusta** e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu' sopra, uno per programma. Il Makefile offre `make`, `make asan` e `make valgrind`.
+**U4.** Nella cartella `U4_memoria` ci sono quattro programmi indipendenti, `uno.c`, `due.c`, `tre.c` e `quattro.c`. Tutti e quattro **calcolano la cosa giusta** e tre su quattro terminano senza lamentarsi; ciascuno contiene uno dei quattro errori della tabella piu' sopra, uno per programma. Il Makefile offre `make`, `make asan` e `make valgrind`.
 
 Per ciascuno: eseguitelo, osservate che l'output e' corretto, trovate l'errore con gli strumenti, correggetelo, e verificate che `valgrind` non dica piu' niente.
 
@@ -1425,7 +1425,7 @@ Somma dei primi 10 dispari: 100
 6. In `tre.c` la prima stampa della diagonale e' un numero diverso a ogni esecuzione, ma gli altri quattro sono giusti. Spiegate perche' il blocco liberato contiene ancora i valori di prima, tranne che all'inizio. (Suggerimento: chi gestisce la memoria libera usa i primi byte del blocco per i propri appunti.)
 7. In `quattro.c` la scrittura e' una sola casella oltre il limite, e il programma termina regolarmente. Provate con `n` molto piu' grande e ripetete qualche volta: termina sempre? **In piu'.** Questo e' l'errore piu' pericoloso dei quattro: spiegate perche', confrontandolo con una perdita di memoria.
 
-**AA5.** **Sfida.** Nella cartella `AA5_lista` ci sono `lista.h`, il `main.c` gia' scritto, il Makefile e i test; manca `lista.c`, che scrivete voi. E' la prima struttura dati che non e' un array: una **lista concatenata**, cioe' una catena di nodi in cui ciascuno contiene un valore e l'indirizzo del successivo.
+**U5.** **Sfida.** Nella cartella `U5_lista` ci sono `lista.h`, il `main.c` gia' scritto, il Makefile e i test; manca `lista.c`, che scrivete voi. E' la prima struttura dati che non e' un array: una **lista concatenata**, cioe' una catena di nodi in cui ciascuno contiene un valore e l'indirizzo del successivo.
 
 ```c
 typedef struct nodo {
@@ -1455,5 +1455,5 @@ Lunghezza:  6
 4. Scrivete `lista_rovescia` senza chiamare `malloc`: servono tre puntatori, `precedente`, `corrente` e `dopo`. Seguitela a mano sulla lista `7 3 1`, disegnando le frecce dopo ogni giro. Perche' serve `dopo`?
 5. `lista_togli` ha due casi: il valore e' in testa, oppure no. Perche' il primo va trattato a parte? Che cosa va liberato, e in quale ordine rispetto all'aggiornamento di `successivo`? (Invertite i due e guardate che cosa dice `-fsanitize=address`.)
 6. **Con valgrind.** `valgrind --leak-check=full ./lista 5 3 9 1 3 7` deve dire `All heap blocks were freed`. Se non lo dice, i byte persi sono un multiplo di `sizeof(Nodo)`: quanti nodi avete dimenticato, e dove?
-7. Confrontate la lista con l'array dinamico di AA3 su quattro operazioni: inserire in testa, inserire in coda, leggere l'elemento di posto `i`, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un `Nodo` rispetto a un `int`?
+7. Confrontate la lista con l'array dinamico di U3 su quattro operazioni: inserire in testa, inserire in coda, leggere l'elemento di posto `i`, e la memoria occupata per elemento. Costruite la tabella e dite, per ciascuna riga, chi vince. Quanto occupa un `Nodo` rispetto a un `int`?
 8. **In piu'.** Scrivete `Nodo *lista_fondi(Nodo *a, Nodo *b)` che, date due liste **ordinate**, ne costruisce una sola ordinata riusando i nodi che gia' esistono, senza nessun `malloc` e senza nessuna `free`. E' la fusione di G6, fatta con le frecce invece che con gli indici: qui, a differenza di G6, non serve un terzo contenitore. Perche'?
